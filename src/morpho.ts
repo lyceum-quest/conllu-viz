@@ -188,14 +188,22 @@ const VALUE_LABELS: Record<string, string> = {
 
 // ── Public API ────────────────────────────────────────────────────────────
 
+const UNLOCALIZED_FEATURE_COLOR = 'var(--text-secondary)';
+
 /**
  * Build a single MorphFeature from a key/value pair.
  * Color comes from segment.ts to stay in sync with word-segment colors.
+ * When strictSegmentMatch is true, unmatched features fall back to a neutral color.
  */
-export function buildMorphFeature(key: string, value: string, segmentType?: string): MorphFeature {
+export function buildMorphFeature(
+  key: string,
+  value: string,
+  segmentType?: string,
+  strictSegmentMatch = false,
+): MorphFeature {
   const catColor = segmentType
     ? (SEGMENT_COLORS[segmentType] || segmentCategoryColor(key))
-    : segmentCategoryColor(key);
+    : (strictSegmentMatch ? UNLOCALIZED_FEATURE_COLOR : segmentCategoryColor(key));
   const catLabel = CATEGORY_LABELS[key] || key;
   let valLabel = VALUE_LABELS[`${key}_${value}`] || VALUE_LABELS[value] || value.toLowerCase();
   return {
@@ -232,8 +240,8 @@ export function parseMorphFeatures(
     return (ia < 0 ? 999 : ia) - (ib < 0 ? 999 : ib);
   });
   for (const key of sortedKeys) {
-    const segType = segments ? featureSegmentType(key, feats[key], segments) : undefined;
-    result.push(buildMorphFeature(key, feats[key], segType));
+    const segType = segments ? featureSegmentType(key, feats[key], segments, false) : undefined;
+    result.push(buildMorphFeature(key, feats[key], segType, !!segments));
   }
   return result;
 }
@@ -255,13 +263,14 @@ const SEGMENT_TYPE_LABELS: Record<string, string> = {
   voice: 'Voice marker',
   participle: 'Participial marker',
   nominalEnd: 'Nominal ending',
-  personalEnd: 'Personal ending',
+  personalEnd: 'Inflectional ending',
+  unlocalized: 'Whole-form / inferred',
 };
 
 // Order to display groups: outer → inner matches segment order from word display
 const GROUP_ORDER: string[] = [
   'augment', 'thematic', 'tense', 'voice', 'participle',
-  'nominalEnd', 'personalEnd', 'stem',
+  'nominalEnd', 'personalEnd', 'unlocalized', 'stem',
 ];
 
 /**
@@ -293,17 +302,21 @@ export function buildSegmentGroups(
   // Assign each feature category to the best matching segment on this token.
   const uncategorized: MorphFeature[] = [];
   for (const key of Object.keys(feats)) {
-    const segType = featureSegmentType(key, feats[key], segments);
+    const segType = featureSegmentType(key, feats[key], segments, false);
     if (segType && groups.has(segType)) {
-      groups.get(segType)!.features.push(buildMorphFeature(key, feats[key]!, segType));
+      groups.get(segType)!.features.push(buildMorphFeature(key, feats[key]!, segType, true));
     } else {
-      uncategorized.push(buildMorphFeature(key, feats[key]!, segType));
+      uncategorized.push(buildMorphFeature(key, feats[key]!, undefined, true));
     }
   }
 
-  // Attach uncategorized features to the stem group as fallback
-  if (uncategorized.length > 0 && groups.has('stem')) {
-    groups.get('stem')!.features.push(...uncategorized);
+  if (uncategorized.length > 0) {
+    groups.set('unlocalized', {
+      segmentText: 'whole form',
+      segmentType: 'unlocalized',
+      segmentColor: UNLOCALIZED_FEATURE_COLOR,
+      features: uncategorized,
+    });
   }
 
   // Sort features within each group by priority

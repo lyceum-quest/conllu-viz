@@ -86,12 +86,14 @@ export function segmentCategoryColor(category: string): string {
 /**
  * Pick the best segment type for a feature on this specific token.
  * Prefer segments that explicitly encode the feature, then fall back to
- * token-aware priorities, then the static category map.
+ * token-aware priorities. Optionally fall back to the static category map
+ * when you want a best-effort color even without a matched segment.
  */
 export function featureSegmentType(
   category: string,
   value: string | undefined,
   segments: Pick<WordSegment, 'type' | 'encodes'>[],
+  allowCategoryFallback = true,
 ): string | undefined {
   const direct = segments.find(seg => seg.encodes.includes(category));
   if (direct) return direct.type;
@@ -107,7 +109,7 @@ export function featureSegmentType(
     if (match) return match;
   }
 
-  return SEGMENT_CATEGORY_MAP[category];
+  return allowCategoryFallback ? SEGMENT_CATEGORY_MAP[category] : undefined;
 }
 
 // ── Greek text utilities ─────────────────────────────────────────────────

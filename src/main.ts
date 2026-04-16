@@ -485,7 +485,7 @@ function showMorphPanel(token: Token) {
     voice: 'Voice marker',
     participle: 'Participial marker',
     nominalEnd: 'Case / Gender / Number',
-    personalEnd: 'Person / Number',
+    personalEnd: 'Inflectional ending',
   };
 
   const segmentsHTML = segments.map(seg => {
