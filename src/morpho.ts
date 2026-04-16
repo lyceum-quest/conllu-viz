@@ -4,7 +4,7 @@
  * Colors are derived from segment.ts so sidebar colors match word-segment colors.
  */
 
-import { segmentCategoryColor, SEGMENT_COLORS, SEGMENT_CATEGORY_MAP, WordSegment } from './segment';
+import { featureSegmentType, segmentCategoryColor, SEGMENT_COLORS, WordSegment } from './segment';
 
 export interface MorphFeature {
   key: string;
@@ -192,8 +192,10 @@ const VALUE_LABELS: Record<string, string> = {
  * Build a single MorphFeature from a key/value pair.
  * Color comes from segment.ts to stay in sync with word-segment colors.
  */
-export function buildMorphFeature(key: string, value: string): MorphFeature {
-  const catColor = segmentCategoryColor(key);
+export function buildMorphFeature(key: string, value: string, segmentType?: string): MorphFeature {
+  const catColor = segmentType
+    ? (SEGMENT_COLORS[segmentType] || segmentCategoryColor(key))
+    : segmentCategoryColor(key);
   const catLabel = CATEGORY_LABELS[key] || key;
   let valLabel = VALUE_LABELS[`${key}_${value}`] || VALUE_LABELS[value] || value.toLowerCase();
   return {
@@ -210,7 +212,10 @@ export function buildMorphFeature(key: string, value: string): MorphFeature {
  * Parse a token's feats into color-coded MorphFeature objects.
  * Flat list — used where grouping isn't needed.
  */
-export function parseMorphFeatures(feats: Record<string, string> | undefined): MorphFeature[] {
+export function parseMorphFeatures(
+  feats: Record<string, string> | undefined,
+  segments?: WordSegment[],
+): MorphFeature[] {
   if (!feats || Object.keys(feats).length === 0) return [];
   const result: MorphFeature[] = [];
   const priority = [
@@ -227,7 +232,8 @@ export function parseMorphFeatures(feats: Record<string, string> | undefined): M
     return (ia < 0 ? 999 : ia) - (ib < 0 ? 999 : ib);
   });
   for (const key of sortedKeys) {
-    result.push(buildMorphFeature(key, feats[key]));
+    const segType = segments ? featureSegmentType(key, feats[key], segments) : undefined;
+    result.push(buildMorphFeature(key, feats[key], segType));
   }
   return result;
 }
@@ -284,14 +290,14 @@ export function buildSegmentGroups(
     }
   }
 
-  // Assign each feature category to its encoding segment type
+  // Assign each feature category to the best matching segment on this token.
   const uncategorized: MorphFeature[] = [];
   for (const key of Object.keys(feats)) {
-    const segType = SEGMENT_CATEGORY_MAP[key];
+    const segType = featureSegmentType(key, feats[key], segments);
     if (segType && groups.has(segType)) {
-      groups.get(segType)!.features.push(buildMorphFeature(key, feats[key]!));
+      groups.get(segType)!.features.push(buildMorphFeature(key, feats[key]!, segType));
     } else {
-      uncategorized.push(buildMorphFeature(key, feats[key]!));
+      uncategorized.push(buildMorphFeature(key, feats[key]!, segType));
     }
   }
 

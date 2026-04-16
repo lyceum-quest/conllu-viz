@@ -408,7 +408,7 @@ function createCardEl(token: Token, sentence: Sentence) {
   const posLabel = POS_LABELS[token.upos] || token.upos;
   const glossStr = token.gloss ? ` — ${escapeHTML(token.gloss)}` : '';
 
-  const feats = parseMorphFeatures(token.feats);
+  const feats = parseMorphFeatures(token.feats, segs);
   const morphHTMLstr = feats.length > 0
     ? `<div class="study-morph-section">
          <div class="study-sentence-label">Morphology</div>

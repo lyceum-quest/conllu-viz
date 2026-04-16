@@ -41,8 +41,8 @@ export const SEGMENT_COLORS: Record<string, string> = {
 // keeping sidebar colors in sync with word-segment colors.
 export const SEGMENT_CATEGORY_MAP: Record<string, string> = {
   VerbForm:   'participle',
-  Tense:      'augment',
-  Aspect:     'participle',
+  Tense:      'tense',
+  Aspect:     'tense',
   Voice:      'voice',
   Mood:       'personalEnd',
   Number:     'nominalEnd',
@@ -64,10 +64,50 @@ export const SEGMENT_CATEGORY_MAP: Record<string, string> = {
   Foreign:    'stem',
 };
 
+const FEATURE_SEGMENT_PRIORITIES: Record<string, string[]> = {
+  VerbForm: ['participle', 'personalEnd'],
+  Tense: ['tense', 'augment'],
+  Aspect: ['tense', 'participle', 'augment'],
+  Voice: ['voice', 'participle', 'personalEnd'],
+  Mood: ['participle', 'personalEnd'],
+  Number: ['nominalEnd', 'personalEnd'],
+  Person: ['personalEnd'],
+  Gender: ['nominalEnd'],
+  Case: ['nominalEnd'],
+  Clitic: ['personalEnd'],
+};
+
 /** Derive a category's color from the segment that encodes it. */
 export function segmentCategoryColor(category: string): string {
   const segType = SEGMENT_CATEGORY_MAP[category];
   return segType ? (SEGMENT_COLORS[segType] || '#c0caf5') : '#c0caf5';
+}
+
+/**
+ * Pick the best segment type for a feature on this specific token.
+ * Prefer segments that explicitly encode the feature, then fall back to
+ * token-aware priorities, then the static category map.
+ */
+export function featureSegmentType(
+  category: string,
+  value: string | undefined,
+  segments: Pick<WordSegment, 'type' | 'encodes'>[],
+): string | undefined {
+  const direct = segments.find(seg => seg.encodes.includes(category));
+  if (direct) return direct.type;
+
+  if ((category === 'Mood' || category === 'VerbForm') && (value === 'Part' || value === 'VPart')) {
+    const participle = segments.find(seg => seg.type === 'participle');
+    if (participle) return participle.type;
+  }
+
+  const priority = FEATURE_SEGMENT_PRIORITIES[category];
+  if (priority) {
+    const match = priority.find(type => segments.some(seg => seg.type === type));
+    if (match) return match;
+  }
+
+  return SEGMENT_CATEGORY_MAP[category];
 }
 
 // ── Greek text utilities ─────────────────────────────────────────────────
@@ -147,22 +187,31 @@ const NOMINAL_ENDINGS: SuffixPat[] = [
   { suffix: 'ε', type: 'nominalEnd', encodes: ['Case', 'Gender', 'Number'] },
 ];
 
-const VERB_MARKERS: SuffixPat[] = [
+const PARTICIPLE_MARKERS: SuffixPat[] = [
   // Middle/passive participle stem
-  { suffix: 'μενων', type: 'participle', encodes: ['VerbForm', 'Voice'] },
-  { suffix: 'μένων', type: 'participle', encodes: ['VerbForm', 'Voice'] },
-  { suffix: 'μεν', type: 'participle', encodes: ['VerbForm', 'Voice', 'Aspect'] },
-  // Active participle
-  { suffix: 'ντων', type: 'participle', encodes: ['VerbForm'] },
-  { suffix: 'ντας', type: 'participle', encodes: ['VerbForm'] },
-  { suffix: 'ντες', type: 'participle', encodes: ['VerbForm'] },
-  { suffix: 'ντος', type: 'participle', encodes: ['VerbForm'] },
-  { suffix: 'ντη', type: 'participle', encodes: ['VerbForm'] },
-  { suffix: 'ντ', type: 'participle', encodes: ['VerbForm'] },
-  // Passive voice
+  { suffix: 'μενων', type: 'participle', encodes: ['VerbForm', 'Mood', 'Voice'] },
+  { suffix: 'μένων', type: 'participle', encodes: ['VerbForm', 'Mood', 'Voice'] },
+  { suffix: 'μεν', type: 'participle', encodes: ['VerbForm', 'Mood', 'Voice', 'Aspect'] },
+  // Active participle stem
+  { suffix: 'ουσ', type: 'participle', encodes: ['VerbForm', 'Mood', 'Voice'] },
+  { suffix: 'αντ', type: 'participle', encodes: ['VerbForm', 'Mood', 'Voice'] },
+  { suffix: 'ασ', type: 'participle', encodes: ['VerbForm', 'Mood', 'Voice'] },
+  { suffix: 'ντων', type: 'participle', encodes: ['VerbForm', 'Mood', 'Voice'] },
+  { suffix: 'ντας', type: 'participle', encodes: ['VerbForm', 'Mood', 'Voice'] },
+  { suffix: 'ντες', type: 'participle', encodes: ['VerbForm', 'Mood', 'Voice'] },
+  { suffix: 'ντος', type: 'participle', encodes: ['VerbForm', 'Mood', 'Voice'] },
+  { suffix: 'ντη', type: 'participle', encodes: ['VerbForm', 'Mood', 'Voice'] },
+  { suffix: 'ντ', type: 'participle', encodes: ['VerbForm', 'Mood', 'Voice'] },
+  { suffix: 'α', type: 'participle', encodes: ['VerbForm', 'Mood', 'Voice'] },
+];
+
+const VOICE_MARKERS: SuffixPat[] = [
   { suffix: 'θην', type: 'voice', encodes: ['Voice'] },
   { suffix: 'θε', type: 'voice', encodes: ['Voice'] },
   { suffix: 'θ', type: 'voice', encodes: ['Voice'] },
+];
+
+const TENSE_MARKERS: SuffixPat[] = [
   // Sigmatic (future/aorist)
   { suffix: 'σ', type: 'tense', encodes: ['Tense'] },
   // Perfect
@@ -342,12 +391,18 @@ export function segmentGreekWord(
 
   if (isPart) {
     // Outermost → innermost
-    const m3 = matchSuffix(stripped.slice(lo, hi), NOMINAL_ENDINGS, 1);
+    const m4 = matchSuffix(stripped.slice(lo, hi), NOMINAL_ENDINGS, 1);
+    if (m4) {
+      hi -= m4.len;
+      raw.push({ s: hi, e: hi + m4.len, type: m4.type, encodes: m4.encodes });
+    }
+    const m3 = matchSuffix(stripped.slice(lo, hi), PARTICIPLE_MARKERS, 1);
     if (m3) {
       hi -= m3.len;
       raw.push({ s: hi, e: hi + m3.len, type: m3.type, encodes: m3.encodes });
     }
-    const m2 = matchSuffix(stripped.slice(lo, hi), VERB_MARKERS, 1);
+    const m2 = matchSuffix(stripped.slice(lo, hi), VOICE_MARKERS, 1)
+      || matchSuffix(stripped.slice(lo, hi), TENSE_MARKERS, 1);
     if (m2) {
       hi -= m2.len;
       raw.push({ s: hi, e: hi + m2.len, type: m2.type, encodes: m2.encodes });
@@ -382,8 +437,9 @@ export function segmentGreekWord(
       hi -= endM.len;
       raw.push({ s: hi, e: hi + endM.len, type: 'personalEnd', encodes: endM.encodes });
     }
-    // Verb marker
-    const m2 = matchSuffix(stripped.slice(lo, hi), VERB_MARKERS, 1);
+    // Voice / tense marker
+    const m2 = matchSuffix(stripped.slice(lo, hi), VOICE_MARKERS, 1)
+      || matchSuffix(stripped.slice(lo, hi), TENSE_MARKERS, 1);
     if (m2) {
       hi -= m2.len;
       raw.push({ s: hi, e: hi + m2.len, type: m2.type, encodes: m2.encodes });
