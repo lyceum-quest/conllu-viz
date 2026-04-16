@@ -393,8 +393,15 @@ html, body {
   filter: brightness(1.3);
 }
 
+.morph-char-row-whole {
+  margin-top: 4px;
+}
+
 .morph-char-all {
-  border-bottom-color: #7aa2f7;
+  font-size: 18px;
+  opacity: 0.9;
+  letter-spacing: 0.04em;
+  border-bottom-style: dashed;
 }
 
 /* ── Feature-bars (replaces character-level coloring for fusional languages) ── */

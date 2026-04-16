@@ -476,7 +476,8 @@ function showMorphPanel(token: Token) {
   morphOverlay.classList.remove('hidden');
 
   const segments = segmentGreekWord(token.form, token.feats, token.upos);
-  const usedColors = new Set<string>();
+  const groups = buildSegmentGroups(segments, token.feats);
+  const unlocalizedGroup = groups.find(g => g.segmentType === 'unlocalized');
   const segmentTypeLabels: Record<string, string> = {
     stem: 'Stem (lemma root)',
     augment: 'Augment (past tense prefix)',
@@ -486,10 +487,10 @@ function showMorphPanel(token: Token) {
     participle: 'Participial marker',
     nominalEnd: 'Case / Gender / Number',
     personalEnd: 'Inflectional ending',
+    unlocalized: 'Whole-form / inferred',
   };
 
   const segmentsHTML = segments.map(seg => {
-    usedColors.add(seg.color);
     const typeLabel = segmentTypeLabels[seg.type] || seg.type;
     const title = seg.encodes.length > 0
       ? `${typeLabel} (${seg.encodes.join(', ')})`
@@ -497,23 +498,40 @@ function showMorphPanel(token: Token) {
     return `<span class="morph-char" style="color:${seg.color};border-bottom-color:${seg.color}" title="${escapeHTML(title)}">${escapeHTML(seg.text)}</span>`;
   }).join('');
 
-  const colorBySegment = new Map<string, string[]>();
+  const wholeFormHTML = unlocalizedGroup
+    ? `<div class="morph-char-row morph-char-row-whole">
+         <span class="morph-char morph-char-all" style="color:${unlocalizedGroup.segmentColor};border-bottom-color:${unlocalizedGroup.segmentColor}" title="${escapeHTML(`Whole-form / inferred (${unlocalizedGroup.features.map(f => `${f.key}=${f.value}`).join(', ')})`)}">${escapeHTML(token.form)}</span>
+       </div>`
+    : '';
+
+  const legendItems = new Map<string, { color: string; label: string; chars: string }>();
   for (const seg of segments) {
     const key = `${seg.color}|${seg.type}`;
-    if (!colorBySegment.has(key)) colorBySegment.set(key, []);
-    colorBySegment.get(key)!.push(seg.text);
+    if (!legendItems.has(key)) {
+      legendItems.set(key, {
+        color: seg.color,
+        label: segmentTypeLabels[seg.type] || seg.type,
+        chars: seg.text,
+      });
+    } else {
+      legendItems.get(key)!.chars += seg.text;
+    }
+  }
+  if (unlocalizedGroup) {
+    const key = `${unlocalizedGroup.segmentColor}|${unlocalizedGroup.segmentType}`;
+    legendItems.set(key, {
+      color: unlocalizedGroup.segmentColor,
+      label: segmentTypeLabels[unlocalizedGroup.segmentType] || unlocalizedGroup.segmentType,
+      chars: token.form,
+    });
   }
 
-  const legendHTML = [...colorBySegment.keys()].map(key => {
-    const [color, type] = key.split('|');
-    const label = segmentTypeLabels[type] || type;
-    const chars = colorBySegment.get(key)!.join('');
-    return `
+  const legendHTML = [...legendItems.values()].map(({ color, label, chars }) => `
     <div class="morph-char-legend-item">
       <span class="morph-char-legend-swatch" style="background:${color}"></span>
-      <span>${label} <span style="color:var(--text-muted);font-size:0.9em">(${chars})</span></span>
-    </div>`;
-  }).join('');
+      <span>${label} <span style="color:var(--text-muted);font-size:0.9em">(${escapeHTML(chars)})</span></span>
+    </div>`
+  ).join('');
 
   morphBody.innerHTML = `
     <div class="morph-word-display">
@@ -523,10 +541,11 @@ function showMorphPanel(token: Token) {
         <span style="font-size:12px;color:var(--text-muted);margin-left:8px;">${token.upos}</span>
       </div>
       <div class="morph-char-row">${segmentsHTML}</div>
+      ${wholeFormHTML}
       ${legendHTML ? `<div class="morph-char-legend">${legendHTML}</div>` : ''}
     </div>
     <div class="morph-content">
-      ${morphSegmentHTML(buildSegmentGroups(segments, token.feats))}
+      ${morphSegmentHTML(groups)}
     </div>
   `;
 
