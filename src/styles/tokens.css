@@ -1,0 +1,55 @@
+/* ==========================================================================
+   Design Tokens — dark mode, colorblind-friendly
+   ========================================================================== */
+
+:root {
+  --bg-primary: #1a1b26;
+  --bg-secondary: #1e1e2e;
+  --bg-tertiary: #2a2a3e;
+  --bg-surface: #242438;
+  --bg-hover: #33334d;
+
+  --text-primary: #c0caf5;
+  --text-secondary: #8892b0;
+  --text-muted: #565f89;
+
+  --border-subtle: #292e42;
+  --border-default: #3b4261;
+  --border-focus: #7aa2f7;
+
+  --accent: #7aa2f7;
+  --accent-warn: #e0af68;
+  --accent-danger: #f7768e;
+  --accent-success: #9ece6a;
+
+  /* POS colors — colorblind-safe palette */
+  --pos-NOUN: #e0af68;
+  --pos-VERB: #f7768e;
+  --pos-ADJ: #9ece6a;
+  --pos-ADV: #73daca;
+  --pos-DET: #7dcfff;
+  --pos-PRON: #7dcfff;
+  --pos-PROPN: #ff9e64;
+  --pos-ADP: #bb9af7;
+  --pos-CCONJ: #9d7cd8;
+  --pos-SCONJ: #7aa2f7;
+  --pos-PART: #c0caf5;
+  --pos-NUM: #e06c75;
+  --pos-PUNCT: #565f89;
+  --pos-AUX: #f7768e;
+  --pos-INTJ: #ff007f;
+  --pos-X: #565f89;
+
+  --edge-color: #3b4261;
+  --root-border: #7aa2f7;
+
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-greek: 'Noto Serif', 'Gentium', 'Palatino Linotype', 'Times New Roman', serif;
+
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 10px;
+
+  --t-fast: 100ms ease;
+  --t-normal: 200ms ease;
+}

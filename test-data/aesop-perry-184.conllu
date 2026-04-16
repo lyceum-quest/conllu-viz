@@ -1,0 +1,99 @@
+# sent_id = perry-184-s1
+# text = Κάμηλος, θεασαμένη ταῦρον ἐπὶ τοῖς κέρασιν ἀγαλλόμενον, φθονήσασα αὐτῷ ἠβουλήθη καὶ αὐτὴ τῶν ἴσων ἐφικέσθαι.
+# parallel_id = lyceum-aesop-p184/s1
+# translation_lang = en
+# prose_translation = A camel, seeing a bull boasting about his horns, envied him and wished to attain the same things for herself.
+# literal_translation = A camel, having seen a bull rejoicing on his horns, being jealous of him, wished also she herself to reach the same things.
+1	Κάμηλος	κάμηλος	NOUN	noun.fem.sg.nom	Gender=Fem|Number=Sing|Case=Nom	10	nsubj	_	gloss=a camel
+2	θεασαμένη	θεάομαι	VERB	verb.aor.ptcp.mp.fem.sg.nom	Aspect=Perf|Voice=Mid|Mood=Part|Tense=Aor|Gender=Fem|Number=Sing|Case=Nom	10	advcl	_	gloss=having seen
+3	ταῦρον	ταῦρος	NOUN	noun.masc.sg.acc	Gender=Masc|Number=Sing|Case=Acc	2	obj	_	gloss=a bull
+4	ἐπὶ	ἐπί	ADP	preposition.dat	_	5	case	_	gloss=on
+5	τοῖς	ὁ	DET	article.neut.pl.dat	Definite=Def|PronType=Art|Gender=Neut|Number=Plur|Case=Dat	6	det	_	gloss=the
+6	κέρασιν	κέρας	NOUN	noun.neut.pl.dat	Gender=Neut|Number=Plur|Case=Dat	7	obl	_	gloss=horns
+7	ἀγαλλόμενον	ἀγάλλω	VERB	verb.pres.ptcp.mp.masc.sg.acc	Aspect=Imp|Voice=Mid|Mood=Part|Tense=Pres|Gender=Masc|Number=Sing|Case=Acc	3	acl	_	gloss=boasting / rejoicing
+8	φθονήσασα	φθονέω	VERB	verb.aor.ptcp.act.fem.sg.nom	Aspect=Perf|Mood=Part|Tense=Aor|Voice=Act|Gender=Fem|Number=Sing|Case=Nom	10	advcl	_	gloss=being jealous / envying
+9	αὐτῷ	αὐτός	PRON	pron.masc.sg.dat	Gender=Masc|Number=Sing|Case=Dat	8	obl	_	gloss=him
+10	ἠβουλήθη	βούλομαι	VERB	verb.aor.ind.mp.3sg	Mood=Ind|Tense=Aor|Voice=Mid|Number=Sing|Person=3	0	root	_	gloss=she wished
+11	καὶ	καί	CCONJ	conjunction	_	15	cc	_	gloss=also/and
+12	αὐτὴ	αὐτός	PRON	pron.fem.sg.nom	Gender=Fem|Number=Sing|Case=Nom	15	nsubj	_	gloss=she herself
+13	τῶν	ὁ	DET	article.neut.pl.gen	Definite=Def|PronType=Art|Gender=Neut|Number=Plur|Case=Gen	14	det	_	gloss=the
+14	ἴσων	ἴσος	ADJ	adj.neut.pl.gen	Degree=Pos|Gender=Neut|Number=Plur|Case=Gen	15	obj	_	gloss=same / equal things
+15	ἐφικέσθαι	ἐφικνέομαι	VERB	verb.aor.inf.mp	Aspect=Perf|Mood=Inf|Tense=Aor|Voice=Mid	10	xcomp	_	gloss=to reach / attain
+
+# sent_id = perry-184-s2
+# text = Διὸ καὶ παραγενομένη πρὸς τὸν Δία τούτου ἐδέετο, ὅπως αὐτῇ κέρατα προσνείμῃ.
+# parallel_id = lyceum-aesop-p184/s2
+# translation_lang = en
+# prose_translation = So she went to Zeus and begged him to grant her horns as well.
+# literal_translation = Therefore also having come to Zeus, of this she was begging, so that to her horns he would grant.
+16	Διὸ	διό	ADV	adverb	_	23	advmod	_	gloss=therefore / for this reason
+17	καὶ	καί	CCONJ	conjunction	_	18	cc	_	gloss=and
+18	παραγενομένη	παραγίγνομαι	VERB	verb.aor.ptcp.mp.fem.sg.nom	Aspect=Perf|Voice=Mid|Mood=Part|Tense=Aor|Gender=Fem|Number=Sing|Case=Nom	23	advcl	_	gloss=having come / approaching
+19	πρὸς	πρός	ADP	preposition.acc	_	21	case	_	gloss=to
+20	τὸν	ὁ	DET	article.masc.sg.acc	Definite=Def|PronType=Art|Gender=Masc|Number=Sing|Case=Acc	21	det	_	gloss=the
+21	Δία	Ζεύς	NOUN	noun.masc.sg.acc	Gender=Masc|Number=Sing|Case=Acc	18	obl	_	gloss=Zeus
+22	τούτου	οὗτος	PRON	pron.neut.sg.gen	Gender=Neut|Number=Sing|Case=Gen	23	obj	_	gloss=this
+23	ἐδέετο	δέομαι	VERB	verb.impf.ind.mp.3sg	Aspect=Imp|Mood=Ind|Tense=Imp|Voice=Mid|Number=Sing|Person=3	0	root	_	gloss=she was begging
+24	ὅπως	ὅπως	SCONJ	conjunction	_	27	mark	_	gloss=so that
+25	αὐτῇ	αὐτός	PRON	pron.fem.sg.dat	Gender=Fem|Number=Sing|Case=Dat	27	iobj	_	gloss=to her
+26	κέρατα	κέρας	NOUN	noun.neut.pl.acc	Gender=Neut|Number=Plur|Case=Acc	27	obj	_	gloss=horns
+27	προσνείμῃ	προσνέμω	VERB	verb.aor.subj.act.3sg	Mood=Subj|Tense=Aor|Voice=Act|Number=Sing|Person=3	23	advcl	_	gloss=he would grant
+
+# sent_id = perry-184-s3
+# text = καὶ ὁ Ζεὺς ἀγανακτήσας κατʼ αὐτῆς, εἴγε μὴ ἀρκοῖτο τῷ μεγέθει τοῦ σώματος καὶ τῇ ἰσχύι, ἀλλὰ καὶ περισσοτέρων ἐπιθυμοῖ, οὐ μόνον αὐτῇ κέρατα οὐ προσέθηκεν, ἀλλὰ καὶ μέρος τι τῶν ὤτων ἀφείλετο.
+# parallel_id = lyceum-aesop-p184/s3
+# translation_lang = en
+# prose_translation = Zeus, angry at her for not being content with the magnitude of her body and her strength but also desiring more, not only did not grant her horns, but even took away part of her ears.
+# literal_translation = And Zeus, being angry at her, since she was not content with the size of the body and the strength, but also of more she was desiring, not only to her did he not add horns, but also a part of the ears he took away.
+28	καὶ	καί	CCONJ	conjunction	_	53	cc	_	gloss=and
+29	ὁ	ὁ	DET	article.masc.sg.nom	Definite=Def|PronType=Art|Gender=Masc|Number=Sing|Case=Nom	30	det	_	gloss=the
+30	Ζεὺς	Ζεύς	NOUN	noun.masc.sg.nom	Gender=Masc|Number=Sing|Case=Nom	53	nsubj	_	gloss=Zeus
+31	ἀγανακτήσας	ἀγανακτέω	VERB	verb.aor.ptcp.act.masc.sg.nom	Aspect=Perf|Mood=Part|Tense=Aor|Voice=Act|Gender=Masc|Number=Sing|Case=Nom	53	advcl	_	gloss=being annoyed / angry
+32	κατʼ	κατά	ADP	preposition.gen	_	33	case	_	gloss=at / against
+33	αὐτῆς	αὐτός	PRON	pron.fem.sg.gen	Gender=Fem|Number=Sing|Case=Gen	31	obl	_	gloss=her
+34	εἴγε	εἴγε	SCONJ	conjunction	_	35	mark	_	gloss=since indeed / if indeed
+35	ἀρκοῖτο	ἀρκέω	VERB	verb.impf.subj.mp.3sg	Aspect=Imp|Mood=Subj|Tense=Imp|Voice=Mid|Number=Sing|Person=3	31	advcl	_	gloss=she was content / satisfied
+36	μὴ	μή	PART	neg.particle	Polarity=Neg	35	advmod	_	gloss=not
+37	τῷ	ὁ	DET	article.neut.sg.dat	Definite=Def|PronType=Art|Gender=Neut|Number=Sing|Case=Dat	38	det	_	gloss=the
+38	μεγέθει	μέγεθος	NOUN	noun.neut.sg.dat	Gender=Neut|Number=Sing|Case=Dat	35	obl	_	gloss=size / magnitude
+39	τοῦ	ὁ	DET	article.neut.sg.gen	Definite=Def|PronType=Art|Gender=Neut|Number=Sing|Case=Gen	40	det	_	gloss=the
+40	σώματος	σῶμα	NOUN	noun.neut.sg.gen	Gender=Neut|Number=Sing|Case=Gen	38	nmod	_	gloss=of the body
+41	καὶ	καί	CCONJ	conjunction	_	43	cc	_	gloss=and
+42	τῇ	ὁ	DET	article.fem.sg.dat	Definite=Def|PronType=Art|Gender=Fem|Number=Sing|Case=Dat	43	det	_	gloss=the
+43	ἰσχύι	ἰσχύς	NOUN	noun.fem.sg.dat	Gender=Fem|Number=Sing|Case=Dat	38	conj	_	gloss=strength
+44	ἀλλὰ	ἀλλά	CCONJ	conjunction	_	47	cc	_	gloss=but
+45	καὶ	καί	CCONJ	conjunction	_	47	cc	_	gloss=also
+46	περισσοτέρων	περισσός	ADJ	adj.neut.pl.gen.cmp	Degree=Cmp|Gender=Neut|Number=Plur|Case=Gen	47	obj	_	gloss=more (things)
+47	ἐπιθυμοῖ	ἐπιθυμέω	VERB	verb.impf.ind.act.3sg	Aspect=Imp|Mood=Ind|Tense=Imp|Voice=Act|Number=Sing|Person=3	35	conj	_	gloss=she desired / coveted
+48	οὐ	οὐ	PART	neg.particle	Polarity=Neg	49	fixed	_	gloss=not
+49	μόνον	μόνος	ADV	adverb	Degree=Pos	53	advmod	_	gloss=only
+50	αὐτῇ	αὐτός	PRON	pron.fem.sg.dat	Gender=Fem|Number=Sing|Case=Dat	53	iobj	_	gloss=to her
+51	κέρατα	κέρας	NOUN	noun.neut.pl.acc	Gender=Neut|Number=Plur|Case=Acc	53	obj	_	gloss=horns
+52	οὐ	οὐ	PART	neg.particle	Polarity=Neg	53	advmod	_	gloss=not
+53	προσέθηκεν	προστίθημι	VERB	verb.aor.ind.act.3sg	Aspect=Perf|Mood=Ind|Tense=Aor|Voice=Act|Number=Sing|Person=3	0	root	_	gloss=he added / granted
+54	ἀλλὰ	ἀλλά	CCONJ	conjunction	_	60	cc	_	gloss=but
+55	καὶ	καί	CCONJ	conjunction	_	60	cc	_	gloss=also
+56	μέρος	μέρος	NOUN	noun.neut.sg.acc	Gender=Neut|Number=Sing|Case=Acc	60	obj	_	gloss=a part
+57	τι	τις	PRON	pron.neut.sg.nom	PronType=Ind|Gender=Neut|Number=Sing|Case=Nom	56	det	_	gloss=a certain / some
+58	τῶν	ὁ	DET	article.neut.pl.gen	Definite=Def|PronType=Art|Gender=Neut|Number=Plur|Case=Gen	59	det	_	gloss=the
+59	ὤτων	οὖς	NOUN	noun.neut.pl.gen	Gender=Neut|Number=Plur|Case=Gen	56	nmod	_	gloss=of ears
+60	ἀφείλετο	ἀφαιρέω	VERB	verb.aor.ind.mp.3sg	Aspect=Perf|Mood=Ind|Tense=Aor|Voice=Mid|Number=Sing|Person=3	53	conj	_	gloss=he took away
+
+# sent_id = perry-184-s4
+# text = Οὕτω πολλοὶ διὰ πλεονεξίαν τοῖς ἄλλοις ἐποφθαλμίζοντες λανθάνουσι καὶ τῶν ἰδίων στερούμενοι.
+# parallel_id = lyceum-aesop-p184/s4
+# translation_lang = en
+# prose_translation = So too many who covet others' things through greed fail to notice they end up losing what is their own.
+# literal_translation = Thus many on account of greed at others coveting, fail to realize, and of their own things being deprived.
+61	Οὕτω	οὕτω	ADV	adverb	_	68	advmod	_	gloss=thus / in this way
+62	πολλοὶ	πολύς	ADJ	adj.masc.pl.nom	Degree=Pos|Gender=Masc|Number=Plur|Case=Nom	68	nsubj	_	gloss=many (people)
+63	διὰ	διά	ADP	preposition.acc	_	64	case	_	gloss=on account of
+64	πλεονεξίαν	πλεονεξία	NOUN	noun.fem.sg.acc	Gender=Fem|Number=Sing|Case=Acc	67	obl	_	gloss=greed / covetousness
+65	τοῖς	ὁ	DET	article.masc.pl.dat	Definite=Def|PronType=Art|Gender=Masc|Number=Plur|Case=Dat	66	det	_	gloss=the
+66	ἄλλοις	ἄλλος	ADJ	adj.masc.pl.dat	Degree=Pos|Gender=Masc|Number=Plur|Case=Dat	67	obl	_	gloss=others
+67	ἐποφθαλμίζοντες	ἐποφθαλμίζω	VERB	verb.pres.ptcp.act.masc.pl.nom	Aspect=Imp|Mood=Part|Tense=Pres|Voice=Act|Gender=Masc|Number=Plur|Case=Nom	68	advcl	_	gloss=coveting / envying
+68	λανθάνουσι	λανθάνω	VERB	verb.pres.ind.act.3pl	Aspect=Imp|Mood=Ind|Tense=Pres|Voice=Act|Number=Plur|Person=3	0	root	_	gloss=they fail to notice
+69	καὶ	καί	CCONJ	conjunction	_	72	cc	_	gloss=and
+70	τῶν	ὁ	DET	article.neut.pl.gen	Definite=Def|PronType=Art|Gender=Neut|Number=Plur|Case=Gen	71	det	_	gloss=the
+71	ἰδίων	ἴδιος	ADJ	adj.neut.pl.gen	Degree=Pos|Gender=Neut|Number=Plur|Case=Gen	72	obj	_	gloss=own (things)
+72	στερούμενοι	στερέω	VERB	verb.pres.ptcp.mp.masc.pl.nom	Aspect=Imp|Voice=Mid|Mood=Part|Tense=Pres|Gender=Masc|Number=Plur|Case=Nom	68	advcl	_	gloss=being deprived

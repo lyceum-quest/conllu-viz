@@ -1,0 +1,72 @@
+/* ==========================================================================
+   Tree SVG styles
+   ========================================================================== */
+
+.tree-edge {
+  fill: none;
+  stroke: var(--edge-color);
+  stroke-width: 1.6;
+  transition: stroke var(--t-fast), stroke-width var(--t-fast);
+}
+.tree-edge.hl { stroke-width: 2.5; }
+.tree-edge.dim { stroke: var(--border-subtle); stroke-width: 1; }
+
+.edge-label {
+  font-family: var(--font-body);
+  font-size: 9px;
+  fill: var(--text-muted);
+  text-anchor: middle;
+  pointer-events: none;
+}
+.edge-label.hl { fill: var(--accent); font-weight: 600; }
+
+.edge-label-bg {
+  fill: var(--bg-primary);
+  opacity: 0.8;
+  rx: 3; ry: 3;
+}
+
+.tnode { cursor: pointer; transition: opacity var(--t-fast); }
+.tnode.dim { opacity: 0.2; }
+.tnode.focus { opacity: 1; }
+
+.tnode-rect {
+  fill: var(--bg-surface);
+  stroke: var(--border-default);
+  stroke-width: 1;
+  rx: var(--radius-md); ry: var(--radius-md);
+  transition: stroke var(--t-fast);
+}
+.tnode:hover .tnode-rect { stroke: var(--border-focus); }
+.tnode.root .tnode-rect { stroke: var(--root-border); stroke-width: 2; }
+.tnode.hl .tnode-rect {
+  stroke-width: 2.5;
+  filter: drop-shadow(0 0 6px var(--accent));
+}
+
+.tnode-form {
+  font-family: var(--font-greek);
+  font-size: 13px;
+  fill: var(--text-primary);
+  text-anchor: middle;
+  font-weight: 600;
+  pointer-events: none;
+}
+.tnode-lemma {
+  font-family: var(--font-body);
+  font-size: 9px;
+  fill: var(--text-secondary);
+  text-anchor: middle;
+  font-style: italic;
+  pointer-events: none;
+}
+.tnode-gloss {
+  font-family: var(--font-body);
+  font-size: 9px;
+  fill: var(--accent-warn);
+  text-anchor: middle;
+  font-weight: 500;
+  pointer-events: none;
+}
+.pos-bar { pointer-events: none; rx: 1; ry: 1; }
+.arrowhead-fill { fill: var(--edge-color); }

@@ -1,0 +1,35 @@
+{
+  "aesop-perry-257.conllu": {
+    "editionUrn": "urn:cts:greekLit:tlg0096.tlg001.workspace-grc1-perry257",
+    "authorUrn": "urn:cts:greekLit:tlg0096",
+    "authorName": "Aesop",
+    "workUrn": "urn:cts:greekLit:tlg0096.tlg001",
+    "workTitle": "Aesop, Fables",
+    "language": "grc",
+    "editionLabel": "Aesop, Perry 257 (The Lioness and the Fox)",
+    "editionType": "treebank",
+    "editionDescription": "CoNLL-U treebank edition of Aesop's Fable 257"
+  },
+  "aesop-perry-184.conllu": {
+    "editionUrn": "urn:cts:greekLit:tlg0096.tlg001.workspace-grc1-perry184",
+    "authorUrn": "urn:cts:greekLit:tlg0096",
+    "authorName": "Aesop",
+    "workUrn": "urn:cts:greekLit:tlg0096.tlg001",
+    "workTitle": "Aesop, Fables",
+    "language": "grc",
+    "editionLabel": "Aesop, Perry 184 (The Camel and Zeus)",
+    "editionType": "treebank",
+    "editionDescription": "CoNLL-U treebank edition of Aesop's Fable 184"
+  },
+  "aesop-perry-54.conllu": {
+    "editionUrn": "urn:cts:greekLit:tlg0096.tlg001.workspace-grc1-perry054",
+    "authorUrn": "urn:cts:greekLit:tlg0096",
+    "authorName": "Aesop",
+    "workUrn": "urn:cts:greekLit:tlg0096.tlg001",
+    "workTitle": "Aesop, Fables",
+    "language": "grc",
+    "editionLabel": "Aesop, Perry 54 (treebank)",
+    "editionType": "treebank",
+    "editionDescription": "CoNLL-U treebank edition of Aesop's Fable 54"
+  }
+}

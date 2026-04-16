@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>conllu-viz — Dependency Tree Viewer &amp; SRS Study</title>
+</head>
+<body>
+  <!-- Global top-nav (shown on all pages) -->
+  <nav id="top-nav">
+    <a href="#browser" class="nav-link" data-page="browser">📁 Files</a>
+    <span class="nav-divider">|</span>
+    <a href="#tree" class="nav-link" data-page="tree" id="nav-tree" style="display:none">🌳 Tree</a>
+    <span class="nav-divider" id="nav-tree-sep" style="display:none">|</span>
+    <a href="#study" class="nav-link" data-page="study" id="nav-study" style="display:none">📝 Study</a>
+    <span id="nav-title" class="nav-title"></span>
+    <div class="nav-spacer"></div>
+    <span class="nav-hint">🌳 conllu-viz</span>
+  </nav>
+
+  <!-- Page content — filled by router -->
+  <div id="page"></div>
+
+  <!-- Tree view — hidden until activated by router -->
+  <div id="app" style="display:none">
+    <header id="toolbar">
+      <h1>🌳 <span id="toolbar-title">conllu-viz</span></h1>
+      <div id="toolbar-right">
+        <button id="btn-open" title="Open .conllu file">📂 Open</button>
+        <input type="file" id="file-input" accept=".conllu,.conll,.txt" hidden />
+        <button id="btn-reset" title="Reset zoom">↺ Reset</button>
+        <button id="btn-legend-toggle" title="Toggle legend">📋 Legend</button>
+        <button id="btn-export" title="Export SVG">📥 SVG</button>
+        <select id="lang-select" title="Translation language" style="display:none;padding:4px 8px;background:var(--bg-tertiary);color:var(--text-primary);border:1px solid var(--border-default);border-radius:var(--radius-sm);font-size:13px;"></select>
+        <span id="file-name" class="filename"></span>
+      </div>
+    </header>
+    <div id="main">
+      <aside id="sidebar">
+        <h2>Sentences</h2>
+        <ul id="sentence-list"></ul>
+      </aside>
+      <div id="sidebar-handle" class="resize-handle"></div>
+      <main id="canvas-area">
+        <div id="sentence-display"></div>
+        <div id="drop-overlay">
+          <div class="drop-content">
+            <span class="drop-icon">🌳</span>
+            <p>Drop a <code>.conllu</code> file here, or click <strong>Open</strong></p>
+            <p class="hint">Supports multi-sentence CoNLL-U files</p>
+          </div>
+        </div>
+        <svg id="tree-svg" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <marker id="arrowhead" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+              <polygon points="0 0, 8 3, 0 6" class="arrowhead-fill" />
+            </marker>
+          </defs>
+          <g id="tree-group"></g>
+        </svg>
+        <div id="tooltip"></div>
+
+        <!-- Translation panel -->
+        <div id="translation-panel" class="translation-panel hidden">
+          <div class="morph-header">
+            <h3>Translation</h3>
+            <button id="translation-close" class="morph-close" title="Close">&times;</button>
+          </div>
+          <div id="translation-body"></div>
+        </div>
+      </main>
+      <div id="legend-handle" class="resize-handle"></div>
+      <aside id="legend-panel" class="hidden">
+        <h2>Legend</h2>
+        <section>
+          <h3>Parts of Speech</h3>
+          <div id="legend-pos"></div>
+        </section>
+        <section>
+          <h3>Dependency Relations</h3>
+          <div id="legend-deprel"></div>
+        </section>
+      </aside>
+    </div>
+  </div>
+
+  <div id="morph-overlay" class="modal-overlay hidden">
+    <div id="morph-panel" class="morph-panel" role="dialog" aria-modal="true" aria-labelledby="morph-title" tabindex="-1">
+      <div class="morph-header">
+        <h3 id="morph-title">Morphology</h3>
+        <button id="morph-close" class="morph-close" title="Close">&times;</button>
+      </div>
+      <div id="morph-body"></div>
+    </div>
+  </div>
+
+  <script type="module" src="/src/main.ts"></script>
+</body>
+</html>
