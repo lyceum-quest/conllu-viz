@@ -150,7 +150,8 @@ export function mount(fileId: string, selectedSentences?: Set<string>) {
   const treebank = parseConllu(file.content, file.name);
   const session = ensureFileSession(store, fileId);
   const allKeys = getAllTokenKeys(store, fileId);
-  const queue = buildQueue(allKeys, session, treebank.sentences, selectedSentences ?? new Set());
+  const initialSelection = selectedSentences ?? new Set(treebank.sentences.map(s => s.id));
+  const queue = buildQueue(allKeys, session, treebank.sentences, initialSelection);
 
   state = {
     store, fileId, session,
@@ -160,7 +161,7 @@ export function mount(fileId: string, selectedSentences?: Set<string>) {
     reviewedCount: 0,
     cardShowTime: Date.now(),
     totalTimeMs: 0,
-    selectedSentences: selectedSentences ?? new Set(),
+    selectedSentences: initialSelection,
     showSentenceSelector: false,
   };
 
@@ -174,13 +175,11 @@ function buildQueue(allKeys: string[], session: FileSession, sentences: Sentence
   const due: string[] = [];
   const neu: string[] = [];
 
-  const hasSelection = selectedSentences.size > 0;
-
   for (const key of allKeys) {
     const { sentId } = parseTokenKey(key);
 
     // Skip sentences not in selection
-    if (hasSelection && !selectedSentences.has(sentId)) continue;
+    if (!selectedSentences.has(sentId)) continue;
 
     const ss = session.tokens[key];
     if (!ss || ss.nextReview <= now) {
@@ -216,18 +215,15 @@ function render() {
   if (app) app.style.display = 'none';
 
   const displayKeys = st.allKeys.filter(k => {
-    if (st.selectedSentences.size > 0) {
-      const { sentId } = parseTokenKey(k);
-      return st.selectedSentences.has(sentId);
-    }
-    return true;
+    const { sentId } = parseTokenKey(k);
+    return st.selectedSentences.has(sentId);
   });
 
   const pct = sessionTotal > 0
     ? Math.min(100, Math.round((reviewedCount / sessionTotal) * 100)) : 0;
 
-  const hasSelection = st.selectedSentences.size > 0;
-  const selCount = hasSelection ? ` (${st.selectedSentences.size}/${sentences.length})` : '';
+  const allSelected = st.selectedSentences.size === sentences.length;
+  const selCount = allSelected ? '' : ` (${st.selectedSentences.size}/${sentences.length})`;
 
   page.innerHTML = '';
 
@@ -296,17 +292,18 @@ function render() {
     $('#btn-back-browser')!.addEventListener('click', () => navigate('browser'));
     $('#btn-review-again')!.addEventListener('click', () => {
       if (!st) return;
-      // Reset all cards to due-now so the skip-loop won't bypass them
-      for (const key of st.allKeys) {
+      const reviewKeys = st.allKeys.filter(key => st.selectedSentences.has(parseTokenKey(key).sentId));
+      // Reset selected cards to due-now so the skip-loop won't bypass them
+      for (const key of reviewKeys) {
         if (st.session.tokens[key]) {
           st.session.tokens[key].nextReview = 0;
         }
       }
       st.store.sessions[st.fileId] = st.session;
       saveStore(st.store);
-      // Bypass the due-check: include ALL cards for re-review
-      st.sessionTotal = st.allKeys.length;
-      st.queue = [...st.allKeys];
+      // Bypass the due-check: include all selected cards for re-review
+      st.sessionTotal = reviewKeys.length;
+      st.queue = [...reviewKeys];
       shuffle(st.queue);
       st.currentIdx = 0;
       st.reviewedCount = 0;
@@ -524,7 +521,7 @@ function renderSentenceSelector(sentences: Sentence[]) {
 
   for (const sent of sentences) {
     const item = document.createElement('div');
-    const isSelected = !state!.selectedSentences.size || state!.selectedSentences.has(sent.id);
+    const isSelected = state!.selectedSentences.has(sent.id);
     item.className = `sentence-selector-item${isSelected ? ' selected' : ''}`;
     item.dataset.sentId = sent.id;
 
@@ -541,23 +538,14 @@ function renderSentenceSelector(sentences: Sentence[]) {
       if (!state) return;
       const sid = item.dataset.sentId!;
       const currentSel = state.selectedSentences;
-      if (currentSel.size === 0) {
-        for (const s of state.sentences) currentSel.add(s.id);
-        if (item.classList.contains('selected')) {
-          currentSel.delete(sid);
-          item.classList.remove('selected');
-          item.querySelector('.sentence-check')!.textContent = '☐';
-        }
+      if (item.classList.contains('selected')) {
+        currentSel.delete(sid);
+        item.classList.remove('selected');
+        item.querySelector('.sentence-check')!.textContent = '☐';
       } else {
-        if (item.classList.contains('selected')) {
-          currentSel.delete(sid);
-          item.classList.remove('selected');
-          item.querySelector('.sentence-check')!.textContent = '☐';
-        } else {
-          currentSel.add(sid);
-          item.classList.add('selected');
-          item.querySelector('.sentence-check')!.textContent = '☑';
-        }
+        currentSel.add(sid);
+        item.classList.add('selected');
+        item.querySelector('.sentence-check')!.textContent = '☑';
       }
     });
 
@@ -580,7 +568,7 @@ function renderSentenceSelector(sentences: Sentence[]) {
   });
 
   $('#sel-all')!.addEventListener('click', () => {
-    for (const s of sentences) state!.selectedSentences.add(s.id);
+    state!.selectedSentences = new Set(sentences.map(s => s.id));
     renderSentenceSelector(sentences);
   });
 
@@ -590,16 +578,10 @@ function renderSentenceSelector(sentences: Sentence[]) {
   });
 
   $('#sel-invert')!.addEventListener('click', () => {
-    const allIds = new Set(sentences.map(s => s.id));
-    if (state!.selectedSentences.size === 0) {
-      state!.selectedSentences.clear();
-    } else if (state!.selectedSentences.size === allIds.size) {
-      state!.selectedSentences.clear();
-    } else {
-      const newSel = new Set([...allIds].filter(id => !state!.selectedSentences.has(id)));
-      state!.selectedSentences.clear();
-      for (const id of newSel) state!.selectedSentences.add(id);
-    }
+    const inverted = new Set(sentences
+      .map(s => s.id)
+      .filter(id => !state!.selectedSentences.has(id)));
+    state!.selectedSentences = inverted;
     renderSentenceSelector(sentences);
   });
 
