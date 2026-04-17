@@ -471,6 +471,13 @@
   font-family: var(--font-mono, monospace);
 }
 
+.study-done-next-copy {
+  margin-top: 10px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+
 .study-done-actions {
   display: flex;
   gap: 10px;

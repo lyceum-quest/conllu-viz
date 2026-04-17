@@ -324,17 +324,19 @@ function render() {
     const nextActionHTML = nextSentence
       ? `
         <div class="study-done-next-step">
-          <div class="study-done-next-label">Suggested next step</div>
+          <div class="study-done-next-label">Continue studying?</div>
           <div class="study-done-next-title">Move on to the next sentence</div>
           <div class="study-done-next-detail">Add ${escapeHTML(nextSentence.id)} to this study</div>
+          <div class="study-done-next-copy">Keep going with the next sentence when you're ready, or use the sentence selector to add more from this work.</div>
           <button class="study-done-btn study-done-primary" id="btn-next-sentence">→ Study Next Sentence</button>
         </div>`
       : nextWork
         ? `
         <div class="study-done-next-step">
-          <div class="study-done-next-label">Suggested next step</div>
+          <div class="study-done-next-label">Continue studying?</div>
           <div class="study-done-next-title">Move on to the next work</div>
           <div class="study-done-next-detail">${escapeHTML(nextWork.name)}</div>
+          <div class="study-done-next-copy">You've finished every sentence in this work. Continue into the next work when you're ready.</div>
           <button class="study-done-btn study-done-primary" id="btn-next-work">→ Study Next Work</button>
         </div>`
         : '';
