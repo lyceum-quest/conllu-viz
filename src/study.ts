@@ -52,6 +52,8 @@ const AGAIN_REINSERT_DISTANCE = 3;
 interface StudyState {
   store: AppStore;
   fileId: string;
+  fileName: string;
+  workTitle?: string;
   session: FileSession;
   sentences: Sentence[];
   allKeys: string[];
@@ -152,7 +154,7 @@ export function mount(fileId: string, selectedSentences?: Set<string>) {
   const queue = buildQueue(allKeys, session, treebank.sentences, initialSelection);
 
   state = {
-    store, fileId, session,
+    store, fileId, fileName: file.name, workTitle: treebank.title, session,
     sentences: treebank.sentences,
     allKeys, queue, currentIdx: 0,
     sessionTotal: queue.length,
@@ -250,8 +252,10 @@ function render() {
   if (!state) { page.innerHTML = ''; return; }
 
   const st = state; // narrow for TS
-  const { fileId, session, sentences, queue, currentIdx, store, sessionTotal, reviewedCount } = st;
+  const { fileId, fileName, workTitle, session, sentences, queue, currentIdx, store, sessionTotal, reviewedCount } = st;
   const file = store.files[fileId];
+  const displayTitle = workTitle || fileName;
+  const showFileName = !!workTitle && workTitle !== fileName;
 
   // Hide the tree app
   const app = document.getElementById('app') as HTMLElement;
@@ -279,7 +283,10 @@ function render() {
   header.innerHTML = `
     <h2>📝 Spaced Repetition</h2>
     <div class="study-header-row">
-      <div class="study-file-name">${escapeHTML(file.name)}</div>
+      <div class="study-header-copy">
+        <div class="study-file-name">${escapeHTML(displayTitle)}</div>
+        ${showFileName ? `<div class="study-file-meta">${escapeHTML(fileName)}</div>` : ''}
+      </div>
       <button class="study-sel-btn" id="btn-sentence-selector" title="Select sentences">
         📝 Sentences${selCount}
       </button>
@@ -722,6 +729,6 @@ function handleRating(quality: number) {
 function updateNav(st: StudyState) {
   const titleEl = document.getElementById('nav-title');
   const studyLink = document.getElementById('nav-study') as HTMLAnchorElement;
-  if (titleEl) titleEl.textContent = st.fileId;
+  if (titleEl) titleEl.textContent = st.workTitle || st.fileName || st.fileId;
   if (studyLink) { studyLink.style.display = ''; studyLink.href = routeUrl('study', st.fileId); }
 }

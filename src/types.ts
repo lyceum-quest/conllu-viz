@@ -45,6 +45,8 @@ export interface Sentence {
 export interface Treebank {
   sentences: Sentence[];
   source?: string;
+  /** Work/document title (from # title = …) */
+  title?: string;
   /** Languages that have translations in this treebank */
   translationLangs: string[];
 }
@@ -73,8 +75,10 @@ function parseMisc(miscStr: string): MiscMap | undefined {
 export function parseConllu(content: string, source?: string): Treebank {
   const sentences: Sentence[] = [];
   const translationLangs = new Set<string>();
+  const normalized = content.replace(/\r\n/g, '\n').trim();
+  const title = normalized.match(/^#\s+title\s*=\s*(.*)$/m)?.[1]?.trim() || undefined;
   // Normalize line endings and split on blank lines
-  const blocks = content.replace(/\r\n/g, '\n').trim().split(/\n\n+/);
+  const blocks = normalized.split(/\n\n+/);
 
   for (const block of blocks) {
     const lines = block.split('\n').map(l => l.trim()).filter(Boolean);
@@ -157,7 +161,7 @@ export function parseConllu(content: string, source?: string): Treebank {
     }
   }
 
-  return { sentences, source, translationLangs: [...translationLangs] };
+  return { sentences, source, title, translationLangs: [...translationLangs] };
 }
 
 export function collectLegend(treebank: Treebank): { pos: Set<string>; deprels: Set<string> } {
