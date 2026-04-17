@@ -428,15 +428,16 @@ export function buildSegmentGroups(
     if (segType && groups.has(segType)) {
       groups.get(segType)!.features.push(buildMorphFeature(key, feats[key]!, segType, true));
     } else {
-      uncategorized.push(buildMorphFeature(key, feats[key]!, undefined, true));
+      uncategorized.push(buildMorphFeature(key, feats[key]!, undefined, false));
     }
   }
 
   if (uncategorized.length > 0) {
+    const unlocalizedColors = [...new Set(uncategorized.map(f => f.categoryColor))];
     groups.set('unlocalized', {
       segmentText: 'whole form',
       segmentType: 'unlocalized',
-      segmentColor: UNLOCALIZED_FEATURE_COLOR,
+      segmentColor: unlocalizedColors.length === 1 ? unlocalizedColors[0] : UNLOCALIZED_FEATURE_COLOR,
       features: uncategorized,
     });
   }
