@@ -212,6 +212,13 @@ function restartStudyWithSelection(selectedSentences: Set<string>) {
   render();
 }
 
+function extendStudyWithSentence(sentenceId: string) {
+  if (!state) return;
+  const nextSelection = new Set(state.selectedSentences);
+  nextSelection.add(sentenceId);
+  restartStudyWithSelection(nextSelection);
+}
+
 function getNextSentence(sentences: Sentence[], selectedSentences: Set<string>): Sentence | null {
   if (sentences.length === 0) return null;
 
@@ -319,7 +326,7 @@ function render() {
         <div class="study-done-next-step">
           <div class="study-done-next-label">Suggested next step</div>
           <div class="study-done-next-title">Move on to the next sentence</div>
-          <div class="study-done-next-detail">${escapeHTML(nextSentence.id)}</div>
+          <div class="study-done-next-detail">Add ${escapeHTML(nextSentence.id)} to this study</div>
           <button class="study-done-btn study-done-primary" id="btn-next-sentence">→ Study Next Sentence</button>
         </div>`
       : nextWork
@@ -369,7 +376,7 @@ function render() {
     });
     $('#btn-next-sentence')?.addEventListener('click', () => {
       if (!nextSentence) return;
-      restartStudyWithSelection(new Set([nextSentence.id]));
+      extendStudyWithSentence(nextSentence.id);
     });
     $('#btn-next-work')?.addEventListener('click', () => {
       if (!nextWork) return;
@@ -570,8 +577,12 @@ function renderSentenceSelector(sentences: Sentence[]) {
 
   const header = document.createElement('div');
   header.className = 'sentence-selector-header';
+  const firstSentence = sentences[0];
   header.innerHTML = `
-    <h3>Select Sentences to Study</h3>
+    <div>
+      <h3>Select Sentences to Study</h3>
+      <p class="sentence-selector-hint">Study starts with ${firstSentence ? `<strong>${escapeHTML(firstSentence.id)}</strong>` : 'the first sentence'} by default. Check more sentences to add them to this study.</p>
+    </div>
     <button id="sentence-selector-close">&times;</button>
   `;
   panel.appendChild(header);

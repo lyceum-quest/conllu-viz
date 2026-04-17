@@ -546,6 +546,18 @@
   color: var(--text-primary);
 }
 
+.sentence-selector-hint {
+  margin: 6px 0 0;
+  max-width: 420px;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+
+.sentence-selector-hint strong {
+  color: var(--accent);
+}
+
 #sentence-selector-close {
   background: none;
   border: none;
