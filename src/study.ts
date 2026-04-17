@@ -13,7 +13,7 @@
 import { parseConllu, Token, Sentence } from './types';
 import {
   AppStore, FileSession, loadStore, saveStore, ensureFileSession,
-  makeTokenKey, parseTokenKey, getAllTokenKeys,
+  makeTokenKey, parseTokenKey, getAllTokenKeys, listFiles,
 } from './store';
 import {
   newSRSState, review as srsReview, RATINGS, intervalLabel,
@@ -104,9 +104,7 @@ function onKeydown(e: KeyboardEvent) {
       state.showSentenceSelector = false;
       return;
     }
-    window.removeEventListener('keydown', onKeydown);
-    state = null;
-    navigate('browser');
+    leaveStudy('browser');
     return;
   }
 
@@ -150,7 +148,7 @@ export function mount(fileId: string, selectedSentences?: Set<string>) {
   const treebank = parseConllu(file.content, file.name);
   const session = ensureFileSession(store, fileId);
   const allKeys = getAllTokenKeys(store, fileId);
-  const initialSelection = selectedSentences ?? new Set(treebank.sentences.map(s => s.id));
+  const initialSelection = selectedSentences ?? new Set(treebank.sentences.slice(0, 1).map(s => s.id));
   const queue = buildQueue(allKeys, session, treebank.sentences, initialSelection);
 
   state = {
@@ -167,6 +165,7 @@ export function mount(fileId: string, selectedSentences?: Set<string>) {
 
   updateNav(state);
   render();
+  window.removeEventListener('keydown', onKeydown);
   window.addEventListener('keydown', onKeydown);
 }
 
@@ -198,6 +197,43 @@ function buildQueue(allKeys: string[], session: FileSession, sentences: Sentence
   // Include ALL cards in the session queue; future-due cards will be skipped
   // by the "nextReview" check on rendering.
   return [...due, ...neu];
+}
+
+function restartStudyWithSelection(selectedSentences: Set<string>) {
+  if (!state) return;
+  const nextSelection = new Set(selectedSentences);
+  const newQueue = buildQueue(state.allKeys, state.session, state.sentences, nextSelection);
+  state.selectedSentences = nextSelection;
+  state.queue = newQueue;
+  state.sessionTotal = newQueue.length;
+  state.currentIdx = 0;
+  state.reviewedCount = 0;
+  state.showSentenceSelector = false;
+  render();
+}
+
+function getNextSentence(sentences: Sentence[], selectedSentences: Set<string>): Sentence | null {
+  if (sentences.length === 0) return null;
+
+  let lastSelectedIdx = -1;
+  sentences.forEach((sent, idx) => {
+    if (selectedSentences.has(sent.id)) lastSelectedIdx = idx;
+  });
+
+  return sentences[lastSelectedIdx + 1] ?? null;
+}
+
+function getNextWork(store: AppStore, fileId: string) {
+  const files = listFiles(store);
+  const currentIdx = files.findIndex(file => file.id === fileId);
+  if (currentIdx === -1) return null;
+  return files[currentIdx + 1] ?? null;
+}
+
+function leaveStudy(page: 'browser' | 'study', fileId?: string) {
+  window.removeEventListener('keydown', onKeydown);
+  state = null;
+  navigate(page, fileId);
 }
 
 // ── Render ────────────────────────────────────────────────────────────────
@@ -276,20 +312,41 @@ function render() {
     const doneEl = createEl('div');
     doneEl.className = 'study-done';
     const mastered = Object.values(session.tokens).filter(t => t.interval >= MASTERED_INTERVAL_DAYS).length;
+    const nextSentence = getNextSentence(sentences, st.selectedSentences);
+    const nextWork = nextSentence ? null : getNextWork(store, fileId);
+    const nextActionHTML = nextSentence
+      ? `
+        <div class="study-done-next-step">
+          <div class="study-done-next-label">Suggested next step</div>
+          <div class="study-done-next-title">Move on to the next sentence</div>
+          <div class="study-done-next-detail">${escapeHTML(nextSentence.id)}</div>
+          <button class="study-done-btn study-done-primary" id="btn-next-sentence">→ Study Next Sentence</button>
+        </div>`
+      : nextWork
+        ? `
+        <div class="study-done-next-step">
+          <div class="study-done-next-label">Suggested next step</div>
+          <div class="study-done-next-title">Move on to the next work</div>
+          <div class="study-done-next-detail">${escapeHTML(nextWork.name)}</div>
+          <button class="study-done-btn study-done-primary" id="btn-next-work">→ Study Next Work</button>
+        </div>`
+        : '';
+
     doneEl.innerHTML = `
       <div class="done-icon">🎉</div>
       <h2>Session Complete!</h2>
       <p>Reviewed ${reviewedCount} of ${sessionTotal} cards this session.</p>
       <p style="color:var(--text-muted);font-size:13px;">${mastered} words mastered across all sessions.</p>
-      <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:16px;">
+      ${nextActionHTML}
+      <div class="study-done-actions">
         <button class="study-done-btn" id="btn-review-again">Review Again</button>
-        <button class="study-done-btn" id="btn-back-browser" style="background:var(--bg-tertiary);color:var(--text-primary);border:1px solid var(--border-default);">← Back to Files</button>
+        <button class="study-done-btn study-done-secondary" id="btn-back-browser">← Back to Files</button>
       </div>
     `;
     container.appendChild(doneEl);
     page.appendChild(container);
 
-    $('#btn-back-browser')!.addEventListener('click', () => navigate('browser'));
+    $('#btn-back-browser')!.addEventListener('click', () => leaveStudy('browser'));
     $('#btn-review-again')!.addEventListener('click', () => {
       if (!st) return;
       const reviewKeys = st.allKeys.filter(key => st.selectedSentences.has(parseTokenKey(key).sentId));
@@ -310,6 +367,14 @@ function render() {
       updateNav(st);
       render();
     });
+    $('#btn-next-sentence')?.addEventListener('click', () => {
+      if (!nextSentence) return;
+      restartStudyWithSelection(new Set([nextSentence.id]));
+    });
+    $('#btn-next-work')?.addEventListener('click', () => {
+      if (!nextWork) return;
+      leaveStudy('study', nextWork.id);
+    });
     $('#btn-sentence-selector')!.addEventListener('click', () => toggleSentenceSelector());
     return;
   }
@@ -328,7 +393,7 @@ function render() {
   backBtn.className = 'browser-btn';
   backBtn.style.cssText = 'margin-top: 20px; font-size: 12px;';
   backBtn.textContent = '← Back to Files';
-  backBtn.addEventListener('click', () => navigate('browser'));
+  backBtn.addEventListener('click', () => leaveStudy('browser'));
   container.appendChild(backBtn);
 
   page.appendChild(container);
@@ -590,14 +655,8 @@ function renderSentenceSelector(sentences: Sentence[]) {
   });
 
   $('#sel-confirm')!.addEventListener('click', () => {
-    const newQueue = buildQueue(state!.allKeys, state!.session, state!.sentences, state!.selectedSentences);
-    state!.queue = newQueue;
-    state!.sessionTotal = newQueue.length;
-    state!.currentIdx = 0;
-    state!.reviewedCount = 0;
-    state!.showSentenceSelector = false;
     overlay.remove();
-    render();
+    restartStudyWithSelection(state!.selectedSentences);
   });
 }
 

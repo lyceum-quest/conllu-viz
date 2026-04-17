@@ -440,6 +440,45 @@
   margin-bottom: 20px;
 }
 
+.study-done-next-step {
+  margin: 24px auto 0;
+  padding: 18px;
+  max-width: 420px;
+  border: 1px solid color-mix(in srgb, var(--accent) 35%, var(--border-default));
+  border-radius: var(--radius-lg);
+  background: color-mix(in srgb, var(--accent) 8%, var(--bg-surface));
+}
+
+.study-done-next-label {
+  font-size: 11px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  font-weight: 700;
+}
+
+.study-done-next-title {
+  margin-top: 6px;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.study-done-next-detail {
+  margin-top: 6px;
+  font-size: 13px;
+  color: var(--accent);
+  font-family: var(--font-mono, monospace);
+}
+
+.study-done-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 16px;
+}
+
 .study-done-btn {
   padding: 10px 24px;
   background: var(--accent);
@@ -449,6 +488,16 @@
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
+}
+
+.study-done-primary {
+  margin-top: 14px;
+}
+
+.study-done-secondary {
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-default);
 }
 
 /* ── Segment colors on study card ── */
