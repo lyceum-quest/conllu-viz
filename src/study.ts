@@ -19,8 +19,7 @@ import {
   newSRSState, review as srsReview, RATINGS, intervalLabel,
   MASTERED_INTERVAL_DAYS,
 } from './srs';
-import { parseMorphFeatures, buildWholeWordFeatureCue } from './morpho';
-import { segmentGreekWord } from './segment';
+import { buildMorphAnalysisHTML } from './morpho';
 import { navigate, routeUrl } from './router';
 
 import './styles/tokens.css';
@@ -33,15 +32,6 @@ const POS_COLORS: Record<string, string> = {
   DET: '#7dcfff', PRON: '#b4f9f8', PROPN: '#ff9e64', ADP: '#bb9af7',
   CCONJ: '#9d7cd8', SCONJ: '#7aa2f7', PART: '#c0caf5', NUM: '#e06c75',
   PUNCT: '#565f89', AUX: '#f7768e', INTJ: '#ff007f', X: '#565f89',
-};
-
-const POS_LABELS: Record<string, string> = {
-  NOUN: 'noun', VERB: 'verb', ADJ: 'adjective', ADV: 'adverb',
-  DET: 'determiner', PRON: 'pronoun', PROPN: 'proper noun',
-  ADP: 'preposition', CCONJ: 'coordinating conjunction',
-  SCONJ: 'subordinating conjunction', PART: 'particle',
-  NUM: 'numeral', PUNCT: 'punctuation', AUX: 'auxiliary',
-  INTJ: 'interjection', X: 'other',
 };
 
 /** How many cards ahead to re-insert "Again" cards (Anki default: 3) */
@@ -476,44 +466,18 @@ function createCardEl(token: Token, sentence: Sentence) {
   const back = createEl('div', 'study-card-face study-card-back');
   back.id = 'study-card-back';
 
-  const segs = segmentGreekWord(token.form, token.feats, token.upos);
-  const wholeWordCue = buildWholeWordFeatureCue(token.feats, segs);
-  const segmentedWordHTML = segs.length > 0
-    ? segs.map(s =>
-      `<span class="segment" style="color:${s.color}" title="${escapeHTML(s.encodes.join(', ') || 'Stem')}">${escapeHTML(s.text)}</span>`
-    ).join('')
-    : `<span style="color:${POS_COLORS[token.upos] || '#565f89'}">${escapeHTML(token.form)}</span>`;
-  const wordHTML = wholeWordCue
-    ? `<span class="study-word-underlined" style="--whole-word-underline:${wholeWordCue.underline}" title="${escapeHTML(wholeWordCue.title)}">${segmentedWordHTML}</span>`
-    : segmentedWordHTML;
-
-  const posLabel = POS_LABELS[token.upos] || token.upos;
-  const glossStr = token.gloss ? ` — ${escapeHTML(token.gloss)}` : '';
-
-  const feats = parseMorphFeatures(token.feats, segs);
-  const morphHTMLstr = feats.length > 0
-    ? `<div class="study-morph-section">
-         <div class="study-sentence-label">Morphology</div>
-         <div class="study-morph-features">
-           ${feats.map(f => `
-             <div class="study-morph-feat" style="--feat-color:${f.categoryColor}">
-               <span class="study-morph-feat-key" style="color:${f.categoryColor}">${f.key}</span>
-               <span class="study-morph-feat-val">${f.value}</span>
-               <span class="study-morph-feat-desc">${f.label}</span>
-             </div>`).join('')}
-         </div>
-       </div>`
-    : '';
+  const morphHTMLstr = `
+    <div class="study-morph-section">
+      <div class="study-sentence-label">Morphology</div>
+      <div class="study-morph-analysis">
+        ${buildMorphAnalysisHTML(token, POS_COLORS[token.upos] || '#565f89')}
+      </div>
+    </div>`;
 
   const prose = sentence.translations?.['en']?.prose || '';
   const literal = sentence.translations?.['en']?.literal || '';
 
   back.innerHTML = `
-    <div class="study-back-header">
-      <div class="study-back-word-segmented">${wordHTML}</div>
-      <div class="study-back-lemma">${escapeHTML(token.lemma)}${glossStr}</div>
-      <div class="study-back-pos" style="color:${POS_COLORS[token.upos] || '#565f89'}">${posLabel}</div>
-    </div>
     ${morphHTMLstr}
     <div class="study-sentence">
       <div class="study-sentence-label">Sentence</div>

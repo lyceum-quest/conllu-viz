@@ -13,10 +13,10 @@ import './styles/browser.css';
 import './styles/study.css';
 
 import { parseConllu, collectLegend, Treebank, Sentence, Token } from './types';
-import { segmentGreekWord, WordSegment } from './segment';
+import { segmentGreekWord } from './segment';
 import { layoutSentence, LayoutResult } from './layout';
 import { render, setupPanZoom, exportSVG, setFilter, DEPREL_LABELS } from './renderer';
-import { parseMorphFeatures, morphHTML, buildSegmentGroups, morphSegmentHTML, buildWholeWordFeatureCue } from './morpho';
+import { buildMorphAnalysisHTML } from './morpho';
 import { mount as mountBrowser } from './browser';
 import { mount as mountStudy } from './study';
 import { parseRoute, navigate, routeUrl, PageType } from './router';
@@ -468,85 +468,9 @@ function buildSentenceDisplay(sentence: Sentence) {
 
 // --- Morph panel (existing) ---
 
-function escapeHTML(s: string): string {
-  return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-}
-
 function showMorphPanel(token: Token) {
   morphOverlay.classList.remove('hidden');
-
-  const segments = segmentGreekWord(token.form, token.feats, token.upos);
-  const groups = buildSegmentGroups(segments, token.feats);
-  const unlocalizedGroup = groups.find(g => g.segmentType === 'unlocalized');
-  const wholeWordCue = buildWholeWordFeatureCue(token.feats, segments);
-  const segmentTypeLabels: Record<string, string> = {
-    stem: 'Stem (lemma root)',
-    augment: 'Augment (past tense prefix)',
-    thematic: 'Thematic vowel',
-    tense: 'Tense / Aspect marker',
-    voice: 'Voice marker',
-    participle: 'Participial marker',
-    nominalEnd: 'Case / Gender / Number',
-    personalEnd: 'Inflectional ending',
-    unlocalized: 'Whole-form / inferred',
-  };
-
-  const segmentsHTML = segments.map(seg => {
-    const typeLabel = segmentTypeLabels[seg.type] || seg.type;
-    const title = seg.encodes.length > 0
-      ? `${typeLabel} (${seg.encodes.join(', ')})`
-      : typeLabel;
-    return `<span class="morph-char" style="color:${seg.color};border-bottom-color:${seg.color}" title="${escapeHTML(title)}">${escapeHTML(seg.text)}</span>`;
-  }).join('');
-
-  const segmentsRowHTML = wholeWordCue
-    ? `<span class="morph-word-underlined" style="--whole-word-underline:${wholeWordCue.underline}" title="${escapeHTML(wholeWordCue.title)}">${segmentsHTML}</span>`
-    : segmentsHTML;
-
-  const legendItems = new Map<string, { color: string; label: string; chars: string }>();
-  for (const seg of segments) {
-    const key = `${seg.color}|${seg.type}`;
-    if (!legendItems.has(key)) {
-      legendItems.set(key, {
-        color: seg.color,
-        label: segmentTypeLabels[seg.type] || seg.type,
-        chars: seg.text,
-      });
-    } else {
-      legendItems.get(key)!.chars += seg.text;
-    }
-  }
-  if (unlocalizedGroup) {
-    const key = `${unlocalizedGroup.segmentColor}|${unlocalizedGroup.segmentType}`;
-    legendItems.set(key, {
-      color: unlocalizedGroup.segmentColor,
-      label: segmentTypeLabels[unlocalizedGroup.segmentType] || unlocalizedGroup.segmentType,
-      chars: token.form,
-    });
-  }
-
-  const legendHTML = [...legendItems.values()].map(({ color, label, chars }) => `
-    <div class="morph-char-legend-item">
-      <span class="morph-char-legend-swatch" style="background:${color}"></span>
-      <span>${label} <span style="color:var(--text-muted);font-size:0.9em">(${escapeHTML(chars)})</span></span>
-    </div>`
-  ).join('');
-
-  morphBody.innerHTML = `
-    <div class="morph-word-display">
-      <div style="margin-bottom:6px;">
-        <span style="font-size:18px;font-weight:700;font-family:var(--font-greek);color:${POS_COLORS[token.upos] || '#565f89'}">${escapeHTML(token.form)}</span>
-        <span style="font-size:14px;color:var(--text-secondary);margin-left:8px;font-style:italic;">[${escapeHTML(token.lemma)}]</span>
-        <span style="font-size:12px;color:var(--text-muted);margin-left:8px;">${token.upos}</span>
-      </div>
-      <div class="morph-char-row">${segmentsRowHTML}</div>
-      ${legendHTML ? `<div class="morph-char-legend">${legendHTML}</div>` : ''}
-    </div>
-    <div class="morph-content">
-      ${morphSegmentHTML(groups)}
-    </div>
-  `;
-
+  morphBody.innerHTML = buildMorphAnalysisHTML(token, POS_COLORS[token.upos] || '#565f89');
   morphPanel.focus();
 }
 

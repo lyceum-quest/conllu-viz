@@ -199,87 +199,42 @@
   padding: 20px 20px;
 }
 
-.study-card-back .study-back-header {
-  text-align: center;
-  margin-bottom: 12px;
+.study-morph-section {
   width: 100%;
 }
 
-.study-card-back .study-back-word-segmented {
-  font-family: var(--font-greek);
-  font-size: 32px;
-  font-weight: 700;
+.study-morph-analysis {
+  margin-top: 6px;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: color-mix(in srgb, var(--bg-surface) 88%, var(--bg-secondary));
 }
 
-.study-word-underlined {
-  display: inline-flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  position: relative;
-  padding-bottom: 8px;
-}
-.study-word-underlined::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 4px;
-  border-radius: 999px;
-  background: var(--whole-word-underline);
-  opacity: 0.95;
+.study-card-back .study-morph-analysis .morph-word-display {
+  padding: 14px 14px 12px;
 }
 
-.study-card-back .study-back-lemma {
-  font-size: 16px;
-  color: var(--text-secondary);
-  font-style: italic;
-  margin-top: 4px;
+.study-card-back .study-morph-analysis .morph-content {
+  flex: none;
+  overflow: visible;
+  padding: 10px 14px 14px;
 }
 
-.study-card-back .study-back-pos {
-  font-size: 12px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-top: 4px;
-  font-weight: 600;
+.study-card-back .study-morph-analysis .morph-word-form {
+  font-size: 26px;
 }
 
-/* Morph features on back */
-.study-morph-features {
-  width: 100%;
-  margin: 8px 0;
+.study-card-back .study-morph-analysis .morph-char {
+  font-size: 20px;
 }
 
-.study-morph-feat {
-  display: flex;
-  align-items: center;
+.study-card-back .study-morph-analysis .morph-char-legend {
   gap: 8px;
-  padding: 5px 8px;
-  margin-bottom: 3px;
-  background: var(--bg-secondary);
-  border-radius: var(--radius-sm);
-  border-left: 3px solid var(--feat-color, var(--border-default));
-  font-size: 13px;
 }
 
-.study-morph-feat-key {
-  font-weight: 700;
-  min-width: 70px;
-  text-transform: uppercase;
-  letter-spacing: 0.3px;
-  font-size: 11px;
-}
-
-.study-morph-feat-val {
-  font-weight: 600;
-  min-width: 40px;
-}
-
-.study-morph-feat-desc {
-  color: var(--text-secondary);
-  font-style: italic;
-  font-size: 12px;
+.study-card-back .study-morph-analysis .morph-feat {
+  margin-bottom: 6px;
 }
 
 /* Sentence context */

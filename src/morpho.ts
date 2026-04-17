@@ -4,7 +4,8 @@
  * Colors are derived from segment.ts so sidebar colors match word-segment colors.
  */
 
-import { featureSegmentType, segmentCategoryColor, SEGMENT_COLORS, WordSegment } from './segment';
+import { featureSegmentType, segmentCategoryColor, SEGMENT_COLORS, WordSegment, segmentGreekWord } from './segment';
+import type { Token } from './types';
 
 export interface MorphFeature {
   key: string;
@@ -287,7 +288,7 @@ export interface SegmentGroup {
   features: MorphFeature[];
 }
 
-const SEGMENT_TYPE_LABELS: Record<string, string> = {
+export const SEGMENT_TYPE_LABELS: Record<string, string> = {
   stem: 'Stem',
   augment: 'Augment',
   thematic: 'Thematic vowel',
@@ -304,6 +305,95 @@ const GROUP_ORDER: string[] = [
   'augment', 'thematic', 'tense', 'voice', 'participle',
   'nominalEnd', 'personalEnd', 'unlocalized', 'stem',
 ];
+
+function escapeHTML(s: string): string {
+  return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+
+export function buildMorphAnalysisHTML(
+  token: Pick<Token, 'form' | 'lemma' | 'gloss' | 'upos' | 'feats'>,
+  posColor: string,
+  posLabel = token.upos,
+): string {
+  const segments = segmentGreekWord(token.form, token.feats, token.upos);
+  const groups = buildSegmentGroups(segments, token.feats);
+  const unlocalizedGroup = groups.find(g => g.segmentType === 'unlocalized');
+  const wholeWordCue = buildWholeWordFeatureCue(token.feats, segments);
+  const segmentTypeTitles: Record<string, string> = {
+    stem: 'Stem (lemma root)',
+    augment: 'Augment (past tense prefix)',
+    thematic: 'Thematic vowel',
+    tense: 'Tense / Aspect marker',
+    voice: 'Voice marker',
+    participle: 'Participial marker',
+    nominalEnd: 'Case / Gender / Number',
+    personalEnd: 'Inflectional ending',
+    unlocalized: 'Whole-form / inferred',
+  };
+
+  const segmentsHTML = segments.length > 0
+    ? segments.map(seg => {
+      const typeLabel = segmentTypeTitles[seg.type] || seg.type;
+      const title = seg.encodes.length > 0
+        ? `${typeLabel} (${seg.encodes.join(', ')})`
+        : typeLabel;
+      return `<span class="morph-char" style="color:${seg.color};border-bottom-color:${seg.color}" title="${escapeHTML(title)}">${escapeHTML(seg.text)}</span>`;
+    }).join('')
+    : `<span class="morph-char" style="color:${posColor};border-bottom-color:${posColor}" title="Whole form">${escapeHTML(token.form)}</span>`;
+
+  const segmentsRowHTML = wholeWordCue
+    ? `<span class="morph-word-underlined" style="--whole-word-underline:${wholeWordCue.underline}" title="${escapeHTML(wholeWordCue.title)}">${segmentsHTML}</span>`
+    : segmentsHTML;
+
+  const legendItems = new Map<string, { color: string; label: string; chars: string }>();
+  for (const seg of segments) {
+    const key = `${seg.color}|${seg.type}`;
+    if (!legendItems.has(key)) {
+      legendItems.set(key, {
+        color: seg.color,
+        label: segmentTypeTitles[seg.type] || seg.type,
+        chars: seg.text,
+      });
+    } else {
+      legendItems.get(key)!.chars += seg.text;
+    }
+  }
+  if (unlocalizedGroup) {
+    const key = `${unlocalizedGroup.segmentColor}|${unlocalizedGroup.segmentType}`;
+    legendItems.set(key, {
+      color: unlocalizedGroup.segmentColor,
+      label: segmentTypeTitles[unlocalizedGroup.segmentType] || unlocalizedGroup.segmentType,
+      chars: token.form,
+    });
+  }
+
+  const legendHTML = [...legendItems.values()].map(({ color, label, chars }) => `
+    <div class="morph-char-legend-item">
+      <span class="morph-char-legend-swatch" style="background:${color}"></span>
+      <span>${label} <span style="color:var(--text-muted);font-size:0.9em">(${escapeHTML(chars)})</span></span>
+    </div>`
+  ).join('');
+
+  const definitionHTML = token.gloss
+    ? `<span class="morph-word-definition">— ${escapeHTML(token.gloss)}</span>`
+    : '';
+
+  return `
+    <div class="morph-word-display">
+      <div class="morph-word-meta">
+        <span class="morph-word-form" style="color:${posColor}">${escapeHTML(token.form)}</span>
+        <span class="morph-word-lemma">[${escapeHTML(token.lemma)}]</span>
+        ${definitionHTML}
+        <span class="morph-word-pos">${escapeHTML(posLabel)}</span>
+      </div>
+      <div class="morph-char-row">${segmentsRowHTML}</div>
+      ${legendHTML ? `<div class="morph-char-legend">${legendHTML}</div>` : ''}
+    </div>
+    <div class="morph-content">
+      ${morphSegmentHTML(groups)}
+    </div>
+  `;
+}
 
 /**
  * Group morphological features by the segment that encodes them.

@@ -371,6 +371,35 @@ html, body {
   text-align: center;
   flex-shrink: 0;
 }
+.morph-word-meta {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 6px;
+}
+.morph-word-form {
+  font-size: 18px;
+  font-weight: 700;
+  font-family: var(--font-greek);
+}
+.morph-word-lemma {
+  font-size: 14px;
+  color: var(--text-secondary);
+  font-style: italic;
+}
+.morph-word-definition {
+  font-size: 14px;
+  color: var(--text-primary);
+  font-weight: 500;
+}
+.morph-word-pos {
+  font-size: 12px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
 .morph-char-row {
   display: flex;
   justify-content: center;
