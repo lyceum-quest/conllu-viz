@@ -16,7 +16,7 @@ import { parseConllu, collectLegend, Treebank, Sentence, Token } from './types';
 import { segmentGreekWord, WordSegment } from './segment';
 import { layoutSentence, LayoutResult } from './layout';
 import { render, setupPanZoom, exportSVG, setFilter, DEPREL_LABELS } from './renderer';
-import { parseMorphFeatures, morphHTML, buildSegmentGroups, morphSegmentHTML } from './morpho';
+import { parseMorphFeatures, morphHTML, buildSegmentGroups, morphSegmentHTML, buildWholeWordFeatureCue } from './morpho';
 import { mount as mountBrowser } from './browser';
 import { mount as mountStudy } from './study';
 import { parseRoute, navigate, routeUrl, PageType } from './router';
@@ -478,6 +478,7 @@ function showMorphPanel(token: Token) {
   const segments = segmentGreekWord(token.form, token.feats, token.upos);
   const groups = buildSegmentGroups(segments, token.feats);
   const unlocalizedGroup = groups.find(g => g.segmentType === 'unlocalized');
+  const wholeWordCue = buildWholeWordFeatureCue(token.feats, segments);
   const segmentTypeLabels: Record<string, string> = {
     stem: 'Stem (lemma root)',
     augment: 'Augment (past tense prefix)',
@@ -498,11 +499,9 @@ function showMorphPanel(token: Token) {
     return `<span class="morph-char" style="color:${seg.color};border-bottom-color:${seg.color}" title="${escapeHTML(title)}">${escapeHTML(seg.text)}</span>`;
   }).join('');
 
-  const wholeFormHTML = unlocalizedGroup
-    ? `<div class="morph-char-row morph-char-row-whole">
-         <span class="morph-char morph-char-all" style="color:${unlocalizedGroup.segmentColor};border-bottom-color:${unlocalizedGroup.segmentColor}" title="${escapeHTML(`Whole-form / inferred (${unlocalizedGroup.features.map(f => `${f.key}=${f.value}`).join(', ')})`)}">${escapeHTML(token.form)}</span>
-       </div>`
-    : '';
+  const segmentsRowHTML = wholeWordCue
+    ? `<span class="morph-word-underlined" style="--whole-word-underline:${wholeWordCue.underline}" title="${escapeHTML(wholeWordCue.title)}">${segmentsHTML}</span>`
+    : segmentsHTML;
 
   const legendItems = new Map<string, { color: string; label: string; chars: string }>();
   for (const seg of segments) {
@@ -540,8 +539,7 @@ function showMorphPanel(token: Token) {
         <span style="font-size:14px;color:var(--text-secondary);margin-left:8px;font-style:italic;">[${escapeHTML(token.lemma)}]</span>
         <span style="font-size:12px;color:var(--text-muted);margin-left:8px;">${token.upos}</span>
       </div>
-      <div class="morph-char-row">${segmentsHTML}</div>
-      ${wholeFormHTML}
+      <div class="morph-char-row">${segmentsRowHTML}</div>
       ${legendHTML ? `<div class="morph-char-legend">${legendHTML}</div>` : ''}
     </div>
     <div class="morph-content">

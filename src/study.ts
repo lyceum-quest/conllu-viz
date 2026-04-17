@@ -19,7 +19,7 @@ import {
   newSRSState, review as srsReview, RATINGS, intervalLabel,
   MASTERED_INTERVAL_DAYS,
 } from './srs';
-import { parseMorphFeatures } from './morpho';
+import { parseMorphFeatures, buildWholeWordFeatureCue } from './morpho';
 import { segmentGreekWord } from './segment';
 import { navigate, routeUrl } from './router';
 
@@ -396,11 +396,15 @@ function createCardEl(token: Token, sentence: Sentence) {
   back.id = 'study-card-back';
 
   const segs = segmentGreekWord(token.form, token.feats, token.upos);
-  const wordHTML = segs.length > 0
+  const wholeWordCue = buildWholeWordFeatureCue(token.feats, segs);
+  const segmentedWordHTML = segs.length > 0
     ? segs.map(s =>
       `<span class="segment" style="color:${s.color}" title="${escapeHTML(s.encodes.join(', ') || 'Stem')}">${escapeHTML(s.text)}</span>`
     ).join('')
     : `<span style="color:${POS_COLORS[token.upos] || '#565f89'}">${escapeHTML(token.form)}</span>`;
+  const wordHTML = wholeWordCue
+    ? `<span class="study-word-underlined" style="--whole-word-underline:${wholeWordCue.underline}" title="${escapeHTML(wholeWordCue.title)}">${segmentedWordHTML}</span>`
+    : segmentedWordHTML;
 
   const posLabel = POS_LABELS[token.upos] || token.upos;
   const glossStr = token.gloss ? ` — ${escapeHTML(token.gloss)}` : '';

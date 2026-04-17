@@ -201,6 +201,25 @@
   font-weight: 700;
 }
 
+.study-word-underlined {
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  position: relative;
+  padding-bottom: 8px;
+}
+.study-word-underlined::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 4px;
+  border-radius: 999px;
+  background: var(--whole-word-underline);
+  opacity: 0.95;
+}
+
 .study-card-back .study-back-lemma {
   font-size: 16px;
   color: var(--text-secondary);

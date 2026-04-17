@@ -246,6 +246,38 @@ export function parseMorphFeatures(
   return result;
 }
 
+export interface WholeWordFeatureCue {
+  features: MorphFeature[];
+  colors: string[];
+  underline: string;
+  title: string;
+}
+
+/**
+ * Features that cannot be localized to a substring still matter pedagogically.
+ * Represent them as a whole-word underline rather than forcing fake segments.
+ */
+export function buildWholeWordFeatureCue(
+  feats: Record<string, string> | undefined,
+  segments: WordSegment[],
+): WholeWordFeatureCue | null {
+  if (!feats || Object.keys(feats).length === 0) return null;
+
+  const features = Object.keys(feats)
+    .filter(key => !featureSegmentType(key, feats[key], segments, false))
+    .map(key => buildMorphFeature(key, feats[key]!, undefined, false));
+
+  if (features.length === 0) return null;
+
+  const colors = [...new Set(features.map(f => f.categoryColor))];
+  const underline = colors.length === 1
+    ? colors[0]
+    : `linear-gradient(90deg, ${colors.join(', ')})`;
+  const title = `Whole-form features: ${features.map(f => `${f.key}=${f.value}`).join(', ')}`;
+
+  return { features, colors, underline, title };
+}
+
 // ── Segment-grouped morphology ────────────────────────────────────────────
 
 export interface SegmentGroup {
