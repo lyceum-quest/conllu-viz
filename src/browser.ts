@@ -4,8 +4,8 @@
 
 import { parseConllu } from './types';
 import { AppStore, loadStore, saveStore, addFile, listFiles,
-         getReviewedCount, getMasteredCount, getMasteryPct } from './store';
-import { navigate, routeUrl } from './router';
+         getReviewedCount, getMasteredCount, getMasteryPct, getStudySelection } from './store';
+import { navigate } from './router';
 
 import './styles/tokens.css';
 import './styles/browser.css';
@@ -176,7 +176,11 @@ function createFileCard(file: import('./store').StoredFile) {
   const studyBtn = card.querySelector('[data-action="study"]')!;
   const browseBtn = card.querySelector('[data-action="browse"]')!;
 
-  studyBtn.addEventListener('click', (e) => { e.stopPropagation(); navigate('study', file.id); });
+  studyBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const selectedSentences = getStudySelection(store, file.id) ?? undefined;
+    navigate('study', file.id, { selectedSentences });
+  });
   browseBtn.addEventListener('click', (e) => { e.stopPropagation(); navigate('tree', file.id); });
 
   return card;

@@ -1,8 +1,9 @@
 /**
- * Persistence layer — localStorage-backed session + file registry.
+ * Persistence layer — localStorage-backed file/SRS state plus sessionStorage
+ * study-progress resume data.
  */
 
-
+import { parseConllu } from './types';
 
 // ── Types ────────────────────────────────────────────────────────────────
 
@@ -30,21 +31,47 @@ export interface FileSession {
   lastReview?: number;
 }
 
+export interface StudyPrefs {
+  selectedSentences: string[];
+  updatedAt: number;
+}
+
+export interface SavedStudyProgress {
+  fileId: string;
+  selectedSentences: string[];
+  queue: string[];
+  currentIdx: number;
+  sessionTotal: number;
+  reviewedCount: number;
+  totalTimeMs: number;
+  updatedAt: number;
+}
+
 export interface AppStore {
   files: Record<string, StoredFile>;
   sessions: Record<string, FileSession>;
+  studyPrefs?: Record<string, StudyPrefs>;
 }
 
 const STORAGE_KEY = 'conllu-viz-store';
+const STUDY_PROGRESS_STORAGE_KEY = 'conllu-viz-study-progress';
 
 function emptyStore(): AppStore {
-  return { files: {}, sessions: {} };
+  return { files: {}, sessions: {}, studyPrefs: {} };
+}
+
+function normalizeStore(raw: Partial<AppStore> | null | undefined): AppStore {
+  return {
+    files: raw?.files ?? {},
+    sessions: raw?.sessions ?? {},
+    studyPrefs: raw?.studyPrefs ?? {},
+  };
 }
 
 export function loadStore(): AppStore {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
-    if (raw) return JSON.parse(raw);
+    if (raw) return normalizeStore(JSON.parse(raw));
   } catch { /* corrupt data, start fresh */ }
   return emptyStore();
 }
@@ -88,6 +115,60 @@ export function ensureFileSession(store: AppStore, fileId: string): FileSession 
   return store.sessions[fileId];
 }
 
+// ── Study prefs + session progress ───────────────────────────────────────
+
+function normalizeSelectedSentences(selectedSentences: Iterable<string>): string[] {
+  return [...new Set(selectedSentences)];
+}
+
+function studyProgressKey(fileId: string, selectedSentences: Iterable<string>): string {
+  return `${fileId}\u0000${[...new Set(selectedSentences)].sort().join('\u0001')}`;
+}
+
+function loadStudyProgressMap(): Record<string, SavedStudyProgress> {
+  try {
+    const raw = sessionStorage.getItem(STUDY_PROGRESS_STORAGE_KEY);
+    if (raw) return JSON.parse(raw) as Record<string, SavedStudyProgress>;
+  } catch { /* corrupt data, start fresh */ }
+  return {};
+}
+
+function saveStudyProgressMap(map: Record<string, SavedStudyProgress>) {
+  sessionStorage.setItem(STUDY_PROGRESS_STORAGE_KEY, JSON.stringify(map));
+}
+
+export function getStudySelection(store: AppStore, fileId: string): string[] | null {
+  return store.studyPrefs?.[fileId]?.selectedSentences ?? null;
+}
+
+export function setStudySelection(store: AppStore, fileId: string, selectedSentences: Iterable<string>) {
+  if (!store.studyPrefs) store.studyPrefs = {};
+  store.studyPrefs[fileId] = {
+    selectedSentences: normalizeSelectedSentences(selectedSentences),
+    updatedAt: Date.now(),
+  };
+}
+
+export function loadStudyProgress(fileId: string, selectedSentences: Iterable<string>): SavedStudyProgress | null {
+  const map = loadStudyProgressMap();
+  return map[studyProgressKey(fileId, selectedSentences)] ?? null;
+}
+
+export function saveStudyProgress(progress: SavedStudyProgress) {
+  const map = loadStudyProgressMap();
+  map[studyProgressKey(progress.fileId, progress.selectedSentences)] = {
+    ...progress,
+    selectedSentences: normalizeSelectedSentences(progress.selectedSentences),
+  };
+  saveStudyProgressMap(map);
+}
+
+export function clearStudyProgress(fileId: string, selectedSentences: Iterable<string>) {
+  const map = loadStudyProgressMap();
+  delete map[studyProgressKey(fileId, selectedSentences)];
+  saveStudyProgressMap(map);
+}
+
 // ── SRS state helpers ───────────────────────────────────────────────────
 /**
  * Key format: "<sentId>:<tokenId>"
@@ -105,8 +186,6 @@ export function parseTokenKey(key: string): { sentId: string; tokenId: number } 
  * Collect all unique token keys from a file's content for SRS tracking.
  * We use the conllu parser to get sentence ids and token ids.
  */
-import { parseConllu } from './types';
-
 export function getAllTokenKeys(store: AppStore, fileId: string): string[] {
   const content = getStoredContent(store, fileId);
   if (!content) return [];

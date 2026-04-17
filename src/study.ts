@@ -12,8 +12,11 @@
 
 import { parseConllu, Token, Sentence } from './types';
 import {
-  AppStore, FileSession, loadStore, saveStore, ensureFileSession,
-  makeTokenKey, parseTokenKey, getAllTokenKeys, listFiles,
+  AppStore, FileSession, SavedStudyProgress,
+  loadStore, saveStore, ensureFileSession,
+  parseTokenKey, getAllTokenKeys, listFiles,
+  getStudySelection, setStudySelection,
+  loadStudyProgress, saveStudyProgress, clearStudyProgress,
 } from './store';
 import {
   newSRSState, review as srsReview, RATINGS, intervalLabel,
@@ -74,6 +77,91 @@ function shuffle(arr: string[]) {
   }
 }
 
+function orderedSelectedSentences(sentences: Sentence[], selectedSentences: Set<string>): string[] {
+  return sentences.filter(sentence => selectedSentences.has(sentence.id)).map(sentence => sentence.id);
+}
+
+function isSameSelection(a: Iterable<string>, b: Iterable<string>): boolean {
+  const aa = [...new Set(a)].sort();
+  const bb = [...new Set(b)].sort();
+  return aa.length === bb.length && aa.every((value, idx) => value === bb[idx]);
+}
+
+function sanitizeSelection(sentences: Sentence[], selectedSentences: Iterable<string>): string[] {
+  const validIds = new Set(sentences.map(sentence => sentence.id));
+  return [...new Set(selectedSentences)].filter(id => validIds.has(id));
+}
+
+function defaultSelection(sentences: Sentence[]): string[] {
+  return sentences[0] ? [sentences[0].id] : [];
+}
+
+function resolveInitialSelection(
+  store: AppStore,
+  fileId: string,
+  sentences: Sentence[],
+  routeSelectedSentences: string[] | undefined,
+  hasRouteSelection: boolean,
+): string[] {
+  if (hasRouteSelection) {
+    return sanitizeSelection(sentences, routeSelectedSentences ?? []);
+  }
+
+  const savedSelection = getStudySelection(store, fileId);
+  if (savedSelection) {
+    const sanitized = sanitizeSelection(sentences, savedSelection);
+    if (sanitized.length > 0 || savedSelection.length === 0) return sanitized;
+  }
+
+  return defaultSelection(sentences);
+}
+
+function isSavedProgressValid(progress: SavedStudyProgress, allKeys: string[], selectedSentences: Set<string>): boolean {
+  const allowedKeys = new Set(allKeys.filter(key => selectedSentences.has(parseTokenKey(key).sentId)));
+  return progress.currentIdx >= 0
+    && progress.currentIdx <= progress.queue.length
+    && progress.queue.every(key => allowedKeys.has(key));
+}
+
+function persistStudySelection(st: StudyState) {
+  const selected = orderedSelectedSentences(st.sentences, st.selectedSentences);
+  setStudySelection(st.store, st.fileId, selected);
+  saveStore(st.store);
+
+  const nextUrl = routeUrl('study', st.fileId, { selectedSentences: selected });
+  if (window.location.hash !== nextUrl) {
+    history.replaceState(null, '', nextUrl);
+  }
+}
+
+function persistStudyProgress(st: StudyState) {
+  saveStudyProgress({
+    fileId: st.fileId,
+    selectedSentences: orderedSelectedSentences(st.sentences, st.selectedSentences),
+    queue: [...st.queue],
+    currentIdx: st.currentIdx,
+    sessionTotal: st.sessionTotal,
+    reviewedCount: st.reviewedCount,
+    totalTimeMs: st.totalTimeMs,
+    updatedAt: Date.now(),
+  });
+}
+
+function advancePastFutureCards(st: StudyState): boolean {
+  let advanced = false;
+  while (st.currentIdx < st.queue.length) {
+    const key = st.queue[st.currentIdx];
+    const tokenState = st.session.tokens[key];
+    if (tokenState && tokenState.nextReview > Date.now()) {
+      st.currentIdx++;
+      advanced = true;
+      continue;
+    }
+    break;
+  }
+  return advanced;
+}
+
 // ── Keyboard shortcuts ───────────────────────────────────────────────────
 // Space / Enter   — flip card (front ↔ back)
 // 1 / A           — Again
@@ -130,7 +218,7 @@ function onKeydown(e: KeyboardEvent) {
 
 // ── Mount ─────────────────────────────────────────────────────────────────
 
-export function mount(fileId: string, selectedSentences?: Set<string>) {
+export function mount(fileId: string, routeSelectedSentences?: string[], hasRouteSelection = false) {
   if (!fileId) { navigate('browser'); return; }
 
   const store = loadStore();
@@ -140,21 +228,37 @@ export function mount(fileId: string, selectedSentences?: Set<string>) {
   const treebank = parseConllu(file.content, file.name);
   const session = ensureFileSession(store, fileId);
   const allKeys = getAllTokenKeys(store, fileId);
-  const initialSelection = selectedSentences ?? new Set(treebank.sentences.slice(0, 1).map(s => s.id));
-  const queue = buildQueue(allKeys, session, treebank.sentences, initialSelection);
+  const initialSelection = resolveInitialSelection(
+    store,
+    fileId,
+    treebank.sentences,
+    routeSelectedSentences,
+    hasRouteSelection,
+  );
+  const selectedSentenceSet = new Set(initialSelection);
+  const savedProgress = loadStudyProgress(fileId, initialSelection);
+  const canRestoreProgress = !!savedProgress && isSavedProgressValid(savedProgress, allKeys, selectedSentenceSet);
+  if (savedProgress && !canRestoreProgress) clearStudyProgress(fileId, initialSelection);
+  const queue = canRestoreProgress
+    ? [...savedProgress.queue]
+    : buildQueue(allKeys, session, treebank.sentences, selectedSentenceSet);
 
   state = {
     store, fileId, fileName: file.name, workTitle: treebank.title, session,
     sentences: treebank.sentences,
-    allKeys, queue, currentIdx: 0,
-    sessionTotal: queue.length,
-    reviewedCount: 0,
+    allKeys, queue,
+    currentIdx: canRestoreProgress ? savedProgress.currentIdx : 0,
+    sessionTotal: canRestoreProgress ? savedProgress.sessionTotal : queue.length,
+    reviewedCount: canRestoreProgress ? savedProgress.reviewedCount : 0,
     cardShowTime: Date.now(),
-    totalTimeMs: 0,
-    selectedSentences: initialSelection,
+    totalTimeMs: canRestoreProgress ? savedProgress.totalTimeMs : 0,
+    selectedSentences: selectedSentenceSet,
     showSentenceSelector: false,
   };
 
+  if (advancePastFutureCards(state)) persistStudyProgress(state);
+  persistStudySelection(state);
+  persistStudyProgress(state);
   updateNav(state);
   render();
   window.removeEventListener('keydown', onKeydown);
@@ -194,13 +298,25 @@ function buildQueue(allKeys: string[], session: FileSession, sentences: Sentence
 function restartStudyWithSelection(selectedSentences: Set<string>) {
   if (!state) return;
   const nextSelection = new Set(selectedSentences);
+  const previousSelection = orderedSelectedSentences(state.sentences, state.selectedSentences);
   const newQueue = buildQueue(state.allKeys, state.session, state.sentences, nextSelection);
+
   state.selectedSentences = nextSelection;
   state.queue = newQueue;
   state.sessionTotal = newQueue.length;
   state.currentIdx = 0;
   state.reviewedCount = 0;
+  state.totalTimeMs = 0;
   state.showSentenceSelector = false;
+
+  if (!isSameSelection(previousSelection, orderedSelectedSentences(state.sentences, nextSelection))) {
+    clearStudyProgress(state.fileId, previousSelection);
+  }
+
+  advancePastFutureCards(state);
+  persistStudySelection(state);
+  persistStudyProgress(state);
+  updateNav(state);
   render();
 }
 
@@ -242,7 +358,9 @@ function render() {
   if (!state) { page.innerHTML = ''; return; }
 
   const st = state; // narrow for TS
-  const { fileId, fileName, workTitle, session, sentences, queue, currentIdx, store, sessionTotal, reviewedCount } = st;
+  if (advancePastFutureCards(st)) persistStudyProgress(st);
+
+  const { fileId, fileName, workTitle, session, sentences, queue, store, sessionTotal, reviewedCount } = st;
   const file = store.files[fileId];
   const displayTitle = workTitle || fileName;
   const showFileName = !!workTitle && workTitle !== fileName;
@@ -250,11 +368,6 @@ function render() {
   // Hide the tree app
   const app = document.getElementById('app') as HTMLElement;
   if (app) app.style.display = 'none';
-
-  const displayKeys = st.allKeys.filter(k => {
-    const { sentId } = parseTokenKey(k);
-    return st.selectedSentences.has(sentId);
-  });
 
   const pct = sessionTotal > 0
     ? Math.min(100, Math.round((reviewedCount / sessionTotal) * 100)) : 0;
@@ -287,7 +400,7 @@ function render() {
   // ── Progress: session-based (reviewed / total in session) ──
   const progress = createEl('div');
   progress.className = 'study-progress';
-  const queueRemaining = queue.length - currentIdx;
+  const queueRemaining = Math.max(0, queue.length - st.currentIdx);
 
   progress.innerHTML = `
     <div class="study-progress-bar"><div class="study-progress-fill" style="width:${pct}%"></div></div>
@@ -297,19 +410,6 @@ function render() {
     </div>
   `;
   container.appendChild(progress);
-
-  // ── Queue: skip future cards ──
-  // Advance past any cards that aren't due yet
-  while (state.currentIdx < queue.length) {
-    const k = queue[state.currentIdx];
-    const ss = session.tokens[k];
-    if (ss && ss.nextReview > Date.now()) {
-      // Not due yet — skip and move on
-      state.currentIdx++;
-    } else {
-      break;
-    }
-  }
 
   // ── Queue empty? ──
   if (state.currentIdx >= queue.length) {
@@ -370,6 +470,9 @@ function render() {
       shuffle(st.queue);
       st.currentIdx = 0;
       st.reviewedCount = 0;
+      st.totalTimeMs = 0;
+      persistStudySelection(st);
+      persistStudyProgress(st);
       updateNav(st);
       render();
     });
@@ -386,13 +489,13 @@ function render() {
   }
 
   // ── Current card ──
-  const cardKey = queue[currentIdx];
+  const cardKey = queue[st.currentIdx];
   const { sentId, tokenId } = parseTokenKey(cardKey);
   const sentence = sentences.find(s => s.id === sentId)!;
   const token = sentence.tokens.find(t => t.id === tokenId)!;
 
   container.appendChild(createCardEl(token, sentence));
-  container.appendChild(createRatings(container, queue[currentIdx]));
+  container.appendChild(createRatings(container, queue[st.currentIdx]));
 
   // Back button
   const backBtn = createEl('button');
@@ -685,6 +788,9 @@ function handleRating(quality: number) {
     state.currentIdx++;
   }
 
+  advancePastFutureCards(state);
+  persistStudyProgress(state);
+  updateNav(state);
   render();
 }
 
@@ -694,5 +800,10 @@ function updateNav(st: StudyState) {
   const titleEl = document.getElementById('nav-title');
   const studyLink = document.getElementById('nav-study') as HTMLAnchorElement;
   if (titleEl) titleEl.textContent = st.workTitle || st.fileName || st.fileId;
-  if (studyLink) { studyLink.style.display = ''; studyLink.href = routeUrl('study', st.fileId); }
+  if (studyLink) {
+    studyLink.style.display = '';
+    studyLink.href = routeUrl('study', st.fileId, {
+      selectedSentences: orderedSelectedSentences(st.sentences, st.selectedSentences),
+    });
+  }
 }

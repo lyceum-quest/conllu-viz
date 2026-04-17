@@ -148,6 +148,7 @@ function handleRoute() {
   const route = parseRoute();
   const { page, fileId } = route;
   currentPage = page;
+  currentFileId = fileId || null;
   updateNavHighlights();
 
   // Show/hide the tree app
@@ -161,7 +162,7 @@ function handleRoute() {
     else mountBrowserTree(); // no file selected — show existing tree UI
   } else if (page === 'study') {
     app.style.display = 'none';
-    mountStudy(fileId!);
+    mountStudy(fileId!, route.selectedSentences, route.hasSelectedSentences);
   } else {
     app.style.display = 'none';
     mountBrowser();
@@ -200,7 +201,7 @@ function updateNavHighlights() {
 
   if (currentPage === 'study' && currentFileId) {
     studyLink.style.display = '';
-    studyLink.href = routeUrl('study', currentFileId);
+    studyLink.href = window.location.hash || routeUrl('study', currentFileId);
   }
 }
 
@@ -580,9 +581,8 @@ document.querySelectorAll('.nav-link').forEach(a => {
   a.addEventListener('click', (e) => {
     e.preventDefault();
     const href = a.getAttribute('href')!;
-    if (href === '#browser') navigate('browser');
-    else if (href.startsWith('#tree')) navigate('tree', currentFileId || undefined);
-    else if (href.startsWith('#study')) navigate('study', currentFileId || undefined);
+    if (!href.startsWith('#')) return;
+    window.location.hash = href.slice(1);
   });
 });
 
