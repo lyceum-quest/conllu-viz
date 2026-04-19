@@ -320,11 +320,8 @@ function restartStudyWithSelection(selectedSentences: Set<string>) {
   render();
 }
 
-function extendStudyWithSentence(sentenceId: string) {
-  if (!state) return;
-  const nextSelection = new Set(state.selectedSentences);
-  nextSelection.add(sentenceId);
-  restartStudyWithSelection(nextSelection);
+function moveStudyToSentence(sentenceId: string) {
+  restartStudyWithSelection(new Set([sentenceId]));
 }
 
 function getNextSentence(sentences: Sentence[], selectedSentences: Set<string>): Sentence | null {
@@ -423,8 +420,8 @@ function render() {
         <div class="study-done-next-step">
           <div class="study-done-next-label">Continue studying?</div>
           <div class="study-done-next-title">Move on to the next sentence</div>
-          <div class="study-done-next-detail">Add ${escapeHTML(nextSentence.id)} to this study</div>
-          <div class="study-done-next-copy">Keep going with the next sentence when you're ready, or use the sentence selector to add more from this work.</div>
+          <div class="study-done-next-detail">Study ${escapeHTML(nextSentence.id)} next</div>
+          <div class="study-done-next-copy">Keep going with the next sentence when you're ready, or use the sentence selector to choose a different set from this work.</div>
           <button class="study-done-btn study-done-primary" id="btn-next-sentence">→ Study Next Sentence</button>
         </div>`
       : nextWork
@@ -478,7 +475,7 @@ function render() {
     });
     $('#btn-next-sentence')?.addEventListener('click', () => {
       if (!nextSentence) return;
-      extendStudyWithSentence(nextSentence.id);
+      moveStudyToSentence(nextSentence.id);
     });
     $('#btn-next-work')?.addEventListener('click', () => {
       if (!nextWork) return;
