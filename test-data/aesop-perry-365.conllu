@@ -1,0 +1,41 @@
+# title = The Shepherd about to enclose a Wolf in the Fold
+# sent_id = perry-365-s1
+# text = Μάνδρης ἔσω τις πρόβατα συλλέγων δείλης κνηκὸν μετ' αὐτῶν λύκον ἔμελλε συγκλείειν.
+# parallel_id = lyceum-aesop-p365/s1
+# translation_lang = en
+# prose_translation = At evening a shepherd was gathering his sheep into the fold and was about to shut in a tawny wolf along with them.
+# literal_translation = Someone, gathering sheep inside the fold at evening, was about to shut in a tawny wolf with them.
+1	Μάνδρης	μάνδρα	NOUN	noun.fem.sg.gen	Gender=Fem|Number=Sing|Case=Gen	5	obl	_	gloss=of the fold
+2	ἔσω	ἔσω	ADP	preposition.gen	_	1	case	_	gloss=inside
+3	τις	τις	PRON	pron.masc.sg.nom	PronType=Ind|Gender=Masc|Number=Sing|Case=Nom	11	nsubj	_	gloss=someone / a certain man
+4	πρόβατα	πρόβατον	NOUN	noun.neut.pl.acc	Gender=Neut|Number=Plur|Case=Acc	5	obj	_	gloss=sheep
+5	συλλέγων	συλλέγω	VERB	verb.pres.ptcp.act.masc.sg.nom	Aspect=Imp|Mood=Part|Tense=Pres|Voice=Act|Gender=Masc|Number=Sing|Case=Nom	11	advcl	_	gloss=gathering together
+6	δείλης	δείλη	NOUN	noun.fem.sg.gen	Gender=Fem|Number=Sing|Case=Gen	5	obl	_	gloss=at evening
+7	κνηκὸν	κνηκός	ADJ	adj.masc.sg.acc	Degree=Pos|Gender=Masc|Number=Sing|Case=Acc	10	amod	_	gloss=tawny / saffron-colored
+8	μετ'	μετά	ADP	preposition.gen	_	9	case	_	gloss=with
+9	αὐτῶν	αὐτός	PRON	pron.neut.pl.gen	Gender=Neut|Number=Plur|Case=Gen	12	obl	_	gloss=them
+10	λύκον	λύκος	NOUN	noun.masc.sg.acc	Gender=Masc|Number=Sing|Case=Acc	12	obj	_	gloss=wolf
+11	ἔμελλε	μέλλω	VERB	verb.impf.ind.act.3sg	Aspect=Imp|Mood=Ind|Tense=Imp|Voice=Act|Number=Sing|Person=3	0	root	_	gloss=was about to
+12	συγκλείειν	συγκλείω	VERB	verb.pres.inf.act	Aspect=Imp|Mood=Inf|Tense=Pres|Voice=Act	11	xcomp	_	gloss=to shut in together
+
+# sent_id = perry-365-s2
+# text = ὁ κύων δ' ἰδὼν πρὸς αὐτὸν εἶπε· πῶς σπεύδεις τὰ πρόβατα σῶσαι, τοῦτον εἰσαγὼν ἥμιν;
+# parallel_id = lyceum-aesop-p365/s2
+# translation_lang = en
+# prose_translation = When the dog saw this, he said to him, “How are you trying to save the sheep when you are bringing this creature in among us?”
+# literal_translation = And the dog, having seen, said to him, “How do you hasten to save the sheep, bringing this one in to us?”
+13	ὁ	ὁ	DET	article.masc.sg.nom	Definite=Def|PronType=Art|Gender=Masc|Number=Sing|Case=Nom	14	det	_	gloss=the
+14	κύων	κύων	NOUN	noun.masc.sg.nom	Gender=Masc|Number=Sing|Case=Nom	19	nsubj	_	gloss=dog
+15	δ'	δέ	CCONJ	conjunction	_	19	cc	_	gloss=and / but
+16	ἰδὼν	ὁράω	VERB	verb.aor.ptcp.act.masc.sg.nom	Aspect=Perf|Mood=Part|Tense=Aor|Voice=Act|Gender=Masc|Number=Sing|Case=Nom	19	advcl	_	gloss=having seen
+17	πρὸς	πρός	ADP	preposition.acc	_	18	case	_	gloss=to
+18	αὐτὸν	αὐτός	PRON	pron.masc.sg.acc	Gender=Masc|Number=Sing|Case=Acc	19	obl	_	gloss=him
+19	εἶπε	λέγω	VERB	verb.aor.ind.act.3sg	Aspect=Perf|Mood=Ind|Tense=Aor|Voice=Act|Number=Sing|Person=3	0	root	_	gloss=said
+20	πῶς	πῶς	ADV	adverb	_	21	advmod	_	gloss=how
+21	σπεύδεις	σπεύδω	VERB	verb.pres.ind.act.2sg	Aspect=Imp|Mood=Ind|Tense=Pres|Voice=Act|Number=Sing|Person=2	19	ccomp	_	gloss=are you hurrying
+22	τὰ	ὁ	DET	article.neut.pl.acc	Definite=Def|PronType=Art|Gender=Neut|Number=Plur|Case=Acc	23	det	_	gloss=the
+23	πρόβατα	πρόβατον	NOUN	noun.neut.pl.acc	Gender=Neut|Number=Plur|Case=Acc	24	obj	_	gloss=sheep
+24	σῶσαι	σῴζω	VERB	verb.aor.inf.act	Aspect=Perf|Mood=Inf|Tense=Aor|Voice=Act	21	xcomp	_	gloss=to save
+25	τοῦτον	οὗτος	PRON	pron.masc.sg.acc	PronType=Dem|Gender=Masc|Number=Sing|Case=Acc	26	obj	_	gloss=this one / this fellow
+26	εἰσαγὼν	εἰσάγω	VERB	verb.aor.ptcp.act.masc.sg.nom	Aspect=Perf|Mood=Part|Tense=Aor|Voice=Act|Gender=Masc|Number=Sing|Case=Nom	21	advcl	_	gloss=having brought in
+27	ἥμιν	ἐγώ	PRON	pron.1pl.dat	Case=Dat|Number=Plur|Person=1	26	iobj	_	gloss=to us
