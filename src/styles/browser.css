@@ -210,6 +210,7 @@
 .file-card-actions {
   display: flex;
   gap: 8px;
+  flex-wrap: wrap;
 }
 
 .file-card-actions button {
@@ -233,6 +234,12 @@
   background: color-mix(in srgb, var(--accent) 20%, var(--bg-secondary));
   border-color: var(--accent);
   color: var(--accent);
+}
+
+.file-card-actions .action-cram {
+  background: color-mix(in srgb, #e0af68 18%, var(--bg-secondary));
+  border-color: #e0af68;
+  color: #e0af68;
 }
 
 .file-card-actions button:disabled {

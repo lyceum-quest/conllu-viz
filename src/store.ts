@@ -4,6 +4,7 @@
  */
 
 import { parseConllu } from './types';
+import type { StudyMode } from './router';
 
 // ── Types ────────────────────────────────────────────────────────────────
 
@@ -38,6 +39,7 @@ export interface StudyPrefs {
 
 export interface SavedStudyProgress {
   fileId: string;
+  mode: StudyMode;
   selectedSentences: string[];
   queue: string[];
   currentIdx: number;
@@ -121,8 +123,8 @@ function normalizeSelectedSentences(selectedSentences: Iterable<string>): string
   return [...new Set(selectedSentences)];
 }
 
-function studyProgressKey(fileId: string, selectedSentences: Iterable<string>): string {
-  return `${fileId}\u0000${[...new Set(selectedSentences)].sort().join('\u0001')}`;
+function studyProgressKey(fileId: string, mode: StudyMode, selectedSentences: Iterable<string>): string {
+  return `${fileId}\u0000${mode}\u0000${[...new Set(selectedSentences)].sort().join('\u0001')}`;
 }
 
 function loadStudyProgressMap(): Record<string, SavedStudyProgress> {
@@ -149,23 +151,23 @@ export function setStudySelection(store: AppStore, fileId: string, selectedSente
   };
 }
 
-export function loadStudyProgress(fileId: string, selectedSentences: Iterable<string>): SavedStudyProgress | null {
+export function loadStudyProgress(fileId: string, mode: StudyMode, selectedSentences: Iterable<string>): SavedStudyProgress | null {
   const map = loadStudyProgressMap();
-  return map[studyProgressKey(fileId, selectedSentences)] ?? null;
+  return map[studyProgressKey(fileId, mode, selectedSentences)] ?? null;
 }
 
 export function saveStudyProgress(progress: SavedStudyProgress) {
   const map = loadStudyProgressMap();
-  map[studyProgressKey(progress.fileId, progress.selectedSentences)] = {
+  map[studyProgressKey(progress.fileId, progress.mode, progress.selectedSentences)] = {
     ...progress,
     selectedSentences: normalizeSelectedSentences(progress.selectedSentences),
   };
   saveStudyProgressMap(map);
 }
 
-export function clearStudyProgress(fileId: string, selectedSentences: Iterable<string>) {
+export function clearStudyProgress(fileId: string, mode: StudyMode, selectedSentences: Iterable<string>) {
   const map = loadStudyProgressMap();
-  delete map[studyProgressKey(fileId, selectedSentences)];
+  delete map[studyProgressKey(fileId, mode, selectedSentences)];
   saveStudyProgressMap(map);
 }
 

@@ -1,25 +1,30 @@
 /**
  * Simple hash-based router for the SPA.
  * Routes:
- *   #browser                    — conllu file browser (default)
- *   #tree:<fileId>              — dependency tree view
- *   #study:<fileId>?sentences=… — SRS study session
+ *   #browser                           — conllu file browser (default)
+ *   #tree:<fileId>                     — dependency tree view
+ *   #study:<fileId>?sentences=…        — SRS study session
+ *   #study:<fileId>?mode=cram&…        — cram session
  */
 
 export type PageType = 'browser' | 'tree' | 'study';
+export type StudyMode = 'srs' | 'cram';
 
 export interface Route {
   page: PageType;
   fileId?: string;
   selectedSentences?: string[];
   hasSelectedSentences: boolean;
+  studyMode: StudyMode;
 }
 
 export interface RouteOptions {
   selectedSentences?: Iterable<string>;
+  studyMode?: StudyMode;
 }
 
 const SENTENCE_PARAM = 'sentences';
+const MODE_PARAM = 'mode';
 const SENTENCE_SEPARATOR = '|';
 
 export function parseRoute(): Route {
@@ -31,9 +36,10 @@ export function parseRoute(): Route {
   const selectedSentences = hasSelectedSentences
     ? rawSelected.split(SENTENCE_SEPARATOR).filter(Boolean)
     : undefined;
+  const studyMode = params.get(MODE_PARAM) === 'cram' ? 'cram' : 'srs';
 
   if (pathPart.startsWith('tree:')) {
-    return { page: 'tree', fileId: pathPart.slice(5), hasSelectedSentences };
+    return { page: 'tree', fileId: pathPart.slice(5), hasSelectedSentences, studyMode };
   }
   if (pathPart.startsWith('study:')) {
     return {
@@ -41,9 +47,10 @@ export function parseRoute(): Route {
       fileId: pathPart.slice(6),
       selectedSentences,
       hasSelectedSentences,
+      studyMode,
     };
   }
-  return { page: 'browser', hasSelectedSentences: false };
+  return { page: 'browser', hasSelectedSentences: false, studyMode: 'srs' };
 }
 
 export function routeUrl(page: PageType, fileId?: string, options: RouteOptions = {}): string {
@@ -52,9 +59,12 @@ export function routeUrl(page: PageType, fileId?: string, options: RouteOptions 
   const base = fileId ? `#${page}:${fileId}` : `#${page}`;
   const params = new URLSearchParams();
 
-  if (page === 'study' && options.selectedSentences !== undefined) {
-    const selected = [...new Set(options.selectedSentences)];
-    params.set(SENTENCE_PARAM, selected.join(SENTENCE_SEPARATOR));
+  if (page === 'study') {
+    if (options.studyMode === 'cram') params.set(MODE_PARAM, 'cram');
+    if (options.selectedSentences !== undefined) {
+      const selected = [...new Set(options.selectedSentences)];
+      params.set(SENTENCE_PARAM, selected.join(SENTENCE_SEPARATOR));
+    }
   }
 
   const query = params.toString();

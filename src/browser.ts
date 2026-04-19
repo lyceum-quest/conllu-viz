@@ -147,12 +147,20 @@ function createFileGrid() {
 function createFileCard(file: import('./store').StoredFile) {
   const card = createEl('div', 'file-card');
 
-  let sentences = 0, totalTokens = 0;
+  let sentences = 0;
+  let totalTokens = 0;
+  let workTitle: string | undefined;
   try {
     const treebank = parseConllu(file.content, file.name);
     sentences = treebank.sentences.length;
     totalTokens = treebank.sentences.reduce((a, s) => a + s.tokens.length, 0);
+    workTitle = treebank.title;
   } catch { /* corrupt file */ }
+
+  const displayTitle = workTitle || file.name;
+  const metaPrefix = workTitle && workTitle !== file.name
+    ? `${escapeHTML(file.name)} · `
+    : '';
 
   const session = store.sessions[file.id];
   const reviewed = session ? getReviewedCount(session) : 0;
@@ -160,8 +168,8 @@ function createFileCard(file: import('./store').StoredFile) {
   const pct = getMasteryPct(session || { fileId: file.id, tokens: {} }, totalTokens);
 
   card.innerHTML = `
-    <div class="file-card-name">${escapeHTML(file.name)}</div>
-    <div class="file-card-author">${file.source === 'upload' ? 'Uploaded' : 'Default'} · ${sentences} sentences · ${totalTokens} words</div>
+    <div class="file-card-name">${escapeHTML(displayTitle)}</div>
+    <div class="file-card-author">${metaPrefix}${file.source === 'upload' ? 'Uploaded' : 'Default'} · ${sentences} sentences · ${totalTokens} words</div>
     <div class="file-card-mastery"><div class="file-card-mastery-fill" style="width:${pct}%"></div></div>
     <div class="file-card-stats">
       <span>✅ ${reviewed} reviewed</span>
@@ -169,17 +177,24 @@ function createFileCard(file: import('./store').StoredFile) {
     </div>
     <div class="file-card-actions">
       <button class="action-study" data-action="study">📝 Study</button>
+      <button class="action-cram" data-action="cram">🔥 Cram</button>
       <button data-action="browse">🌳 Browse</button>
     </div>
   `;
 
   const studyBtn = card.querySelector('[data-action="study"]')!;
+  const cramBtn = card.querySelector('[data-action="cram"]')!;
   const browseBtn = card.querySelector('[data-action="browse"]')!;
 
   studyBtn.addEventListener('click', (e) => {
     e.stopPropagation();
     const selectedSentences = getStudySelection(store, file.id) ?? undefined;
-    navigate('study', file.id, { selectedSentences });
+    navigate('study', file.id, { selectedSentences, studyMode: 'srs' });
+  });
+  cramBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const selectedSentences = getStudySelection(store, file.id) ?? undefined;
+    navigate('study', file.id, { selectedSentences, studyMode: 'cram' });
   });
   browseBtn.addEventListener('click', (e) => { e.stopPropagation(); navigate('tree', file.id); });
 

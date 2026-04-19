@@ -24,6 +24,7 @@ import {
 } from './srs';
 import { buildMorphAnalysisHTML } from './morpho';
 import { navigate, routeUrl } from './router';
+import type { StudyMode } from './router';
 
 import './styles/tokens.css';
 import './styles/study.css';
@@ -47,6 +48,7 @@ interface StudyState {
   fileId: string;
   fileName: string;
   workTitle?: string;
+  mode: StudyMode;
   session: FileSession;
   sentences: Sentence[];
   allKeys: string[];
@@ -218,11 +220,20 @@ function resolveInitialSelection(
   return defaultSelection(sentences);
 }
 
-function isSavedProgressValid(progress: SavedStudyProgress, allKeys: string[], selectedSentences: Set<string>): boolean {
+function isSavedProgressValid(progress: SavedStudyProgress, allKeys: string[], selectedSentences: Set<string>, mode: StudyMode): boolean {
   const allowedKeys = new Set(allKeys.filter(key => selectedSentences.has(parseTokenKey(key).sentId)));
-  return progress.currentIdx >= 0
+  return progress.mode === mode
+    && progress.currentIdx >= 0
     && progress.currentIdx <= progress.queue.length
     && progress.queue.every(key => allowedKeys.has(key));
+}
+
+function getFileDisplayTitle(file: { name: string; content: string }, fallbackId?: string) {
+  try {
+    return parseConllu(file.content, file.name).title || file.name || fallbackId || '';
+  } catch {
+    return file.name || fallbackId || '';
+  }
 }
 
 function persistStudySelection(st: StudyState) {
@@ -230,7 +241,7 @@ function persistStudySelection(st: StudyState) {
   setStudySelection(st.store, st.fileId, selected);
   saveStore(st.store);
 
-  const nextUrl = routeUrl('study', st.fileId, { selectedSentences: selected });
+  const nextUrl = routeUrl('study', st.fileId, { selectedSentences: selected, studyMode: st.mode });
   if (window.location.hash !== nextUrl) {
     history.replaceState(null, '', nextUrl);
   }
@@ -239,6 +250,7 @@ function persistStudySelection(st: StudyState) {
 function persistStudyProgress(st: StudyState) {
   saveStudyProgress({
     fileId: st.fileId,
+    mode: st.mode,
     selectedSentences: orderedSelectedSentences(st.sentences, st.selectedSentences),
     queue: [...st.queue],
     currentIdx: st.currentIdx,
@@ -249,7 +261,13 @@ function persistStudyProgress(st: StudyState) {
   });
 }
 
+function isCramMode(st: StudyState): boolean {
+  return st.mode === 'cram';
+}
+
 function advancePastFutureCards(st: StudyState): boolean {
+  if (isCramMode(st)) return false;
+
   let advanced = false;
   while (st.currentIdx < st.queue.length) {
     const key = st.queue[st.currentIdx];
@@ -320,7 +338,7 @@ function onKeydown(e: KeyboardEvent) {
 
 // ── Mount ─────────────────────────────────────────────────────────────────
 
-export function mount(fileId: string, routeSelectedSentences?: string[], hasRouteSelection = false) {
+export function mount(fileId: string, routeSelectedSentences?: string[], hasRouteSelection = false, mode: StudyMode = 'srs') {
   if (!fileId) { navigate('browser'); return; }
 
   const store = loadStore();
@@ -338,15 +356,15 @@ export function mount(fileId: string, routeSelectedSentences?: string[], hasRout
     hasRouteSelection,
   );
   const selectedSentenceSet = new Set(initialSelection);
-  const savedProgress = loadStudyProgress(fileId, initialSelection);
-  const canRestoreProgress = !!savedProgress && isSavedProgressValid(savedProgress, allKeys, selectedSentenceSet);
-  if (savedProgress && !canRestoreProgress) clearStudyProgress(fileId, initialSelection);
+  const savedProgress = loadStudyProgress(fileId, mode, initialSelection);
+  const canRestoreProgress = !!savedProgress && isSavedProgressValid(savedProgress, allKeys, selectedSentenceSet, mode);
+  if (savedProgress && !canRestoreProgress) clearStudyProgress(fileId, mode, initialSelection);
   const queue = canRestoreProgress
     ? [...savedProgress.queue]
-    : buildQueue(allKeys, session, treebank.sentences, selectedSentenceSet);
+    : buildQueue(allKeys, session, selectedSentenceSet, mode);
 
   state = {
-    store, fileId, fileName: file.name, workTitle: treebank.title, session,
+    store, fileId, fileName: file.name, workTitle: treebank.title, mode, session,
     sentences: treebank.sentences,
     allKeys, queue,
     currentIdx: canRestoreProgress ? savedProgress.currentIdx : 0,
@@ -384,10 +402,15 @@ export function mount(fileId: string, routeSelectedSentences?: string[], hasRout
   window.addEventListener('resize', hideMorphTooltip);
 }
 
-function buildQueue(allKeys: string[], session: FileSession, sentences: Sentence[], selectedSentences: Set<string>): string[] {
+function buildQueue(
+  allKeys: string[],
+  session: FileSession,
+  selectedSentences: Set<string>,
+  mode: StudyMode,
+): string[] {
   const now = Date.now();
   const due: string[] = [];
-  const neu: string[] = [];
+  const future: string[] = [];
 
   for (const key of allKeys) {
     const { sentId } = parseTokenKey(key);
@@ -396,29 +419,30 @@ function buildQueue(allKeys: string[], session: FileSession, sentences: Sentence
     if (!selectedSentences.has(sentId)) continue;
 
     const ss = session.tokens[key];
-    if (!ss || ss.nextReview <= now) {
+    if (mode === 'cram' || !ss || ss.nextReview <= now) {
       due.push(key);
     } else {
-      neu.push(key);
+      future.push(key);
     }
   }
 
-  // Only show cards that are new or already due; the rest are "future reviews"
-  // that the user will see in future sessions.
   shuffle(due);
-  // No shuffling of neu so new cards appear in reading order as an option
-  // but they are appended after due cards.
-  shuffle(neu);
-  // Include ALL cards in the session queue; future-due cards will be skipped
-  // by the "nextReview" check on rendering.
-  return [...due, ...neu];
+
+  if (mode === 'cram') {
+    return due;
+  }
+
+  // Include future cards in the queue so an in-progress session can still be
+  // resumed without rebuilding, but they will be skipped on render.
+  shuffle(future);
+  return [...due, ...future];
 }
 
 function restartStudyWithSelection(selectedSentences: Set<string>) {
   if (!state) return;
   const nextSelection = new Set(selectedSentences);
   const previousSelection = orderedSelectedSentences(state.sentences, state.selectedSentences);
-  const newQueue = buildQueue(state.allKeys, state.session, state.sentences, nextSelection);
+  const newQueue = buildQueue(state.allKeys, state.session, nextSelection, state.mode);
 
   state.selectedSentences = nextSelection;
   state.queue = newQueue;
@@ -429,7 +453,7 @@ function restartStudyWithSelection(selectedSentences: Set<string>) {
   state.showSentenceSelector = false;
 
   if (!isSameSelection(previousSelection, orderedSelectedSentences(state.sentences, nextSelection))) {
-    clearStudyProgress(state.fileId, previousSelection);
+    clearStudyProgress(state.fileId, state.mode, previousSelection);
   }
 
   advancePastFutureCards(state);
@@ -458,10 +482,15 @@ function getNextWork(store: AppStore, fileId: string) {
   const files = listFiles(store);
   const currentIdx = files.findIndex(file => file.id === fileId);
   if (currentIdx === -1) return null;
-  return files[currentIdx + 1] ?? null;
+  const nextFile = files[currentIdx + 1];
+  if (!nextFile) return null;
+  return {
+    ...nextFile,
+    displayTitle: getFileDisplayTitle(nextFile, nextFile.id),
+  };
 }
 
-function leaveStudy(page: 'browser' | 'study', fileId?: string) {
+function leaveStudy(page: 'browser' | 'study', fileId?: string, options?: Parameters<typeof navigate>[2]) {
   const pageEl = document.getElementById('page');
   pageEl?.removeEventListener('mouseover', onMorphMouseOver);
   pageEl?.removeEventListener('mousemove', onMorphMouseMove);
@@ -473,7 +502,7 @@ function leaveStudy(page: 'browser' | 'study', fileId?: string) {
   window.removeEventListener('resize', hideMorphTooltip);
   hideMorphTooltip();
   state = null;
-  navigate(page, fileId);
+  navigate(page, fileId, options);
 }
 
 // ── Render ────────────────────────────────────────────────────────────────
@@ -486,10 +515,12 @@ function render() {
   const st = state; // narrow for TS
   if (advancePastFutureCards(st)) persistStudyProgress(st);
 
-  const { fileId, fileName, workTitle, session, sentences, queue, store, sessionTotal, reviewedCount } = st;
+  const { fileId, fileName, workTitle, mode, session, sentences, queue, store, sessionTotal, reviewedCount } = st;
   const file = store.files[fileId];
   const displayTitle = workTitle || fileName;
   const showFileName = !!workTitle && workTitle !== fileName;
+  const sessionLabel = mode === 'cram' ? '🔥 Cram Study' : '📝 Spaced Repetition';
+  const reviewedLabel = mode === 'cram' ? 'studied' : 'reviewed';
 
   // Hide the tree app
   const app = document.getElementById('app') as HTMLElement;
@@ -510,7 +541,7 @@ function render() {
   const header = createEl('div');
   header.className = 'study-header';
   header.innerHTML = `
-    <h2>📝 Spaced Repetition</h2>
+    <h2>${sessionLabel}</h2>
     <div class="study-header-row">
       <div class="study-header-copy">
         <div class="study-file-name">${escapeHTML(displayTitle)}</div>
@@ -531,7 +562,7 @@ function render() {
   progress.innerHTML = `
     <div class="study-progress-bar"><div class="study-progress-fill" style="width:${pct}%"></div></div>
     <div class="study-progress-label">
-      <span>${reviewedCount} reviewed / ${sessionTotal} total</span>
+      <span>${reviewedCount} ${reviewedLabel} / ${sessionTotal} total</span>
       <span class="study-due-count">${queueRemaining} remaining</span>
     </div>
   `;
@@ -551,27 +582,28 @@ function render() {
           <div class="study-done-next-title">Move on to the next sentence</div>
           <div class="study-done-next-detail">Study ${escapeHTML(nextSentence.id)} next</div>
           <div class="study-done-next-copy">Keep going with the next sentence when you're ready, or use the sentence selector to choose a different set from this work.</div>
-          <button class="study-done-btn study-done-primary" id="btn-next-sentence">→ Study Next Sentence</button>
+          <button class="study-done-btn study-done-primary" id="btn-next-sentence">→ ${mode === 'cram' ? 'Cram' : 'Study'} Next Sentence</button>
         </div>`
       : nextWork
         ? `
         <div class="study-done-next-step">
           <div class="study-done-next-label">Continue studying?</div>
           <div class="study-done-next-title">Move on to the next work</div>
-          <div class="study-done-next-detail">${escapeHTML(nextWork.name)}</div>
+          <div class="study-done-next-detail">${escapeHTML(nextWork.displayTitle)}</div>
           <div class="study-done-next-copy">You've finished every sentence in this work. Continue into the next work when you're ready.</div>
-          <button class="study-done-btn study-done-primary" id="btn-next-work">→ Study Next Work</button>
+          <button class="study-done-btn study-done-primary" id="btn-next-work">→ ${mode === 'cram' ? 'Cram' : 'Study'} Next Work</button>
         </div>`
         : '';
 
     doneEl.innerHTML = `
       <div class="done-icon">🎉</div>
       <h2>Session Complete!</h2>
-      <p>Reviewed ${reviewedCount} of ${sessionTotal} cards this session.</p>
-      <p style="color:var(--text-muted);font-size:13px;">${mastered} words mastered across all sessions.</p>
+      <p>${mode === 'cram' ? 'Studied' : 'Reviewed'} ${reviewedCount} of ${sessionTotal} cards this session.</p>
+      <p style="color:var(--text-muted);font-size:13px;">${mastered} words mastered across all spaced-repetition sessions.</p>
+      ${mode === 'cram' ? '<p style="color:var(--text-muted);font-size:13px;">Cram sessions do not change your review schedule.</p>' : ''}
       ${nextActionHTML}
       <div class="study-done-actions">
-        <button class="study-done-btn" id="btn-review-again">Review Again</button>
+        <button class="study-done-btn" id="btn-review-again">${mode === 'cram' ? 'Cram Again' : 'Review Again'}</button>
         <button class="study-done-btn study-done-secondary" id="btn-back-browser">← Back to Files</button>
       </div>
     `;
@@ -582,15 +614,16 @@ function render() {
     $('#btn-review-again')!.addEventListener('click', () => {
       if (!st) return;
       const reviewKeys = st.allKeys.filter(key => st.selectedSentences.has(parseTokenKey(key).sentId));
-      // Reset selected cards to due-now so the skip-loop won't bypass them
-      for (const key of reviewKeys) {
-        if (st.session.tokens[key]) {
-          st.session.tokens[key].nextReview = 0;
+      if (!isCramMode(st)) {
+        // Reset selected cards to due-now so the skip-loop won't bypass them
+        for (const key of reviewKeys) {
+          if (st.session.tokens[key]) {
+            st.session.tokens[key].nextReview = 0;
+          }
         }
+        st.store.sessions[st.fileId] = st.session;
+        saveStore(st.store);
       }
-      st.store.sessions[st.fileId] = st.session;
-      saveStore(st.store);
-      // Bypass the due-check: include all selected cards for re-review
       st.sessionTotal = reviewKeys.length;
       st.queue = [...reviewKeys];
       shuffle(st.queue);
@@ -608,7 +641,7 @@ function render() {
     });
     $('#btn-next-work')?.addEventListener('click', () => {
       if (!nextWork) return;
-      leaveStudy('study', nextWork.id);
+      leaveStudy('study', nextWork.id, { studyMode: st.mode });
     });
     $('#btn-sentence-selector')!.addEventListener('click', () => toggleSentenceSelector());
     return;
@@ -730,10 +763,18 @@ function createRatings(container: Element, cardKey: string) {
   const btns = document.createElement('div');
   btns.className = 'study-ratings';
   const srsState = state!.session.tokens[cardKey] || newSRSState();
+  const cramIntervals: Record<number, string> = {
+    1: 'repeat',
+    2: 'tough',
+    3: 'done',
+    4: 'easy',
+  };
 
   for (const r of RATINGS) {
     const keyLabel = r.label === 'Again' ? '1' : r.label === 'Hard' ? '2' : r.label === 'Good' ? '3' : '4';
-    const interval = intervalLabel(srsState, r.quality);
+    const interval = state && isCramMode(state)
+      ? cramIntervals[r.quality]
+      : intervalLabel(srsState, r.quality);
     btns.innerHTML += `
       <button class="study-rating-btn ${r.label.toLowerCase()}" id="rating-${r.label.toLowerCase()}">
         <span class="rating-kbd">${keyLabel}</span>
@@ -746,7 +787,9 @@ function createRatings(container: Element, cardKey: string) {
 
   const help = document.createElement('div');
   help.className = 'study-kbd-hint';
-  help.innerHTML = '<kbd>Space</kbd> flip · <kbd>1</kbd><kbd>2</kbd><kbd>3</kbd><kbd>4</kbd> rate · <kbd>S</kbd> sentences · <kbd>Esc</kbd> back';
+  help.innerHTML = state && isCramMode(state)
+    ? '<kbd>Space</kbd> flip · <kbd>1</kbd><kbd>2</kbd><kbd>3</kbd><kbd>4</kbd> rate · <kbd>S</kbd> sentences · <kbd>Esc</kbd> back · session only'
+    : '<kbd>Space</kbd> flip · <kbd>1</kbd><kbd>2</kbd><kbd>3</kbd><kbd>4</kbd> rate · <kbd>S</kbd> sentences · <kbd>Esc</kbd> back';
   wrap.appendChild(help);
 
   container.appendChild(wrap);
@@ -887,14 +930,16 @@ function handleRating(quality: number) {
   const timeMs = Date.now() - state.cardShowTime;
   state.totalTimeMs += Math.max(0, timeMs);
 
-  if (!session.tokens[key]) session.tokens[key] = newSRSState();
+  if (!isCramMode(state)) {
+    if (!session.tokens[key]) session.tokens[key] = newSRSState();
 
-  const srsState = session.tokens[key];
-  srsReview(srsState, quality);
+    const srsState = session.tokens[key];
+    srsReview(srsState, quality);
 
-  session.lastReview = Date.now();
-  store.sessions[fileId] = session;
-  saveStore(store);
+    session.lastReview = Date.now();
+    store.sessions[fileId] = session;
+    saveStore(store);
+  }
 
   // ── Queue management (Anki-style for session) ──
   if (quality === 1) {
@@ -908,8 +953,7 @@ function handleRating(quality: number) {
 
     // Do NOT increment currentIdx or review count — card stays in session
   } else {
-    // HARD / GOOD / EASY — card progresses to next interval
-    // Count as reviewed (final rating for this card this session)
+    // HARD / GOOD / EASY — card is done for this session
     state.reviewedCount++;
     state.currentIdx++;
   }
@@ -930,6 +974,7 @@ function updateNav(st: StudyState) {
     studyLink.style.display = '';
     studyLink.href = routeUrl('study', st.fileId, {
       selectedSentences: orderedSelectedSentences(st.sentences, st.selectedSentences),
+      studyMode: st.mode,
     });
   }
 }

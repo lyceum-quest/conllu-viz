@@ -41,6 +41,7 @@ const fileInput = document.getElementById('file-input') as HTMLInputElement;
 const morphOverlay = document.getElementById('morph-overlay') as HTMLElement;
 const morphPanel = document.getElementById('morph-panel') as HTMLElement;
 const morphBody = document.getElementById('morph-body') as HTMLElement;
+const morphTooltip = document.getElementById('morph-tooltip') as HTMLElement;
 const morphClose = document.getElementById('morph-close') as HTMLButtonElement;
 const langSelect = document.getElementById('lang-select') as HTMLSelectElement;
 const translationPanel = document.getElementById('translation-panel') as HTMLElement;
@@ -162,7 +163,7 @@ function handleRoute() {
     else mountBrowserTree(); // no file selected — show existing tree UI
   } else if (page === 'study') {
     app.style.display = 'none';
-    mountStudy(fileId!, route.selectedSentences, route.hasSelectedSentences);
+    mountStudy(fileId!, route.selectedSentences, route.hasSelectedSentences, route.studyMode);
   } else {
     app.style.display = 'none';
     mountBrowser();
@@ -218,7 +219,7 @@ function loadTreeForFile(fileId: string) {
 
   // Update nav
   const titleEl = document.getElementById('nav-title');
-  if (titleEl) titleEl.textContent = file.name;
+  if (titleEl) titleEl.textContent = treebank?.title || file.name;
   updateNavHighlights();
 }
 
@@ -469,6 +470,53 @@ function buildSentenceDisplay(sentence: Sentence) {
 
 // --- Morph panel (existing) ---
 
+function positionMorphTooltip(x: number, y: number) {
+  const pad = 14;
+  const maxInset = 8;
+  const rect = morphTooltip.getBoundingClientRect();
+  let left = x + pad;
+  let top = y - 10;
+
+  if (left + rect.width > window.innerWidth - maxInset) left = x - rect.width - pad;
+  if (left < maxInset) left = maxInset;
+  if (top + rect.height > window.innerHeight - maxInset) top = window.innerHeight - rect.height - maxInset;
+  if (top < maxInset) top = maxInset;
+
+  morphTooltip.style.left = `${left}px`;
+  morphTooltip.style.top = `${top}px`;
+}
+
+function showMorphTooltip(target: HTMLElement, x?: number, y?: number) {
+  const template = target.querySelector('.morph-feat-tooltip-template') as HTMLTemplateElement | null;
+  if (!template) return;
+
+  morphTooltip.innerHTML = template.innerHTML;
+  morphTooltip.classList.add('visible');
+  morphTooltip.setAttribute('aria-hidden', 'false');
+
+  if (typeof x === 'number' && typeof y === 'number') {
+    positionMorphTooltip(x, y);
+    return;
+  }
+
+  const rect = target.getBoundingClientRect();
+  positionMorphTooltip(rect.right, rect.top + rect.height / 2);
+}
+
+let activeMorphFeature: HTMLElement | null = null;
+
+function hideMorphTooltip() {
+  activeMorphFeature = null;
+  morphTooltip.classList.remove('visible');
+  morphTooltip.setAttribute('aria-hidden', 'true');
+  morphTooltip.innerHTML = '';
+}
+
+function getMorphFeatureTarget(target: EventTarget | null): HTMLElement | null {
+  if (!(target instanceof Element)) return null;
+  return target.closest('.morph-feat') as HTMLElement | null;
+}
+
 function showMorphPanel(token: Token) {
   morphOverlay.classList.remove('hidden');
   morphBody.innerHTML = buildMorphAnalysisHTML(token, POS_COLORS[token.upos] || '#565f89');
@@ -476,6 +524,7 @@ function showMorphPanel(token: Token) {
 }
 
 function hideMorphPanel() {
+  hideMorphTooltip();
   morphOverlay.classList.add('hidden');
   morphBody.innerHTML = '';
 }
@@ -489,6 +538,52 @@ morphClose.addEventListener('click', hideMorphPanel);
 morphOverlay.addEventListener('click', (e) => {
   if (e.target === morphOverlay) hideMorphPanel();
 });
+morphBody.addEventListener('mouseover', (e) => {
+  const feat = getMorphFeatureTarget(e.target);
+  if (!feat || feat === activeMorphFeature) return;
+  activeMorphFeature = feat;
+  showMorphTooltip(feat, e.clientX, e.clientY);
+});
+morphBody.addEventListener('mousemove', (e) => {
+  const feat = getMorphFeatureTarget(e.target);
+  if (!feat) return;
+  if (feat !== activeMorphFeature) {
+    activeMorphFeature = feat;
+    showMorphTooltip(feat, e.clientX, e.clientY);
+    return;
+  }
+  positionMorphTooltip(e.clientX, e.clientY);
+});
+morphBody.addEventListener('mouseout', (e) => {
+  const feat = getMorphFeatureTarget(e.target);
+  const nextFeat = getMorphFeatureTarget(e.relatedTarget);
+  if (!feat || feat !== activeMorphFeature || nextFeat === feat) return;
+  if (nextFeat) {
+    activeMorphFeature = nextFeat;
+    showMorphTooltip(nextFeat);
+    return;
+  }
+  hideMorphTooltip();
+});
+morphBody.addEventListener('focusin', (e) => {
+  const feat = getMorphFeatureTarget(e.target);
+  if (!feat) return;
+  activeMorphFeature = feat;
+  showMorphTooltip(feat);
+});
+morphBody.addEventListener('focusout', (e) => {
+  const feat = getMorphFeatureTarget(e.target);
+  const nextFeat = getMorphFeatureTarget(e.relatedTarget);
+  if (!feat || nextFeat === feat) return;
+  if (nextFeat) {
+    activeMorphFeature = nextFeat;
+    showMorphTooltip(nextFeat);
+    return;
+  }
+  hideMorphTooltip();
+});
+morphBody.addEventListener('scroll', hideMorphTooltip);
+window.addEventListener('resize', hideMorphTooltip);
 translationClose.addEventListener('click', () => { translationPanel.classList.add('hidden'); });
 
 document.addEventListener('keydown', (e) => {
