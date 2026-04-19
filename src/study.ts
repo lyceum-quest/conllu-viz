@@ -70,6 +70,108 @@ function escapeHTML(s: string): string {
   return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 }
 
+const morphTooltip = document.getElementById('morph-tooltip') as HTMLElement | null;
+let activeMorphFeature: HTMLElement | null = null;
+
+function positionMorphTooltip(x: number, y: number) {
+  if (!morphTooltip) return;
+
+  const pad = 14;
+  const maxInset = 8;
+  const rect = morphTooltip.getBoundingClientRect();
+  let left = x + pad;
+  let top = y - 10;
+
+  if (left + rect.width > window.innerWidth - maxInset) left = x - rect.width - pad;
+  if (left < maxInset) left = maxInset;
+  if (top + rect.height > window.innerHeight - maxInset) top = window.innerHeight - rect.height - maxInset;
+  if (top < maxInset) top = maxInset;
+
+  morphTooltip.style.left = `${left}px`;
+  morphTooltip.style.top = `${top}px`;
+}
+
+function showMorphTooltip(target: HTMLElement, x?: number, y?: number) {
+  if (!morphTooltip) return;
+
+  const template = target.querySelector('.morph-feat-tooltip-template') as HTMLTemplateElement | null;
+  if (!template) return;
+
+  morphTooltip.innerHTML = template.innerHTML;
+  morphTooltip.classList.add('visible');
+  morphTooltip.setAttribute('aria-hidden', 'false');
+
+  if (typeof x === 'number' && typeof y === 'number') {
+    positionMorphTooltip(x, y);
+    return;
+  }
+
+  const rect = target.getBoundingClientRect();
+  positionMorphTooltip(rect.right, rect.top + rect.height / 2);
+}
+
+function hideMorphTooltip() {
+  if (!morphTooltip) return;
+  activeMorphFeature = null;
+  morphTooltip.classList.remove('visible');
+  morphTooltip.setAttribute('aria-hidden', 'true');
+  morphTooltip.innerHTML = '';
+}
+
+function getMorphFeatureTarget(target: EventTarget | null): HTMLElement | null {
+  if (!(target instanceof Element)) return null;
+  return target.closest('.morph-feat') as HTMLElement | null;
+}
+
+function onMorphMouseOver(e: MouseEvent) {
+  const feat = getMorphFeatureTarget(e.target);
+  if (!feat || feat === activeMorphFeature) return;
+  activeMorphFeature = feat;
+  showMorphTooltip(feat, e.clientX, e.clientY);
+}
+
+function onMorphMouseMove(e: MouseEvent) {
+  const feat = getMorphFeatureTarget(e.target);
+  if (!feat) return;
+  if (feat !== activeMorphFeature) {
+    activeMorphFeature = feat;
+    showMorphTooltip(feat, e.clientX, e.clientY);
+    return;
+  }
+  positionMorphTooltip(e.clientX, e.clientY);
+}
+
+function onMorphMouseOut(e: MouseEvent) {
+  const feat = getMorphFeatureTarget(e.target);
+  const nextFeat = getMorphFeatureTarget(e.relatedTarget);
+  if (!feat || feat !== activeMorphFeature || nextFeat === feat) return;
+  if (nextFeat) {
+    activeMorphFeature = nextFeat;
+    showMorphTooltip(nextFeat);
+    return;
+  }
+  hideMorphTooltip();
+}
+
+function onMorphFocusIn(e: FocusEvent) {
+  const feat = getMorphFeatureTarget(e.target);
+  if (!feat) return;
+  activeMorphFeature = feat;
+  showMorphTooltip(feat);
+}
+
+function onMorphFocusOut(e: FocusEvent) {
+  const feat = getMorphFeatureTarget(e.target);
+  const nextFeat = getMorphFeatureTarget(e.relatedTarget);
+  if (!feat || nextFeat === feat) return;
+  if (nextFeat) {
+    activeMorphFeature = nextFeat;
+    showMorphTooltip(nextFeat);
+    return;
+  }
+  hideMorphTooltip();
+}
+
 function shuffle(arr: string[]) {
   for (let i = arr.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
@@ -261,8 +363,25 @@ export function mount(fileId: string, routeSelectedSentences?: string[], hasRout
   persistStudyProgress(state);
   updateNav(state);
   render();
+
+  const page = document.getElementById('page');
+  page?.removeEventListener('mouseover', onMorphMouseOver);
+  page?.removeEventListener('mousemove', onMorphMouseMove);
+  page?.removeEventListener('mouseout', onMorphMouseOut);
+  page?.removeEventListener('focusin', onMorphFocusIn);
+  page?.removeEventListener('focusout', onMorphFocusOut);
+  page?.removeEventListener('scroll', hideMorphTooltip, true);
+  page?.addEventListener('mouseover', onMorphMouseOver);
+  page?.addEventListener('mousemove', onMorphMouseMove);
+  page?.addEventListener('mouseout', onMorphMouseOut);
+  page?.addEventListener('focusin', onMorphFocusIn);
+  page?.addEventListener('focusout', onMorphFocusOut);
+  page?.addEventListener('scroll', hideMorphTooltip, true);
+
   window.removeEventListener('keydown', onKeydown);
   window.addEventListener('keydown', onKeydown);
+  window.removeEventListener('resize', hideMorphTooltip);
+  window.addEventListener('resize', hideMorphTooltip);
 }
 
 function buildQueue(allKeys: string[], session: FileSession, sentences: Sentence[], selectedSentences: Set<string>): string[] {
@@ -343,7 +462,16 @@ function getNextWork(store: AppStore, fileId: string) {
 }
 
 function leaveStudy(page: 'browser' | 'study', fileId?: string) {
+  const pageEl = document.getElementById('page');
+  pageEl?.removeEventListener('mouseover', onMorphMouseOver);
+  pageEl?.removeEventListener('mousemove', onMorphMouseMove);
+  pageEl?.removeEventListener('mouseout', onMorphMouseOut);
+  pageEl?.removeEventListener('focusin', onMorphFocusIn);
+  pageEl?.removeEventListener('focusout', onMorphFocusOut);
+  pageEl?.removeEventListener('scroll', hideMorphTooltip, true);
   window.removeEventListener('keydown', onKeydown);
+  window.removeEventListener('resize', hideMorphTooltip);
+  hideMorphTooltip();
   state = null;
   navigate(page, fileId);
 }
@@ -352,6 +480,7 @@ function leaveStudy(page: 'browser' | 'study', fileId?: string) {
 
 function render() {
   const page = document.getElementById('page')!;
+  hideMorphTooltip();
   if (!state) { page.innerHTML = ''; return; }
 
   const st = state; // narrow for TS
