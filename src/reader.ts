@@ -551,7 +551,7 @@ function applyPOSColoring() {
 
 // ── Cleanup ────────────────────────────────────────────────────────────
 
-function cleanup() {
+export function cleanup() {
   if (morphTooltipCleanup) {
     morphTooltipCleanup();
     morphTooltipCleanup = null;

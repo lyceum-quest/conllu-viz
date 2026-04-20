@@ -19,7 +19,7 @@ import { layoutSentence, LayoutResult } from './layout';
 import { render, setupPanZoom, exportSVG, setFilter, DEPREL_LABELS } from './renderer';
 import { buildMorphAnalysisHTML } from './morpho';
 import { mount as mountBrowser } from './browser';
-import { mount as mountReader } from './reader';
+import { mount as mountReader, cleanup as cleanupReader } from './reader';
 import { mount as mountStudy } from './study';
 import { parseRoute, navigate, routeUrl, PageType } from './router';
 import { loadStore, saveStore, addFile } from './store';
@@ -157,6 +157,11 @@ function handleRoute() {
   // Show/hide the tree app
   const app = document.getElementById('app')!;
   const pageEl = document.getElementById('page')!;
+
+  // Clean up previous page state
+  if (currentPage !== page && currentPage === 'reader') {
+    cleanupReader();
+  }
 
   if (page === 'tree') {
     app.style.display = '';
