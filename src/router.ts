@@ -3,11 +3,12 @@
  * Routes:
  *   #browser                           — conllu file browser (default)
  *   #tree:<fileId>                     — dependency tree view
+ *   #reader:<fileId>                   — progressive reader view
  *   #study:<fileId>?sentences=…        — SRS study session
  *   #study:<fileId>?mode=cram&…        — cram session
  */
 
-export type PageType = 'browser' | 'tree' | 'study';
+export type PageType = 'browser' | 'tree' | 'reader' | 'study';
 export type StudyMode = 'srs' | 'cram';
 
 export interface Route {
@@ -40,6 +41,9 @@ export function parseRoute(): Route {
 
   if (pathPart.startsWith('tree:')) {
     return { page: 'tree', fileId: pathPart.slice(5), hasSelectedSentences, studyMode };
+  }
+  if (pathPart.startsWith('reader:')) {
+    return { page: 'reader', fileId: pathPart.slice(7), hasSelectedSentences, studyMode };
   }
   if (pathPart.startsWith('study:')) {
     return {

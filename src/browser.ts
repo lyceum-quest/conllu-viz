@@ -178,12 +178,14 @@ function createFileCard(file: import('./store').StoredFile) {
     <div class="file-card-actions">
       <button class="action-study" data-action="study">📝 Study</button>
       <button class="action-cram" data-action="cram">🔥 Cram</button>
+      <button data-action="reader">📖 Read</button>
       <button data-action="browse">🌳 Browse</button>
     </div>
   `;
 
   const studyBtn = card.querySelector('[data-action="study"]')!;
   const cramBtn = card.querySelector('[data-action="cram"]')!;
+  const readerBtn = card.querySelector('[data-action="reader"]')!;
   const browseBtn = card.querySelector('[data-action="browse"]')!;
 
   studyBtn.addEventListener('click', (e) => {
@@ -196,6 +198,7 @@ function createFileCard(file: import('./store').StoredFile) {
     const selectedSentences = getStudySelection(store, file.id) ?? undefined;
     navigate('study', file.id, { selectedSentences, studyMode: 'cram' });
   });
+  readerBtn.addEventListener('click', (e) => { e.stopPropagation(); navigate('reader', file.id); });
   browseBtn.addEventListener('click', (e) => { e.stopPropagation(); navigate('tree', file.id); });
 
   return card;

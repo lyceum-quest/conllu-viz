@@ -11,6 +11,7 @@ import './styles/layout.css';
 import './styles/tree.css';
 import './styles/browser.css';
 import './styles/study.css';
+import './styles/reader.css';
 
 import { parseConllu, collectLegend, Treebank, Sentence, Token } from './types';
 import { segmentGreekWord } from './segment';
@@ -18,6 +19,7 @@ import { layoutSentence, LayoutResult } from './layout';
 import { render, setupPanZoom, exportSVG, setFilter, DEPREL_LABELS } from './renderer';
 import { buildMorphAnalysisHTML } from './morpho';
 import { mount as mountBrowser } from './browser';
+import { mount as mountReader } from './reader';
 import { mount as mountStudy } from './study';
 import { parseRoute, navigate, routeUrl, PageType } from './router';
 import { loadStore, saveStore, addFile } from './store';
@@ -161,6 +163,10 @@ function handleRoute() {
     pageEl.innerHTML = '';
     if (fileId) loadTreeForFile(fileId);
     else mountBrowserTree(); // no file selected — show existing tree UI
+  } else if (page === 'reader') {
+    app.style.display = 'none';
+    if (fileId) mountReader(fileId);
+    else navigate('browser');
   } else if (page === 'study') {
     app.style.display = 'none';
     mountStudy(fileId!, route.selectedSentences, route.hasSelectedSentences, route.studyMode);
@@ -192,12 +198,30 @@ function updateNavHighlights() {
 
   const treeLink = document.getElementById('nav-tree') as HTMLAnchorElement;
   const treeSep = document.getElementById('nav-tree-sep') as HTMLSpanElement;
+  const readerLink = document.getElementById('nav-reader') as HTMLAnchorElement;
+  const readerSep = document.getElementById('nav-reader-sep') as HTMLSpanElement;
   const studyLink = document.getElementById('nav-study') as HTMLAnchorElement;
 
-  if (currentPage === 'tree' && currentFileId) {
-    treeLink.style.display = '';
-    treeSep.style.display = '';
-    treeLink.href = routeUrl('tree', currentFileId);
+  // Default: hide file-specific links
+  treeLink.style.display = 'none';
+  treeSep.style.display = 'none';
+  readerLink.style.display = 'none';
+  readerSep.style.display = 'none';
+  studyLink.style.display = 'none';
+
+  if (currentFileId) {
+    // Show relevant links based on current page
+    if (currentPage === 'tree' || currentPage === 'reader' || currentPage === 'study') {
+      treeLink.style.display = '';
+      treeLink.href = routeUrl('tree', currentFileId);
+    }
+    if (currentPage === 'tree' || currentPage === 'reader' || currentPage === 'study') {
+      readerLink.style.display = '';
+      readerLink.href = routeUrl('reader', currentFileId);
+    }
+    // Show separators between visible links
+    treeSep.style.display = treeLink.style.display ? '' : 'none';
+    readerSep.style.display = readerLink.style.display ? '' : 'none';
   }
 
   if (currentPage === 'study' && currentFileId) {

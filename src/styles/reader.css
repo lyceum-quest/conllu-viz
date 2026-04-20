@@ -1,0 +1,449 @@
+/* ==========================================================================
+   Reader View — Progressive Enhancement
+   ========================================================================== */
+
+/* ── Layout ──────────────────────────────────────────────────────────── */
+
+.reader-container {
+  display: flex;
+  height: calc(100vh - 44px);
+  overflow: hidden;
+  background: var(--bg-primary);
+}
+
+/* ── Sidebar: Layer checkboxes ──────────────────────────────────────── */
+
+.reader-sidebar {
+  width: 220px;
+  min-width: 180px;
+  max-width: 300px;
+  background: var(--bg-secondary);
+  border-right: 1px solid var(--border-subtle);
+  overflow-y: auto;
+  padding: 16px 14px;
+  flex-shrink: 0;
+  transition: margin-left 200ms ease, opacity 200ms ease;
+}
+
+.reader-sidebar.collapsed {
+  margin-left: -220px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.reader-sidebar h2 {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0 0 12px 0;
+  letter-spacing: 0.02em;
+}
+
+.reader-sidebar-section {
+  margin-bottom: 16px;
+}
+
+.reader-sidebar-section-label {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+}
+
+.reader-layer-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 0;
+  cursor: pointer;
+  user-select: none;
+}
+
+.reader-layer-item:hover .reader-layer-label {
+  color: var(--text-primary);
+}
+
+.reader-layer-item input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 16px;
+  height: 16px;
+  border: 1.5px solid var(--border-default);
+  border-radius: 3px;
+  background: var(--bg-tertiary);
+  cursor: pointer;
+  flex-shrink: 0;
+  position: relative;
+  transition: background 100ms ease, border-color 100ms ease;
+}
+
+.reader-layer-item input[type="checkbox"]:checked {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.reader-layer-item input[type="checkbox"]:checked::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 5px;
+  width: 4px;
+  height: 8px;
+  border: solid var(--bg-primary);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.reader-layer-label {
+  font-size: 13px;
+  color: var(--text-secondary);
+  transition: color 100ms ease;
+}
+
+.reader-layer-desc {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-left: 24px;
+  margin-top: -2px;
+  margin-bottom: 4px;
+}
+
+/* ── Toggle button ──────────────────────────────────────────────────── */
+
+.reader-sidebar-toggle {
+  position: fixed;
+  top: 52px;
+  left: 8px;
+  z-index: 100;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-sm);
+  color: var(--text-secondary);
+  font-size: 16px;
+  cursor: pointer;
+  padding: 4px 8px;
+  line-height: 1;
+  transition: color 100ms ease;
+}
+
+.reader-sidebar-toggle:hover {
+  color: var(--text-primary);
+}
+
+.reader-sidebar:not(.collapsed) ~ .reader-sidebar-toggle {
+  left: 228px;
+}
+
+/* ── Main text area ─────────────────────────────────────────────────── */
+
+.reader-main {
+  flex: 1;
+  overflow-y: auto;
+  padding: 32px 48px 80px;
+  max-width: 900px;
+}
+
+.reader-title {
+  font-family: var(--font-greek);
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.reader-file-meta {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 28px;
+}
+
+/* ── Sentence block ─────────────────────────────────────────────────── */
+
+.reader-sentence {
+  margin-bottom: 12px;
+}
+
+.reader-sentence-id {
+  display: none;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+  letter-spacing: 0.02em;
+}
+
+.reader-sentence-break {
+  display: none;
+  border: none;
+  border-top: 1px solid var(--border-subtle);
+  margin: 20px 0;
+}
+
+/* ── Word container ─────────────────────────────────────────────────── */
+
+.reader-words {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 4px 6px;
+  line-height: 1;
+}
+
+.reader-word {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  padding: 2px 1px;
+  border-radius: 2px;
+  transition: background 100ms ease;
+}
+
+.reader-word:hover {
+  background: var(--bg-hover);
+}
+
+.reader-word:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+/* ── Greek form (always visible) ────────────────────────────────────── */
+
+.reader-form {
+  font-family: var(--font-greek);
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--text-primary);
+  line-height: 1.5;
+  white-space: nowrap;
+}
+
+.reader-form .segment {
+  transition: color 100ms ease;
+}
+
+/* ── Enhancement rows (hidden by default) ───────────────────────────── */
+
+.reader-lemma,
+.reader-gloss,
+.reader-upos,
+.reader-xpos,
+.reader-feats,
+.reader-dep {
+  display: none;
+  font-family: var(--font-body);
+  font-size: 12px;
+  line-height: 1.3;
+  text-align: center;
+  white-space: nowrap;
+  max-width: 120px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.reader-lemma {
+  color: var(--accent);
+  font-style: italic;
+}
+
+.reader-gloss {
+  color: var(--accent-warn);
+  font-weight: 500;
+}
+
+.reader-upos {
+  color: var(--text-muted);
+  font-weight: 600;
+  font-size: 10px;
+  letter-spacing: 0.04em;
+}
+
+.reader-xpos {
+  color: var(--text-muted);
+  font-size: 10px;
+  letter-spacing: 0.02em;
+}
+
+.reader-feats {
+  color: var(--text-secondary);
+  font-size: 11px;
+}
+
+.reader-dep {
+  color: var(--accent);
+  font-size: 10px;
+  font-style: italic;
+}
+
+/* ── POS coloring ───────────────────────────────────────────────────── */
+
+.reader-form[data-upos="NOUN"]   { }
+.reader-form[data-upos="VERB"]   { }
+.reader-form[data-upos="ADJ"]    { }
+.reader-form[data-upos="ADV"]    { }
+.reader-form[data-upos="DET"]    { }
+.reader-form[data-upos="PRON"]   { }
+.reader-form[data-upos="PROPN"]  { }
+.reader-form[data-upos="ADP"]    { }
+.reader-form[data-upos="CCONJ"]  { }
+.reader-form[data-upos="SCONJ"]  { }
+.reader-form[data-upos="PART"]   { }
+.reader-form[data-upos="NUM"]    { }
+.reader-form[data-upos="PUNCT"]  { }
+.reader-form[data-upos="AUX"]    { }
+.reader-form[data-upos="INTJ"]   { }
+
+/* ── Translation block ──────────────────────────────────────────────── */
+
+.reader-translation {
+  display: none;
+  margin: 4px 0 8px 0;
+  padding: 6px 10px;
+  border-left: 2px solid var(--border-default);
+}
+
+.reader-translation-prose {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-bottom: 4px;
+}
+
+.reader-translation-prose-label,
+.reader-translation-literal-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-right: 6px;
+}
+
+.reader-translation-literal {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* ── CSS layer toggling via data-layers ─────────────────────────────── */
+
+[data-layers~="lemmas"]    .reader-lemma   { display: block; }
+[data-layers~="glosses"]   .reader-gloss   { display: block; }
+[data-layers~="upos"]      .reader-upos    { display: block; }
+[data-layers~="xpos"]      .reader-xpos    { display: block; }
+[data-layers~="feats"]     .reader-feats   { display: block; }
+[data-layers~="deps"]      .reader-dep     { display: block; }
+[data-layers~="translations"] .reader-translation { display: block; }
+[data-layers~="sent-ids"]  .reader-sentence-id { display: block; }
+[data-layers~="sent-breaks"] .reader-sentence-break { display: block; }
+
+/* POS coloring */
+[data-layers~="pos-color"] .reader-form { color: var(--reader-pos-color, var(--text-primary)); }
+
+/* ── Spacer for no-enhancement baseline ─────────────────────────────── */
+
+.reader-words-bare {
+  font-family: var(--font-greek);
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--text-primary);
+  line-height: 1.8;
+  letter-spacing: 0.01em;
+}
+
+.reader-words-bare .reader-word-bare {
+  cursor: pointer;
+  border-radius: 2px;
+  padding: 0 1px;
+  transition: background 100ms ease;
+}
+
+.reader-words-bare .reader-word-bare:hover {
+  background: var(--bg-hover);
+}
+
+.reader-words-bare .reader-word-bare:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+/* ── Back button ────────────────────────────────────────────────────── */
+
+.reader-back {
+  display: inline-block;
+  margin-top: 24px;
+  font-size: 13px;
+  color: var(--text-muted);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px 0;
+}
+
+.reader-back:hover {
+  color: var(--text-primary);
+}
+
+/* ── Empty state ────────────────────────────────────────────────────── */
+
+.reader-empty {
+  text-align: center;
+  padding: 80px 20px;
+  color: var(--text-muted);
+}
+
+.reader-empty-icon {
+  font-size: 48px;
+  margin-bottom: 12px;
+}
+
+/* ── Punctuation handling ───────────────────────────────────────────── */
+
+.reader-word[data-upos="PUNCT"] {
+  cursor: default;
+}
+
+.reader-word[data-upos="PUNCT"]:hover {
+  background: transparent;
+}
+
+.reader-word[data-upos="PUNCT"] .reader-lemma,
+.reader-word[data-upos="PUNCT"] .reader-gloss,
+.reader-word[data-upos="PUNCT"] .reader-upos,
+.reader-word[data-upos="PUNCT"] .reader-xpos,
+.reader-word[data-upos="PUNCT"] .reader-feats,
+.reader-word[data-upos="PUNCT"] .reader-dep {
+  display: none !important;
+}
+
+/* ── Responsive ─────────────────────────────────────────────────────── */
+
+@media (max-width: 768px) {
+  .reader-sidebar {
+    position: fixed;
+    top: 44px;
+    left: 0;
+    bottom: 0;
+    z-index: 200;
+    box-shadow: 4px 0 16px rgba(0,0,0,0.3);
+  }
+
+  .reader-sidebar.collapsed {
+    margin-left: -220px;
+  }
+
+  .reader-main {
+    padding: 20px 16px 60px;
+  }
+
+  .reader-form {
+    font-size: 18px;
+  }
+
+  .reader-words-bare {
+    font-size: 18px;
+  }
+}
