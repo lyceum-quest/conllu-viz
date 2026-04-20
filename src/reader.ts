@@ -130,6 +130,9 @@ let treebank: Treebank | null = null;
 let fileId = '';
 let fileName = '';
 let morphTooltipCleanup: (() => void) | null = null;
+let morphCloseHandler: (() => void) | null = null;
+let morphOverlayHandler: (() => void) | null = null;
+let keydownHandler: ((e: KeyboardEvent) => void) | null = null;
 
 // ── Morph tooltip handling ─────────────────────────────────────────────
 
@@ -391,12 +394,16 @@ export function mount(id: string) {
 
   // Wire morph panel close
   if (morphClose) {
-    morphClose.addEventListener('click', hideMorphPanel);
+    const closeFn = () => hideMorphPanel();
+    morphClose.addEventListener('click', closeFn);
+    morphCloseHandler = () => morphClose.removeEventListener('click', closeFn);
   }
   if (morphOverlay) {
-    morphOverlay.addEventListener('click', (e) => {
+    const overlayFn = (e: Event) => {
       if (e.target === morphOverlay) hideMorphPanel();
-    });
+    };
+    morphOverlay.addEventListener('click', overlayFn);
+    morphOverlayHandler = () => morphOverlay.removeEventListener('click', overlayFn);
   }
 
   // Keyboard
@@ -408,6 +415,7 @@ export function mount(id: string) {
     }
   };
   window.addEventListener('keydown', onKeyDown);
+  keydownHandler = onKeyDown;
 
   // Setup morph tooltip listeners for the morph panel
   setupMorphTooltipListeners();
@@ -547,6 +555,18 @@ function cleanup() {
   if (morphTooltipCleanup) {
     morphTooltipCleanup();
     morphTooltipCleanup = null;
+  }
+  if (morphCloseHandler) {
+    morphCloseHandler();
+    morphCloseHandler = null;
+  }
+  if (morphOverlayHandler) {
+    morphOverlayHandler();
+    morphOverlayHandler = null;
+  }
+  if (keydownHandler) {
+    window.removeEventListener('keydown', keydownHandler);
+    keydownHandler = null;
   }
   hideMorphPanel();
   hideMorphTooltip();
