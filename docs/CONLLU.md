@@ -11,7 +11,12 @@
 | 5 | 374 | 23.1 | aesop-perry-374.conllu | ✅ Done |
 | 6 | 288 | 24.5 | aesop-perry-288.conllu | ✅ Done |
 | 7 | 250 | 24.7 | aesop-perry-250.conllu | ✅ Done |
-| 8 | 256 | 25.7 | — | ⬜ Next |
+| 8 | 256 | 25.7 | aesop-perry-256.conllu | ✅ Done |
+| 9 | 229 | 26.7 | aesop-perry-229.conllu | ✅ Done |
+| 10 | 15 | 26.8 | aesop-perry-15.conllu | ✅ Done |
+| 11 | 199 | 26.8 | aesop-perry-199.conllu | ✅ Done |
+| 12 | 202 | 26.9 | aesop-perry-202.conllu | ✅ Done |
+| 13 | 378 | 27.2 | — | ⬜ Next |
 
 **Next fable**: Read `perry-difficulty-map.csv` and find the first row whose perry number doesn't have a `.conllu` file. That's your next target.
 
@@ -21,17 +26,21 @@
 
 ### Step 1: Get the Greek Text
 
-Source XML:
+Source: Lyceum `texts.db` (Chambry edition, Perry numbering)
+
 ```
-/home/blu/src/greek/First1KGreek/data/tlg0096/tlg002/tlg0096.tlg002.1st1K-grc1.xml
+Database: ~/src/greek/lyceum/reader/data/texts.db
+Edition URN: urn:cts:greekLit:tlg0096.tlg002.perry-grc1
+Edition ID: 4375
 ```
 
-Find the fable div:
+Query a fable by Perry number:
 ```bash
-grep -n "n=\"NNN\"" /home/blu/src/greek/First1KGreek/data/tlg0096/tlg002/tlg0096.tlg002.1st1K-grc1.xml
+nix-shell -p sqlite --run "sqlite3 ~/src/greek/lyceum/reader/data/texts.db \
+  \"SELECT content FROM segments WHERE edition_id=4375 AND reference='NNN'\""
 ```
 
-Extract the raw Greek from `<p>` elements within that div. Strip XML tags, page breaks (`<pb n="..."/>`), and whitespace.
+Replace `NNN` with the Perry number (e.g., `15`, `256`). The returned text is the raw Greek from Chambry's edition. Strip any trailing `&nbsp;` entities.
 
 ### Step 2: Segment into Sentences
 
