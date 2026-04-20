@@ -6,6 +6,7 @@
 
 .reader-container {
   display: flex;
+  position: relative;
   height: calc(100vh - 44px);
   overflow: hidden;
   background: var(--bg-primary);
@@ -113,9 +114,9 @@
 /* ── Toggle button ──────────────────────────────────────────────────── */
 
 .reader-sidebar-toggle {
-  position: fixed;
-  top: 52px;
-  left: 8px;
+  position: absolute;
+  top: 8px;
+  left: 228px;
   z-index: 100;
   background: var(--bg-tertiary);
   border: 1px solid var(--border-default);
@@ -125,15 +126,15 @@
   cursor: pointer;
   padding: 4px 8px;
   line-height: 1;
-  transition: color 100ms ease;
+  transition: left 200ms ease, color 100ms ease;
 }
 
 .reader-sidebar-toggle:hover {
   color: var(--text-primary);
 }
 
-.reader-sidebar:not(.collapsed) ~ .reader-sidebar-toggle {
-  left: 228px;
+.reader-sidebar.collapsed ~ .reader-sidebar-toggle {
+  left: 8px;
 }
 
 /* ── Main text area ─────────────────────────────────────────────────── */
@@ -162,7 +163,7 @@
 /* ── Sentence block ─────────────────────────────────────────────────── */
 
 .reader-sentence {
-  margin-bottom: 12px;
+  margin-bottom: 20px;
 }
 
 .reader-sentence-id {
@@ -187,8 +188,18 @@
   display: flex;
   flex-wrap: wrap;
   align-items: flex-end;
-  gap: 4px 6px;
+  gap: 0;
   line-height: 1;
+}
+
+/* When any word-level layer is active, add spacing between words */
+[data-layers~="lemmas"] .reader-words,
+[data-layers~="glosses"] .reader-words,
+[data-layers~="upos"] .reader-words,
+[data-layers~="xpos"] .reader-words,
+[data-layers~="feats"] .reader-words,
+[data-layers~="deps"] .reader-words {
+  gap: 4px 6px;
 }
 
 .reader-word {
@@ -201,8 +212,34 @@
   transition: background 100ms ease;
 }
 
+/* When no word layers are active, words flow as inline text */
+.reader-word.bare {
+  display: inline;
+  padding: 0;
+  line-height: 1.8;
+}
+
+.reader-word.bare .reader-form {
+  display: inline;
+  cursor: pointer;
+}
+
+/* In bare mode, the words container should flow as block text */
+.reader-words.bare-mode {
+  display: block;
+  line-height: 1.8;
+  letter-spacing: 0.01em;
+}
+
 .reader-word:hover {
   background: var(--bg-hover);
+}
+
+.reader-word.bare:hover {
+  background: transparent;
+  text-decoration: underline;
+  text-decoration-color: var(--border-default);
+  text-underline-offset: 3px;
 }
 
 .reader-word:focus-visible {
@@ -278,31 +315,15 @@
   font-style: italic;
 }
 
-/* ── POS coloring ───────────────────────────────────────────────────── */
-
-.reader-form[data-upos="NOUN"]   { }
-.reader-form[data-upos="VERB"]   { }
-.reader-form[data-upos="ADJ"]    { }
-.reader-form[data-upos="ADV"]    { }
-.reader-form[data-upos="DET"]    { }
-.reader-form[data-upos="PRON"]   { }
-.reader-form[data-upos="PROPN"]  { }
-.reader-form[data-upos="ADP"]    { }
-.reader-form[data-upos="CCONJ"]  { }
-.reader-form[data-upos="SCONJ"]  { }
-.reader-form[data-upos="PART"]   { }
-.reader-form[data-upos="NUM"]    { }
-.reader-form[data-upos="PUNCT"]  { }
-.reader-form[data-upos="AUX"]    { }
-.reader-form[data-upos="INTJ"]   { }
-
 /* ── Translation block ──────────────────────────────────────────────── */
 
 .reader-translation {
   display: none;
-  margin: 4px 0 8px 0;
-  padding: 6px 10px;
-  border-left: 2px solid var(--border-default);
+  margin: 8px 0 12px 0;
+  padding: 8px 12px;
+  border-left: 2px solid var(--accent-warn);
+  background: var(--bg-secondary);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
 }
 
 .reader-translation-prose {
@@ -343,33 +364,6 @@
 /* POS coloring */
 [data-layers~="pos-color"] .reader-form { color: var(--reader-pos-color, var(--text-primary)); }
 
-/* ── Spacer for no-enhancement baseline ─────────────────────────────── */
-
-.reader-words-bare {
-  font-family: var(--font-greek);
-  font-size: 20px;
-  font-weight: 500;
-  color: var(--text-primary);
-  line-height: 1.8;
-  letter-spacing: 0.01em;
-}
-
-.reader-words-bare .reader-word-bare {
-  cursor: pointer;
-  border-radius: 2px;
-  padding: 0 1px;
-  transition: background 100ms ease;
-}
-
-.reader-words-bare .reader-word-bare:hover {
-  background: var(--bg-hover);
-}
-
-.reader-words-bare .reader-word-bare:focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 1px;
-}
-
 /* ── Back button ────────────────────────────────────────────────────── */
 
 .reader-back {
@@ -404,6 +398,7 @@
 
 .reader-word[data-upos="PUNCT"] {
   cursor: default;
+  margin-left: -2px;
 }
 
 .reader-word[data-upos="PUNCT"]:hover {
@@ -417,6 +412,11 @@
 .reader-word[data-upos="PUNCT"] .reader-feats,
 .reader-word[data-upos="PUNCT"] .reader-dep {
   display: none !important;
+}
+
+/* Bare mode punctuation spacing */
+.reader-word.bare[data-upos="PUNCT"] {
+  margin-left: 0;
 }
 
 /* ── Responsive ─────────────────────────────────────────────────────── */
@@ -440,10 +440,6 @@
   }
 
   .reader-form {
-    font-size: 18px;
-  }
-
-  .reader-words-bare {
     font-size: 18px;
   }
 }

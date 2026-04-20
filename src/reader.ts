@@ -10,7 +10,7 @@
 import { parseConllu, Token, Sentence, Treebank } from './types';
 import { segmentGreekWord } from './segment';
 import { buildMorphAnalysisHTML } from './morpho';
-import { loadStore, saveStore } from './store';
+import { loadStore } from './store';
 import { navigate, routeUrl } from './router';
 
 import './styles/tokens.css';
@@ -118,8 +118,6 @@ function abbreviateFeats(feats: Record<string, string> | undefined): string {
 }
 
 // ── Helpers ────────────────────────────────────────────────────────────
-
-function $(sel: string) { return document.querySelector(sel); }
 
 function escapeHTML(s: string): string {
   return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
@@ -414,8 +412,8 @@ export function mount(id: string) {
   // Setup morph tooltip listeners for the morph panel
   setupMorphTooltipListeners();
 
-  // Handle segments layer: toggle between plain and segmented forms
-  applySegmentLayer();
+  // Apply initial layer state
+  applyLayers();
 
   console.log(`📖 Reader view ready — ${treebank.sentences.length} sentences`);
 }
@@ -483,6 +481,8 @@ function buildSidebar(): HTMLElement {
 
 // ── Apply layer state ──────────────────────────────────────────────────
 
+const WORD_LAYERS = new Set(['lemmas', 'glosses', 'upos', 'xpos', 'feats', 'deps']);
+
 function applyLayers() {
   const textDiv = document.getElementById('reader-text');
   if (!textDiv) return;
@@ -495,6 +495,19 @@ function applyLayers() {
 
   // Handle POS coloring (requires inline style override)
   applyPOSColoring();
+
+  // Toggle bare/structured word mode
+  applyBareMode(textDiv);
+}
+
+function applyBareMode(textDiv: HTMLElement) {
+  const hasWordLayers = [...activeLayers].some(l => WORD_LAYERS.has(l));
+  textDiv.querySelectorAll('.reader-word').forEach(el => {
+    el.classList.toggle('bare', !hasWordLayers);
+  });
+  textDiv.querySelectorAll('.reader-words').forEach(el => {
+    el.classList.toggle('bare-mode', !hasWordLayers);
+  });
 }
 
 function applySegmentLayer() {
