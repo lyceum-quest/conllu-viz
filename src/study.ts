@@ -211,12 +211,7 @@ function resolveInitialSelection(
     return sanitizeSelection(sentences, routeSelectedSentences ?? []);
   }
 
-  const savedSelection = getStudySelection(store, fileId);
-  if (savedSelection) {
-    const sanitized = sanitizeSelection(sentences, savedSelection);
-    if (sanitized.length > 0 || savedSelection.length === 0) return sanitized;
-  }
-
+  // Fresh entry (e.g. from files page) — always start with the first sentence
   return defaultSelection(sentences);
 }
 

@@ -4,7 +4,7 @@
 
 import { parseConllu } from './types';
 import { AppStore, loadStore, saveStore, addFile, listFiles,
-         getReviewedCount, getMasteredCount, getMasteryPct, getStudySelection } from './store';
+         getReviewedCount, getMasteredCount, getMasteryPct } from './store';
 import { navigate } from './router';
 
 import './styles/tokens.css';
@@ -190,13 +190,11 @@ function createFileCard(file: import('./store').StoredFile) {
 
   studyBtn.addEventListener('click', (e) => {
     e.stopPropagation();
-    const selectedSentences = getStudySelection(store, file.id) ?? undefined;
-    navigate('study', file.id, { selectedSentences, studyMode: 'srs' });
+    navigate('study', file.id, { studyMode: 'srs' });
   });
   cramBtn.addEventListener('click', (e) => {
     e.stopPropagation();
-    const selectedSentences = getStudySelection(store, file.id) ?? undefined;
-    navigate('study', file.id, { selectedSentences, studyMode: 'cram' });
+    navigate('study', file.id, { studyMode: 'cram' });
   });
   readerBtn.addEventListener('click', (e) => { e.stopPropagation(); navigate('reader', file.id); });
   browseBtn.addEventListener('click', (e) => { e.stopPropagation(); navigate('tree', file.id); });
