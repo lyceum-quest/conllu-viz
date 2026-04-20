@@ -1,0 +1,58 @@
+# title = The Fox and the Grapes
+# sent_id = perry-15-s1
+# text = Ἀλώπηξ λιμώττουσα, ὡς ἐθεάσατο ἀπό τινος ἀναδενδράδος βότρυας κρεμαμένους, ἠβουλήθη αὐτῶν περιγενέσθαι καὶ οὐκ ἠδύνατο.
+# parallel_id = lyceum-aesop-p15/s1
+# translation_lang = en
+# prose_translation = A hungry fox, seeing some grapes hanging from a vine, tried to reach them but could not.
+# literal_translation = A fox being hungry, when she saw from a vine bunches hanging, wished to get the better of them and was not able.
+1	Ἀλώπηξ	ἀλώπηξ	NOUN	noun.fem.sg.nom	Gender=Fem|Number=Sing|Case=Nom	9	nsubj	_	gloss=fox
+2	λιμώττουσα	λιμώττω	VERB	verb.pres.ptcp.act.fem.sg.nom	Aspect=Imp|Mood=Part|Tense=Pres|Voice=Act|Gender=Fem|Number=Sing|Case=Nom	1	acl	_	gloss=being hungry
+3	ὡς	ὡς	SCONJ	conjunction	_	4	mark	_	gloss=when
+4	ἐθεάσατο	θεάομαι	VERB	verb.aor.ind.mp.3sg	Aspect=Perf|Mood=Ind|Tense=Aor|Voice=Mid|Number=Sing|Person=3	9	advcl	_	gloss=saw
+5	ἀπό	ἀπό	ADP	preposition.gen	_	7	case	_	gloss=from
+6	τινος	τις	PRON	pron.fem.sg.gen	PronType=Ind|Gender=Fem|Number=Sing|Case=Gen	7	det	_	gloss=some
+7	ἀναδενδράδος	ἀναδενδρίς	NOUN	noun.fem.sg.gen	Gender=Fem|Number=Sing|Case=Gen	5	obl	_	gloss=vine
+8	βότρυας	βότρυς	NOUN	noun.masc.pl.acc	Gender=Masc|Number=Plur|Case=Acc	4	obj	_	gloss=bunches / grapes
+9	κρεμαμένους	κρεμάννυμι	VERB	verb.pres.ptcp.pass.masc.pl.acc	Aspect=Imp|Voice=Pass|Mood=Part|Tense=Pres|Gender=Masc|Number=Plur|Case=Acc	8	acl	_	gloss=hanging
+10	ἠβουλήθη	βούλομαι	VERB	verb.aor.ind.mp.3sg	Aspect=Perf|Mood=Ind|Tense=Aor|Voice=Mid|Number=Sing|Person=3	0	root	_	gloss=she wished
+11	αὐτῶν	αὐτός	PRON	pron.masc.pl.gen	Gender=Masc|Number=Plur|Case=Gen	12	obl	_	gloss=of them
+12	περιγενέσθαι	περιγίγνομαι	VERB	verb.aor.inf.mp	Aspect=Perf|Mood=Inf|Tense=Aor|Voice=Mid	10	xcomp	_	gloss=get the better of / reach
+13	καὶ	καί	CCONJ	conjunction	_	15	cc	_	gloss=and
+14	οὐκ	οὐ	PART	neg.particle	Polarity=Neg	15	advmod	_	gloss=not
+15	ἠδύνατο	δύναμαι	VERB	verb.impf.ind.mp.3sg	Aspect=Imp|Mood=Ind|Tense=Imp|Voice=Mid|Number=Sing|Person=3	10	conj	_	gloss=she was able
+
+# sent_id = perry-15-s2
+# text = Ἀπαλλαττομένη δὲ πρὸς ἑαυτὴν εἶπεν· Ὄμφακές εἰσιν.
+# parallel_id = lyceum-aesop-p15/s2
+# translation_lang = en
+# prose_translation = But as she was going away, she said to herself, "They are sour."
+# literal_translation = And departing, she said to herself, "They are green grapes."
+16	Ἀπαλλαττομένη	ἀπαλλάττω	VERB	verb.pres.ptcp.mp.fem.sg.nom	Aspect=Imp|Voice=Mid|Mood=Part|Tense=Pres|Gender=Fem|Number=Sing|Case=Nom	19	advcl	_	gloss=departing / going away
+17	δὲ	δέ	CCONJ	conjunction	_	19	cc	_	gloss=but
+18	πρὸς	πρός	ADP	preposition.acc	_	19	obl	_	gloss=towards
+19	ἑαυτὴν	ἑαυτοῦ	PRON	pron.fem.sg.acc	Gender=Fem|Number=Sing|Case=Acc	20	iobj	_	gloss=to herself
+20	εἶπεν	λέγω	VERB	verb.aor.ind.act.3sg	Aspect=Perf|Mood=Ind|Tense=Aor|Voice=Act|Number=Sing|Person=3	0	root	_	gloss=she said
+21	Ὄμφακές	ὄμφαξ	NOUN	noun.fem.pl.nom	Gender=Fem|Number=Plur|Case=Nom	23	nsubj	_	gloss=sour grapes / green grapes
+22	εἰσιν	εἰμί	VERB	verb.pres.ind.act.3pl	Mood=Ind|Tense=Pres|VerbForm=Fin|Voice=Act|Number=Plur|Person=3	21	cop	_	gloss=they are
+
+# sent_id = perry-15-s3
+# text = Οὕτω καὶ τῶν ἀνθρώπων ἔνιοι τῶν πραγμάτων ἐφικέσθαι μὴ δυνάμενοι δι' ἀσθένειαν τοὺς καιροὺς αἰτιῶνται.
+# parallel_id = lyceum-aesop-p15/s3
+# translation_lang = en
+# prose_translation = So too some people, unable to achieve things because of weakness, blame the circumstances.
+# literal_translation = Thus also of men some, of things to reach not being able, on account of weakness blame the occasions.
+23	Οὕτω	οὕτω	ADV	adverb	_	33	advmod	_	gloss=thus
+24	καὶ	καί	CCONJ	conjunction	_	27	cc	_	gloss=also
+25	τῶν	ὁ	DET	article.masc.pl.gen	Definite=Def|PronType=Art|Gender=Masc|Number=Plur|Case=Gen	27	det	_	gloss=of the
+26	ἀνθρώπων	ἄνθρωπος	NOUN	noun.masc.pl.gen	Gender=Masc|Number=Plur|Case=Gen	27	nmod	_	gloss=men / people
+27	ἔνιοι	ἔνιοι	PRON	pron.masc.pl.nom	PronType=Ind|Gender=Masc|Number=Plur|Case=Nom	33	nsubj	_	gloss=some
+28	τῶν	ὁ	DET	article.neut.pl.gen	Definite=Def|PronType=Art|Gender=Neut|Number=Plur|Case=Gen	29	det	_	gloss=of the
+29	πραγμάτων	πρᾶγμα	NOUN	noun.neut.pl.gen	Gender=Neut|Number=Plur|Case=Gen	30	obl	_	gloss=things / affairs
+30	ἐφικέσθαι	ἐφικνέομαι	VERB	verb.aor.inf.mp	Aspect=Perf|Mood=Inf|Tense=Aor|Voice=Mid	33	xcomp	_	gloss=to reach / attain
+31	μὴ	μή	PART	neg.particle	Polarity=Neg	33	advmod	_	gloss=not
+32	δυνάμενοι	δύναμαι	VERB	verb.pres.ptcp.mp.masc.pl.nom	Aspect=Imp|Voice=Mid|Mood=Part|Tense=Pres|Gender=Masc|Number=Plur|Case=Nom	33	advcl	_	gloss=being able
+33	δι'	διά	ADP	preposition.acc	_	34	case	_	gloss=on account of
+34	ἀσθένειαν	ἀσθένεια	NOUN	noun.fem.sg.acc	Gender=Fem|Number=Sing|Case=Acc	30	obl	_	gloss=weakness
+35	τοὺς	ὁ	DET	article.masc.pl.acc	Definite=Def|PronType=Art|Gender=Masc|Number=Plur|Case=Acc	36	det	_	gloss=the
+36	καιροὺς	καιρός	NOUN	noun.masc.pl.acc	Gender=Masc|Number=Plur|Case=Acc	37	obj	_	gloss=occasions / circumstances
+37	αἰτιῶνται	αἰτιάομαι	VERB	verb.pres.ind.mp.3pl	Aspect=Imp|Mood=Ind|Tense=Pres|Voice=Mid|Number=Plur|Person=3	0	root	_	gloss=they blame

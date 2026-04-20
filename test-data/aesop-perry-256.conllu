@@ -1,0 +1,55 @@
+# title = The Hares and the Foxes
+# sent_id = perry-256-s1
+# text = Λαγωοί ποτε πολεμοῦντες ἀετοῖς παρεκάλουν εἰς συμμαχίαν ἀλώπεκας.
+# parallel_id = lyceum-aesop-p256/s1
+# translation_lang = en
+# prose_translation = Once upon a time, hares, being at war with eagles, called foxes to join them as allies.
+# literal_translation = Hares at some point fighting eagles were calling into alliance foxes.
+1	Λαγωοί	λαγώς	NOUN	noun.masc.pl.nom	Gender=Masc|Number=Plur|Case=Nom	4	nsubj	_	gloss=hares
+2	ποτε	ποτε	ADV	adverb	_	4	advmod	_	gloss=some time / once
+3	πολεμοῦντες	πολεμέω	VERB	verb.pres.ptcp.act.masc.pl.nom	Aspect=Imp|Mood=Part|Tense=Pres|Voice=Act|Gender=Masc|Number=Plur|Case=Nom	1	acl	_	gloss=fighting
+4	ἀετοῖς	ἀετός	NOUN	noun.masc.pl.dat	Gender=Masc|Number=Plur|Case=Dat	3	obl	_	gloss=eagles
+5	παρεκάλουν	παρακαλέω	VERB	verb.impf.ind.act.3pl	Aspect=Imp|Mood=Ind|Tense=Imp|Voice=Act|Number=Plur|Person=3	0	root	_	gloss=they called / begged
+6	εἰς	εἰς	ADP	preposition.acc	_	7	case	_	gloss=into
+7	sυμμαχίαν	sυμμαχία	NOUN	noun.fem.sg.acc	Gender=Fem|Number=Sing|Case=Acc	5	obl	_	gloss=alliance
+8	ἀλώπεκας	ἀλώπηξ	NOUN	noun.fem.pl.acc	Gender=Fem|Number=Plur|Case=Acc	5	obj	_	gloss=foxes
+
+# sent_id = perry-256-s2
+# text = Αἱ δὲ ἔφησαν· " Ἐβοηθήσαμεν ἂν ὑμῖν, εἰ μὴ ᾔδειμεν τίνες ἐστὲ καὶ τίσι πολεμεῖτε."
+# parallel_id = lyceum-aesop-p256/s2
+# translation_lang = en
+# prose_translation = But the foxes said, "We would help you, if we did not know who you are and whom you fight."
+# literal_translation = But they said: "We would have helped you, if we did not know who you are and with what you fight."
+9	Αἱ	ὁ	DET	article.fem.pl.nom	Definite=Def|PronType=Art|Gender=Fem|Number=Plur|Case=Nom	11	nsubj	_	gloss=they
+10	δὲ	δέ	CCONJ	conjunction	_	11	cc	_	gloss=but
+11	ἔφησαν	φημί	VERB	verb.aor.ind.act.3pl	Aspect=Perf|Mood=Ind|Tense=Aor|Voice=Act|Number=Plur|Person=3	0	root	_	gloss=they said
+12	Ἐβοηθήσαμεν	βοηθέω	VERB	verb.aor.ind.act.1pl	Aspect=Perf|Mood=Ind|Tense=Aor|Voice=Act|Number=Plur|Person=1	14	xcomp	_	gloss=we would help
+13	ἂν	ἄν	PART	particle	_	12	aux	_	gloss=would
+14	ὑμῖν	σύ	PRON	pron.2pl.dat	Number=Plur|Person=2	12	iobj	_	gloss=you
+15	εἰ	εἰ	SCONJ	conjunction	_	18	mark	_	gloss=if
+16	μὴ	μή	PART	neg.particle	Polarity=Neg	18	advmod	_	gloss=not
+17	ᾔδειμεν	οἶδα	VERB	verb.plup.ind.act.1pl	Aspect=Perf|Mood=Ind|Tense=Plup|Voice=Act|Number=Plur|Person=1	14	advcl	_	gloss=we knew
+18	τίνες	τίς	PRON	pron.pl.nom	PronType=Int	17	xcomp	_	gloss=who
+19	ἐστὲ	εἰμί	VERB	verb.pres.ind.act.2pl	Mood=Ind|Tense=Pres|VerbForm=Fin|Voice=Act|Number=Plur|Person=2	18	cop	_	gloss=you are
+20	καὶ	καί	CCONJ	conjunction	_	23	cc	_	gloss=and
+21	τίσι	τίς	PRON	pron.pl.dat	PronType=Int	23	obl	_	gloss=whom / with what
+22	πολεμεῖτε	πολεμέω	VERB	verb.pres.ind.act.2pl	Aspect=Imp|Mood=Ind|Tense=Pres|Voice=Act|Number=Plur|Person=2	17	conj	_	gloss=you fight
+
+# sent_id = perry-256-s3
+# text = Ὁ λόγος δηλοῖ ὅτι οἱ φιλονεικοῦντες τοῖς κρείττοσι τῆς ἑαυτῶν σωτηρίας καταφρονοῦσι.
+# parallel_id = lyceum-aesop-p256/s3
+# translation_lang = en
+# prose_translation = The story shows that those who contend with their superiors disregard their own safety.
+# literal_translation = The story shows that those contending with the stronger ones of their own safety are contemptuous.
+23	Ὁ	ὁ	DET	article.masc.sg.nom	Definite=Def|PronType=Art|Gender=Masc|Number=Sing|Case=Nom	24	det	_	gloss=the
+24	λόγος	λόγος	NOUN	noun.masc.sg.nom	Gender=Masc|Number=Sing|Case=Nom	27	nsubj	_	gloss=story / fable
+25	δηλοῖ	δηλόω	VERB	verb.pres.ind.act.3sg	Aspect=Imp|Mood=Ind|Tense=Pres|Voice=Act|Number=Sing|Person=3	0	root	_	gloss=shows / makes clear
+26	ὅτι	ὅτι	SCONJ	conjunction	_	31	mark	_	gloss=that
+27	οἱ	ὁ	DET	article.masc.pl.nom	Definite=Def|PronType=Art|Gender=Masc|Number=Plur|Case=Nom	31	nsubj	_	gloss=those who
+28	φιλονεικοῦντες	φιλονεικέω	VERB	verb.pres.ptcp.act.masc.pl.nom	Aspect=Imp|Mood=Part|Tense=Pres|Voice=Act|Gender=Masc|Number=Plur|Case=Nom	31	acl	_	gloss=contending / quarreling
+29	τοῖς	ὁ	DET	article.masc.pl.dat	Definite=Def|PronType=Art|Gender=Masc|Number=Plur|Case=Dat	31	obl	_	gloss=with the
+30	κρείττοσι	κρείττων	ADJ	adj.masc.pl.dat	Degree=Cmp|Gender=Masc|Number=Plur|Case=Dat	29	amod	_	gloss=stronger ones
+31	τῆς	ὁ	DET	article.fem.sg.gen	Definite=Def|PronType=Art|Gender=Fem|Number=Sing|Case=Gen	34	det	_	gloss=of their own
+32	ἑαυτῶν	ἑαυτοῦ	PRON	pron.masc.pl.gen	Gender=Masc|Number=Plur|Case=Gen	31	nmod	_	gloss=themselves
+33	σωτηρίας	σωτηρία	NOUN	noun.fem.sg.gen	Gender=Fem|Number=Sing|Case=Gen	34	obj	_	gloss=safety
+34	καταφρονοῦσι	καταφρονέω	VERB	verb.pres.ind.act.3pl	Aspect=Imp|Mood=Ind|Tense=Pres|Voice=Act|Number=Plur|Person=3	25	ccomp	_	gloss=disregard / despise

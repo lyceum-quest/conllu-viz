@@ -1,0 +1,66 @@
+# title = The Boy Hunting Locusts and the Scorpion
+# sent_id = perry-199-s1
+# text = Παῖς τις θηρεύων ἀκρίδας περιέτυχε σκορπίῳ.
+# parallel_id = lyceum-aesop-p199/s1
+# translation_lang = en
+# prose_translation = A boy hunting for locusts came upon a scorpion.
+# literal_translation = A certain boy hunting locusts came upon a scorpion.
+1	Παῖς	παῖς	NOUN	noun.masc.sg.nom	Gender=Masc|Number=Sing|Case=Nom	4	nsubj	_	gloss=boy
+2	τις	τις	PRON	pron.masc.sg.nom	PronType=Ind|Gender=Masc|Number=Sing|Case=Nom	1	det	_	gloss=a certain
+3	θηρεύων	θηρεύω	VERB	verb.pres.ptcp.act.masc.sg.nom	Aspect=Imp|Mood=Part|Tense=Pres|Voice=Act|Gender=Masc|Number=Sing|Case=Nom	1	acl	_	gloss=hunting
+4	ἀκρίδας	ἀκρίς	NOUN	noun.fem.pl.acc	Gender=Fem|Number=Plur|Case=Acc	3	obj	_	gloss=locusts
+5	περιέτυχε	περιτυγχάνω	VERB	verb.aor.ind.act.3sg	Aspect=Perf|Mood=Ind|Tense=Aor|Voice=Act|Number=Sing|Person=3	0	root	_	gloss=he came upon
+6	σκορπίῳ	σκορπίος	NOUN	noun.masc.sg.dat	Gender=Masc|Number=Sing|Case=Dat	5	obl	_	gloss=a scorpion
+
+# sent_id = perry-199-s2
+# text = Ὁ δὲ τὸ τοῦ παιδὸς ἁπλοῦν θεασάμενος, τὸ κέντρον ὀξύνας, εἶπεν·
+# parallel_id = lyceum-aesop-p199/s2
+# translation_lang = en
+# prose_translation = The scorpion, seeing the boy's simplicity, sharpened his sting and said:
+# literal_translation = But he, having seen the boy's simplicity, having sharpened the sting, said.
+7	Ὁ	ὁ	DET	article.masc.sg.nom	Definite=Def|PronType=Art|Gender=Masc|Number=Sing|Case=Nom	11	nsubj	_	gloss=he
+8	δὲ	δέ	CCONJ	conjunction	_	11	cc	_	gloss=but
+9	τὸ	ὁ	DET	article.neut.sg.acc	Definite=Def|PronType=Art|Gender=Neut|Number=Sing|Case=Acc	10	det	_	gloss=the
+10	ἁπλοῦν	ἁπλοῦς	ADJ	adj.neut.sg.acc	Degree=Pos|Gender=Neut|Number=Sing|Case=Acc	11	obj	_	gloss=simplicity / simplicity
+11	τοῦ	ὁ	DET	article.masc.sg.gen	Definite=Def|PronType=Art|Gender=Masc|Number=Sing|Case=Gen	10	det	_	gloss=of the
+12	παιδὸς	παῖς	NOUN	noun.masc.sg.gen	Gender=Masc|Number=Sing|Case=Gen	11	nmod	_	gloss=boy
+13	θεασάμενος	θεάομαι	VERB	verb.aor.ptcp.mp.masc.sg.nom	Aspect=Perf|Voice=Mid|Mood=Part|Tense=Aor|Gender=Masc|Number=Sing|Case=Nom	16	advcl	_	gloss=having seen
+14	τὸ	ὁ	DET	article.neut.sg.acc	Definite=Def|PronType=Art|Gender=Neut|Number=Sing|Case=Acc	15	det	_	gloss=the
+15	κέντρον	κέντρον	NOUN	noun.neut.sg.acc	Gender=Neut|Number=Sing|Case=Acc	16	obj	_	gloss=sting
+16	ὀξύνας	ὀξύνω	VERB	verb.aor.ptcp.act.masc.sg.nom	Aspect=Perf|Mood=Part|Tense=Aor|Voice=Act|Gender=Masc|Number=Sing|Case=Nom	17	advcl	_	gloss=having sharpened
+17	εἶπεν	λέγω	VERB	verb.aor.ind.act.3sg	Aspect=Perf|Mood=Ind|Tense=Aor|Voice=Act|Number=Sing|Person=3	0	root	_	gloss=said
+
+# sent_id = perry-199-s3
+# text = Ἄπελθε, παῖ, καὶ σώζου, μὴ κἀμὲ θηρεύων πάσας ἃς ἔχεις ἀπολέσῃς.
+# parallel_id = lyceum-aesop-p199/s3
+# translation_lang = en
+# prose_translation = "Go away, boy, and save yourself, lest while hunting me you lose all you have."
+# literal_translation = "Depart, boy, and be saved, not also me hunting all which you have lose."
+18	Ἄπελθε	ἀπέρχομαι	VERB	verb.aor.imper.act.2sg	Mood=Imp|Tense=Aor|VerbForm=Fin|Voice=Act|Number=Sing|Person=2	0	root	_	gloss=go away
+19	παῖ	παῖς	NOUN	noun.masc.sg.voc	Gender=Masc|Number=Sing|Case=Voc	18	vocative	_	gloss=boy
+20	καὶ	καί	CCONJ	conjunction	_	21	cc	_	gloss=and
+21	σώζου	σῴζω	VERB	verb.pres.imper.mp.2sg	Mood=Imp|Tense=Pres|VerbForm=Fin|Voice=Mid|Number=Sing|Person=2	18	conj	_	gloss=be saved / save yourself
+22	μὴ	μή	PART	neg.particle	Polarity=Neg	25	advmod	_	gloss=lest / not
+23	κἀμὲ	καί	CONJ	conjunction	_	25	obl	_	gloss=also me
+24	θηρεύων	θηρεύω	VERB	verb.pres.ptcp.act.masc.sg.nom	Aspect=Imp|Mood=Part|Tense=Pres|Voice=Act|Gender=Masc|Number=Sing|Case=Nom	25	advcl	_	gloss=hunting
+25	πάσας	πᾶς	ADJ	adj.fem.pl.acc	Degree=Pos|Gender=Fem|Number=Plur|Case=Acc	28	obj	_	gloss=all
+26	ἃς	ὅς	PRON	pron.fem.pl.acc	PronType=Rel|Gender=Fem|Number=Plur|Case=Acc	28	obj	_	gloss=which
+27	ἔχεις	ἔχω	VERB	verb.pres.ind.act.2sg	Aspect=Imp|Mood=Ind|Tense=Pres|Voice=Act|Number=Sing|Person=2	25	acl:relcl	_	gloss=you have
+28	ἀπολέσῃς	ἀπόλλυμι	VERB	verb.aor.subj.act.2sg	Mood=Subj|Tense=Aor|Voice=Act|Number=Sing|Person=2	21	advcl	_	gloss=you lose
+
+# sent_id = perry-199-s4
+# text = Ὁ μῦθος δηλοῖ ὄτι προσέχειν δεῖ τοὺς δυναμένους πάντας βλάπτειν.
+# parallel_id = lyceum-aesop-p199/s4
+# translation_lang = en
+# prose_translation = The story shows that we must beware of those who are able to harm everyone.
+# literal_translation = The story shows that to pay attention it is necessary to those able to harm all.
+29	Ὁ	ὁ	DET	article.masc.sg.nom	Definite=Def|PronType=Art|Gender=Masc|Number=Sing|Case=Nom	30	det	_	gloss=the
+30	μῦθος	μῦθος	NOUN	noun.masc.sg.nom	Gender=Masc|Number=Sing|Case=Nom	33	nsubj	_	gloss=story / fable
+31	δηλοῖ	δηλόω	VERB	verb.pres.ind.act.3sg	Aspect=Imp|Mood=Ind|Tense=Pres|Voice=Act|Number=Sing|Person=3	0	root	_	gloss=shows
+32	ὄτι	ὅτι	SCONJ	conjunction	_	36	mark	_	gloss=that
+33	προσέχειν	προσέχω	VERB	verb.pres.inf.act	Aspect=Imp|Mood=Inf|Tense=Pres|Voice=Act	36	xcomp	_	gloss=to pay attention / beware
+34	δεῖ	δεῖ	VERB	verb.impers.pres.ind.3sg	Mood=Ind|Tense=Pres|VerbForm=Fin|Person=3	31	ccomp	_	gloss=it is necessary
+35	τοὺς	ὁ	DET	article.masc.pl.acc	Definite=Def|PronType=Art|Gender=Masc|Number=Plur|Case=Acc	36	det	_	gloss=those
+36	δυναμένους	δύναμαι	VERB	verb.pres.ptcp.mp.masc.pl.acc	Aspect=Imp|Voice=Mid|Mood=Part|Tense=Pres|Gender=Masc|Number=Plur|Case=Acc	33	obj	_	gloss=able
+37	πάντας	πᾶς	ADJ	adj.masc.pl.acc	Degree=Pos|Gender=Masc|Number=Plur|Case=Acc	38	obj	_	gloss=all
+38	βλάπτειν	βλάπτω	VERB	verb.pres.inf.act	Aspect=Imp|Mood=Inf|Tense=Pres|Voice=Act	36	xcomp	_	gloss=to harm
