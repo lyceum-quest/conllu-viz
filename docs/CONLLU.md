@@ -8,7 +8,10 @@
 | 2 | 184 | 19.9 | aesop-perry-184.conllu | ✅ Done |
 | 3 | 365 | 22.3 | aesop-perry-365.conllu | ✅ Done |
 | 4 | 45 | 22.7 | aesop-perry-45.conllu | ✅ Done |
-| 5 | 374 | 23.1 | — | ⬜ Next |
+| 5 | 374 | 23.1 | aesop-perry-374.conllu | ✅ Done |
+| 6 | 288 | 24.5 | aesop-perry-288.conllu | ✅ Done |
+| 7 | 250 | 24.7 | aesop-perry-250.conllu | ✅ Done |
+| 8 | 256 | 25.7 | — | ⬜ Next |
 
 **Next fable**: Read `perry-difficulty-map.csv` and find the first row whose perry number doesn't have a `.conllu` file. That's your next target.
 

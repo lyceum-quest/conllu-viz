@@ -84,7 +84,7 @@ export function render(sentenceLayout: LayoutResult, svg: SVGSVGElement, treeGro
 
   // ViewBox
   svg.setAttribute('viewBox', `0 0 ${sentenceLayout.width} ${sentenceLayout.height}`);
-  svg.setAttribute('preserveAspectRatio', 'xMidYMin meet');
+  svg.setAttribute('preserveAspectRatio', 'xMidYMid meet');
   resetViewport();
 
   // Edges
