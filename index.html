@@ -38,8 +38,14 @@
       </div>
     </header>
     <div id="main">
+      <!-- Mobile sidebar backdrop -->
+      <div id="mobile-sidebar-backdrop" class="mobile-sidebar-backdrop"></div>
       <aside id="sidebar">
-        <h2>Sentences</h2>
+        <div id="mobile-sidebar-header" style="display:none">
+          <h2>Sentences</h2>
+          <button id="mobile-sidebar-close" title="Close" style="background:none;border:none;color:var(--text-muted);font-size:22px;cursor:pointer;padding:4px 8px;line-height:1;">✕</button>
+        </div>
+        <h2 id="desktop-sidebar-heading">Sentences</h2>
         <ul id="sentence-list"></ul>
       </aside>
       <div id="sidebar-handle" class="resize-handle"></div>
@@ -97,6 +103,9 @@
   </div>
 
   <div id="morph-tooltip" role="tooltip" aria-hidden="true"></div>
+
+  <!-- Mobile sidebar FAB (tree view only) -->
+  <button id="mobile-sidebar-toggle" title="Sentences">☰</button>
 
   <script type="module" src="/src/main.ts"></script>
 </body>

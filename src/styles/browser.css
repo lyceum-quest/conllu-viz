@@ -9,6 +9,7 @@
   z-index: 200;
   flex-shrink: 0;
   height: 36px;
+  overflow: hidden;
 }
 
 .nav-link {
@@ -261,4 +262,80 @@
 .no-files p {
   font-size: 14px;
   margin-bottom: 4px;
+}
+
+/* ===== Mobile ===== */
+
+@media (max-width: 768px) {
+  #top-nav {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding: 4px 10px;
+    gap: 2px;
+  }
+
+  #top-nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .browser-container {
+    padding: 16px;
+  }
+
+  .browser-container h1 {
+    font-size: 18px;
+  }
+
+  .file-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .file-card {
+    padding: 12px 14px;
+  }
+
+  .browser-drop-zone {
+    padding: 24px 16px;
+  }
+
+  .browser-drop-zone .drop-icon {
+    font-size: 32px;
+  }
+
+  .browser-actions {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .browser-btn {
+    padding: 10px 16px;
+    font-size: 14px;
+    min-height: 44px;
+  }
+}
+
+@media (max-width: 480px) {
+  .browser-container {
+    padding: 12px;
+  }
+
+  .file-card-name {
+    font-size: 14px;
+  }
+
+  .file-card-stats {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .file-card-actions {
+    flex-direction: column;
+  }
+
+  .file-card-actions button {
+    width: 100%;
+    min-height: 44px;
+  }
 }

@@ -70,3 +70,24 @@
 }
 .pos-bar { pointer-events: none; rx: 1; ry: 1; }
 .arrowhead-fill { fill: var(--edge-color); }
+
+/* ===== Mobile ===== */
+
+@media (max-width: 768px) {
+  .tnode { cursor: pointer; }
+  .tnode-rect {
+    rx: 8px; ry: 8px;
+  }
+  .tnode-form {
+    font-size: 14px;
+  }
+  .tnode-lemma, .tnode-gloss {
+    font-size: 10px;
+  }
+  .edge-label {
+    font-size: 10px;
+  }
+  .tree-edge {
+    stroke-width: 2;
+  }
+}

@@ -116,17 +116,14 @@ function initResizeHandle(
   let startX = 0;
   let startW = 0;
 
-  handle.addEventListener('mousedown', (e) => {
-    e.preventDefault();
-    startX = e.clientX;
+  function onStart(clientX: number) {
+    startX = clientX;
     startW = panel.offsetWidth;
     document.body.classList.add('resizing');
-    document.addEventListener('mousemove', onMove);
-    document.addEventListener('mouseup', onUp);
-  });
+  }
 
-  function onMove(e: MouseEvent) {
-    const dx = e.clientX - startX;
+  function onMove(clientX: number) {
+    const dx = clientX - startX;
     const newW = side === 'left'
       ? Math.min(max, Math.max(min, startW + dx))
       : Math.min(max, Math.max(min, startW - dx));
@@ -135,13 +132,72 @@ function initResizeHandle(
 
   function onUp() {
     document.body.classList.remove('resizing');
-    document.removeEventListener('mousemove', onMove);
-    document.removeEventListener('mouseup', onUp);
   }
+
+  // Mouse events
+  handle.addEventListener('mousedown', (e) => {
+    e.preventDefault();
+    onStart(e.clientX);
+    const moveH = (e: MouseEvent) => onMove(e.clientX);
+    const upH = () => { onUp(); document.removeEventListener('mousemove', moveH); document.removeEventListener('mouseup', upH); };
+    document.addEventListener('mousemove', moveH);
+    document.addEventListener('mouseup', upH);
+  });
+
+  // Touch events
+  handle.addEventListener('touchstart', (e) => {
+    if (e.touches.length !== 1) return;
+    onStart(e.touches[0].clientX);
+    const moveH = (e: TouchEvent) => { if (e.touches.length === 1) onMove(e.touches[0].clientX); };
+    const upH = () => { onUp(); document.removeEventListener('touchmove', moveH); document.removeEventListener('touchend', upH); };
+    document.addEventListener('touchmove', moveH, { passive: true });
+    document.addEventListener('touchend', upH);
+  }, { passive: true });
 }
 
 initResizeHandle(sidebarHandle, sidebarEl, 'left', SIDEBAR_MIN, SIDEBAR_MAX);
 initResizeHandle(legendHandle, legendPanelEl, 'right', LEGEND_MIN, LEGEND_MAX);
+
+// ── Mobile sidebar ─────────────────────────────────────────────────────────
+
+const mobileSidebarToggle = document.getElementById('mobile-sidebar-toggle') as HTMLButtonElement;
+const mobileSidebarBackdrop = document.getElementById('mobile-sidebar-backdrop') as HTMLElement;
+const mobileSidebarClose = document.getElementById('mobile-sidebar-close') as HTMLButtonElement;
+
+function isMobile() {
+  return window.innerWidth <= 768;
+}
+
+function openMobileSidebar() {
+  sidebarEl.classList.add('mobile-open');
+  mobileSidebarBackdrop.classList.add('visible');
+}
+
+function closeMobileSidebar() {
+  sidebarEl.classList.remove('mobile-open');
+  mobileSidebarBackdrop.classList.remove('visible');
+}
+
+mobileSidebarToggle?.addEventListener('click', () => {
+  if (sidebarEl.classList.contains('mobile-open')) {
+    closeMobileSidebar();
+  } else {
+    openMobileSidebar();
+  }
+});
+
+mobileSidebarBackdrop?.addEventListener('click', closeMobileSidebar);
+mobileSidebarClose?.addEventListener('click', closeMobileSidebar);
+
+// Close mobile sidebar when a sentence is tapped
+sidebarList.addEventListener('click', () => {
+  if (isMobile()) closeMobileSidebar();
+});
+
+// Close on resize to desktop
+window.addEventListener('resize', () => {
+  if (!isMobile()) closeMobileSidebar();
+});
 
 // ── Router ─────────────────────────────────────────────────────────────────
 

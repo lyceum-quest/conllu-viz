@@ -11,6 +11,7 @@ html, body {
   color: var(--text-primary);
   background: var(--bg-primary);
   overflow: hidden;
+  -webkit-tap-highlight-color: transparent;
 }
 
 #app { display: flex; flex-direction: column; height: 100vh; }
@@ -39,7 +40,7 @@ html, body {
 #toolbar button:hover { background: var(--bg-hover); border-color: var(--border-focus); }
 #toolbar button:active { transform: scale(0.97); }
 
-.filename { color: var(--text-muted); font-size: 13px; margin-left: 8px; }
+.filename { color: var(--text-muted); font-size: 13px; margin-left: 8px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 120px; }
 
 /* ---- Main ---- */
 #main { display: flex; flex: 1; overflow: hidden; }
@@ -110,6 +111,30 @@ html, body {
   background: var(--bg-primary);
   flex-shrink: 0;
   border-bottom: 1px solid var(--border-subtle);
+}
+
+/* Mobile sidebar toggle button */
+#mobile-sidebar-toggle {
+  display: none;
+  position: fixed;
+  bottom: 16px;
+  left: 16px;
+  z-index: 250;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: var(--bg-primary);
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+  align-items: center;
+  justify-content: center;
+}
+
+#mobile-sidebar-toggle:active {
+  transform: scale(0.95);
 }
 
 /* Word cards row */
@@ -723,4 +748,208 @@ html, body {
 .trans-text.prose {
   font-style: normal;
   font-weight: 500;
+}
+
+/* ==========================================================================
+   Mobile / Responsive
+   ========================================================================== */
+
+@media (max-width: 768px) {
+  /* ---- Top nav: hamburger menu ---- */
+  #top-nav {
+    position: relative;
+    padding: 0 12px;
+    height: 44px;
+  }
+
+  #top-nav .nav-hint {
+    display: none;
+  }
+
+  .nav-divider {
+    display: none;
+  }
+
+  .nav-link {
+    font-size: 14px;
+    padding: 6px 10px;
+  }
+
+  #top-nav .nav-spacer {
+    display: none;
+  }
+
+  #top-nav .nav-title {
+    font-size: 12px;
+    margin-left: auto;
+    margin-right: 8px;
+  }
+
+  /* ---- Toolbar: wrap and stack ---- */
+  #toolbar {
+    flex-wrap: wrap;
+    padding: 8px 10px;
+    gap: 6px;
+  }
+
+  #toolbar h1 {
+    font-size: 16px;
+  }
+
+  #toolbar-right {
+    flex-wrap: wrap;
+    gap: 6px;
+    width: 100%;
+  }
+
+  #toolbar button {
+    padding: 6px 10px;
+    font-size: 13px;
+    min-height: 36px;
+  }
+
+  .filename {
+    max-width: 80px;
+  }
+
+  /* ---- Main: stack vertically ---- */
+  #main {
+    flex-direction: column;
+  }
+
+  /* ---- Sidebar: overlay drawer on mobile ---- */
+  #sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 260px;
+    z-index: 300;
+    box-shadow: 4px 0 20px rgba(0,0,0,0.5);
+    transform: translateX(-100%);
+    transition: transform 200ms ease;
+  }
+
+  #sidebar.mobile-open {
+    transform: translateX(0);
+  }
+
+  .mobile-sidebar-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 299;
+    display: none;
+  }
+
+  .mobile-sidebar-backdrop.visible {
+    display: block;
+  }
+
+  /* Hide resize handles on mobile */
+  .resize-handle {
+    display: none;
+  }
+
+  /* ---- Legend: full-width overlay ---- */
+  #legend-panel {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    min-width: 0;
+    z-index: 300;
+    border-left: none;
+    border-radius: 0;
+    padding: 16px;
+    background: var(--bg-secondary);
+    transform: translateY(100%);
+    transition: transform 200ms ease;
+  }
+
+  #legend-panel:not(.hidden) {
+    transform: translateY(0);
+  }
+
+  #legend-panel.hidden {
+    transform: translateY(100%);
+  }
+
+  /* ---- Canvas area: full width ---- */
+  #canvas-area {
+    flex: 1;
+  }
+
+  /* ---- Sentence display ---- */
+  #sentence-display {
+    padding: 8px 10px;
+  }
+
+  .sent-card {
+    max-width: 120px;
+    padding: 3px 6px 5px;
+  }
+
+  .sent-card-word {
+    font-size: 14px;
+  }
+
+  .sent-card-gloss, .sent-card-lemma {
+    font-size: 10px;
+  }
+
+  /* ---- Drop overlay ---- */
+  .drop-icon { font-size: 48px; }
+
+  /* ---- Translation panel: full width ---- */
+  .translation-panel {
+    width: calc(100% - 16px);
+    bottom: 8px;
+  }
+
+  /* ---- Morph panel ---- */
+  .morph-panel {
+    width: calc(100vw - 16px);
+    max-height: calc(100vh - 32px);
+  }
+
+  .morph-char {
+    font-size: 20px;
+  }
+
+  .morph-feat-key {
+    min-width: 60px;
+  }
+
+  /* Show mobile sidebar toggle */
+  #mobile-sidebar-toggle {
+    display: flex;
+  }
+
+  /* Mobile sidebar header */
+  #mobile-sidebar-header {
+    display: flex !important;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 12px;
+  }
+
+  #desktop-sidebar-heading {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .sent-card {
+    max-width: 90px;
+    padding: 2px 4px 4px;
+  }
+
+  .sent-card-word {
+    font-size: 13px;
+  }
+
+  #toolbar button {
+    padding: 5px 8px;
+    font-size: 12px;
+  }
 }
