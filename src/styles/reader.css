@@ -146,6 +146,10 @@
   max-width: 900px;
 }
 
+.reader-main.wide {
+  max-width: 1400px;
+}
+
 .reader-title {
   font-family: var(--font-greek);
   font-size: 24px;
@@ -315,6 +319,28 @@
   font-style: italic;
 }
 
+/* ── Sentence body (wraps words + translation) ──────────────────────── */
+
+.reader-sentence-body {
+  /* Default: stacked layout (words above, translation below) */
+}
+
+.reader-sentence-body.side-by-side {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+.reader-sentence-body.side-by-side .reader-words {
+  flex: 3;
+  min-width: 0;
+}
+
+.reader-sentence-body.side-by-side .reader-translation {
+  flex: 2;
+  min-width: 0;
+}
+
 /* ── Translation block ──────────────────────────────────────────────── */
 
 .reader-translation {
@@ -327,10 +353,24 @@
 }
 
 .reader-translation-prose {
+  display: none;
   font-size: 14px;
   color: var(--text-secondary);
   line-height: 1.5;
   margin-bottom: 4px;
+  padding-bottom: 4px;
+}
+
+/* When both prose and literal are showing, add a subtle divider */
+[data-layers~="prose"][data-layers~="literal"] .reader-translation-prose {
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.reader-translation-literal {
+  display: none;
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.5;
 }
 
 .reader-translation-prose-label,
@@ -343,10 +383,13 @@
   margin-right: 6px;
 }
 
-.reader-translation-literal {
-  font-size: 13px;
-  color: var(--text-muted);
-  line-height: 1.5;
+/* Side-by-side: remove left border, use full border instead */
+.reader-sentence-body.side-by-side .reader-translation {
+  border-left: none;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  margin: 0;
+  align-self: stretch;
 }
 
 /* ── CSS layer toggling via data-layers ─────────────────────────────── */
@@ -357,7 +400,11 @@
 [data-layers~="xpos"]      .reader-xpos    { display: block; }
 [data-layers~="feats"]     .reader-feats   { display: block; }
 [data-layers~="deps"]      .reader-dep     { display: block; }
-[data-layers~="translations"] .reader-translation { display: block; }
+[data-layers~="prose"]     .reader-translation-prose { display: block; }
+[data-layers~="literal"]   .reader-translation-literal { display: block; }
+/* Show translation container when either prose or literal is active */
+[data-layers~="prose"]     .reader-translation,
+[data-layers~="literal"]   .reader-translation { display: block; }
 [data-layers~="sent-ids"]  .reader-sentence-id { display: block; }
 [data-layers~="sent-breaks"] .reader-sentence-break { display: block; }
 
@@ -447,6 +494,14 @@
   .reader-main {
     padding: 16px 12px 60px;
     max-width: 100%;
+  }
+
+  .reader-main.wide {
+    max-width: 100%;
+  }
+
+  .reader-sentence-body.side-by-side {
+    flex-direction: column;
   }
 
   .reader-form {

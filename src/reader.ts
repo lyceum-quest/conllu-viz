@@ -26,7 +26,8 @@ interface LayerDef {
 }
 
 const LAYERS: LayerDef[] = [
-  { key: 'translations', label: 'Translations', desc: 'Prose & literal translations per sentence', group: 'sentence' },
+  { key: 'prose', label: 'Prose translation', desc: 'Natural English translation per sentence', group: 'sentence' },
+  { key: 'literal', label: 'Literal translation', desc: 'Word-by-word translation per sentence', group: 'sentence' },
   { key: 'sent-ids', label: 'Sentence IDs', desc: 'Show #perry-45-s1 labels', group: 'sentence' },
   { key: 'sent-breaks', label: 'Sentence breaks', desc: 'Visual separators between sentences', group: 'sentence' },
   { key: 'lemmas', label: 'Lemmas', desc: 'Dictionary form under each word', group: 'word' },
@@ -37,6 +38,7 @@ const LAYERS: LayerDef[] = [
   { key: 'deps', label: 'Dependencies', desc: 'Relation + head word (nsubj ← εἷλκον)', group: 'word' },
   { key: 'pos-color', label: 'POS coloring', desc: 'Color words by part of speech', group: 'visual' },
   { key: 'segments', label: 'Morph segmentation', desc: 'Color-code segments within words', group: 'visual' },
+  { key: 'trans-side', label: 'Side by side', desc: 'Show translations next to Greek instead of below', group: 'visual' },
 ];
 
 const LAYER_GROUPS = [
@@ -61,7 +63,19 @@ const LAYER_PREFS_KEY = 'conllu-viz-reader-layers';
 function loadLayerPrefs(): Set<string> {
   try {
     const raw = localStorage.getItem(LAYER_PREFS_KEY);
-    if (raw) return new Set(JSON.parse(raw));
+    if (raw) {
+      const arr: string[] = JSON.parse(raw);
+      // Migrate old 'translations' key to new 'prose' + 'literal'
+      if (arr.includes('translations')) {
+        if (!arr.includes('prose')) arr.push('prose');
+        if (!arr.includes('literal')) arr.push('literal');
+        const filtered = arr.filter(k => k !== 'translations');
+        const set = new Set(filtered);
+        saveLayerPrefs(set);
+        return set;
+      }
+      return new Set(arr);
+    }
   } catch { /* corrupt */ }
   return new Set();
 }
@@ -284,8 +298,10 @@ function buildSentenceHTML(sent: Sentence): string {
   return `
     <div class="reader-sentence" data-sent-id="${sid}">
       <div class="reader-sentence-id">${sid}</div>
-      <div class="reader-words">${words.join(' ')}</div>
-      ${transHTML}
+      <div class="reader-sentence-body">
+        <div class="reader-words">${words.join(' ')}</div>
+        ${transHTML}
+      </div>
     </div>
     <hr class="reader-sentence-break">
   `;
@@ -504,6 +520,9 @@ function applyLayers() {
   // Handle POS coloring (requires inline style override)
   applyPOSColoring();
 
+  // Handle side-by-side layout
+  applySideBySide(textDiv);
+
   // Toggle bare/structured word mode
   applyBareMode(textDiv);
 }
@@ -547,6 +566,16 @@ function applyPOSColoring() {
       form.style.color = '';
     }
   });
+}
+
+function applySideBySide(textDiv: HTMLElement) {
+  const sideBySide = activeLayers.has('trans-side');
+  textDiv.querySelectorAll('.reader-sentence-body').forEach(el => {
+    (el as HTMLElement).classList.toggle('side-by-side', sideBySide);
+  });
+  // Widen the main area for side-by-side layout
+  const main = textDiv.closest('.reader-main') as HTMLElement | null;
+  if (main) main.classList.toggle('wide', sideBySide);
 }
 
 // ── Cleanup ────────────────────────────────────────────────────────────
