@@ -7,7 +7,9 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "deploy": "bash ./scripts/deploy.sh",
+    "import": "tsx scripts/import-conllu.ts"
   },
   "devDependencies": {
     "tsx": "^4.21.0",

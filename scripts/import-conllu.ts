@@ -1,6 +1,6 @@
 import Database from "better-sqlite3";
 import { readFileSync, existsSync, readdirSync, statSync } from "node:fs";
-import { basename, join } from "node:path";
+import { basename, join, resolve } from "node:path";
 import { parseConllu } from "../src/types";
 import {
   type EditionMap,
@@ -8,6 +8,22 @@ import {
   importConlluFile,
 } from "../src/importer";
 import { runMigrations } from "../src/db-schema";
+
+// Load .env if present
+function loadEnv() {
+  const envPath = resolve(process.cwd(), ".env");
+  if (!existsSync(envPath)) return;
+  for (const line of readFileSync(envPath, "utf-8").split("\n")) {
+    const trimmed = line.trim();
+    if (!trimmed || trimmed.startsWith("#")) continue;
+    const eq = trimmed.indexOf("=");
+    if (eq === -1) continue;
+    const key = trimmed.slice(0, eq).trim();
+    const val = trimmed.slice(eq + 1).trim();
+    if (!(key in process.env)) process.env[key] = val;
+  }
+}
+loadEnv();
 
 // ── Arg parsing ────────────────────────────────────────────────
 
@@ -22,8 +38,8 @@ interface Args {
 function parseArgs(args: string[]): Args {
   const result: Args = {
     path: "",
-    dbPath: `${process.env.HOME}/src/greek/lyceum/reader/data/editions.db`,
-    mapPath: join(process.cwd(), "conllu-edition-map.json"),
+    dbPath: process.env.CONLLU_DB_PATH || "",
+    mapPath: process.env.CONLLU_MAP_PATH || join(process.cwd(), "conllu-edition-map.json"),
     dryRun: false,
     migrateOnly: false,
   };
@@ -66,8 +82,8 @@ Arguments:
   path          Path to a .conllu file or directory to scan
 
 Options:
-  --db, -d      Path to editions.db (default: ~/src/greek/lyceum/reader/data/editions.db)
-  --map, -m     Path to conllu-edition-map.json (default: ./conllu-edition-map.json)
+  --db, -d      Path to editions.db (required, or set CONLLU_DB_PATH)
+  --map, -m     Path to conllu-edition-map.json (default: ./conllu-edition-map.json, or CONLLU_MAP_PATH)
   --dry-run     Parse and report but don't write to DB
   --migrate-only  Only apply schema migrations, then exit
   --help, -h    Show this help
@@ -86,6 +102,12 @@ function main() {
 
   if (!args.path && !args.migrateOnly) {
     console.error("Error: provide a path to a .conllu file or directory");
+    printUsage();
+    process.exit(1);
+  }
+
+  if (!args.dbPath) {
+    console.error("Error: --db path or CONLLU_DB_PATH env var is required");
     printUsage();
     process.exit(1);
   }
