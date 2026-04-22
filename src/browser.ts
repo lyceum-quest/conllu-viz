@@ -153,7 +153,7 @@ function createFileCard(file: import('./store').StoredFile) {
   try {
     const treebank = parseConllu(file.content, file.name);
     sentences = treebank.sentences.length;
-    totalTokens = treebank.sentences.reduce((a, s) => a + s.tokens.length, 0);
+    totalTokens = treebank.sentences.reduce((a, s) => a + s.tokens.filter(t => t.upos !== 'PUNCT').length, 0);
     workTitle = treebank.title;
   } catch { /* corrupt file */ }
 

@@ -193,7 +193,9 @@ export function getAllTokenKeys(store: AppStore, fileId: string): string[] {
   if (!content) return [];
   const treebank = parseConllu(content, fileId);
   return treebank.sentences.flatMap(s =>
-    s.tokens.map(t => makeTokenKey(s.id, t.id))
+    s.tokens
+      .filter(t => t.upos !== 'PUNCT')
+      .map(t => makeTokenKey(s.id, t.id))
   );
 }
 
