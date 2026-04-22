@@ -5,17 +5,19 @@
 # translation_lang = en
 # prose_translation = A bear was boasting greatly that he was humane, on the grounds that he does not eat dead bodies.
 # literal_translation = A bear was greatly boasting as being a lover of mankind, since a dead body he does not eat.
-1	Ἄρκος	ἄρκτος	NOUN	noun.masc.sg.nom	Gender=Masc|Number=Sing|Case=Nom	5	nsubj	_	gloss=a bear
-2	μεγάλως	μεγάλως	ADV	adverb	_	5	advmod	_	gloss=greatly
+1	Ἄρκτος	ἄρκτος	NOUN	noun.masc.sg.nom	Gender=Masc|Number=Sing|Case=Nom	4	nsubj	_	gloss=a bear
+2	μεγάλως	μεγάλως	ADV	adverb	_	4	advmod	_	gloss=greatly
 3	ἐκαυχᾶτο	καυχάομαι	VERB	verb.impf.ind.mp.3sg	Aspect=Imp|Mood=Ind|Tense=Imp|Voice=Mid|Number=Sing|Person=3	0	root	_	gloss=was boasting
 4	ὡς	ὡς	SCONJ	conjunction	_	5	mark	_	gloss=as / that
 5	φιλάνθρωπος	φιλάνθρωπος	ADJ	adj.masc.sg.nom	Degree=Pos|Gender=Masc|Number=Sing|Case=Nom	3	xcomp	_	gloss=a lover of mankind / humane
 6	ὤν	εἰμί	VERB	verb.pres.ptcp.act.masc.sg.nom	Aspect=Imp|Mood=Part|Tense=Pres|Voice=Act|Gender=Masc|Number=Sing|Case=Nom	5	cop	_	gloss=being
-7	ἐπεὶ	ἐπεί	SCONJ	conjunction	_	11	mark	_	gloss=since
-8	νεκρὸν	νεκρός	ADJ	adj.masc.sg.acc	Degree=Pos|Gender=Masc|Number=Sing|Case=Acc	9	amod	_	gloss=dead
-9	σῶμα	σῶμα	NOUN	noun.neut.sg.acc	Gender=Neut|Number=Sing|Case=Acc	11	obj	_	gloss=body / corpse
-10	οὐκ	οὐ	PART	neg.particle	Polarity=Neg	11	advmod	_	gloss=not
-11	ἐσθίει	ἐσθίω	VERB	verb.pres.ind.act.3sg	Aspect=Imp|Mood=Ind|Tense=Pres|Voice=Act|Number=Sing|Person=3	3	advcl	_	gloss=he eats
+7	,	,	PUNCT	punctuation	_	6	punct	_	gloss=,
+8	ἐπεὶ	ἐπεί	SCONJ	conjunction	_	12	mark	_	gloss=since
+9	νεκρὸν	νεκρός	ADJ	adj.masc.sg.acc	Degree=Pos|Gender=Masc|Number=Sing|Case=Acc	10	amod	_	gloss=dead
+10	σῶμα	σῶμα	NOUN	noun.neut.sg.acc	Gender=Neut|Number=Sing|Case=Acc	12	obj	_	gloss=body / corpse
+11	οὐκ	οὐ	PART	neg.particle	Polarity=Neg	12	advmod	_	gloss=not
+12	ἐσθίει	ἐσθίω	VERB	verb.pres.ind.act.3sg	Aspect=Imp|Mood=Ind|Tense=Pres|Voice=Act|Number=Sing|Person=3	3	advcl	_	gloss=he eats
+13	·	·	PUNCT	punctuation	_	12	punct	_	gloss=:
 
 # sent_id = perry-288-s2
 # text = πρὸς ὃν ἡ ἀλώπηξ εἶπεν· Εἴθε νεκροὺς εἷλκες, ἀλλὰ μὴ τοὺ ζῶντας
@@ -23,18 +25,20 @@
 # translation_lang = en
 # prose_translation = To him the fox said, "If only you would eat the dead, but not the living!"
 # literal_translation = To whom the fox said: Would that you drew in the dead, but not the living ones.
-12	πρὸς	πρός	ADP	preposition.acc	_	13	case	_	gloss=to
-13	ὃν	ὅς	PRON	pron.masc.sg.acc	PronType=Rel|Gender=Masc|Number=Sing|Case=Acc	14	obl	_	gloss=whom
-14	ἡ	ὁ	DET	article.fem.sg.nom	Definite=Def|PronType=Art|Gender=Fem|Number=Sing|Case=Nom	15	det	_	gloss=the
-15	ἀλώπηξ	ἀλώπηξ	NOUN	noun.fem.sg.nom	Gender=Fem|Number=Sing|Case=Nom	16	nsubj	_	gloss=fox
-16	εἶπεν	λέγω	VERB	verb.aor.ind.act.3sg	Aspect=Perf|Mood=Ind|Tense=Aor|Voice=Act|Number=Sing|Person=3	0	root	_	gloss=said
-17	Εἴθε	εἴθε	ADV	adverb	_	18	advmod	_	gloss=would that / if only
-18	νεκροὺς	νεκρός	ADJ	adj.masc.pl.acc	Degree=Pos|Gender=Masc|Number=Plur|Case=Acc	19	obj	_	gloss=the dead
-19	εἷλκες	ἕλκω	VERB	verb.impf.ind.act.2sg	Aspect=Imp|Mood=Ind|Tense=Imp|Voice=Act|Number=Sing|Person=2	16	ccomp	_	gloss=you would draw in / eat
-20	ἀλλὰ	ἀλλά	CCONJ	conjunction	_	22	cc	_	gloss=but
-21	μὴ	μή	PART	neg.particle	Polarity=Neg	22	advmod	_	gloss=not
-22	τοὺ	ὁ	DET	article.masc.pl.acc	Definite=Def|PronType=Art|Gender=Masc|Number=Plur|Case=Acc	18	conj	_	gloss=the
-23	ζῶντας	ζάω	VERB	verb.pres.ptcp.act.masc.pl.acc	Aspect=Imp|Mood=Part|Tense=Pres|Voice=Act|Gender=Masc|Number=Plur|Case=Acc	22	acl	_	gloss=living ones
+14	πρὸς	πρός	ADP	preposition.acc	_	15	case	_	gloss=to
+15	ὃν	ὅς	PRON	pron.masc.sg.acc	PronType=Rel|Gender=Masc|Number=Sing|Case=Acc	18	obl	_	gloss=whom
+16	ἡ	ὁ	DET	article.fem.sg.nom	Definite=Def|PronType=Art|Gender=Fem|Number=Sing|Case=Nom	17	det	_	gloss=the
+17	ἀλώπηξ	ἀλώπηξ	NOUN	noun.fem.sg.nom	Gender=Fem|Number=Sing|Case=Nom	18	nsubj	_	gloss=fox
+18	εἶπεν	λέγω	VERB	verb.aor.ind.act.3sg	Aspect=Perf|Mood=Ind|Tense=Aor|Voice=Act|Number=Sing|Person=3	0	root	_	gloss=said
+19	·	·	PUNCT	punctuation	_	18	punct	_	gloss=:
+20	Εἴθε	εἴθε	ADV	adverb	_	21	advmod	_	gloss=would that / if only
+21	νεκροὺς	νεκρός	ADJ	adj.masc.pl.acc	Degree=Pos|Gender=Masc|Number=Plur|Case=Acc	22	obj	_	gloss=the dead
+22	εἷλκες	ἕλκω	VERB	verb.impf.ind.act.2sg	Aspect=Imp|Mood=Ind|Tense=Imp|Voice=Act|Number=Sing|Person=2	18	ccomp	_	gloss=you would draw in / eat
+23	,	,	PUNCT	punctuation	_	22	punct	_	gloss=,
+24	ἀλλὰ	ἀλλά	CCONJ	conjunction	_	26	cc	_	gloss=but
+25	μὴ	μή	PART	neg.particle	Polarity=Neg	26	advmod	_	gloss=not
+26	τοὺς	ὁ	DET	article.masc.pl.acc	Definite=Def|PronType=Art|Gender=Masc|Number=Plur|Case=Acc	21	conj	_	gloss=the
+27	ζῶντας	ζάω	VERB	verb.pres.ptcp.act.masc.pl.acc	Aspect=Imp|Mood=Part|Tense=Pres|Voice=Act|Gender=Masc|Number=Plur|Case=Acc	26	acl	_	gloss=living ones
 
 # sent_id = perry-288-s3
 # text = Οὗτος ὁ μῦθος πλεονέκτας τοὺς ἐν ὑποκρίσει καὶ κενοδοξίᾳ βιοῦντας ἐλέγχει.
@@ -42,14 +46,15 @@
 # translation_lang = en
 # prose_translation = This fable exposes those who live in hypocrisy and vain glory as greedy.
 # literal_translation = This fable greedy men, those living in hypocrisy and empty glory, refutes.
-24	Οὗτος	οὗτος	PRON	pron.masc.sg.nom	PronType=Dem|Gender=Masc|Number=Sing|Case=Nom	26	nsubj	_	gloss=this
-25	ὁ	ὁ	DET	article.masc.sg.nom	Definite=Def|PronType=Art|Gender=Masc|Number=Sing|Case=Nom	26	det	_	gloss=the
-26	μῦθος	μῦθος	NOUN	noun.masc.sg.nom	Gender=Masc|Number=Sing|Case=Nom	31	nsubj	_	gloss=fable
-27	πλεονέκτας	πλεονέκτης	NOUN	noun.masc.pl.acc	Gender=Masc|Number=Plur|Case=Acc	34	obj	_	gloss=greedy men
-28	τοὺς	ὁ	DET	article.masc.pl.acc	Definite=Def|PronType=Art|Gender=Masc|Number=Plur|Case=Acc	33	det	_	gloss=those
-29	ἐν	ἐν	ADP	preposition.dat	_	30	case	_	gloss=in
-30	ὑποκρίσει	ὑπόκρισις	NOUN	noun.fem.sg.dat	Gender=Fem|Number=Sing|Case=Dat	33	obl	_	gloss=hypocrisy
-31	καὶ	καί	CCONJ	conjunction	_	32	cc	_	gloss=and
-32	κενοδοξίᾳ	κενοδοξία	NOUN	noun.fem.sg.dat	Gender=Fem|Number=Sing|Case=Dat	30	conj	_	gloss=vain glory / empty reputation
-33	βιοῦντας	βιόω	VERB	verb.pres.ptcp.act.masc.pl.acc	Aspect=Imp|Mood=Part|Tense=Pres|Voice=Act|Gender=Masc|Number=Plur|Case=Acc	27	acl	_	gloss=living
-34	ἐλέγχει	ἐλέγχω	VERB	verb.pres.ind.act.3sg	Aspect=Imp|Mood=Ind|Tense=Pres|Voice=Act|Number=Sing|Person=3	0	root	_	gloss=refutes / exposes
+28	Οὗτος	οὗτος	PRON	pron.masc.sg.nom	PronType=Dem|Gender=Masc|Number=Sing|Case=Nom	30	nsubj	_	gloss=this
+29	ὁ	ὁ	DET	article.masc.sg.nom	Definite=Def|PronType=Art|Gender=Masc|Number=Sing|Case=Nom	30	det	_	gloss=the
+30	μῦθος	μῦθος	NOUN	noun.masc.sg.nom	Gender=Masc|Number=Sing|Case=Nom	39	nsubj	_	gloss=fable
+31	πλεονέκτας	πλεονέκτης	NOUN	noun.masc.pl.acc	Gender=Masc|Number=Plur|Case=Acc	39	obj	_	gloss=greedy men
+32	τοὺς	ὁ	DET	article.masc.pl.acc	Definite=Def|PronType=Art|Gender=Masc|Number=Plur|Case=Acc	37	det	_	gloss=those
+33	ἐν	ἐν	ADP	preposition.dat	_	34	case	_	gloss=in
+34	ὑποκρίσει	ὑπόκρισις	NOUN	noun.fem.sg.dat	Gender=Fem|Number=Sing|Case=Dat	37	obl	_	gloss=hypocrisy
+35	καὶ	καί	CCONJ	conjunction	_	36	cc	_	gloss=and
+36	κενοδοξίᾳ	κενοδοξία	NOUN	noun.fem.sg.dat	Gender=Fem|Number=Sing|Case=Dat	34	conj	_	gloss=vain glory / empty reputation
+37	βιοῦντας	βιόω	VERB	verb.pres.ptcp.act.masc.pl.acc	Aspect=Imp|Mood=Part|Tense=Pres|Voice=Act|Gender=Masc|Number=Plur|Case=Acc	31	acl	_	gloss=living
+38	ἐλέγχει	ἐλέγχω	VERB	verb.pres.ind.act.3sg	Aspect=Imp|Mood=Ind|Tense=Pres|Voice=Act|Number=Sing|Person=3	0	root	_	gloss=refutes / exposes
+39	.	.	PUNCT	punctuation	_	38	punct	_	gloss=.

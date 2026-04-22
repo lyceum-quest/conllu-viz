@@ -5,14 +5,16 @@
 # translation_lang = en
 # prose_translation = A goat was once nibbling on a vine shoot, and it spoke to him:
 # literal_translation = A goat then once a shoot of a vine nibbling, to it said:
-1	Τράγος	τράγος	NOUN	noun.masc.sg.nom	Gender=Masc|Number=Sing|Case=Nom	8	nsubj	_	gloss=a he-goat
-2	δέ	δέ	CCONJ	conjunction	_	8	cc	_	gloss=and / now
-3	ποτέ	ποτέ	ADV	adverb	_	8	advmod	_	gloss=once
-4	βλάστην	βλάστη	NOUN	noun.fem.sg.acc	Gender=Fem|Number=Sing|Case=Acc	6	obj	_	gloss=a shoot / sprout
+1	Τράγος	τράγος	NOUN	noun.masc.sg.nom	Gender=Masc|Number=Sing|Case=Nom	10	nsubj	_	gloss=a he-goat
+2	δέ	δέ	CCONJ	conjunction	_	10	cc	_	gloss=and / now
+3	ποτέ	ποτέ	ADV	adverb	_	10	advmod	_	gloss=once
+4	βλάστην	βλάστη	NOUN	noun.fem.sg.acc	Gender=Fem|Number=Sing|Case=Acc	7	obj	_	gloss=a shoot / sprout
 5	ἀμπέλου	ἄμπελος	NOUN	noun.fem.sg.gen	Gender=Fem|Number=Sing|Case=Gen	4	nmod	_	gloss=of a vine
-6	τρώγων	τρώγω	VERB	verb.pres.ptcp.act.masc.sg.nom	Aspect=Imp|Mood=Part|Tense=Pres|Voice=Act|Gender=Masc|Number=Sing|Case=Nom	8	advcl	_	gloss=nibbling / gnawing
-7	τούτῳ	οὗτος	PRON	pron.neut.sg.dat	PronType=Dem|Gender=Neut|Number=Sing|Case=Dat	8	obl	_	gloss=to it
-8	προσεῖπε	προσλέγω	VERB	verb.aor.ind.act.3sg	Aspect=Perf|Mood=Ind|Tense=Aor|Voice=Act|Number=Sing|Person=3	0	root	_	gloss=said to it / addressed
+6	τρώγων	τρώγω	VERB	verb.pres.ptcp.act.masc.sg.nom	Aspect=Imp|Mood=Part|Tense=Pres|Voice=Act|Gender=Masc|Number=Sing|Case=Nom	10	advcl	_	gloss=nibbling / gnawing
+7	,	,	PUNCT	punctuation	_	6	punct	_	gloss=,
+8	τούτῳ	οὗτος	PRON	pron.neut.sg.dat	PronType=Dem|Gender=Neut|Number=Sing|Case=Dat	10	obl	_	gloss=to it
+9	προσεῖπε	προσλέγω	VERB	verb.aor.ind.act.3sg	Aspect=Perf|Mood=Ind|Tense=Aor|Voice=Act|Number=Sing|Person=3	0	root	_	gloss=said to it / addressed
+10	·	·	PUNCT	punctuation	_	9	punct	_	gloss=:
 
 # sent_id = perry-374-s2
 # text = Τί με βλάπτεις ἀδίκως;
@@ -20,10 +22,11 @@
 # translation_lang = en
 # prose_translation = "Why do you harm me unjustly?"
 # literal_translation = Why me do you harm unjustly?
-9	Τί	τίς	PRON	pron.neut.sg.acc	PronType=Int|Gender=Neut|Number=Sing|Case=Acc	11	advmod	_	gloss=why
-10	με	ἐγώ	PRON	pron.1sg.acc	Case=Acc|Number=Sing|Person=1	11	obj	_	gloss=me
-11	βλάπτεις	βλάπτω	VERB	verb.pres.ind.act.2sg	Aspect=Imp|Mood=Ind|Tense=Pres|Voice=Act|Number=Sing|Person=2	0	root	_	gloss=do you harm
-12	ἀδίκως	ἀδίκως	ADV	adverb	_	11	advmod	_	gloss=unjustly
+11	Τί	τίς	PRON	pron.neut.sg.acc	PronType=Int|Gender=Neut|Number=Sing|Case=Acc	14	advmod	_	gloss=why
+12	με	ἐγώ	PRON	pron.1sg.acc	Case=Acc|Number=Sing|Person=1	14	obj	_	gloss=me
+13	βλάπτεις	βλάπτω	VERB	verb.pres.ind.act.2sg	Aspect=Imp|Mood=Ind|Tense=Pres|Voice=Act|Number=Sing|Person=2	0	root	_	gloss=do you harm
+14	ἀδίκως	ἀδίκως	ADV	adverb	_	13	advmod	_	gloss=unjustly
+15	;	;	PUNCT	punctuation	_	14	punct	_	gloss=?
 
 # sent_id = perry-374-s3
 # text = μὴ γάρ, ὦ τράγε, οὐκ ἔστιν ἄρτι χλόη;
@@ -31,14 +34,17 @@
 # translation_lang = en
 # prose_translation = "For surely, goat, isn't there fresh grass still?"
 # literal_translation = For not, O goat, is there not yet grass?
-13	μὴ	μή	PART	neg.particle	Polarity=Neg	17	advmod	_	gloss=not (in question)
-14	γάρ	γάρ	CCONJ	conjunction	_	17	cc	_	gloss=for
-15	ὦ	ὦ	PART	particle	_	16	discourse	_	gloss=O
-16	τράγε	τράγος	NOUN	noun.masc.sg.voc	Gender=Masc|Number=Sing|Case=Voc	17	vocative	_	gloss=goat
-17	ἔστιν	εἰμί	VERB	verb.pres.ind.act.3sg	Aspect=Imp|Mood=Ind|Tense=Pres|Voice=Act|Number=Sing|Person=3	0	root	_	gloss=is there
-18	οὐκ	οὐ	PART	neg.particle	Polarity=Neg	17	advmod	_	gloss=not
-19	ἄρτι	ἄρτι	ADV	adverb	_	17	advmod	_	gloss=still / yet
-20	χλόη	χλόη	NOUN	noun.fem.sg.nom	Gender=Fem|Number=Sing|Case=Nom	17	nsubj	_	gloss=grass / green fodder
+16	μὴ	μή	PART	neg.particle	Polarity=Neg	23	advmod	_	gloss=not (in question)
+17	γάρ	γάρ	CCONJ	conjunction	_	23	cc	_	gloss=for
+18	,	,	PUNCT	punctuation	_	17	punct	_	gloss=,
+19	ὦ	ὦ	PART	particle	_	20	discourse	_	gloss=O
+20	τράγε	τράγος	NOUN	noun.masc.sg.voc	Gender=Masc|Number=Sing|Case=Voc	23	vocative	_	gloss=goat
+21	,	,	PUNCT	punctuation	_	20	punct	_	gloss=,
+22	οὐκ	οὐ	PART	neg.particle	Polarity=Neg	23	advmod	_	gloss=not
+23	ἔστιν	εἰμί	VERB	verb.pres.ind.act.3sg	Aspect=Imp|Mood=Ind|Tense=Pres|Voice=Act|Number=Sing|Person=3	0	root	_	gloss=is there
+24	ἄρτι	ἄρτι	ADV	adverb	_	23	advmod	_	gloss=still / yet
+25	χλόη	χλόη	NOUN	noun.fem.sg.nom	Gender=Fem|Number=Sing|Case=Nom	23	nsubj	_	gloss=grass / green fodder
+26	;	;	PUNCT	punctuation	_	25	punct	_	gloss=?
 
 # sent_id = perry-374-s4
 # text = Ὅμως, πάναφρον, ποτέ σου θυομένου, ἐγὼ τὸν οἶνον παρέξω τῷ σῷ φόνῳ.
@@ -46,15 +52,19 @@
 # translation_lang = en
 # prose_translation = "Nevertheless, you fool, someday when you are sacrificed, I will provide the wine for your slaughter."
 # literal_translation = Nevertheless, O all-foolish one, sometime of you being sacrificed, I the wine will provide for your slaughter.
-21	Ὅμως	ὅμως	ADV	adverb	_	29	advmod	_	gloss=nevertheless
-22	πάναφρον	πάναφρων	ADJ	adj.masc.sg.voc	Degree=Pos|Gender=Masc|Number=Sing|Case=Voc	29	vocative	_	gloss=utterly foolish / all-foolish
-23	ποτέ	ποτέ	ADV	adverb	_	25	advmod	_	gloss=someday
-24	σου	σύ	PRON	pron.2sg.gen	Case=Gen|Number=Sing|Person=2	25	nsubj	_	gloss=your
-25	θυομένου	θύω	VERB	verb.pres.ptcp.mp.masc.sg.gen	Aspect=Imp|Voice=Mid|Mood=Part|Tense=Pres|Gender=Masc|Number=Sing|Case=Gen	29	advcl	_	gloss=you being sacrificed
-26	ἐγὼ	ἐγώ	PRON	pron.1sg.nom	Case=Nom|Number=Sing|Person=1	29	nsubj	_	gloss=I
-27	τὸν	ὁ	DET	article.masc.sg.acc	Definite=Def|PronType=Art|Gender=Masc|Number=Sing|Case=Acc	28	det	_	gloss=the
-28	οἶνον	οἶνος	NOUN	noun.masc.sg.acc	Gender=Masc|Number=Sing|Case=Acc	29	obj	_	gloss=wine
-29	παρέξω	παρέχω	VERB	verb.fut.ind.act.1sg	Mood=Ind|Tense=Fut|Voice=Act|Number=Sing|Person=1	0	root	_	gloss=I will provide
-30	τῷ	ὁ	DET	article.masc.sg.dat	Definite=Def|PronType=Art|Gender=Masc|Number=Sing|Case=Dat	31	det	_	gloss=the
-31	σῷ	σός	PRON	pron.masc.sg.dat	Case=Dat|Number=Sing|Person=2|Gender=Masc	32	nmod	_	gloss=your
-32	φόνῳ	φόνος	NOUN	noun.masc.sg.dat	Gender=Masc|Number=Sing|Case=Dat	29	obl	_	gloss=for the slaughter / murder
+27	Ὅμως	ὅμως	ADV	adverb	_	38	advmod	_	gloss=nevertheless
+28	,	,	PUNCT	punctuation	_	27	punct	_	gloss=,
+29	πάναφρον	πάναφρων	ADJ	adj.masc.sg.voc	Degree=Pos|Gender=Masc|Number=Sing|Case=Voc	38	vocative	_	gloss=utterly foolish / all-foolish
+30	,	,	PUNCT	punctuation	_	29	punct	_	gloss=,
+31	ποτέ	ποτέ	ADV	adverb	_	33	advmod	_	gloss=someday
+32	σου	σύ	PRON	pron.2sg.gen	Case=Gen|Number=Sing|Person=2	33	nsubj	_	gloss=your
+33	θυομένου	θύω	VERB	verb.pres.ptcp.mp.masc.sg.gen	Aspect=Imp|Voice=Mid|Mood=Part|Tense=Pres|Gender=Masc|Number=Sing|Case=Gen	38	advcl	_	gloss=you being sacrificed
+34	,	,	PUNCT	punctuation	_	33	punct	_	gloss=,
+35	ἐγὼ	ἐγώ	PRON	pron.1sg.nom	Case=Nom|Number=Sing|Person=1	38	nsubj	_	gloss=I
+36	τὸν	ὁ	DET	article.masc.sg.acc	Definite=Def|PronType=Art|Gender=Masc|Number=Sing|Case=Acc	37	det	_	gloss=the
+37	οἶνον	οἶνος	NOUN	noun.masc.sg.acc	Gender=Masc|Number=Sing|Case=Acc	38	obj	_	gloss=wine
+38	παρέξω	παρέχω	VERB	verb.fut.ind.act.1sg	Mood=Ind|Tense=Fut|Voice=Act|Number=Sing|Person=1	0	root	_	gloss=I will provide
+39	τῷ	ὁ	DET	article.masc.sg.dat	Definite=Def|PronType=Art|Gender=Masc|Number=Sing|Case=Dat	40	det	_	gloss=the
+40	σῷ	σός	PRON	pron.masc.sg.dat	Case=Dat|Number=Sing|Person=2|Gender=Masc	41	nmod	_	gloss=your
+41	φόνῳ	φόνος	NOUN	noun.masc.sg.dat	Gender=Masc|Number=Sing|Case=Dat	38	obl	_	gloss=for the slaughter / murder
+42	.	.	PUNCT	punctuation	_	41	punct	_	gloss=.

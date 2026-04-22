@@ -5,21 +5,24 @@
 # translation_lang = en
 # prose_translation = A walnut tree growing beside a road and being pelted with stones by passersby sighed and said to herself:
 # literal_translation = A walnut tree, being beside a certain road and by those passing by being pelted with stones, having sighed to herself said:
-1	Καρύα	κάρυα	NOUN	noun.fem.sg.nom	Gender=Fem|Number=Sing|Case=Nom	18	nsubj	_	gloss=a walnut tree
-2	παρά	παρά	ADP	preposition.acc	_	4	case	_	gloss=beside
-3	τινα	τις	PRON	pron.fem.sg.acc	PronType=Ind|Gender=Fem|Number=Sing|Case=Acc	4	det	_	gloss=a certain
-4	ὁδὸν	ὁδός	NOUN	noun.fem.sg.acc	Gender=Fem|Number=Sing|Case=Acc	5	obl	_	gloss=road
-5	οὖσα	εἰμί	VERB	verb.pres.ptcp.act.fem.sg.nom	Aspect=Imp|Mood=Part|Tense=Pres|Voice=Act|Gender=Fem|Number=Sing|Case=Nom	18	advcl	_	gloss=being
-6	καὶ	καί	CCONJ	conjunction	_	9	cc	_	gloss=and
-7	ὑπὸ	ὑπό	ADP	preposition.gen	_	8	case	_	gloss=by
-8	τῶν	ὁ	DET	article.masc.pl.gen	Definite=Def|PronType=Art|Gender=Masc|Number=Plur|Case=Gen	9	obl:agent	_	gloss=the
-9	παριόντων	παρίημι	VERB	verb.pres.ptcp.act.masc.pl.gen	Aspect=Imp|Mood=Part|Tense=Pres|Voice=Act|Gender=Masc|Number=Plur|Case=Gen	11	obl:agent	_	gloss=passing by
-10	λίθοις	λίθος	NOUN	noun.masc.pl.dat	Gender=Masc|Number=Plur|Case=Dat	11	obl	_	gloss=with stones
-11	βαλλομένη	βάλλω	VERB	verb.pres.ptcp.mp.fem.sg.nom	Aspect=Imp|Voice=Mid|Mood=Part|Tense=Pres|Gender=Fem|Number=Sing|Case=Nom	5	conj	_	gloss=being pelted / struck
-12	στενάξασα	στενάζω	VERB	verb.aor.ptcp.act.fem.sg.nom	Aspect=Perf|Mood=Part|Tense=Aor|Voice=Act|Gender=Fem|Number=Sing|Case=Nom	18	advcl	_	gloss=having sighed / groaned
-13	πρὸς	πρός	ADP	preposition.acc	_	14	case	_	gloss=to
-14	ἑαυτὴν	ἑαυτοῦ	PRON	pron.fem.sg.acc	Case=Acc|Number=Sing|Reflex=Yes|Gender=Fem	12	obl	_	gloss=herself
-15	εἶπεν	λέγω	VERB	verb.aor.ind.act.3sg	Aspect=Perf|Mood=Ind|Tense=Aor|Voice=Act|Number=Sing|Person=3	0	root	_	gloss=said
+1	Καρύα	κάρυα	NOUN	noun.fem.sg.nom	Gender=Fem|Number=Sing|Case=Nom	19	nsubj	_	gloss=a walnut tree
+2	,	,	PUNCT	punctuation	_	1	punct	_	gloss=,
+3	παρά	παρά	ADP	preposition.acc	_	5	case	_	gloss=beside
+4	τινα	τις	PRON	pron.fem.sg.acc	PronType=Ind|Gender=Fem|Number=Sing|Case=Acc	5	det	_	gloss=a certain
+5	ὁδὸν	ὁδός	NOUN	noun.fem.sg.acc	Gender=Fem|Number=Sing|Case=Acc	6	obl	_	gloss=road
+6	οὖσα	εἰμί	VERB	verb.pres.ptcp.act.fem.sg.nom	Aspect=Imp|Mood=Part|Tense=Pres|Voice=Act|Gender=Fem|Number=Sing|Case=Nom	19	advcl	_	gloss=being
+7	καὶ	καί	CCONJ	conjunction	_	10	cc	_	gloss=and
+8	ὑπὸ	ὑπό	ADP	preposition.gen	_	9	case	_	gloss=by
+9	τῶν	ὁ	DET	article.masc.pl.gen	Definite=Def|PronType=Art|Gender=Masc|Number=Plur|Case=Gen	10	obl:agent	_	gloss=the
+10	παριόντων	παρίημι	VERB	verb.pres.ptcp.act.masc.pl.gen	Aspect=Imp|Mood=Part|Tense=Pres|Voice=Act|Gender=Masc|Number=Plur|Case=Gen	12	obl:agent	_	gloss=passing by
+11	λίθοις	λίθος	NOUN	noun.masc.pl.dat	Gender=Masc|Number=Plur|Case=Dat	12	obl	_	gloss=with stones
+12	βαλλομένη	βάλλω	VERB	verb.pres.ptcp.mp.fem.sg.nom	Aspect=Imp|Voice=Mid|Mood=Part|Tense=Pres|Gender=Fem|Number=Sing|Case=Nom	6	conj	_	gloss=being pelted / struck
+13	,	,	PUNCT	punctuation	_	12	punct	_	gloss=,
+14	στενάξασα	στενάζω	VERB	verb.aor.ptcp.act.fem.sg.nom	Aspect=Perf|Mood=Part|Tense=Aor|Voice=Act|Gender=Fem|Number=Sing|Case=Nom	19	advcl	_	gloss=having sighed / groaned
+15	πρὸς	πρός	ADP	preposition.acc	_	16	case	_	gloss=to
+16	ἑαυτὴν	ἑαυτοῦ	PRON	pron.fem.sg.acc	Case=Acc|Number=Sing|Reflex=Yes|Gender=Fem	14	obl	_	gloss=herself
+17	εἶπεν	λέγω	VERB	verb.aor.ind.act.3sg	Aspect=Perf|Mood=Ind|Tense=Aor|Voice=Act|Number=Sing|Person=3	0	root	_	gloss=said
+18	·	·	PUNCT	punctuation	_	17	punct	_	gloss=:
 
 # sent_id = perry-250-s2
 # text = Ἀθλία εἰμὶ ἐγώ, ἥτις κατ' ἐνιαυτὸν ἐμαυτῇ ὕβρεις καὶ λύπας παρέχω.
@@ -27,17 +30,19 @@
 # translation_lang = en
 # prose_translation = "I am wretched, who year after year provide myself with insults and grief."
 # literal_translation = Wretched am I, who year by year to myself insults and griefs provide.
-16	Ἀθλία	ἀθλίος	ADJ	adj.fem.sg.nom	Degree=Pos|Gender=Fem|Number=Sing|Case=Nom	17	amod	_	gloss=wretched
-17	εἰμὶ	εἰμί	VERB	verb.pres.ind.act.1sg	Aspect=Imp|Mood=Ind|Tense=Pres|Voice=Act|Number=Sing|Person=1	0	root	_	gloss=I am
-18	ἐγώ	ἐγώ	PRON	pron.1sg.nom	Case=Nom|Number=Sing|Person=1	17	nsubj	_	gloss=I
-19	ἥτις	ὅστις	PRON	pron.fem.sg.nom	PronType=Rel|Gender=Fem|Number=Sing|Case=Nom	26	nsubj	_	gloss=who
-20	κατ'	κατά	ADP	preposition.acc	_	21	case	_	gloss=according to / year by
-21	ἐνιαυτὸν	ἐνιαυτός	NOUN	noun.masc.sg.acc	Gender=Masc|Number=Sing|Case=Acc	26	obl	_	gloss=year
-22	ἐμαυτῇ	ἐμαυτοῦ	PRON	pron.fem.sg.dat	Case=Dat|Number=Sing|Reflex=Yes|Gender=Fem	26	iobj	_	gloss=to myself
-23	ὕβρεις	ὕβρις	NOUN	noun.fem.pl.acc	Gender=Fem|Number=Plur|Case=Acc	26	obj	_	gloss=insults / outrages
-24	καὶ	καί	CCONJ	conjunction	_	25	cc	_	gloss=and
-25	λύπας	λύπη	NOUN	noun.fem.pl.acc	Gender=Fem|Number=Plur|Case=Acc	23	conj	_	gloss=griefs / sorrows
-26	παρέχω	παρέχω	VERB	verb.pres.ind.act.1sg	Aspect=Imp|Mood=Ind|Tense=Pres|Voice=Act|Number=Sing|Person=1	17	acl:relcl	_	gloss=I provide / offer
+19	Ἀθλία	ἀθλίος	ADJ	adj.fem.sg.nom	Degree=Pos|Gender=Fem|Number=Sing|Case=Nom	20	amod	_	gloss=wretched
+20	εἰμὶ	εἰμί	VERB	verb.pres.ind.act.1sg	Aspect=Imp|Mood=Ind|Tense=Pres|Voice=Act|Number=Sing|Person=1	0	root	_	gloss=I am
+21	ἐγώ	ἐγώ	PRON	pron.1sg.nom	Case=Nom|Number=Sing|Person=1	20	nsubj	_	gloss=I
+22	,	,	PUNCT	punctuation	_	21	punct	_	gloss=,
+23	ἥτις	ὅστις	PRON	pron.fem.sg.nom	PronType=Rel|Gender=Fem|Number=Sing|Case=Nom	30	nsubj	_	gloss=who
+24	κατ'	κατά	ADP	preposition.acc	_	25	case	_	gloss=according to / year by
+25	ἐνιαυτὸν	ἐνιαυτός	NOUN	noun.masc.sg.acc	Gender=Masc|Number=Sing|Case=Acc	30	obl	_	gloss=year
+26	ἐμαυτῇ	ἐμαυτοῦ	PRON	pron.fem.sg.dat	Case=Dat|Number=Sing|Reflex=Yes|Gender=Fem	30	iobj	_	gloss=to myself
+27	ὕβρεις	ὕβρις	NOUN	noun.fem.pl.acc	Gender=Fem|Number=Plur|Case=Acc	30	obj	_	gloss=insults / outrages
+28	καὶ	καί	CCONJ	conjunction	_	29	cc	_	gloss=and
+29	λύπας	λύπη	NOUN	noun.fem.pl.acc	Gender=Fem|Number=Plur|Case=Acc	27	conj	_	gloss=griefs / sorrows
+30	παρέχω	παρέχω	VERB	verb.pres.ind.act.1sg	Aspect=Imp|Mood=Ind|Tense=Pres|Voice=Act|Number=Sing|Person=1	20	acl:relcl	_	gloss=I provide / offer
+31	.	.	PUNCT	punctuation	_	30	punct	_	gloss=.
 
 # sent_id = perry-250-s3
 # text = Ὁ λόγος πρὸς τοὺς ἐπὶ τῶν ἰδίων ἀγαθῶν λυπουμένους.
@@ -45,12 +50,13 @@
 # translation_lang = en
 # prose_translation = The tale applies to those who are distressed by their own good qualities.
 # literal_translation = The word is directed at those who are grieved on account of their own good things.
-27	Ὁ	ὁ	DET	article.masc.sg.nom	Definite=Def|PronType=Art|Gender=Masc|Number=Sing|Case=Nom	28	det	_	gloss=the
-28	λόγος	λόγος	NOUN	noun.masc.sg.nom	Gender=Masc|Number=Sing|Case=Nom	0	root	_	gloss=word / tale
-29	πρὸς	πρός	ADP	preposition.acc	_	35	case	_	gloss=toward / applies to
-30	τοὺς	ὁ	DET	article.masc.pl.acc	Definite=Def|PronType=Art|Gender=Masc|Number=Plur|Case=Acc	35	det	_	gloss=those
-31	ἐπὶ	ἐπί	ADP	preposition.gen	_	34	case	_	gloss=on account of
-32	τῶν	ὁ	DET	article.neut.pl.gen	Definite=Def|PronType=Art|Gender=Neut|Number=Plur|Case=Gen	34	det	_	gloss=the
-33	ἰδίων	ἴδιος	ADJ	adj.neut.pl.gen	Degree=Pos|Gender=Neut|Number=Plur|Case=Gen	34	nmod	_	gloss=own
-34	ἀγαθῶν	ἀγαθός	NOUN	noun.neut.pl.gen	Gender=Neut|Number=Plur|Case=Gen	35	obl	_	gloss=good things
-35	λυπουμένους	λυπέω	VERB	verb.pres.ptcp.mp.masc.pl.acc	Aspect=Imp|Voice=Mid|Mood=Part|Tense=Pres|Gender=Masc|Number=Plur|Case=Acc	28	obl	_	gloss=those who are grieved
+32	Ὁ	ὁ	DET	article.masc.sg.nom	Definite=Def|PronType=Art|Gender=Masc|Number=Sing|Case=Nom	33	det	_	gloss=the
+33	λόγος	λόγος	NOUN	noun.masc.sg.nom	Gender=Masc|Number=Sing|Case=Nom	0	root	_	gloss=word / tale
+34	πρὸς	πρός	ADP	preposition.acc	_	40	case	_	gloss=toward / applies to
+35	τοὺς	ὁ	DET	article.masc.pl.acc	Definite=Def|PronType=Art|Gender=Masc|Number=Plur|Case=Acc	40	det	_	gloss=those
+36	ἐπὶ	ἐπί	ADP	preposition.gen	_	39	case	_	gloss=on account of
+37	τῶν	ὁ	DET	article.neut.pl.gen	Definite=Def|PronType=Art|Gender=Neut|Number=Plur|Case=Gen	39	det	_	gloss=the
+38	ἰδίων	ἴδιος	ADJ	adj.neut.pl.gen	Degree=Pos|Gender=Neut|Number=Plur|Case=Gen	39	nmod	_	gloss=own
+39	ἀγαθῶν	ἀγαθός	NOUN	noun.neut.pl.gen	Gender=Neut|Number=Plur|Case=Gen	40	obl	_	gloss=good things
+40	λυπουμένους	λυπέω	VERB	verb.pres.ptcp.mp.masc.pl.acc	Aspect=Imp|Voice=Mid|Mood=Part|Tense=Pres|Gender=Masc|Number=Plur|Case=Acc	33	obl	_	gloss=those who are grieved
+41	.	.	PUNCT	punctuation	_	40	punct	_	gloss=.

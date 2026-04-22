@@ -5,14 +5,15 @@
 # translation_lang = en
 # prose_translation = A dove, being raised in a dovecote, was boasting about her many offspring.
 # literal_translation = A dove in a certain dovecote being raised in having-many-children was boasting.
-1	Περιστερὰ	περιστερά	NOUN	noun.fem.sg.nom	Gender=Fem|Number=Sing|Case=Nom	6	nsubj	_	gloss=dove
+1	Περιστερὰ	περιστερά	NOUN	noun.fem.sg.nom	Gender=Fem|Number=Sing|Case=Nom	9	nsubj	_	gloss=dove
 2	ἔν	ἐν	ADP	preposition.dat	_	4	case	_	gloss=in
 3	τινι	τις	PRON	pron.neut.sg.dat	PronType=Ind|Gender=Neut|Number=Sing|Case=Dat	4	det	_	gloss=a certain
-4	περιστερεῶνι	περιστερεών	NOUN	noun.masc.sg.dat	Gender=Masc|Number=Sing|Case=Dat	2	obl	_	gloss=dovecote
+4	περιστερεῶνι	περιστερεών	NOUN	noun.masc.sg.dat	Gender=Masc|Number=Sing|Case=Dat	9	obl	_	gloss=dovecote
 5	τρεφομένη	τρέφω	VERB	verb.pres.ptcp.mp.fem.sg.nom	Aspect=Imp|Voice=Mid|Mood=Part|Tense=Pres|Gender=Fem|Number=Sing|Case=Nom	1	acl	_	gloss=being raised
 6	ἐν	ἐν	ADP	preposition.dat	_	7	case	_	gloss=in
-7	πολυτεκνογονείᾳ	πολυτεκνογονία	NOUN	noun.fem.sg.dat	Gender=Fem|Number=Sing|Case=Dat	6	obl	_	gloss=having-many-children
+7	πολυτεκνογονείᾳ	πολυτεκνογονία	NOUN	noun.fem.sg.dat	Gender=Fem|Number=Sing|Case=Dat	5	obl	_	gloss=having-many-children
 8	ἐφρυάττετο	φρυάττομαι	VERB	verb.impf.ind.mp.3sg	Aspect=Imp|Mood=Ind|Tense=Imp|Voice=Mid|Number=Sing|Person=3	0	root	_	gloss=was boasting
+9	.	.	PUNCT	punctuation	_	8	punct	_	gloss=.
 
 # sent_id = perry-202-s2
 # text = Κορώνη δὲ ἀκούσασα ταύτην ἔφη·
@@ -20,11 +21,12 @@
 # translation_lang = en
 # prose_translation = But a crow, hearing her, said:
 # literal_translation = But a crow, having heard this, said.
-9	Κορώνη	κόραξ	NOUN	noun.fem.sg.nom	Gender=Fem|Number=Sing|Case=Nom	12	nsubj	_	gloss=crow
-10	δὲ	δέ	CCONJ	conjunction	_	12	cc	_	gloss=but
-11	ἀκούσασα	ἀκούω	VERB	verb.aor.ptcp.act.fem.sg.nom	Aspect=Perf|Mood=Part|Tense=Aor|Voice=Act|Gender=Fem|Number=Sing|Case=Nom	12	advcl	_	gloss=having heard
-12	ταύτην	οὗτος	PRON	pron.fem.sg.acc	PronType=Dem|Gender=Fem|Number=Sing|Case=Acc	11	obj	_	gloss=this / her
-13	ἔφη	φημί	VERB	verb.impf.ind.act.3sg	Mood=Ind|Tense=Imp|VerbForm=Fin|Voice=Act|Number=Sing|Person=3	0	root	_	gloss=said
+10	Κορώνη	κόραξ	NOUN	noun.fem.sg.nom	Gender=Fem|Number=Sing|Case=Nom	14	nsubj	_	gloss=crow
+11	δὲ	δέ	CCONJ	conjunction	_	14	cc	_	gloss=but
+12	ἀκούσασα	ἀκούω	VERB	verb.aor.ptcp.act.fem.sg.nom	Aspect=Perf|Mood=Part|Tense=Aor|Voice=Act|Gender=Fem|Number=Sing|Case=Nom	14	advcl	_	gloss=having heard
+13	ταύτην	οὗτος	PRON	pron.fem.sg.acc	PronType=Dem|Gender=Fem|Number=Sing|Case=Acc	12	obj	_	gloss=this / her
+14	ἔφη	φημί	VERB	verb.impf.ind.act.3sg	Mood=Ind|Tense=Imp|VerbForm=Fin|Voice=Act|Number=Sing|Person=3	0	root	_	gloss=said
+15	·	·	PUNCT	punctuation	_	14	punct	_	gloss=:
 
 # sent_id = perry-202-s3
 # text = Παῦσαι τοῦ ἀλαζομεύεσθαι· ὅσον γὰρ πλέονα τέκνα ἔχεις, τοσοῦτον περισσοτέρους δούλους συνάξεις.
@@ -32,18 +34,20 @@
 # translation_lang = en
 # prose_translation = "Stop boasting; for the more children you have, the more slaves you will gather."
 # literal_translation = "Cease from bragging; for as many more children you have, so many more slaves you will gather."
-14	Παῦσαι	παύω	VERB	verb.pres.imper.mp.2sg	Mood=Imp|Tense=Pres|VerbForm=Fin|Voice=Mid|Number=Sing|Person=2	0	root	_	gloss=cease / stop
-15	τοῦ	ὁ	DET	article.neut.sg.gen	Definite=Def|PronType=Art|Gender=Neut|Number=Sing|Case=Gen	16	det	_	gloss=the
-16	ἀλαζομεύεσθαι	ἀλαζονεύομαι	VERB	verb.pres.inf.mp	Aspect=Imp|Mood=Inf|Tense=Pres|Voice=Mid	14	xcomp	_	gloss=to boast / brag
-17	ὅσον	ὅσος	PRON	pron.neut.sg.acc	PronType=Rel|Gender=Neut|Number=Sing|Case=Acc	20	advmod	_	gloss=as much as
-18	γὰρ	γάρ	CCONJ	conjunction	_	20	cc	_	gloss=for
-19	πλέονα	πλείων	ADJ	adj.neut.pl.acc	Degree=Cmp|Gender=Neut|Number=Plur|Case=Acc	20	amod	_	gloss=more
-20	τέκνα	τέκνον	NOUN	noun.neut.pl.acc	Gender=Neut|Number=Plur|Case=Acc	23	obj	_	gloss=children
-21	ἔχεις	ἔχω	VERB	verb.pres.ind.act.2sg	Aspect=Imp|Mood=Ind|Tense=Pres|Voice=Act|Number=Sing|Person=2	23	advcl	_	gloss=you have
-22	τοσοῦτον	τοσοῦτος	PRON	pron.neut.sg.acc	PronType=Dem|Gender=Neut|Number=Sing|Case=Acc	25	advmod	_	gloss=so much
-23	περισσοτέρους	περισσός	ADJ	adj.masc.pl.acc	Degree=Cmp|Gender=Masc|Number=Plur|Case=Acc	25	amod	_	gloss=more
-24	δούλους	δοῦλος	NOUN	noun.masc.pl.acc	Gender=Masc|Number=Plur|Case=Acc	25	obj	_	gloss=slaves
-25	συνάξεις	συνάγω	VERB	verb.fut.ind.act.2sg	Aspect=Perf|Mood=Ind|Tense=Fut|Voice=Act|Number=Sing|Person=2	14	ccomp	_	gloss=you will gather
+16	Παῦσαι	παύω	VERB	verb.pres.imper.mp.2sg	Mood=Imp|Tense=Pres|VerbForm=Fin|Voice=Mid|Number=Sing|Person=2	0	root	_	gloss=cease / stop
+17	τοῦ	ὁ	DET	article.neut.sg.gen	Definite=Def|PronType=Art|Gender=Neut|Number=Sing|Case=Gen	18	det	_	gloss=the
+18	ἀλαζομεύεσθαι	ἀλαζονεύομαι	VERB	verb.pres.inf.mp	Aspect=Imp|Mood=Inf|Tense=Pres|Voice=Mid	16	xcomp	_	gloss=to boast / brag
+19	·	·	PUNCT	punctuation	_	18	punct	_	gloss=:
+20	ὅσον	ὅσος	PRON	pron.neut.sg.acc	PronType=Rel|Gender=Neut|Number=Sing|Case=Acc	23	advmod	_	gloss=as much as
+21	γὰρ	γάρ	CCONJ	conjunction	_	23	cc	_	gloss=for
+22	πλέονα	πλείων	ADJ	adj.neut.pl.acc	Degree=Cmp|Gender=Neut|Number=Plur|Case=Acc	23	amod	_	gloss=more
+23	τέκνα	τέκνον	NOUN	noun.neut.pl.acc	Gender=Neut|Number=Plur|Case=Acc	28	obj	_	gloss=children
+24	ἔχεις	ἔχω	VERB	verb.pres.ind.act.2sg	Aspect=Imp|Mood=Ind|Tense=Pres|Voice=Act|Number=Sing|Person=2	28	advcl	_	gloss=you have
+25	τοσοῦτον	τοσοῦτος	PRON	pron.neut.sg.acc	PronType=Dem|Gender=Neut|Number=Sing|Case=Acc	28	advmod	_	gloss=so much
+26	περισσοτέρους	περισσός	ADJ	adj.masc.pl.acc	Degree=Cmp|Gender=Masc|Number=Plur|Case=Acc	28	amod	_	gloss=more
+27	δούλους	δοῦλος	NOUN	noun.masc.pl.acc	Gender=Masc|Number=Plur|Case=Acc	28	obj	_	gloss=slaves
+28	συνάξεις	συνάγω	VERB	verb.fut.ind.act.2sg	Aspect=Perf|Mood=Ind|Tense=Fut|Voice=Act|Number=Sing|Person=2	16	ccomp	_	gloss=you will gather
+29	.	.	PUNCT	punctuation	_	28	punct	_	gloss=.
 
 # sent_id = perry-202-s4
 # text = Ὁ μῦθος δηλοῖ ὅτι τῶν οἰκετῶν δυστυχέστεροί εἰσιν ὅσοι ἐν δουλείᾳ τεκνοποιοῦσιν.
@@ -51,15 +55,16 @@
 # translation_lang = en
 # prose_translation = The story shows that those who have children in slavery are more unhappy than servants.
 # literal_translation = The story shows that of servants more unhappy are those who in slavery beget children.
-26	Ὁ	ὁ	DET	article.masc.sg.nom	Definite=Def|PronType=Art|Gender=Masc|Number=Sing|Case=Nom	27	det	_	gloss=the
-27	μῦθος	μῦθος	NOUN	noun.masc.sg.nom	Gender=Masc|Number=Sing|Case=Nom	30	nsubj	_	gloss=story / fable
-28	δηλοῖ	δηλόω	VERB	verb.pres.ind.act.3sg	Aspect=Imp|Mood=Ind|Tense=Pres|Voice=Act|Number=Sing|Person=3	0	root	_	gloss=shows
-29	ὅτι	ὅτι	SCONJ	conjunction	_	34	mark	_	gloss=that
-30	τῶν	ὁ	DET	article.masc.pl.gen	Definite=Def|PronType=Art|Gender=Masc|Number=Plur|Case=Gen	31	det	_	gloss=of the
-31	οἰκετῶν	οἰκέτης	NOUN	noun.masc.pl.gen	Gender=Masc|Number=Plur|Case=Gen	34	nmod	_	gloss=servants
-32	δυστυχέστεροί	δυστυχής	ADJ	adj.masc.pl.nom	Degree=Cmp|Gender=Masc|Number=Plur|Case=Nom	34	amod	_	gloss=more unhappy
-33	εἰσιν	εἰμί	VERB	verb.pres.ind.act.3pl	Mood=Ind|Tense=Pres|VerbForm=Fin|Voice=Act|Number=Plur|Person=3	34	cop	_	gloss=they are
-34	ὅσοι	ὅσος	PRON	pron.masc.pl.nom	PronType=Rel|Gender=Masc|Number=Plur|Case=Nom	28	ccomp	_	gloss=those who
-35	ἐν	ἐν	ADP	preposition.dat	_	36	case	_	gloss=in
-36	δουλείᾳ	δουλεία	NOUN	noun.fem.sg.dat	Gender=Fem|Number=Sing|Case=Dat	37	obl	_	gloss=slavery
-37	τεκνοποιοῦσιν	τεκνοποιέω	VERB	verb.pres.ind.act.3pl	Aspect=Imp|Mood=Ind|Tense=Pres|Voice=Act|Number=Plur|Person=3	34	acl:relcl	_	gloss=beget children
+30	Ὁ	ὁ	DET	article.masc.sg.nom	Definite=Def|PronType=Art|Gender=Masc|Number=Sing|Case=Nom	31	det	_	gloss=the
+31	μῦθος	μῦθος	NOUN	noun.masc.sg.nom	Gender=Masc|Number=Sing|Case=Nom	34	nsubj	_	gloss=story / fable
+32	δηλοῖ	δηλόω	VERB	verb.pres.ind.act.3sg	Aspect=Imp|Mood=Ind|Tense=Pres|Voice=Act|Number=Sing|Person=3	0	root	_	gloss=shows
+33	ὅτι	ὅτι	SCONJ	conjunction	_	38	mark	_	gloss=that
+34	τῶν	ὁ	DET	article.masc.pl.gen	Definite=Def|PronType=Art|Gender=Masc|Number=Plur|Case=Gen	35	det	_	gloss=of the
+35	οἰκετῶν	οἰκέτης	NOUN	noun.masc.pl.gen	Gender=Masc|Number=Plur|Case=Gen	38	nmod	_	gloss=servants
+36	δυστυχέστεροί	δυστυχής	ADJ	adj.masc.pl.nom	Degree=Cmp|Gender=Masc|Number=Plur|Case=Nom	38	amod	_	gloss=more unhappy
+37	εἰσιν	εἰμί	VERB	verb.pres.ind.act.3pl	Mood=Ind|Tense=Pres|VerbForm=Fin|Voice=Act|Number=Plur|Person=3	38	cop	_	gloss=they are
+38	ὅσοι	ὅσος	PRON	pron.masc.pl.nom	PronType=Rel|Gender=Masc|Number=Plur|Case=Nom	32	ccomp	_	gloss=those who
+39	ἐν	ἐν	ADP	preposition.dat	_	40	case	_	gloss=in
+40	δουλείᾳ	δουλεία	NOUN	noun.fem.sg.dat	Gender=Fem|Number=Sing|Case=Dat	41	obl	_	gloss=slavery
+41	τεκνοποιοῦσιν	τεκνοποιέω	VERB	verb.pres.ind.act.3pl	Aspect=Imp|Mood=Ind|Tense=Pres|Voice=Act|Number=Plur|Person=3	38	acl:relcl	_	gloss=beget children
+42	.	.	PUNCT	punctuation	_	41	punct	_	gloss=.

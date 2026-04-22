@@ -1,31 +1,48 @@
+# title = The Lioness and the Fox
 # sent_id = perry-257-s1
 # text = Λέαινα ὀνειδιζομένη ὑπὸ ἀλώπεκος ἐπὶ τῷ διὰ παντὸς ἕνα τίκτειν· "Ἕνα, ἔφη, ἀλλὰ λέοντα."
-1	Λέαινα	λέαινα	NOUN	noun.fem.sg.nom	Gender=Fem|Number=Sing|Case=Nom	12	nsubj	_	_
-2	ὀνειδιζομένη	ὀνειδίζω	VERB	verb.pres.ptcp.mp.fem.sg.nom	Aspect=Imp|Mood=Part|Tense=Pres|Voice=Mid|Gender=Fem|Number=Sing|Case=Nom	12	advcl	_	_
-3	ὑπὸ	ὑπό	ADP	preposition	_	4	case	_	_
-4	ἀλώπεκος	ἀλώπηξ	NOUN	noun.fem.sg.gen	Gender=Fem|Number=Sing|Case=Gen	2	obl:agent	_	_
-5	ἐπὶ	ἐπί	ADP	preposition.dat	_	6	case	_	_
-6	τῷ	ὁ	DET	article.neut.sg.dat	Definite=Def|PronType=Art|Gender=Neut|Number=Sing|Case=Dat	2	obl	_	_
-7	διά	διά	ADP	preposition	_	8	case	_	_
-8	παντὸς	πᾶς	ADJ	adj.neut.sg.gen	Gender=Neut|Number=Sing|Case=Gen	10	obl	_	dià pantós = always
-9	ἕνα	εἷς	NUM	numeral.masc.sg.acc	NumType=Card|Gender=Masc|Number=Sing|Case=Acc	10	obj	_	_
-10	τίκτειν	τίκτω	VERB	verb.pres.inf.act	Aspect=Imp|Mood=Inf|Tense=Pres|Voice=Act	6	acl	_	_
-11	Ἕνα	εἷς	NUM	numeral.masc.sg.acc	NumType=Card|Gender=Masc|Number=Sing|Case=Acc	12	discourse	_	_
-12	ἔφη	φημί	VERB	verb.impf.ind.act.3sg	Mood=Ind|Tense=Imp|VerbForm=Fin|Voice=Act|Number=Sing|Person=3	0	root	_	_
-13	ἀλλὰ	ἀλλά	CCONJ	conjunction	_	14	cc	_	_
-14	λέοντα	λέων	NOUN	noun.masc.sg.acc	Gender=Masc|Number=Sing|Case=Acc	11	conj	_	_
+# parallel_id = lyceum-aesop-p257/s1
+# translation_lang = en
+# prose_translation = A lioness, being taunted by a fox for always bearing only one cub, said, "One, but a lion."
+# literal_translation = A lioness being taunted by a fox on account of always bearing one; "One, she said, but a lion."
+1	Λέαινα	λέαινα	NOUN	noun.fem.sg.nom	Gender=Fem|Number=Sing|Case=Nom	14	nsubj	_	gloss=lioness
+2	ὀνειδιζομένη	ὀνειδίζω	VERB	verb.pres.ptcp.mp.fem.sg.nom	Aspect=Imp|Mood=Part|Tense=Pres|Voice=Mid|Gender=Fem|Number=Sing|Case=Nom	14	advcl	_	gloss=being taunted / reproached
+3	ὑπὸ	ὑπό	ADP	preposition	_	4	case	_	gloss=by
+4	ἀλώπεκος	ἀλώπηξ	NOUN	noun.fem.sg.gen	Gender=Fem|Number=Sing|Case=Gen	2	obl:agent	_	gloss=fox
+5	ἐπὶ	ἐπί	ADP	preposition.dat	_	6	case	_	gloss=on account of
+6	τῷ	ὁ	DET	article.neut.sg.dat	Definite=Def|PronType=Art|Gender=Neut|Number=Sing|Case=Dat	2	obl	_	gloss=the
+7	διά	διά	ADP	preposition	_	8	case	_	gloss=through
+8	παντὸς	πᾶς	ADJ	adj.neut.sg.gen	Gender=Neut|Number=Sing|Case=Gen	10	obl	_	gloss=all / always
+9	ἕνα	εἷς	NUM	numeral.masc.sg.acc	NumType=Card|Gender=Masc|Number=Sing|Case=Acc	10	obj	_	gloss=one
+10	τίκτειν	τίκτω	VERB	verb.pres.inf.act	Aspect=Imp|Mood=Inf|Tense=Pres|Voice=Act	6	acl	_	gloss=to bear / give birth
+11	·	·	PUNCT	punctuation	_	10	punct	_	gloss=:
+12	"	"	PUNCT	punctuation	_	13	punct	_	gloss="
+13	Ἕνα	εἷς	NUM	numeral.masc.sg.acc	NumType=Card|Gender=Masc|Number=Sing|Case=Acc	14	discourse	_	gloss=one
+14	,	,	PUNCT	punctuation	_	13	punct	_	gloss=,
+15	ἔφη	φημί	VERB	verb.impf.ind.act.3sg	Mood=Ind|Tense=Imp|VerbForm=Fin|Voice=Act|Number=Sing|Person=3	0	root	_	gloss=she said
+16	,	,	PUNCT	punctuation	_	15	punct	_	gloss=,
+17	ἀλλὰ	ἀλλά	CCONJ	conjunction	_	18	cc	_	gloss=but
+18	λέοντα	λέων	NOUN	noun.masc.sg.acc	Gender=Masc|Number=Sing|Case=Acc	13	conj	_	gloss=a lion
+19	.	.	PUNCT	punctuation	_	18	punct	_	gloss=.
+20	"	"	PUNCT	punctuation	_	18	punct	_	gloss="
 
 # sent_id = perry-257-s2
 # text = Ὅτι τὸ καλὸν οὐκ ἐν πλήθει δεῖ μετρεῖν, ἀλλὰ πρὸς ἀρετὴν ἀφορᾶν.
-15	Ὅτι	ὅτι	SCONJ	conjunction	ConjType=Comp	21	mark	_	meaning that
-16	τὸ	ὁ	DET	article.neut.sg.nom	Definite=Def|PronType=Art|Gender=Neut|Number=Sing|Case=Nom	17	det	_	_
-17	καλὸν	καλός	ADJ	adj.neut.sg.nom	Degree=Pos|Gender=Neut|Number=Sing|Case=Nom	22	obj	_	_
-18	οὐκ	οὐ	PART	neg.particle	Polarity=Neg	22	advmod	_	_
-19	ἐν	ἐν	ADP	preposition.dat	_	20	case	_	_
-20	πλήθει	πλῆθος	NOUN	noun.neut.sg.dat	Gender=Neut|Number=Sing|Case=Dat	22	obl	_	_
-21	δεῖ	δεῖ	VERB	verb.impers.pres.ind.3sg	Mood=Ind|Tense=Pres|VerbForm=Fin|Person=3	0	root	_	_
-22	μετρεῖν	μετρέω	VERB	verb.pres.inf.act	Aspect=Imp|Mood=Inf|Tense=Pres|Voice=Act	21	xcomp	_	_
-23	ἀλλὰ	ἀλλά	CCONJ	conjunction	_	26	cc	_	_
-24	πρὸς	πρός	ADP	preposition.acc	_	25	case	_	_
-25	ἀρετὴν	ἀρετή	NOUN	noun.fem.sg.acc	Gender=Fem|Number=Sing|Case=Acc	26	obl	_	_
-26	ἀφορᾶν	ἀφοράω	VERB	verb.pres.inf.act	Aspect=Imp|Mood=Inf|Tense=Pres|Voice=Act	22	conj	_	_
+# parallel_id = lyceum-aesop-p257/s2
+# translation_lang = en
+# prose_translation = That what is noble should not be measured in number, but considered in terms of virtue.
+# literal_translation = That the noble not in multitude one must measure, but toward virtue look.
+21	Ὅτι	ὅτι	SCONJ	conjunction	ConjType=Comp	27	mark	_	gloss=that
+22	τὸ	ὁ	DET	article.neut.sg.nom	Definite=Def|PronType=Art|Gender=Neut|Number=Sing|Case=Nom	23	det	_	gloss=the
+23	καλὸν	καλός	ADJ	adj.neut.sg.nom	Degree=Pos|Gender=Neut|Number=Sing|Case=Nom	28	obj	_	gloss=noble / beautiful
+24	οὐκ	οὐ	PART	neg.particle	Polarity=Neg	28	advmod	_	gloss=not
+25	ἐν	ἐν	ADP	preposition.dat	_	26	case	_	gloss=in
+26	πλήθει	πλῆθος	NOUN	noun.neut.sg.dat	Gender=Neut|Number=Sing|Case=Dat	28	obl	_	gloss=multitude / number
+27	δεῖ	δεῖ	VERB	verb.impers.pres.ind.3sg	Mood=Ind|Tense=Pres|VerbForm=Fin|Person=3	0	root	_	gloss=one must / it is necessary
+28	μετρεῖν	μετρέω	VERB	verb.pres.inf.act	Aspect=Imp|Mood=Inf|Tense=Pres|Voice=Act	27	xcomp	_	gloss=to measure
+29	,	,	PUNCT	punctuation	_	28	punct	_	gloss=,
+30	ἀλλὰ	ἀλλά	CCONJ	conjunction	_	33	cc	_	gloss=but
+31	πρὸς	πρός	ADP	preposition.acc	_	32	case	_	gloss=toward
+32	ἀρετὴν	ἀρετή	NOUN	noun.fem.sg.acc	Gender=Fem|Number=Sing|Case=Acc	33	obl	_	gloss=virtue
+33	ἀφορᾶν	ἀφοράω	VERB	verb.pres.inf.act	Aspect=Imp|Mood=Inf|Tense=Pres|Voice=Act	28	conj	_	gloss=to look at / consider
+34	.	.	PUNCT	punctuation	_	33	punct	_	gloss=.

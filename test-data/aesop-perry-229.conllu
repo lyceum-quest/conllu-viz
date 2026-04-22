@@ -5,12 +5,13 @@
 # translation_lang = en
 # prose_translation = A swallow and a raven were quarreling about which was more beautiful.
 # literal_translation = A swallow and a raven about beauty were contending.
-1	Χελιδὼν	χελιδών	NOUN	noun.fem.sg.nom	Gender=Fem|Number=Sing|Case=Nom	4	nsubj	_	gloss=swallow
+1	Χελιδὼν	χελιδών	NOUN	noun.fem.sg.nom	Gender=Fem|Number=Sing|Case=Nom	7	nsubj	_	gloss=swallow
 2	καὶ	καί	CCONJ	conjunction	_	3	cc	_	gloss=and
 3	κορώνη	κόραξ	NOUN	noun.fem.sg.nom	Gender=Fem|Number=Sing|Case=Nom	1	conj	_	gloss=raven
 4	περὶ	περί	ADP	preposition.gen	_	5	case	_	gloss=about
-5	κάλλους	κάλλος	NOUN	noun.neut.sg.gen	Gender=Neut|Number=Sing|Case=Gen	4	obl	_	gloss=beauty
+5	κάλλους	κάλλος	NOUN	noun.neut.sg.gen	Gender=Neut|Number=Sing|Case=Gen	7	obl	_	gloss=beauty
 6	ἐφιλονείκουν	φιλονεικέω	VERB	verb.impf.ind.act.3pl	Aspect=Imp|Mood=Ind|Tense=Imp|Voice=Act|Number=Plur|Person=3	0	root	_	gloss=were quarreling / contending
+7	·	·	PUNCT	punctuation	_	6	punct	_	gloss=:
 
 # sent_id = perry-229-s2
 # text = ὑποτυχοῦσα δὲ ἡ κορώνη πρὸς αὐτὴν εἶπεν·
@@ -18,13 +19,14 @@
 # translation_lang = en
 # prose_translation = But the raven, coming up to her, said:
 # literal_translation = And having come up, the raven to her said.
-7	ὑποτυχοῦσα	ὑποτυγχάνω	VERB	verb.pres.ptcp.act.fem.sg.nom	Aspect=Imp|Mood=Part|Tense=Pres|Voice=Act|Gender=Fem|Number=Sing|Case=Nom	11	advcl	_	gloss=having come up / approaching
-8	δὲ	δέ	CCONJ	conjunction	_	11	cc	_	gloss=but
-9	ἡ	ὁ	DET	article.fem.sg.nom	Definite=Def|PronType=Art|Gender=Fem|Number=Sing|Case=Nom	10	det	_	gloss=the
-10	κορώνη	κόραξ	NOUN	noun.fem.sg.nom	Gender=Fem|Number=Sing|Case=Nom	11	nsubj	_	gloss=raven
-11	πρὸς	πρός	ADP	preposition.acc	_	12	case	_	gloss=to
-12	αὐτὴν	αὐτός	PRON	pron.fem.sg.acc	Gender=Fem|Number=Sing|Case=Acc	11	obl	_	gloss=her
-13	εἶπεν	λέγω	VERB	verb.aor.ind.act.3sg	Aspect=Perf|Mood=Ind|Tense=Aor|Voice=Act|Number=Sing|Person=3	0	root	_	gloss=said
+8	ὑποτυχοῦσα	ὑποτυγχάνω	VERB	verb.pres.ptcp.act.fem.sg.nom	Aspect=Imp|Mood=Part|Tense=Pres|Voice=Act|Gender=Fem|Number=Sing|Case=Nom	14	advcl	_	gloss=having come up / approaching
+9	δὲ	δέ	CCONJ	conjunction	_	14	cc	_	gloss=but
+10	ἡ	ὁ	DET	article.fem.sg.nom	Definite=Def|PronType=Art|Gender=Fem|Number=Sing|Case=Nom	11	det	_	gloss=the
+11	κορώνη	κόραξ	NOUN	noun.fem.sg.nom	Gender=Fem|Number=Sing|Case=Nom	14	nsubj	_	gloss=raven
+12	πρὸς	πρός	ADP	preposition.acc	_	13	case	_	gloss=to
+13	αὐτὴν	αὐτός	PRON	pron.fem.sg.acc	Gender=Fem|Number=Sing|Case=Acc	14	obl	_	gloss=her
+14	εἶπεν	λέγω	VERB	verb.aor.ind.act.3sg	Aspect=Perf|Mood=Ind|Tense=Aor|Voice=Act|Number=Sing|Person=3	0	root	_	gloss=said
+15	·	·	PUNCT	punctuation	_	14	punct	_	gloss=:
 
 # sent_id = perry-229-s3
 # text = Ἀλλὰ τὸ μὲν σὸν κάλλος τὴν ἐαρινὴν ὥραν ἀνθεῖ, τὸ δὲ ἐμὸν σῶμα καὶ χειμῶνι παρατείνεται.
@@ -32,22 +34,24 @@
 # translation_lang = en
 # prose_translation = "Your beauty blooms only in spring, but my body endures even through winter."
 # literal_translation = "But your beauty the spring season blooms, but my body also in winter is prolonged."
-14	Ἀλλὰ	ἀλλά	CCONJ	conjunction	_	18	cc	_	gloss=but
-15	τὸ	ὁ	DET	article.neut.sg.nom	Definite=Def|PronType=Art|Gender=Neut|Number=Sing|Case=Nom	17	det	_	gloss=the
-16	μὲν	μέν	PART	particle	_	18	advmod	_	gloss=on the one hand
-17	σὸν	σός	ADJ	adj.neut.sg.nom	Degree=Pos|Gender=Neut|Number=Sing|Case=Nom	18	amod	_	gloss=your
-18	κάλλος	κάλλος	NOUN	noun.neut.sg.nom	Gender=Neut|Number=Sing|Case=Nom	23	nsubj	_	gloss=beauty
-19	τὴν	ὁ	DET	article.fem.sg.acc	Definite=Def|PronType=Art|Gender=Fem|Number=Sing|Case=Acc	20	det	_	gloss=the
-20	ἐαρινὴν	ἐαρινός	ADJ	adj.fem.sg.acc	Degree=Pos|Gender=Fem|Number=Sing|Case=Acc	21	amod	_	gloss=spring
-21	ὥραν	ὥρα	NOUN	noun.fem.sg.acc	Gender=Fem|Number=Sing|Case=Acc	18	obl	_	gloss=season / time
-22	ἀνθεῖ	ἀνθέω	VERB	verb.pres.ind.act.3sg	Aspect=Imp|Mood=Ind|Tense=Pres|Voice=Act|Number=Sing|Person=3	18	root	_	gloss=blooms
-23	τὸ	ὁ	DET	article.neut.sg.nom	Definite=Def|PronType=Art|Gender=Neut|Number=Sing|Case=Nom	26	det	_	gloss=the
-24	δὲ	δέ	CCONJ	conjunction	_	26	cc	_	gloss=but
-25	ἐμὸν	ἐμός	ADJ	adj.neut.sg.nom	Degree=Pos|Gender=Neut|Number=Sing|Case=Nom	26	amod	_	gloss=my
-26	σῶμα	σῶμα	NOUN	noun.neut.sg.nom	Gender=Neut|Number=Sing|Case=Nom	31	nsubj	_	gloss=body
-27	καὶ	καί	CCONJ	conjunction	_	29	cc	_	gloss=also
-28	χειμῶνι	χειμών	NOUN	noun.masc.sg.dat	Gender=Masc|Number=Sing|Case=Dat	31	obl	_	gloss=in winter
-29	παρατείνεται	παρατείνω	VERB	verb.pres.ind.pass.3sg	Aspect=Imp|Mood=Ind|Tense=Pres|Voice=Pass|Number=Sing|Person=3	23	root	_	gloss=is prolonged / endures
+16	Ἀλλὰ	ἀλλά	CCONJ	conjunction	_	20	cc	_	gloss=but
+17	τὸ	ὁ	DET	article.neut.sg.nom	Definite=Def|PronType=Art|Gender=Neut|Number=Sing|Case=Nom	19	det	_	gloss=the
+18	μὲν	μέν	PART	particle	_	20	advmod	_	gloss=on the one hand
+19	σὸν	σός	ADJ	adj.neut.sg.nom	Degree=Pos|Gender=Neut|Number=Sing|Case=Nom	20	amod	_	gloss=your
+20	κάλλος	κάλλος	NOUN	noun.neut.sg.nom	Gender=Neut|Number=Sing|Case=Nom	25	nsubj	_	gloss=beauty
+21	τὴν	ὁ	DET	article.fem.sg.acc	Definite=Def|PronType=Art|Gender=Fem|Number=Sing|Case=Acc	22	det	_	gloss=the
+22	ἐαρινὴν	ἐαρινός	ADJ	adj.fem.sg.acc	Degree=Pos|Gender=Fem|Number=Sing|Case=Acc	23	amod	_	gloss=spring
+23	ὥραν	ὥρα	NOUN	noun.fem.sg.acc	Gender=Fem|Number=Sing|Case=Acc	20	obl	_	gloss=season / time
+24	ἀνθεῖ	ἀνθέω	VERB	verb.pres.ind.act.3sg	Aspect=Imp|Mood=Ind|Tense=Pres|Voice=Act|Number=Sing|Person=3	20	root	_	gloss=blooms
+25	,	,	PUNCT	punctuation	_	24	punct	_	gloss=,
+26	τὸ	ὁ	DET	article.neut.sg.nom	Definite=Def|PronType=Art|Gender=Neut|Number=Sing|Case=Nom	29	det	_	gloss=the
+27	δὲ	δέ	CCONJ	conjunction	_	29	cc	_	gloss=but
+28	ἐμὸν	ἐμός	ADJ	adj.neut.sg.nom	Degree=Pos|Gender=Neut|Number=Sing|Case=Nom	29	amod	_	gloss=my
+29	σῶμα	σῶμα	NOUN	noun.neut.sg.nom	Gender=Neut|Number=Sing|Case=Nom	34	nsubj	_	gloss=body
+30	καὶ	καί	CCONJ	conjunction	_	32	cc	_	gloss=also
+31	χειμῶνι	χειμών	NOUN	noun.masc.sg.dat	Gender=Masc|Number=Sing|Case=Dat	34	obl	_	gloss=in winter
+32	παρατείνεται	παρατείνω	VERB	verb.pres.ind.pass.3sg	Aspect=Imp|Mood=Ind|Tense=Pres|Voice=Pass|Number=Sing|Person=3	24	root	_	gloss=is prolonged / endures
+33	.	.	PUNCT	punctuation	_	32	punct	_	gloss=.
 
 # sent_id = perry-229-s4
 # text = Ὁ λόγος δηλοῖ ὅτι ἡ τοῦ σώματος παράτασις εὐπρεπείας καλλίων.
@@ -55,13 +59,14 @@
 # translation_lang = en
 # prose_translation = The story shows that endurance of the body is better than beauty.
 # literal_translation = The story shows that the prolongation of the body is more beautiful than beauty.
-30	Ὁ	ὁ	DET	article.masc.sg.nom	Definite=Def|PronType=Art|Gender=Masc|Number=Sing|Case=Nom	31	det	_	gloss=the
-31	λόγος	λόγος	NOUN	noun.masc.sg.nom	Gender=Masc|Number=Sing|Case=Nom	34	nsubj	_	gloss=story / fable
-32	δηλοῖ	δηλόω	VERB	verb.pres.ind.act.3sg	Aspect=Imp|Mood=Ind|Tense=Pres|Voice=Act|Number=Sing|Person=3	0	root	_	gloss=shows
-33	ὅτι	ὅτι	SCONJ	conjunction	_	38	mark	_	gloss=that
-34	ἡ	ὁ	DET	article.fem.sg.nom	Definite=Def|PronType=Art|Gender=Fem|Number=Sing|Case=Nom	37	det	_	gloss=the
-35	τοῦ	ὁ	DET	article.neut.sg.gen	Definite=Def|PronType=Art|Gender=Neut|Number=Sing|Case=Gen	36	det	_	gloss=of the
-36	σώματος	σῶμα	NOUN	noun.neut.sg.gen	Gender=Neut|Number=Sing|Case=Gen	37	nmod	_	gloss=body
-37	παράτασις	παράτασις	NOUN	noun.fem.sg.nom	Gender=Fem|Number=Sing|Case=Nom	38	nsubj	_	gloss=prolongation / endurance
-38	εὐπρεπείας	εὐπρέπεια	NOUN	noun.fem.gen	Degree=Cmp	40	obl	_	gloss=of beauty
-39	καλλίων	καλός	ADJ	adj.fem.sg.nom	Degree=Cmp|Gender=Fem|Number=Sing|Case=Nom	34	amod	_	gloss=more beautiful
+34	Ὁ	ὁ	DET	article.masc.sg.nom	Definite=Def|PronType=Art|Gender=Masc|Number=Sing|Case=Nom	35	det	_	gloss=the
+35	λόγος	λόγος	NOUN	noun.masc.sg.nom	Gender=Masc|Number=Sing|Case=Nom	38	nsubj	_	gloss=story / fable
+36	δηλοῖ	δηλόω	VERB	verb.pres.ind.act.3sg	Aspect=Imp|Mood=Ind|Tense=Pres|Voice=Act|Number=Sing|Person=3	0	root	_	gloss=shows
+37	ὅτι	ὅτι	SCONJ	conjunction	_	43	mark	_	gloss=that
+38	ἡ	ὁ	DET	article.fem.sg.nom	Definite=Def|PronType=Art|Gender=Fem|Number=Sing|Case=Nom	41	det	_	gloss=the
+39	τοῦ	ὁ	DET	article.neut.sg.gen	Definite=Def|PronType=Art|Gender=Neut|Number=Sing|Case=Gen	40	det	_	gloss=of the
+40	σώματος	σῶμα	NOUN	noun.neut.sg.gen	Gender=Neut|Number=Sing|Case=Gen	41	nmod	_	gloss=body
+41	παράτασις	παράτασις	NOUN	noun.fem.sg.nom	Gender=Fem|Number=Sing|Case=Nom	43	nsubj	_	gloss=prolongation / endurance
+42	εὐπρεπείας	εὐπρέπεια	NOUN	noun.fem.gen	Degree=Cmp	44	obl	_	gloss=of beauty
+43	καλλίων	καλός	ADJ	adj.fem.sg.nom	Degree=Cmp|Gender=Fem|Number=Sing|Case=Nom	38	amod	_	gloss=more beautiful
+44	.	.	PUNCT	punctuation	_	43	punct	_	gloss=.
