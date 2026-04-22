@@ -1,0 +1,64 @@
+# title = The Crab and Its Mother
+# sent_id = perry-322-s1
+# text = Μὴ λοξὰ περιπατεῖν καρκίνῳ μήτηρ ἔλεγε μηδὲ τῇ ὑγρᾷ πέτρᾳ τὰς πλευρὰς προστρίβειν.
+# parallel_id = lyceum-aesop-p322/s1
+# translation_lang = en
+# prose_translation = A mother was telling a crab not to walk sideways nor to rub its sides against the wet rock.
+# literal_translation = Not to walk sideways a crab a mother was telling, nor to rub its sides against the wet rock.
+1	Μὴ	μή	PART	neg.particle	Polarity=Neg	3	advmod	_	gloss=not
+2	λοξὰ	λοξός	ADV	adverb	_	3	advmod	_	gloss=sideways
+3	περιπατεῖν	περιπατέω	VERB	verb.pres.inf.act	Aspect=Imp|Mood=Inf|Tense=Pres|Voice=Act	5	xcomp	_	gloss=to walk
+4	καρκίνῳ	καρκίνος	NOUN	noun.masc.sg.dat	Gender=Masc|Number=Sing|Case=Dat	5	iobj	_	gloss=crab
+5	μήτηρ	μήτηρ	NOUN	noun.fem.sg.nom	Gender=Fem|Number=Sing|Case=Nom	6	nsubj	_	gloss=mother
+6	ἔλεγε	λέγω	VERB	verb.impf.ind.act.3sg	Aspect=Imp|Mood=Ind|Tense=Imp|Voice=Act|Number=Sing|Person=3	0	root	_	gloss=was telling
+7	μηδὲ	μηδέ	CCONJ	conjunction	_	10	cc	_	gloss=nor
+8	τῇ	ὁ	DET	article.fem.sg.dat	Definite=Def|PronType=Art|Gender=Fem|Number=Sing|Case=Dat	9	det	_	gloss=the
+9	ὑγρᾷ	ὑγρός	ADJ	adj.fem.sg.dat	Degree=Pos|Gender=Fem|Number=Sing|Case=Dat	10	obl	_	gloss=wet
+10	πέτρᾳ	πέτρα	NOUN	noun.fem.sg.dat	Gender=Fem|Number=Sing|Case=Dat	11	obl	_	gloss=rock
+11	τὰς	ὁ	DET	article.fem.pl.acc	Definite=Def|PronType=Art|Gender=Fem|Number=Plur|Case=Acc	12	det	_	gloss=the
+12	πλευρὰς	πλευρά	NOUN	noun.fem.pl.acc	Gender=Fem|Number=Plur|Case=Acc	13	obj	_	gloss=sides
+13	προστρίβειν	προστρίβω	VERB	verb.pres.inf.act	Aspect=Imp|Mood=Inf|Tense=Pres|Voice=Act	3	conj	_	gloss=to rub against
+14	.	.	PUNCT	punctuation	_	6	punct	_	gloss=.
+
+# sent_id = perry-322-s2
+# text = Ὁ δὲ εἶπεν· Μῆτερ, σύ, ἡ διδάσκουσα, ὀρθὰ βάδιζε καὶ βλὲπον σε ζηλὼσω.
+# parallel_id = lyceum-aesop-p322/s2
+# translation_lang = en
+# prose_translation = But he said, "Mother, you who are teaching, walk straight, and seeing you I will imitate."
+# literal_translation = But he said, "Mother, you, the one teaching, walk straight and seeing you I will imitate."
+15	Ὁ	ὁ	DET	article.masc.sg.nom	Definite=Def|PronType=Art|Gender=Masc|Number=Sing|Case=Nom	16	det	_	gloss=the
+16	δὲ	δέ	CCONJ	conjunction	_	17	cc	_	gloss=but
+17	εἶπεν	λέγω	VERB	verb.aor.ind.act.3sg	Aspect=Perf|Mood=Ind|Tense=Aor|Voice=Act|Number=Sing|Person=3	0	root	_	gloss=said
+18	·	·	PUNCT	punctuation	_	17	punct	_	gloss=:
+19	Μῆτερ	μήτηρ	NOUN	noun.fem.sg.voc	Gender=Fem|Number=Sing|Case=Voc	17	vocative	_	gloss=mother
+20	σύ	σύ	PRON	pron.fem.sg.nom	PronType=Prs|Gender=Fem|Number=Sing|Case=Nom	23	nsubj	_	gloss=you
+21	ἡ	ὁ	DET	article.fem.sg.nom	Definite=Def|PronType=Art|Gender=Fem|Number=Sing|Case=Nom	22	det	_	gloss=the
+22	διδάσκουσα	διδάσκω	VERB	verb.pres.ptcp.act.fem.sg.nom	Aspect=Imp|Mood=Part|Tense=Pres|Voice=Act|Gender=Fem|Number=Sing|Case=Nom	20	acl	_	gloss=teaching
+23	ὀρθὰ	ὀρθός	ADV	adverb	_	24	advmod	_	gloss=straight
+24	βάδιζε	βαδίζω	VERB	verb.pres.imper.act.2sg	Mood=Imp|Tense=Pres|VerbForm=Fin|Voice=Act|Number=Sing|Person=2	17	ccomp	_	gloss=walk
+25	καὶ	καί	CCONJ	conjunction	_	27	cc	_	gloss=and
+26	βλὲπον	βλέπω	VERB	verb.pres.ptcp.act.masc.sg.nom	Aspect=Imp|Mood=Part|Tense=Pres|Voice=Act|Gender=Masc|Number=Sing|Case=Nom	27	advcl	_	gloss=seeing
+27	σε	σύ	PRON	pron.fem.sg.acc	PronType=Prs|Gender=Fem|Number=Sing|Case=Acc	26	obj	_	gloss=you
+28	ζηλὼσω	ζηλόω	VERB	verb.aor.subj.act.1sg	Aspect=Perf|Mood=Sub|Tense=Aor|Voice=Act|Number=Sing|Person=1	24	conj	_	gloss=I will imitate
+29	.	.	PUNCT	punctuation	_	28	punct	_	gloss=.
+
+# sent_id = perry-322-s3
+# text = Ὅτι τοὺς μεμψιμοίρους πρέπον ἐστὶν ὀρθὰ βιοῦν καὶ βαδίζειν, καὶ τότε ὅμοια διδάσκειν.
+# parallel_id = lyceum-aesop-p322/s3
+# translation_lang = en
+# prose_translation = It is fitting for fault-finders to live and walk upright, and then to teach likewise.
+# literal_translation = That fault-finders it is fitting to live upright and to walk, and then to teach similar things.
+30	Ὅτι	ὅτι	SCONJ	conjunction	ConjType=Comp	32	mark	_	gloss=that
+31	τοὺς	ὁ	DET	article.masc.pl.acc	Definite=Def|PronType=Art|Gender=Masc|Number=Plur|Case=Acc	32	det	_	gloss=the
+32	μεμψιμοίρους	μεμψίμοιρος	ADJ	adj.masc.pl.acc	Degree=Pos|Gender=Masc|Number=Plur|Case=Acc	35	obj	_	gloss=fault-finding
+33	πρέπον	πρέπω	VERB	verb.pres.ptcp.act.neut.sg.nom	Aspect=Imp|Mood=Part|Tense=Pres|Voice=Act|Gender=Neut|Number=Sing|Case=Nom	34	amod	_	gloss=fitting
+34	ἐστὶν	εἰμί	VERB	verb.pres.ind.act.3sg	Mood=Ind|Tense=Pres|VerbForm=Fin|Voice=Act|Number=Sing|Person=3	0	root	_	gloss=is
+35	ὀρθὰ	ὀρθός	ADV	adverb	_	36	advmod	_	gloss=upright
+36	βιοῦν	βιόω	VERB	verb.pres.inf.act	Aspect=Imp|Mood=Inf|Tense=Pres|Voice=Act	34	xcomp	_	gloss=to live
+37	καὶ	καί	CCONJ	conjunction	_	38	cc	_	gloss=and
+38	βαδίζειν	βαδίζω	VERB	verb.pres.inf.act	Aspect=Imp|Mood=Inf|Tense=Pres|Voice=Act	36	conj	_	gloss=to walk
+39	καὶ	καί	CCONJ	conjunction	_	41	cc	_	gloss=and
+40	τότε	τότε	ADV	adverb	_	41	advmod	_	gloss=then
+41	ὅμοια	ὅμοιος	ADJ	adj.neut.pl.acc	Degree=Pos|Gender=Neut|Number=Plur|Case=Acc	42	obj	_	gloss=similar things
+42	διδάσκειν	διδάσκω	VERB	verb.pres.inf.act	Aspect=Imp|Mood=Inf|Tense=Pres|Voice=Act	36	conj	_	gloss=to teach
+43	.	.	PUNCT	punctuation	_	42	punct	_	gloss=.

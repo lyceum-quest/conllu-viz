@@ -1,0 +1,67 @@
+# title = The Boy and Fortune
+# sent_id = perry-174-s1
+# text = Ἐγγὺς φρέατος παῖς τις ἐκοιμᾶτο.
+# parallel_id = lyceum-aesop-p174/s1
+# translation_lang = en
+# prose_translation = A certain boy was sleeping near a well.
+# literal_translation = Near a well a certain boy was sleeping.
+1	Ἐγγὺς	ἐγγύς	ADV	adverb	_	3	advmod	_	gloss=near
+2	φρέατος	φρέαρ	NOUN	noun.neut.sg.gen	Gender=Neut|Number=Sing|Case=Gen	1	nmod	_	gloss=well
+3	παῖς	παῖς	NOUN	noun.masc.sg.nom	Gender=Masc|Number=Sing|Case=Nom	4	nsubj	_	gloss=boy
+4	τις	τις	PRON	pron.masc.sg.nom	PronType=Ind|Gender=Masc|Number=Sing|Case=Nom	3	det	_	gloss=a certain
+5	ἐκοιμᾶτο	κοιμάω	VERB	verb.impf.ind.mp.3sg	Aspect=Imp|Mood=Ind|Tense=Imp|Voice=Mid|Number=Sing|Person=3	0	root	_	gloss=was sleeping
+6	.	.	PUNCT	punctuation	_	5	punct	_	gloss=.
+
+# sent_id = perry-174-s2
+# text = Ἐπιστᾶσα δὲ αὐτῷ ἡ Τύχη ἔβοα· Ἀνάστα καὶ ἄπελθε ἐντεῦθεν, μή πως κάτωθεν τοῦ φρέατος πέσῃς, καὶ ἐμὲ τὴν Τύχην καταμέμψωνται πάντες.
+# parallel_id = lyceum-aesop-p174/s2
+# translation_lang = en
+# prose_translation = But Fortune, standing over him, cried out, "Get up and go away from here, lest you fall to the bottom of the well, and everyone blame me, Fortune."
+# literal_translation = But standing over him Fortune cried out, "Rise and go away from here, lest somehow from below the well you fall, and me Fortune blame all."
+7	Ἐπιστᾶσα	ἐφίστημι	VERB	verb.aor.ptcp.act.fem.sg.nom	Aspect=Perf|Mood=Part|Tense=Aor|Voice=Act|Gender=Fem|Number=Sing|Case=Nom	16	advcl	_	gloss=standing over
+8	δὲ	δέ	CCONJ	conjunction	_	16	cc	_	gloss=but
+9	αὐτῷ	αὐτός	PRON	pron.masc.sg.dat	Gender=Masc|Number=Sing|Case=Dat	7	obl	_	gloss=over him
+10	ἡ	ὁ	DET	article.fem.sg.nom	Definite=Def|PronType=Art|Gender=Fem|Number=Sing|Case=Nom	11	det	_	gloss=the
+11	Τύχη	τύχη	NOUN	noun.fem.sg.nom	Gender=Fem|Number=Sing|Case=Nom	16	nsubj	_	gloss=Fortune
+12	ἔβοα	βοάω	VERB	verb.impf.ind.act.3sg	Aspect=Imp|Mood=Ind|Tense=Imp|Voice=Act|Number=Sing|Person=3	0	root	_	gloss=cried out
+13	·	·	PUNCT	punctuation	_	12	punct	_	gloss=:
+14	Ἀνάστα	ἀνίστημι	VERB	verb.aor.imper.act.2sg	Mood=Imp|Tense=Aor|VerbForm=Fin|Voice=Act|Number=Sing|Person=2	12	ccomp	_	gloss=get up
+15	καὶ	καί	CCONJ	conjunction	_	16	cc	_	gloss=and
+16	ἄπελθε	ἀπέρχομαι	VERB	verb.aor.imper.mp.2sg	Mood=Imp|Tense=Aor|VerbForm=Fin|Voice=Mid|Number=Sing|Person=2	14	conj	_	gloss=go away
+17	ἐντεῦθεν	ἐντεῦθεν	ADV	adverb	_	16	advmod	_	gloss=from here
+18	μή	μή	PART	neg.particle	Polarity=Neg	22	advmod	_	gloss=lest
+19	πως	πως	ADV	adverb	_	22	advmod	_	gloss=somehow
+20	κάτωθεν	κάτωθεν	ADV	adverb	_	22	advmod	_	gloss=from below
+21	τοῦ	ὁ	DET	article.neut.sg.gen	Definite=Def|PronType=Art|Gender=Neut|Number=Sing|Case=Gen	22	det	_	gloss=the
+22	φρέατος	φρέαρ	NOUN	noun.neut.sg.gen	Gender=Neut|Number=Sing|Case=Gen	20	nmod	_	gloss=well
+23	πέσῃς	πίπτω	VERB	verb.aor.subj.act.2sg	Aspect=Perf|Mood=Sub|Tense=Aor|Voice=Act|Number=Sing|Person=2	14	advcl	_	gloss=you fall
+24	καὶ	καί	CCONJ	conjunction	_	28	cc	_	gloss=and
+25	ἐμὲ	ἐγώ	PRON	pron.fem.sg.acc	PronType=Prs|Gender=Fem|Number=Sing|Case=Acc	28	obj	_	gloss=me
+26	τὴν	ὁ	DET	article.fem.sg.acc	Definite=Def|PronType=Art|Gender=Fem|Number=Sing|Case=Acc	27	det	_	gloss=the
+27	Τύχην	τύχη	NOUN	noun.fem.sg.acc	Gender=Fem|Number=Sing|Case=Acc	25	appos	_	gloss=Fortune
+28	καταμέμψωνται	καταμέμφομαι	VERB	verb.pres.subj.mp.3pl	Aspect=Imp|Mood=Sub|Tense=Pres|Voice=Mid|Number=Plur|Person=3	23	conj	_	gloss=they blame
+29	πάντες	πᾶς	PRON	pron.masc.pl.nom	PronType=Ind|Gender=Masc|Number=Plur|Case=Nom	28	nsubj	_	gloss=all
+30	.	.	PUNCT	punctuation	_	28	punct	_	gloss=.
+
+# sent_id = perry-174-s3
+# text = Ὁ μῦθος δηλοῖ ὅτι πολλάκις σφαλόμενοι καὶ πράττοντες κακῶς περιπίπτομεν κινδύνοις καὶ μεμφόμεθα τὴν τύχην.
+# parallel_id = lyceum-aesop-p174/s3
+# translation_lang = en
+# prose_translation = The story shows that often when we stumble and act badly, we fall into dangers and blame fortune.
+# literal_translation = The story shows that often stumbling and acting badly we fall into dangers and blame fortune.
+31	Ὁ	ὁ	DET	article.masc.sg.nom	Definite=Def|PronType=Art|Gender=Masc|Number=Sing|Case=Nom	32	det	_	gloss=the
+32	μῦθος	μῦθος	NOUN	noun.masc.sg.nom	Gender=Masc|Number=Sing|Case=Nom	33	nsubj	_	gloss=story
+33	δηλοῖ	δηλόω	VERB	verb.pres.ind.act.3sg	Aspect=Imp|Mood=Ind|Tense=Pres|Voice=Act|Number=Sing|Person=3	0	root	_	gloss=shows
+34	ὅτι	ὅτι	SCONJ	conjunction	_	41	mark	_	gloss=that
+35	πολλάκις	πολλάκις	ADV	adverb	_	41	advmod	_	gloss=often
+36	σφαλόμενοι	σφάλλω	VERB	verb.pres.ptcp.mp.masc.pl.nom	Aspect=Imp|Mood=Part|Tense=Pres|Voice=Mid|Gender=Masc|Number=Plur|Case=Nom	41	advcl	_	gloss=stumbling
+37	καὶ	καί	CCONJ	conjunction	_	38	cc	_	gloss=and
+38	πράττοντες	πράσσω	VERB	verb.pres.ptcp.act.masc.pl.nom	Aspect=Imp|Mood=Part|Tense=Pres|Voice=Act|Gender=Masc|Number=Plur|Case=Nom	36	conj	_	gloss=acting
+39	κακῶς	κακῶς	ADV	adverb	_	38	advmod	_	gloss=badly
+40	περιπίπτομεν	περιπίπτω	VERB	verb.pres.ind.act.1pl	Aspect=Imp|Mood=Ind|Tense=Pres|Voice=Act|Number=Plur|Person=1	33	ccomp	_	gloss=we fall into
+41	κινδύνοις	κίνδυνος	NOUN	noun.masc.pl.dat	Gender=Masc|Number=Plur|Case=Dat	40	obl	_	gloss=dangers
+42	καὶ	καί	CCONJ	conjunction	_	43	cc	_	gloss=and
+43	μεμφόμεθα	μέμφομαι	VERB	verb.pres.ind.mp.1pl	Aspect=Imp|Mood=Ind|Tense=Pres|Voice=Mid|Number=Plur|Person=1	40	conj	_	gloss=we blame
+44	τὴν	ὁ	DET	article.fem.sg.acc	Definite=Def|PronType=Art|Gender=Fem|Number=Sing|Case=Acc	45	det	_	gloss=the
+45	τύχην	τύχη	NOUN	noun.fem.sg.acc	Gender=Fem|Number=Sing|Case=Acc	43	obj	_	gloss=fortune
+46	.	.	PUNCT	punctuation	_	45	punct	_	gloss=.

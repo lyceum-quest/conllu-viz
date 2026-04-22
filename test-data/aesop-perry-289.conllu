@@ -1,0 +1,66 @@
+# title = The Frog Physician
+# sent_id = perry-289-s1
+# text = Ὄντος ποτὲ βατράχου ἐν τῇ λίμνῃ καὶ τοῖς ζώοις πᾶσιν ἀναβοήσαντος· Ἐγὼ ἰατρὸς εἰμι φαρμάκων ἐπιστήμων,
+# parallel_id = lyceum-aesop-p289/s1
+# translation_lang = en
+# prose_translation = Once when a frog was in the lake and cried out to all the animals, "I am a physician, skilled in medicines,"
+# literal_translation = There being once a frog in the lake and to all the animals having cried out, "I a physician am, of medicines skilled,"
+1	Ὄντος	εἰμί	VERB	verb.pres.ptcp.act.masc.sg.gen	Aspect=Imp|Mood=Part|Tense=Pres|Voice=Act|Gender=Masc|Number=Sing|Case=Gen	9	advcl	_	gloss=being
+2	ποτὲ	ποτέ	ADV	adverb	_	1	advmod	_	gloss=once
+3	βατράχου	βάτραχος	NOUN	noun.masc.sg.gen	Gender=Masc|Number=Sing|Case=Gen	1	nsubj	_	gloss=frog
+4	ἐν	ἐν	ADP	preposition.dat	_	6	case	_	gloss=in
+5	τῇ	ὁ	DET	article.fem.sg.dat	Definite=Def|PronType=Art|Gender=Fem|Number=Sing|Case=Dat	6	det	_	gloss=the
+6	λίμνῃ	λίμνη	NOUN	noun.fem.sg.dat	Gender=Fem|Number=Sing|Case=Dat	1	obl	_	gloss=lake
+7	καὶ	καί	CCONJ	conjunction	_	8	cc	_	gloss=and
+8	τοῖς	ὁ	DET	article.masc.pl.dat	Definite=Def|PronType=Art|Gender=Masc|Number=Plur|Case=Dat	9	det	_	gloss=to the
+9	ζώοις	ζῷον	NOUN	noun.neut.pl.dat	Gender=Neut|Number=Plur|Case=Dat	10	iobj	_	gloss=animals
+10	πᾶσιν	πᾶς	ADJ	adj.neut.pl.dat	Degree=Pos|Gender=Neut|Number=Plur|Case=Dat	9	amod	_	gloss=all
+11	ἀναβοήσαντος	ἀναβοάω	VERB	verb.aor.ptcp.act.masc.sg.gen	Aspect=Perf|Mood=Part|Tense=Aor|Voice=Act|Gender=Masc|Number=Sing|Case=Gen	1	conj	_	gloss=having cried out
+12	·	·	PUNCT	punctuation	_	11	punct	_	gloss=:
+13	Ἐγὼ	ἐγώ	PRON	pron.masc.sg.nom	PronType=Prs|Gender=Masc|Number=Sing|Case=Nom	14	nsubj	_	gloss=I
+14	ἰατρὸς	ἰατρός	NOUN	noun.masc.sg.nom	Gender=Masc|Number=Sing|Case=Nom	17	nsubj	_	gloss=physician
+15	εἰμι	εἰμί	VERB	verb.pres.ind.act.1sg	Mood=Ind|Tense=Pres|VerbForm=Fin|Voice=Act|Number=Sing|Person=1	0	root	_	gloss=I am
+16	φαρμάκων	φάρμακον	NOUN	noun.neut.pl.gen	Gender=Neut|Number=Plur|Case=Gen	17	obl	_	gloss=of medicines
+17	ἐπιστήμων	ἐπιστήμων	ADJ	adj.masc.sg.nom	Degree=Pos|Gender=Masc|Number=Sing|Case=Nom	14	amod	_	gloss=skilled
+18	,	,	PUNCT	punctuation	_	15	punct	_	gloss=,
+
+# sent_id = perry-289-s2
+# text = ἀλώπηξ ἀκούσασα ἔφη· Πῶς σὺ ἄλλους σώσεις, σεαυτὸν χωλὸν ὄντα μὴ θεραπεύων;
+# parallel_id = lyceum-aesop-p289/s2
+# translation_lang = en
+# prose_translation = a fox hearing this said, "How will you save others, when you don't heal your own lameness?"
+# literal_translation = a fox having heard said, "How you others will save, yourself being lame not healing?"
+19	ἀλώπηξ	ἀλώπηξ	NOUN	noun.fem.sg.nom	Gender=Fem|Number=Sing|Case=Nom	21	nsubj	_	gloss=fox
+20	ἀκούσασα	ἀκούω	VERB	verb.aor.ptcp.act.fem.sg.nom	Aspect=Perf|Mood=Part|Tense=Aor|Voice=Act|Gender=Fem|Number=Sing|Case=Nom	21	advcl	_	gloss=having heard
+21	ἔφη	φημί	VERB	verb.impf.ind.act.3sg	Mood=Ind|Tense=Imp|VerbForm=Fin|Voice=Act|Number=Sing|Person=3	0	root	_	gloss=said
+22	·	·	PUNCT	punctuation	_	21	punct	_	gloss=:
+23	Πῶς	πῶς	ADV	adverb	_	26	advmod	_	gloss=how
+24	σύ	σύ	PRON	pron.masc.sg.nom	PronType=Prs|Gender=Masc|Number=Sing|Case=Nom	26	nsubj	_	gloss=you
+25	ἄλλους	ἄλλος	PRON	pron.masc.pl.acc	PronType=Ind|Gender=Masc|Number=Plur|Case=Acc	26	obj	_	gloss=others
+26	σώσεις	σῴζω	VERB	verb.fut.ind.act.2sg	Aspect=Perf|Mood=Ind|Tense=Fut|Voice=Act|Number=Sing|Person=2	21	ccomp	_	gloss=you will save
+27	σεαυτὸν	σεαυτοῦ	PRON	pron.masc.sg.acc	PronType=Ref|Gender=Masc|Number=Sing|Case=Acc	30	obj	_	gloss=yourself
+28	χωλὸν	χωλός	ADJ	adj.masc.sg.acc	Degree=Pos|Gender=Masc|Number=Sing|Case=Acc	27	amod	_	gloss=lame
+29	ὄντα	εἰμί	VERB	verb.pres.ptcp.act.masc.sg.acc	Aspect=Imp|Mood=Part|Tense=Pres|Voice=Act|Gender=Masc|Number=Sing|Case=Acc	27	acl	_	gloss=being
+30	μὴ	μή	PART	neg.particle	Polarity=Neg	31	advmod	_	gloss=not
+31	θεραπεύων	θεραπεύω	VERB	verb.pres.ptcp.act.masc.sg.nom	Aspect=Imp|Mood=Part|Tense=Pres|Voice=Act|Gender=Masc|Number=Sing|Case=Nom	26	advcl	_	gloss=healing
+32	;	;	PUNCT	punctuation	_	26	punct	_	gloss=?
+
+# sent_id = perry-289-s3
+# text = Ὁ μῦθος δηλοῖ ὅτι ὁ παιδείας ἀμύητος ὑπάρχων, πῶς ἄλλους παιδεῦσαι δυνήσεται;
+# parallel_id = lyceum-aesop-p289/s3
+# translation_lang = en
+# prose_translation = The story shows that one who is uninitiated in education, how will he be able to educate others?
+# literal_translation = The story shows that the one uninitiated of education being, how others to educate will he be able?
+33	Ὁ	ὁ	DET	article.masc.sg.nom	Definite=Def|PronType=Art|Gender=Masc|Number=Sing|Case=Nom	34	det	_	gloss=the
+34	μῦθος	μῦθος	NOUN	noun.masc.sg.nom	Gender=Masc|Number=Sing|Case=Nom	35	nsubj	_	gloss=story
+35	δηλοῖ	δηλόω	VERB	verb.pres.ind.act.3sg	Aspect=Imp|Mood=Ind|Tense=Pres|Voice=Act|Number=Sing|Person=3	0	root	_	gloss=shows
+36	ὅτι	ὅτι	SCONJ	conjunction	_	40	mark	_	gloss=that
+37	ὁ	ὁ	DET	article.masc.sg.nom	Definite=Def|PronType=Art|Gender=Masc|Number=Sing|Case=Nom	38	det	_	gloss=the
+38	παιδείας	παιδεία	NOUN	noun.fem.sg.gen	Gender=Fem|Number=Sing|Case=Gen	39	nmod	_	gloss=education
+39	ἀμύητος	ἀμύητος	ADJ	adj.masc.sg.nom	Degree=Pos|Gender=Masc|Number=Sing|Case=Nom	40	nsubj	_	gloss=uninitiated
+40	ὑπάρχων	ὑπάρχω	VERB	verb.pres.ptcp.act.masc.sg.nom	Aspect=Imp|Mood=Part|Tense=Pres|Voice=Act|Gender=Masc|Number=Sing|Case=Nom	41	acl	_	gloss=being
+41	πῶς	πῶς	ADV	adverb	_	43	advmod	_	gloss=how
+42	ἄλλους	ἄλλος	PRON	pron.masc.pl.acc	PronType=Ind|Gender=Masc|Number=Plur|Case=Acc	44	obj	_	gloss=others
+43	παιδεῦσαι	παιδεύω	VERB	verb.aor.inf.act	Aspect=Perf|Mood=Inf|Tense=Aor|Voice=Act	44	xcomp	_	gloss=to educate
+44	δυνήσεται	δύναμαι	VERB	verb.fut.ind.mp.3sg	Aspect=Perf|Mood=Ind|Tense=Fut|Voice=Mid|Number=Sing|Person=3	35	ccomp	_	gloss=he will be able
+45	;	;	PUNCT	punctuation	_	44	punct	_	gloss=?

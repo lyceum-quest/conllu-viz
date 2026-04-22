@@ -1,0 +1,73 @@
+# title = The Wolf and the Dog in Chain
+# sent_id = perry-346-s1
+# text = Λύκος ἐν κλοιῷ δεδεμένον ὁρῶν μέγιστον κύνα ἤρετο· Δήσας τίς ς' ἐξέθρεψε τοῦτον;
+# parallel_id = lyceum-aesop-p346/s1
+# translation_lang = en
+# prose_translation = A wolf seeing a very large dog tied in a chain asked, "Who raised you by tying you up like this?"
+# literal_translation = A wolf in a chain bound seeing a very large dog asked, "Having tied who raised you this way?"
+1	Λύκος	λύκος	NOUN	noun.masc.sg.nom	Gender=Masc|Number=Sing|Case=Nom	7	nsubj	_	gloss=wolf
+2	ἐν	ἐν	ADP	preposition.dat	_	3	case	_	gloss=in
+3	κλοιῷ	κλοῖος	NOUN	noun.masc.sg.dat	Gender=Masc|Number=Sing|Case=Dat	4	obl	_	gloss=chain
+4	δεδεμένον	δέω	VERB	verb.perf.ptcp.mp.masc.sg.acc	Aspect=Perf|Mood=Part|Tense=Perf|Voice=Mid|Gender=Masc|Number=Sing|Case=Acc	5	acl	_	gloss=bound
+5	ὁρῶν	ὁράω	VERB	verb.pres.ptcp.act.masc.sg.nom	Aspect=Imp|Mood=Part|Tense=Pres|Voice=Act|Gender=Masc|Number=Sing|Case=Nom	7	advcl	_	gloss=seeing
+6	μέγιστον	μέγας	ADJ	adj.masc.sg.acc	Degree=Sup|Gender=Masc|Number=Sing|Case=Acc	8	amod	_	gloss=very large
+7	κύνα	κύων	NOUN	noun.masc.sg.acc	Gender=Masc|Number=Sing|Case=Acc	5	obj	_	gloss=dog
+8	ἤρετο	ἐρωτάω	VERB	verb.impf.ind.mp.3sg	Aspect=Imp|Mood=Ind|Tense=Imp|Voice=Mid|Number=Sing|Person=3	0	root	_	gloss=asked
+9	·	·	PUNCT	punctuation	_	8	punct	_	gloss=:
+10	Δήσας	δέω	VERB	verb.aor.ptcp.act.masc.sg.nom	Aspect=Perf|Mood=Part|Tense=Aor|Voice=Act|Gender=Masc|Number=Sing|Case=Nom	12	advcl	_	gloss=having tied
+11	τίς	τίς	PRON	pron.masc.sg.nom	PronType=Int|Gender=Masc|Number=Sing|Case=Nom	12	nsubj	_	gloss=who
+12	ς'	σύ	PRON	pron.masc.sg.acc	PronType=Prs|Gender=Masc|Number=Sing|Case=Acc	13	obj	_	gloss=you
+13	ἐξέθρεψε	ἐκτρέφω	VERB	verb.aor.ind.act.3sg	Aspect=Perf|Mood=Ind|Tense=Aor|Voice=Act|Number=Sing|Person=3	8	ccomp	_	gloss=raised
+14	τοῦτον	οὗτος	PRON	pron.masc.sg.acc	PronType=Dem|Gender=Masc|Number=Sing|Case=Acc	13	advmod	_	gloss=this way
+15	;	;	PUNCT	punctuation	_	13	punct	_	gloss=?
+
+# sent_id = perry-346-s2
+# text = Ὁ δὲ ἔφη· Κυνηγός.
+# parallel_id = lyceum-aesop-p346/s2
+# translation_lang = en
+# prose_translation = But he said, "A hunter."
+# literal_translation = But he said, "A hunter."
+16	Ὁ	ὁ	DET	article.masc.sg.nom	Definite=Def|PronType=Art|Gender=Masc|Number=Sing|Case=Nom	17	det	_	gloss=the
+17	δὲ	δέ	CCONJ	conjunction	_	18	cc	_	gloss=but
+18	ἔφη	φημί	VERB	verb.impf.ind.act.3sg	Mood=Ind|Tense=Imp|VerbForm=Fin|Voice=Act|Number=Sing|Person=3	0	root	_	gloss=said
+19	·	·	PUNCT	punctuation	_	18	punct	_	gloss=:
+20	Κυνηγός	κυνηγός	NOUN	noun.masc.sg.nom	Gender=Masc|Number=Sing|Case=Nom	18	ccomp	_	gloss=hunter
+21	.	.	PUNCT	punctuation	_	20	punct	_	gloss=.
+
+# sent_id = perry-346-s3
+# text = Ἀλλὰ τοῦτο μὴ πάθοι λύκος ἐμοὶ φίλος· λιμὸς γὰρ ἡ κλοιοῦ βαρύτης.
+# parallel_id = lyceum-aesop-p346/s3
+# translation_lang = en
+# prose_translation = "But may a wolf who is my friend not suffer this; for the weight of the chain is hunger."
+# literal_translation = "But this may a wolf to me a friend not suffer; for hunger is the weight of the chain."
+22	Ἀλλὰ	ἀλλά	CCONJ	conjunction	_	24	cc	_	gloss=but
+23	τοῦτο	οὗτος	PRON	pron.neut.sg.acc	PronType=Dem|Gender=Neut|Number=Sing|Case=Acc	24	obj	_	gloss=this
+24	μὴ	μή	PART	neg.particle	Polarity=Neg	25	advmod	_	gloss=not
+25	πάθοι	πάσχω	VERB	verb.aor.subj.act.3sg	Aspect=Perf|Mood=Sub|Tense=Aor|Voice=Act|Number=Sing|Person=3	0	root	_	gloss=may he suffer
+26	λύκος	λύκος	NOUN	noun.masc.sg.nom	Gender=Masc|Number=Sing|Case=Nom	25	nsubj	_	gloss=wolf
+27	ἐμοὶ	ἐγώ	PRON	pron.masc.sg.dat	PronType=Prs|Gender=Masc|Number=Sing|Case=Dat	26	obl	_	gloss=to me
+28	φίλος	φίλος	ADJ	adj.masc.sg.nom	Degree=Pos|Gender=Masc|Number=Sing|Case=Nom	26	amod	_	gloss=friend
+29	·	·	PUNCT	punctuation	_	25	punct	_	gloss=:
+30	λιμὸς	λιμός	NOUN	noun.masc.sg.nom	Gender=Masc|Number=Sing|Case=Nom	31	nsubj	_	gloss=hunger
+31	γὰρ	γάρ	CCONJ	conjunction	_	32	cc	_	gloss=for
+32	ἡ	ὁ	DET	article.fem.sg.nom	Definite=Def|PronType=Art|Gender=Fem|Number=Sing|Case=Nom	33	det	_	gloss=the
+33	κλοιοῦ	κλοῖος	NOUN	noun.masc.sg.gen	Gender=Masc|Number=Sing|Case=Gen	34	nmod	_	gloss=chain
+34	βαρύτης	βαρύτης	NOUN	noun.masc.sg.nom	Gender=Masc|Number=Sing|Case=Nom	25	parataxis	_	gloss=weight
+35	.	.	PUNCT	punctuation	_	34	punct	_	gloss=.
+
+# sent_id = perry-346-s4
+# text = Ὁ λόγος δηλοῖ τὸ ἐν ταῖς συμφοραῖς οὐδὲ γαστρίζεσθαι.
+# parallel_id = lyceum-aesop-p346/s4
+# translation_lang = en
+# prose_translation = The saying shows that in misfortunes one cannot even eat.
+# literal_translation = The saying shows that in misfortunes not even to eat is possible.
+36	Ὁ	ὁ	DET	article.masc.sg.nom	Definite=Def|PronType=Art|Gender=Masc|Number=Sing|Case=Nom	37	det	_	gloss=the
+37	λόγος	λόγος	NOUN	noun.masc.sg.nom	Gender=Masc|Number=Sing|Case=Nom	38	nsubj	_	gloss=saying
+38	δηλοῖ	δηλόω	VERB	verb.pres.ind.act.3sg	Aspect=Imp|Mood=Ind|Tense=Pres|Voice=Act|Number=Sing|Person=3	0	root	_	gloss=shows
+39	τὸ	ὁ	DET	article.neut.sg.acc	Definite=Def|PronType=Art|Gender=Neut|Number=Sing|Case=Acc	41	det	_	gloss=the
+40	ἐν	ἐν	ADP	preposition.dat	_	41	case	_	gloss=in
+41	ταῖς	ὁ	DET	article.fem.pl.dat	Definite=Def|PronType=Art|Gender=Fem|Number=Plur|Case=Dat	42	det	_	gloss=the
+42	συμφοραῖς	συμφορά	NOUN	noun.fem.pl.dat	Gender=Fem|Number=Plur|Case=Dat	43	obl	_	gloss=misfortunes
+43	οὐδὲ	οὐδέ	ADV	adverb	_	44	advmod	_	gloss=not even
+44	γαστρίζεσθαι	γαστρίζω	VERB	verb.pres.inf.mp	Aspect=Imp|Mood=Inf|Tense=Pres|Voice=Mid	38	xcomp	_	gloss=to eat
+45	.	.	PUNCT	punctuation	_	44	punct	_	gloss=.

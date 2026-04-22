@@ -1,0 +1,64 @@
+# title = The Pomegranate, the Apple Tree, and the Bramble
+# sent_id = perry-213-s1
+# text = Ῥοιὰ καὶ μηλέα περὶ κάλλους ἤριζον·
+# parallel_id = lyceum-aesop-p213/s1
+# translation_lang = en
+# prose_translation = A pomegranate tree and an apple tree were competing about beauty.
+# literal_translation = A pomegranate tree and an apple tree about beauty were competing.
+1	Ῥοιὰ	ῥοιά	NOUN	noun.fem.sg.nom	Gender=Fem|Number=Sing|Case=Nom	7	nsubj	_	gloss=pomegranate tree
+2	καὶ	καί	CCONJ	conjunction	_	3	cc	_	gloss=and
+3	μηλέα	μηλέα	NOUN	noun.fem.sg.nom	Gender=Fem|Number=Sing|Case=Nom	1	conj	_	gloss=apple tree
+4	περὶ	περί	ADP	preposition.gen	_	5	case	_	gloss=about
+5	κάλλους	κάλλος	NOUN	noun.neut.sg.gen	Gender=Neut|Number=Sing|Case=Gen	7	obl	_	gloss=beauty
+6	ἤριζον	ἐρίζω	VERB	verb.impf.ind.act.3pl	Aspect=Imp|Mood=Ind|Tense=Imp|Voice=Act|Number=Plur|Person=3	0	root	_	gloss=were competing
+7	·	·	PUNCT	punctuation	_	6	punct	_	gloss=:
+
+# sent_id = perry-213-s2
+# text = πολλῶν δ' ἀμπισβητήσεων μέταξυ γενομένων, βάτος ἐκ τοῦ πλησίον ἀκούσασα φραγμοῦ· Παυσώμεθα, εἶπεν, ὦ φίλαι, ποτέ μαχόμεναι.
+# parallel_id = lyceum-aesop-p213/s2
+# translation_lang = en
+# prose_translation = When many disputes had arisen between them, a bramble, hearing from the nearby hedge, said, "Let us cease, my friends, from fighting."
+# literal_translation = Of many disputes between having arisen, a bramble from the nearby hedge having heard, "Let us cease, she said, O friends, from ever fighting."
+8	πολλῶν	πολύς	ADJ	adj.fem.pl.gen	Degree=Pos|Gender=Fem|Number=Plur|Case=Gen	9	amod	_	gloss=many
+9	δ'	δέ	CCONJ	conjunction	_	12	cc	_	gloss=but
+10	ἀμπισβητήσεων	ἀμφισβήτησις	NOUN	noun.fem.pl.gen	Gender=Fem|Number=Plur|Case=Gen	11	nmod	_	gloss=disputes
+11	μέταξυ	μέταξυ	ADV	adverb	_	12	advmod	_	gloss=between
+12	γενομένων	γίγνομαι	VERB	verb.aor.ptcp.mp.fem.pl.gen	Aspect=Perf|Mood=Part|Tense=Aor|Voice=Mid|Gender=Fem|Number=Plur|Case=Gen	6	gen	_	gloss=having arisen
+13	βάτος	βάτος	NOUN	noun.fem.sg.nom	Gender=Fem|Number=Sing|Case=Nom	23	nsubj	_	gloss=bramble
+14	ἐκ	ἐκ	ADP	preposition.gen	_	16	case	_	gloss=from
+15	τοῦ	ὁ	DET	article.masc.sg.gen	Definite=Def|PronType=Art|Gender=Masc|Number=Sing|Case=Gen	16	det	_	gloss=the
+16	πλησίον	πλησίον	ADV	adverb	_	13	obl	_	gloss=nearby
+17	φραγμοῦ	φραγμός	NOUN	noun.masc.sg.gen	Gender=Masc|Number=Sing|Case=Gen	16	nmod	_	gloss=hedge
+18	ἀκούσασα	ἀκούω	VERB	verb.aor.ptcp.act.fem.sg.nom	Aspect=Perf|Mood=Part|Tense=Aor|Voice=Act|Gender=Fem|Number=Sing|Case=Nom	23	advcl	_	gloss=having heard
+19	·	·	PUNCT	punctuation	_	18	punct	_	gloss=:
+20	Παυσώμεθα	παύω	VERB	verb.aor.subj.mp.1pl	Aspect=Perf|Mood=Sub|Tense=Aor|Voice=Mid|Number=Plur|Person=1	23	ccomp	_	gloss=let us cease
+21	εἶπεν	λέγω	VERB	verb.aor.ind.act.3sg	Aspect=Perf|Mood=Ind|Tense=Aor|Voice=Act|Number=Sing|Person=3	0	root	_	gloss=she said
+22	ὦ	ὀ	PART	interjection	_	23	vocative	_	gloss=O
+23	φίλαι	φίλος	ADJ	adj.fem.pl.voc	Degree=Pos|Gender=Fem|Number=Plur|Case=Voc	20	vocative	_	gloss=friends
+24	ποτέ	ποτέ	ADV	adverb	_	25	advmod	_	gloss=ever
+25	μαχόμεναι	μάχομαι	VERB	verb.pres.ptcp.mp.fem.pl.voc	Aspect=Imp|Mood=Part|Tense=Pres|Voice=Mid|Gender=Fem|Number=Plur|Case=Voc	20	xcomp	_	gloss=fighting
+26	.	.	PUNCT	punctuation	_	25	punct	_	gloss=.
+
+# sent_id = perry-213-s3
+# text = Ὁ μῦθος δηλοῖ ὅτι ἐν ταῖς τῶν ἀμεινόνων στάσεσι καὶ οἱ μηδενὸς ἄξιοι πειρῶνται εἶναι τι.
+# parallel_id = lyceum-aesop-p213/s3
+# translation_lang = en
+# prose_translation = The story shows that in the quarrels of the better sort, even those who are worth nothing try to be something.
+# literal_translation = The story shows that in the quarrels of the better, even those of nothing worthy try to be something.
+27	Ὁ	ὁ	DET	article.masc.sg.nom	Definite=Def|PronType=Art|Gender=Masc|Number=Sing|Case=Nom	28	det	_	gloss=the
+28	μῦθος	μῦθος	NOUN	noun.masc.sg.nom	Gender=Masc|Number=Sing|Case=Nom	29	nsubj	_	gloss=story
+29	δηλοῖ	δηλόω	VERB	verb.pres.ind.act.3sg	Aspect=Imp|Mood=Ind|Tense=Pres|Voice=Act|Number=Sing|Person=3	0	root	_	gloss=shows
+30	ὅτι	ὅτι	SCONJ	conjunction	_	35	mark	_	gloss=that
+31	ἐν	ἐν	ADP	preposition.dat	_	33	case	_	gloss=in
+32	ταῖς	ὁ	DET	article.fem.pl.dat	Definite=Def|PronType=Art|Gender=Fem|Number=Plur|Case=Dat	33	det	_	gloss=the
+33	στάσεσι	στάσις	NOUN	noun.fem.pl.dat	Gender=Fem|Number=Plur|Case=Dat	35	obl	_	gloss=quarrels
+34	τῶν	ὁ	DET	article.masc.pl.gen	Definite=Def|PronType=Art|Gender=Masc|Number=Plur|Case=Gen	35	det	_	gloss=of the
+35	ἀμεινόνων	ἀμείνων	ADJ	adj.masc.pl.gen	Degree=Cmp|Gender=Masc|Number=Plur|Case=Gen	33	nmod	_	gloss=better
+36	καὶ	καί	CCONJ	conjunction	_	38	cc	_	gloss=even
+37	οἱ	ὁ	DET	article.masc.pl.nom	Definite=Def|PronType=Art|Gender=Masc|Number=Plur|Case=Nom	38	det	_	gloss=those
+38	μηδενὸς	μηδείς	PRON	pron.neut.sg.gen	PronType=Neg|Gender=Neut|Number=Sing|Case=Gen	39	nmod	_	gloss=nothing
+39	ἄξιοι	ἄξιος	ADJ	adj.masc.pl.nom	Degree=Pos|Gender=Masc|Number=Plur|Case=Nom	41	nsubj	_	gloss=worthy
+40	πειρῶνται	πειράω	VERB	verb.pres.ind.mp.3pl	Aspect=Imp|Mood=Ind|Tense=Pres|Voice=Mid|Number=Plur|Person=3	29	ccomp	_	gloss=they try
+41	εἶναι	εἰμί	VERB	verb.pres.inf.act	Aspect=Imp|Mood=Inf|Tense=Pres|Voice=Act	40	xcomp	_	gloss=to be
+42	τι	τις	PRON	pron.neut.sg.nom	PronType=Ind|Gender=Neut|Number=Sing|Case=Nom	41	nsubj	_	gloss=something
+43	.	.	PUNCT	punctuation	_	42	punct	_	gloss=.

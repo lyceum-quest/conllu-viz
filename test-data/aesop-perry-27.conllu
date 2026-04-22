@@ -1,0 +1,66 @@
+# title = The Fox and the Actor's Mask
+# sent_id = perry-27-s1
+# text = Ἀλώπηξ εἰς οἰκίαν ἐλθοῦσα ὑποκριτοῦ καὶ ἕκαστα τῶν αὐτοῦ σκευῶν διερευνομμένη, εὗρε καὶ κεφαλὴν μορμολυκείου εὐφυῶς κατεσκευασμένην, ἣν καὶ ἀναλαβοῦσα ταῖς χερσὶν ἔφη·
+# parallel_id = lyceum-aesop-p27/s1
+# translation_lang = en
+# prose_translation = A fox, having entered the house of an actor and searching through all his equipment, found also a carefully made mask of a monster, which taking up in her hands she said,
+# literal_translation = A fox into a house having entered of an actor and each of his equipment searching through, found also a head of a monster well-crafted, which also taking up with the hands she said.
+1	Ἀλώπηξ	ἀλώπηξ	NOUN	noun.fem.sg.nom	Gender=Fem|Number=Sing|Case=Nom	20	nsubj	_	gloss=fox
+2	εἰς	εἰς	ADP	preposition.acc	_	3	case	_	gloss=into
+3	οἰκίαν	οἰκία	NOUN	noun.fem.sg.acc	Gender=Fem|Number=Sing|Case=Acc	4	obl	_	gloss=house
+4	ἐλθοῦσα	ἔρχομαι	VERB	verb.aor.ptcp.act.fem.sg.nom	Aspect=Perf|Mood=Part|Tense=Aor|Voice=Act|Gender=Fem|Number=Sing|Case=Nom	20	advcl	_	gloss=having entered
+5	ὑποκριτοῦ	ὑποκριτής	NOUN	noun.masc.sg.gen	Gender=Masc|Number=Sing|Case=Gen	3	nmod	_	gloss=actor
+6	καὶ	καί	CCONJ	conjunction	_	8	cc	_	gloss=and
+7	ἕκαστα	ἕκαστος	ADJ	adj.neut.pl.acc	Degree=Pos|Gender=Neut|Number=Plur|Case=Acc	8	amod	_	gloss=each
+8	τῶν	ὁ	DET	article.neut.pl.gen	Definite=Def|PronType=Art|Gender=Neut|Number=Plur|Case=Gen	9	det	_	gloss=of the
+9	αὐτοῦ	αὐτός	PRON	pron.masc.sg.gen	PronType=Prs|Gender=Masc|Number=Sing|Case=Gen	10	nmod	_	gloss=his
+10	σκευῶν	σκευή	NOUN	noun.fem.pl.gen	Gender=Fem|Number=Plur|Case=Gen	7	nmod	_	gloss=equipment
+11	διερευνομμένη	διερευνάω	VERB	verb.pres.ptcp.mp.fem.sg.nom	Aspect=Imp|Mood=Part|Tense=Pres|Voice=Mid|Gender=Fem|Number=Sing|Case=Nom	4	conj	_	gloss=searching through
+12	εὗρε	εὑρίσκω	VERB	verb.aor.ind.act.3sg	Aspect=Perf|Mood=Ind|Tense=Aor|Voice=Act|Number=Sing|Person=3	0	root	_	gloss=found
+13	καὶ	καί	CCONJ	conjunction	_	14	cc	_	gloss=also
+14	κεφαλὴν	κεφαλή	NOUN	noun.fem.sg.acc	Gender=Fem|Number=Sing|Case=Acc	12	obj	_	gloss=head
+15	μορμολυκείου	μορμολύκειον	NOUN	noun.neut.sg.gen	Gender=Neut|Number=Sing|Case=Gen	14	nmod	_	gloss=monster mask
+16	εὐφυῶς	εὐφυῶς	ADV	adverb	_	17	advmod	_	gloss=well / cleverly
+17	κατεσκευασμένην	κατασκευάζω	VERB	verb.perf.ptcp.mp.fem.sg.acc	Aspect=Perf|Mood=Part|Tense=Perf|Voice=Mid|Gender=Fem|Number=Sing|Case=Acc	14	acl	_	gloss=crafted
+18	ἣν	ὅς	PRON	pron.fem.sg.acc	PronType=Rel|Gender=Fem|Number=Sing|Case=Acc	19	obj	_	gloss=which
+19	καὶ	καί	ADV	adverb	_	20	advmod	_	gloss=also
+20	ἀναλαβοῦσα	ἀναλαμβάνω	VERB	verb.aor.ptcp.act.fem.sg.nom	Aspect=Perf|Mood=Part|Tense=Aor|Voice=Act|Gender=Fem|Number=Sing|Case=Nom	22	advcl	_	gloss=taking up
+21	ταῖς	ὁ	DET	article.fem.pl.dat	Definite=Def|PronType=Art|Gender=Fem|Number=Plur|Case=Dat	22	det	_	gloss=the
+22	χερσὶν	χείρ	NOUN	noun.fem.pl.dat	Gender=Fem|Number=Plur|Case=Dat	20	obl	_	gloss=hands
+23	ἔφη	φημί	VERB	verb.impf.ind.act.3sg	Mood=Ind|Tense=Imp|VerbForm=Fin|Voice=Act|Number=Sing|Person=3	12	conj	_	gloss=said
+24	·	·	PUNCT	punctuation	_	23	punct	_	gloss=:
+
+# sent_id = perry-27-s2
+# text = Ὢ οἵα κεφαλή, καὶ ἔγκεφαλον οὐκ ἔχει.
+# parallel_id = lyceum-aesop-p27/s2
+# translation_lang = en
+# prose_translation = "What a head, and yet it has no brain."
+# literal_translation = "O what a head, and brain it does not have."
+25	Ὢ	ὦ	PART	interjection	_	26	discourse	_	gloss=O
+26	οἵα	οἷος	ADJ	adj.fem.sg.nom	Degree=Pos|Gender=Fem|Number=Sing|Case=Nom	27	amod	_	gloss=what a
+27	κεφαλή	κεφαλή	NOUN	noun.fem.sg.nom	Gender=Fem|Number=Sing|Case=Nom	23	ccomp	_	gloss=head
+28	καὶ	καί	CCONJ	conjunction	_	30	cc	_	gloss=and
+29	ἔγκεφαλον	ἔγκεφαλος	NOUN	noun.masc.sg.nom	Gender=Masc|Number=Sing|Case=Nom	31	nsubj	_	gloss=brain
+30	οὐκ	οὐ	PART	neg.particle	Polarity=Neg	31	advmod	_	gloss=not
+31	ἔχει	ἔχω	VERB	verb.pres.ind.act.3sg	Aspect=Imp|Mood=Ind|Tense=Pres|Voice=Act|Number=Sing|Person=3	27	conj	_	gloss=it has
+32	.	.	PUNCT	punctuation	_	31	punct	_	gloss=.
+
+# sent_id = perry-27-s3
+# text = Ὁ μῦθος πρὸς ἄνδρας μεγαλοπρεπεῖς μὲν τῷ σώματι, κατὰ ψυχὴν δὲ ἀλογίστους.
+# parallel_id = lyceum-aesop-p27/s3
+# translation_lang = en
+# prose_translation = The story applies to men who are impressive in body but mindless in soul.
+# literal_translation = The story is toward men impressive indeed in body, according to soul but mindless.
+33	Ὁ	ὁ	DET	article.masc.sg.nom	Definite=Def|PronType=Art|Gender=Masc|Number=Sing|Case=Nom	34	det	_	gloss=the
+34	μῦθος	μῦθος	NOUN	noun.masc.sg.nom	Gender=Masc|Number=Sing|Case=Nom	0	root	_	gloss=story
+35	πρὸς	πρός	ADP	preposition.acc	_	36	case	_	gloss=toward
+36	ἄνδρας	ἀνήρ	NOUN	noun.masc.pl.acc	Gender=Masc|Number=Plur|Case=Acc	34	obl	_	gloss=men
+37	μεγαλοπρεπεῖς	μεγαλοπρεπής	ADJ	adj.masc.pl.acc	Degree=Pos|Gender=Masc|Number=Plur|Case=Acc	36	amod	_	gloss=impressive
+38	μὲν	μέν	CCONJ	conjunction	_	37	cc	_	gloss=indeed
+39	τῷ	ὁ	DET	article.neut.sg.dat	Definite=Def|PronType=Art|Gender=Neut|Number=Sing|Case=Dat	40	det	_	gloss=the
+40	σώματι	σῶμα	NOUN	noun.neut.sg.dat	Gender=Neut|Number=Sing|Case=Dat	37	obl	_	gloss=body
+41	κατὰ	κατά	ADP	preposition.acc	_	42	case	_	gloss=according to
+42	ψυχὴν	ψυχή	NOUN	noun.fem.sg.acc	Gender=Fem|Number=Sing|Case=Acc	43	obl	_	gloss=soul
+43	δὲ	δέ	CCONJ	conjunction	_	44	cc	_	gloss=but
+44	ἀλογίστους	ἀλόγιστος	ADJ	adj.masc.pl.acc	Degree=Pos|Gender=Masc|Number=Plur|Case=Acc	37	conj	_	gloss=mindless
+45	.	.	PUNCT	punctuation	_	44	punct	_	gloss=.

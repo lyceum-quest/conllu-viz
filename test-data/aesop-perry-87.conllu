@@ -1,0 +1,74 @@
+# title = The Hen with the Golden Eggs
+# sent_id = perry-87-s1
+# text = Ὄρνιν τις εἶχε καλὴν χρυσᾶ ᾠὰ τίκτουσαν·
+# parallel_id = lyceum-aesop-p87/s1
+# translation_lang = en
+# prose_translation = Someone had a beautiful hen that laid golden eggs.
+# literal_translation = A bird someone had beautiful golden eggs laying.
+1	Ὄρνιν	ὄρνις	NOUN	noun.fem.sg.acc	Gender=Fem|Number=Sing|Case=Acc	2	obj	_	gloss=hen
+2	τις	τις	PRON	pron.masc.sg.nom	PronType=Ind|Gender=Masc|Number=Sing|Case=Nom	3	nsubj	_	gloss=someone
+3	εἶχε	ἔχω	VERB	verb.impf.ind.act.3sg	Aspect=Imp|Mood=Ind|Tense=Imp|Voice=Act|Number=Sing|Person=3	0	root	_	gloss=had
+4	καλὴν	καλός	ADJ	adj.fem.sg.acc	Degree=Pos|Gender=Fem|Number=Sing|Case=Acc	1	amod	_	gloss=beautiful
+5	χρυσᾶ	χρυσοῦς	ADJ	adj.neut.pl.acc	Degree=Pos|Gender=Neut|Number=Plur|Case=Acc	6	amod	_	gloss=golden
+6	ᾠὰ	ᾠόν	NOUN	noun.neut.pl.acc	Gender=Neut|Number=Plur|Case=Acc	7	obj	_	gloss=eggs
+7	τίκτουσαν	τίκτω	VERB	verb.pres.ptcp.act.fem.sg.acc	Aspect=Imp|Mood=Part|Tense=Pres|Voice=Act|Gender=Fem|Number=Sing|Case=Acc	1	acl	_	gloss=laying
+8	·	·	PUNCT	punctuation	_	3	punct	_	gloss=:
+
+# sent_id = perry-87-s2
+# text = νομίσας δὲ ἔνδον αὐτῆς ὄγκον χρυσίου εἶναι καὶ θύσας εὗρεν οὖσαν ὁμοίαν τῶν λοιπῶν ὀρνίθων.
+# parallel_id = lyceum-aesop-p87/s2
+# translation_lang = en
+# prose_translation = But thinking that there was a mass of gold inside her, he sacrificed her and found her to be just like the rest of the birds.
+# literal_translation = But thinking inside her a mass of gold to be and having sacrificed he found her being like the remaining birds.
+9	νομίσας	νομίζω	VERB	verb.aor.ptcp.act.masc.sg.nom	Aspect=Perf|Mood=Part|Tense=Aor|Voice=Act|Gender=Masc|Number=Sing|Case=Nom	17	advcl	_	gloss=thinking
+10	δὲ	δέ	CCONJ	conjunction	_	17	cc	_	gloss=but
+11	ἔνδον	ἔνδον	ADV	adverb	_	14	advmod	_	gloss=inside
+12	αὐτῆς	αὐτός	PRON	pron.fem.sg.gen	Gender=Fem|Number=Sing|Case=Gen	11	nmod	_	gloss=her
+13	ὄγκον	ὄγκος	NOUN	noun.masc.sg.acc	Gender=Masc|Number=Sing|Case=Acc	14	obj	_	gloss=mass
+14	χρυσίου	χρύσιον	NOUN	noun.neut.sg.gen	Gender=Neut|Number=Sing|Case=Gen	13	nmod	_	gloss=gold
+15	εἶναι	εἰμί	VERB	verb.pres.inf.act	Aspect=Imp|Mood=Inf|Tense=Pres|Voice=Act	9	xcomp	_	gloss=to be
+16	καὶ	καί	CCONJ	conjunction	_	17	cc	_	gloss=and
+17	θύσας	θύω	VERB	verb.aor.ptcp.act.masc.sg.nom	Aspect=Perf|Mood=Part|Tense=Aor|Voice=Act|Gender=Masc|Number=Sing|Case=Nom	19	advcl	_	gloss=having sacrificed
+18	εὗρεν	εὑρίσκω	VERB	verb.aor.ind.act.3sg	Aspect=Perf|Mood=Ind|Tense=Aor|Voice=Act|Number=Sing|Person=3	0	root	_	gloss=he found
+19	οὖσαν	εἰμί	VERB	verb.pres.ptcp.act.fem.sg.acc	Aspect=Imp|Mood=Part|Tense=Pres|Voice=Act|Gender=Fem|Number=Sing|Case=Acc	20	xcomp	_	gloss=being
+20	ὁμοίαν	ὅμοιος	ADJ	adj.fem.sg.acc	Degree=Pos|Gender=Fem|Number=Sing|Case=Acc	18	obj	_	gloss=like
+21	τῶν	ὁ	DET	article.fem.pl.gen	Definite=Def|PronType=Art|Gender=Fem|Number=Plur|Case=Gen	22	det	_	gloss=of the
+22	λοιπῶν	λοιπός	ADJ	adj.fem.pl.gen	Degree=Pos|Gender=Fem|Number=Plur|Case=Gen	23	nmod	_	gloss=remaining
+23	ὀρνίθων	ὄρνις	NOUN	noun.fem.pl.gen	Gender=Fem|Number=Plur|Case=Gen	20	obl	_	gloss=birds
+24	.	.	PUNCT	punctuation	_	23	punct	_	gloss=.
+
+# sent_id = perry-87-s3
+# text = Ὁ δὲ ἀθρόον πλοῦτον ἐλπίσας εὑρεῖν καὶ τοῦ μικροῦ κέρδους ἐστερήθη.
+# parallel_id = lyceum-aesop-p87/s3
+# translation_lang = en
+# prose_translation = But hoping to find great wealth all at once, he was deprived even of the small gain.
+# literal_translation = But the gathered wealth hoping to find and of the small gain he was deprived.
+25	Ὁ	ὁ	DET	article.masc.sg.nom	Definite=Def|PronType=Art|Gender=Masc|Number=Sing|Case=Nom	26	det	_	gloss=the
+26	δὲ	δέ	CCONJ	conjunction	_	31	cc	_	gloss=but
+27	ἀθρόον	ἀθρόος	ADJ	adj.masc.sg.acc	Degree=Pos|Gender=Masc|Number=Sing|Case=Acc	28	amod	_	gloss=gathered / all at once
+28	πλοῦτον	πλοῦτος	NOUN	noun.masc.sg.acc	Gender=Masc|Number=Sing|Case=Acc	29	obj	_	gloss=wealth
+29	ἐλπίσας	ἐλπίζω	VERB	verb.aor.ptcp.act.masc.sg.nom	Aspect=Perf|Mood=Part|Tense=Aor|Voice=Act|Gender=Masc|Number=Sing|Case=Nom	31	advcl	_	gloss=hoping
+30	εὑρεῖν	εὑρίσκω	VERB	verb.aor.inf.act	Aspect=Perf|Mood=Inf|Tense=Aor|Voice=Act	29	xcomp	_	gloss=to find
+31	καὶ	καί	CCONJ	conjunction	_	32	cc	_	gloss=and
+32	τοῦ	ὁ	DET	article.neut.sg.gen	Definite=Def|PronType=Art|Gender=Neut|Number=Sing|Case=Gen	33	det	_	gloss=of the
+33	μικροῦ	μικρός	ADJ	adj.neut.sg.gen	Degree=Pos|Gender=Neut|Number=Sing|Case=Gen	34	amod	_	gloss=small
+34	κέρδους	κέρδος	NOUN	noun.neut.sg.gen	Gender=Neut|Number=Sing|Case=Gen	31	obl	_	gloss=gain
+35	ἐστερήθη	στερέω	VERB	verb.aor.ind.mp.3sg	Aspect=Perf|Mood=Ind|Tense=Aor|Voice=Mid|Number=Sing|Person=3	0	root	_	gloss=he was deprived
+36	.	.	PUNCT	punctuation	_	35	punct	_	gloss=.
+
+# sent_id = perry-87-s4
+# text = Ὅτι τοῖς παροῦσιν ἀρκεῖσθω τις καὶ τὴν ἀπληστίαν φευγέτω.
+# parallel_id = lyceum-aesop-p87/s4
+# translation_lang = en
+# prose_translation = One should be content with what is at hand and shun greed.
+# literal_translation = That with present things one should be content and greed one should shun.
+37	Ὅτι	ὅτι	SCONJ	conjunction	ConjType=Comp	39	mark	_	gloss=that
+38	τοῖς	ὁ	DET	article.neut.pl.dat	Definite=Def|PronType=Art|Gender=Neut|Number=Plur|Case=Dat	39	det	_	gloss=the
+39	παροῦσιν	πάρειμι	VERB	verb.pres.ptcp.act.neut.pl.dat	Aspect=Imp|Mood=Part|Tense=Pres|Voice=Act|Gender=Neut|Number=Plur|Case=Dat	40	obl	_	gloss=things at hand
+40	ἀρκεῖσθω	ἀρκέω	VERB	verb.pres.imper.mp.3sg	Mood=Imp|Tense=Pres|VerbForm=Fin|Voice=Mid|Number=Sing|Person=3	0	root	_	gloss=one should be content
+41	τις	τις	PRON	pron.masc.sg.nom	PronType=Ind|Gender=Masc|Number=Sing|Case=Nom	40	nsubj	_	gloss=someone
+42	καὶ	καί	CCONJ	conjunction	_	44	cc	_	gloss=and
+43	τὴν	ὁ	DET	article.fem.sg.acc	Definite=Def|PronType=Art|Gender=Fem|Number=Sing|Case=Acc	44	det	_	gloss=the
+44	ἀπληστίαν	ἀπληστία	NOUN	noun.fem.sg.acc	Gender=Fem|Number=Sing|Case=Acc	45	obj	_	gloss=greed
+45	φευγέτω	φεύγω	VERB	verb.pres.imper.act.3sg	Mood=Imp|Tense=Pres|VerbForm=Fin|Voice=Act|Number=Sing|Person=3	40	conj	_	gloss=one should shun
+46	.	.	PUNCT	punctuation	_	45	punct	_	gloss=.

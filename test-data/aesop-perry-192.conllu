@@ -1,0 +1,65 @@
+# title = The Hen and the Snake Eggs
+# sent_id = perry-192-s1
+# text = Ὄρνις ὄφεως ὠὰ εὑροῦσα, ταῦτα ἐπιμελῶς ἐθέρμαινε καὶ μετὰ τὸ θερμᾶναι ἐξεκόλαψε.
+# parallel_id = lyceum-aesop-p192/s1
+# translation_lang = en
+# prose_translation = A bird, having found a snake's eggs, carefully warmed them, and after warming them, hatched them.
+# literal_translation = A bird of a snake eggs having found, these carefully warmed and after the warming hatched.
+1	Ὄρνις	ὄρνις	NOUN	noun.fem.sg.nom	Gender=Fem|Number=Sing|Case=Nom	8	nsubj	_	gloss=bird
+2	ὄφεως	ὄφις	NOUN	noun.masc.sg.gen	Gender=Masc|Number=Sing|Case=Gen	3	nmod	_	gloss=snake
+3	ὠὰ	ὠόν	NOUN	noun.neut.pl.acc	Gender=Neut|Number=Plur|Case=Acc	4	obj	_	gloss=eggs
+4	εὑροῦσα	εὑρίσκω	VERB	verb.aor.ptcp.act.fem.sg.nom	Aspect=Perf|Mood=Part|Tense=Aor|Voice=Act|Gender=Fem|Number=Sing|Case=Nom	8	advcl	_	gloss=having found
+5	ταῦτα	οὗτος	PRON	pron.neut.pl.acc	PronType=Dem|Gender=Neut|Number=Plur|Case=Acc	6	obj	_	gloss=these
+6	ἐπιμελῶς	ἐπιμελῶς	ADV	adverb	_	7	advmod	_	gloss=carefully
+7	ἐθέρμαινε	θερμαίνω	VERB	verb.impf.ind.act.3sg	Aspect=Imp|Mood=Ind|Tense=Imp|Voice=Act|Number=Sing|Person=3	0	root	_	gloss=warmed
+8	καὶ	καί	CCONJ	conjunction	_	11	cc	_	gloss=and
+9	μετὰ	μετά	ADP	preposition.acc	_	10	case	_	gloss=after
+10	τὸ	ὁ	DET	article.neut.sg.acc	Definite=Def|PronType=Art|Gender=Neut|Number=Sing|Case=Acc	11	obl	_	gloss=the
+11	θερμᾶναι	θερμαίνω	VERB	verb.aor.inf.act	Aspect=Perf|Mood=Inf|Tense=Aor|Voice=Act	7	conj	_	gloss=warming
+12	ἐξεκόλαψε	ἐκκολάπτω	VERB	verb.aor.ind.act.3sg	Aspect=Perf|Mood=Ind|Tense=Aor|Voice=Act|Number=Sing|Person=3	7	conj	_	gloss=hatched
+13	.	.	PUNCT	punctuation	_	12	punct	_	gloss=.
+
+# sent_id = perry-192-s2
+# text = Χελιδὼν δὲ θεασαμένη αὐτὴν ἔφη· Ὦ μάταια, τί ταῦτα ἀνατρέφεις ἅπερ, ἂν αὐξηθῇ, ἀπὸ σοῦ πρώτης τοῦ ἀδικεῖν ἄρξεται;
+# parallel_id = lyceum-aesop-p192/s2
+# translation_lang = en
+# prose_translation = But a swallow, seeing her, said, "O foolish one, why are you rearing those which, when they grow, will start doing harm first to you?"
+# literal_translation = But a swallow having seen her said, "O foolish one, why these do you rear which, when they grow, from you first will begin to do wrong?"
+14	Χελιδὼν	χελιδών	NOUN	noun.fem.sg.nom	Gender=Fem|Number=Sing|Case=Nom	18	nsubj	_	gloss=swallow
+15	δὲ	δέ	CCONJ	conjunction	_	18	cc	_	gloss=but
+16	θεασαμένη	θεάομαι	VERB	verb.aor.ptcp.mp.fem.sg.nom	Aspect=Perf|Mood=Part|Tense=Aor|Voice=Mid|Gender=Fem|Number=Sing|Case=Nom	18	advcl	_	gloss=having seen
+17	αὐτὴν	αὐτός	PRON	pron.fem.sg.acc	Gender=Fem|Number=Sing|Case=Acc	16	obj	_	gloss=her
+18	ἔφη	φημί	VERB	verb.impf.ind.act.3sg	Mood=Ind|Tense=Imp|VerbForm=Fin|Voice=Act|Number=Sing|Person=3	0	root	_	gloss=said
+19	·	·	PUNCT	punctuation	_	18	punct	_	gloss=:
+20	Ὦ	ὦ	PART	interjection	_	21	discourse	_	gloss=O
+21	μάταια	μάταιος	ADJ	adj.fem.sg.voc	Degree=Pos|Gender=Fem|Number=Sing|Case=Voc	18	vocative	_	gloss=foolish one
+22	τί	τίς	PRON	pron.neut.sg.nom	PronType=Int|Gender=Neut|Number=Sing|Case=Nom	23	advmod	_	gloss=why
+23	ταῦτα	οὗτος	PRON	pron.neut.pl.acc	PronType=Dem|Gender=Neut|Number=Plur|Case=Acc	24	obj	_	gloss=these
+24	ἀνατρέφεις	ἀνατρέφω	VERB	verb.pres.ind.act.2sg	Aspect=Imp|Mood=Ind|Tense=Pres|Voice=Act|Number=Sing|Person=2	18	ccomp	_	gloss=do you rear
+25	ἅπερ	ὅσπερ	PRON	pron.neut.pl.acc	PronType=Rel|Gender=Neut|Number=Plur|Case=Acc	24	obj	_	gloss=which
+26	ἂν	ἄν	SCONJ	conjunction	_	27	mark	_	gloss=when
+27	αὐξηθῇ	αὐξάνω	VERB	verb.aor.subj.mp.3sg	Aspect=Perf|Mood=Sub|Tense=Aor|Voice=Mid|Number=Sing|Person=3	30	advcl	_	gloss=they grow
+28	ἀπὸ	ἀπό	ADP	preposition.gen	_	29	case	_	gloss=from
+29	σοῦ	σύ	PRON	pron.fem.sg.gen	PronType=Prs|Gender=Fem|Number=Sing|Case=Gen	30	obl	_	gloss=you
+30	πρώτης	πρῶτος	ADJ	adj.fem.sg.gen	Degree=Sup|Gender=Fem|Number=Sing|Case=Gen	31	amod	_	gloss=first
+31	τοῦ	ὁ	DET	article.neut.sg.gen	Definite=Def|PronType=Art|Gender=Neut|Number=Sing|Case=Gen	32	det	_	gloss=the
+32	ἀδικεῖν	ἀδικέω	VERB	verb.pres.inf.act	Aspect=Imp|Mood=Inf|Tense=Pres|Voice=Act	33	xcomp	_	gloss=to do wrong
+33	ἄρξεται	ἄρχω	VERB	verb.fut.ind.mp.3sg	Aspect=Perf|Mood=Ind|Tense=Fut|Voice=Mid|Number=Sing|Person=3	24	acl:relcl	_	gloss=will begin
+34	;	;	PUNCT	punctuation	_	33	punct	_	gloss=?
+
+# sent_id = perry-192-s3
+# text = Οὕτως ἀτιθάσσευτός ἐστιν ἡ πονηρία, κἂν τὰ μάλιστα εὐεργετῆται.
+# parallel_id = lyceum-aesop-p192/s3
+# translation_lang = en
+# prose_translation = Thus wickedness is untamable, even if it is benefited the most.
+# literal_translation = Thus untamable is wickedness, even if the most it is benefited.
+35	Οὕτως	οὕτως	ADV	adverb	_	37	advmod	_	gloss=thus
+36	ἀτιθάσσευτός	ἀτιθάσσευτος	ADJ	adj.fem.sg.nom	Degree=Pos|Gender=Fem|Number=Sing|Case=Nom	37	amod	_	gloss=untamable
+37	ἐστιν	εἰμί	VERB	verb.pres.ind.act.3sg	Mood=Ind|Tense=Pres|VerbForm=Fin|Voice=Act|Number=Sing|Person=3	0	root	_	gloss=is
+38	ἡ	ὁ	DET	article.fem.sg.nom	Definite=Def|PronType=Art|Gender=Fem|Number=Sing|Case=Nom	39	det	_	gloss=the
+39	πονηρία	πονηρία	NOUN	noun.fem.sg.nom	Gender=Fem|Number=Sing|Case=Nom	37	nsubj	_	gloss=wickedness
+40	κἂν	καί ἄν	SCONJ	conjunction	_	43	mark	_	gloss=even if
+41	τὰ	ὁ	DET	article.neut.pl.acc	Definite=Def|PronType=Art|Gender=Neut|Number=Plur|Case=Acc	42	det	_	gloss=the
+42	μάλιστα	μάλιστα	ADV	adverb	_	43	advmod	_	gloss=the most
+43	εὐεργετῆται	εὐεργετέω	VERB	verb.perf.ind.mp.3sg	Aspect=Perf|Mood=Ind|Tense=Perf|Voice=Mid|Number=Sing|Person=3	37	advcl	_	gloss=is benefited
+44	.	.	PUNCT	punctuation	_	43	punct	_	gloss=.

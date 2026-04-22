@@ -31,5 +31,115 @@
     "editionLabel": "Aesop, Perry 54 (treebank)",
     "editionType": "treebank",
     "editionDescription": "CoNLL-U treebank edition of Aesop's Fable 54"
+  },
+  "aesop-perry-378.conllu": {
+    "editionUrn": "urn:cts:greekLit:tlg0096.tlg001.workspace-grc1-perry378",
+    "authorUrn": "urn:cts:greekLit:tlg0096",
+    "authorName": "Aesop",
+    "workUrn": "urn:cts:greekLit:tlg0096.tlg001",
+    "workTitle": "Aesop, Fables",
+    "language": "grc",
+    "editionLabel": "Aesop, Perry 378 (The Earthen and Bronze Pots)",
+    "editionType": "treebank",
+    "editionDescription": "CoNLL-U treebank edition of Aesop's Fable 378"
+  },
+  "aesop-perry-322.conllu": {
+    "editionUrn": "urn:cts:greekLit:tlg0096.tlg001.workspace-grc1-perry322",
+    "authorUrn": "urn:cts:greekLit:tlg0096",
+    "authorName": "Aesop",
+    "workUrn": "urn:cts:greekLit:tlg0096.tlg001",
+    "workTitle": "Aesop, Fables",
+    "language": "grc",
+    "editionLabel": "Aesop, Perry 322 (The Crab and Its Mother)",
+    "editionType": "treebank",
+    "editionDescription": "CoNLL-U treebank edition of Aesop's Fable 322"
+  },
+  "aesop-perry-213.conllu": {
+    "editionUrn": "urn:cts:greekLit:tlg0096.tlg001.workspace-grc1-perry213",
+    "authorUrn": "urn:cts:greekLit:tlg0096",
+    "authorName": "Aesop",
+    "workUrn": "urn:cts:greekLit:tlg0096.tlg001",
+    "workTitle": "Aesop, Fables",
+    "language": "grc",
+    "editionLabel": "Aesop, Perry 213 (The Pomegranate, the Apple Tree, and the Bramble)",
+    "editionType": "treebank",
+    "editionDescription": "CoNLL-U treebank edition of Aesop's Fable 213"
+  },
+  "aesop-perry-289.conllu": {
+    "editionUrn": "urn:cts:greekLit:tlg0096.tlg001.workspace-grc1-perry289",
+    "authorUrn": "urn:cts:greekLit:tlg0096",
+    "authorName": "Aesop",
+    "workUrn": "urn:cts:greekLit:tlg0096.tlg001",
+    "workTitle": "Aesop, Fables",
+    "language": "grc",
+    "editionLabel": "Aesop, Perry 289 (The Frog Physician)",
+    "editionType": "treebank",
+    "editionDescription": "CoNLL-U treebank edition of Aesop's Fable 289"
+  },
+  "aesop-perry-346.conllu": {
+    "editionUrn": "urn:cts:greekLit:tlg0096.tlg001.workspace-grc1-perry346",
+    "authorUrn": "urn:cts:greekLit:tlg0096",
+    "authorName": "Aesop",
+    "workUrn": "urn:cts:greekLit:tlg0096.tlg001",
+    "workTitle": "Aesop, Fables",
+    "language": "grc",
+    "editionLabel": "Aesop, Perry 346 (The Wolf and the Dog in Chain)",
+    "editionType": "treebank",
+    "editionDescription": "CoNLL-U treebank edition of Aesop's Fable 346"
+  },
+  "aesop-perry-192.conllu": {
+    "editionUrn": "urn:cts:greekLit:tlg0096.tlg001.workspace-grc1-perry192",
+    "authorUrn": "urn:cts:greekLit:tlg0096",
+    "authorName": "Aesop",
+    "workUrn": "urn:cts:greekLit:tlg0096.tlg001",
+    "workTitle": "Aesop, Fables",
+    "language": "grc",
+    "editionLabel": "Aesop, Perry 192 (The Hen and the Snake Eggs)",
+    "editionType": "treebank",
+    "editionDescription": "CoNLL-U treebank edition of Aesop's Fable 192"
+  },
+  "aesop-perry-174.conllu": {
+    "editionUrn": "urn:cts:greekLit:tlg0096.tlg001.workspace-grc1-perry174",
+    "authorUrn": "urn:cts:greekLit:tlg0096",
+    "authorName": "Aesop",
+    "workUrn": "urn:cts:greekLit:tlg0096.tlg001",
+    "workTitle": "Aesop, Fables",
+    "language": "grc",
+    "editionLabel": "Aesop, Perry 174 (The Boy and Fortune)",
+    "editionType": "treebank",
+    "editionDescription": "CoNLL-U treebank edition of Aesop's Fable 174"
+  },
+  "aesop-perry-87.conllu": {
+    "editionUrn": "urn:cts:greekLit:tlg0096.tlg001.workspace-grc1-perry087",
+    "authorUrn": "urn:cts:greekLit:tlg0096",
+    "authorName": "Aesop",
+    "workUrn": "urn:cts:greekLit:tlg0096.tlg001",
+    "workTitle": "Aesop, Fables",
+    "language": "grc",
+    "editionLabel": "Aesop, Perry 87 (The Hen with the Golden Eggs)",
+    "editionType": "treebank",
+    "editionDescription": "CoNLL-U treebank edition of Aesop's Fable 87"
+  },
+  "aesop-perry-98.conllu": {
+    "editionUrn": "urn:cts:greekLit:tlg0096.tlg001.workspace-grc1-perry098",
+    "authorUrn": "urn:cts:greekLit:tlg0096",
+    "authorName": "Aesop",
+    "workUrn": "urn:cts:greekLit:tlg0096.tlg001",
+    "workTitle": "Aesop, Fables",
+    "language": "grc",
+    "editionLabel": "Aesop, Perry 98 (The Kid on the Roof and the Wolf)",
+    "editionType": "treebank",
+    "editionDescription": "CoNLL-U treebank edition of Aesop's Fable 98"
+  },
+  "aesop-perry-27.conllu": {
+    "editionUrn": "urn:cts:greekLit:tlg0096.tlg001.workspace-grc1-perry027",
+    "authorUrn": "urn:cts:greekLit:tlg0096",
+    "authorName": "Aesop",
+    "workUrn": "urn:cts:greekLit:tlg0096.tlg001",
+    "workTitle": "Aesop, Fables",
+    "language": "grc",
+    "editionLabel": "Aesop, Perry 27 (The Fox and the Actor's Mask)",
+    "editionType": "treebank",
+    "editionDescription": "CoNLL-U treebank edition of Aesop's Fable 27"
   }
 }

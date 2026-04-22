@@ -1,0 +1,66 @@
+# title = The Earthen and Bronze Pots
+# sent_id = perry-378-s1
+# text = Χύτραν ὀστρακίνην καὶ χαλκῆν ποταμὸς κατέφερεν.
+# parallel_id = lyceum-aesop-p378/s1
+# translation_lang = en
+# prose_translation = A river was carrying along an earthen pot and a bronze one.
+# literal_translation = An earthen pot and a bronze one a river was carrying.
+1	Χύτραν	χύτρα	NOUN	noun.fem.sg.acc	Gender=Fem|Number=Sing|Case=Acc	8	obj	_	gloss=pot
+2	ὀστρακίνην	ὀστρακίνος	ADJ	adj.fem.sg.acc	Degree=Pos|Gender=Fem|Number=Sing|Case=Acc	1	amod	_	gloss=earthen
+3	καὶ	καί	CCONJ	conjunction	_	5	cc	_	gloss=and
+4	χαλκῆν	χαλκοῦς	ADJ	adj.fem.sg.acc	Degree=Pos|Gender=Fem|Number=Sing|Case=Acc	5	amod	_	gloss=bronze
+5	χύτραν	χύτρα	NOUN	noun.fem.sg.acc	Gender=Fem|Number=Sing|Case=Acc	1	conj	_	gloss=pot
+6	ποταμὸς	ποταμός	NOUN	noun.masc.sg.nom	Gender=Masc|Number=Sing|Case=Nom	8	nsubj	_	gloss=river
+7	κατέφερεν	καταφέρω	VERB	verb.impf.ind.act.3sg	Aspect=Imp|Mood=Ind|Tense=Imp|Voice=Act|Number=Sing|Person=3	0	root	_	gloss=was carrying
+8	.	.	PUNCT	punctuation	_	7	punct	_	gloss=.
+
+# sent_id = perry-378-s2
+# text = Ἡ δὲ ὀστρακίνη τῇ χαλκῇ ἔλεγεν· Μακρόθεν μου κολύμβα, καὶ μὴ πλησίον· ἐὰν γάρ μοι σὺ προσψαύσῃς, κατακλῶμαι, κἂν ἐγὼ μὴ θέλουσα προσψαύσω.
+# parallel_id = lyceum-aesop-p378/s2
+# translation_lang = en
+# prose_translation = But the earthen pot said to the bronze one, "Keep your distance from me and don't come near; for if you touch me, I'll be broken, even if I don't want to touch you."
+# literal_translation = But the earthen one to the bronze one said, "Swim far from me, and not near; for if to me you touch, I am broken, even if I not wishing touch."
+9	Ἡ	ὁ	DET	article.fem.sg.nom	Definite=Def|PronType=Art|Gender=Fem|Number=Sing|Case=Nom	10	det	_	gloss=the
+10	δὲ	δέ	CCONJ	conjunction	_	12	cc	_	gloss=but
+11	ὀστρακίνη	ὀστρακίνος	ADJ	adj.fem.sg.nom	Degree=Pos|Gender=Fem|Number=Sing|Case=Nom	19	nsubj	_	gloss=earthen one
+12	τῇ	ὁ	DET	article.fem.sg.dat	Definite=Def|PronType=Art|Gender=Fem|Number=Sing|Case=Dat	13	det	_	gloss=the
+13	χαλκῇ	χαλκοῦς	ADJ	adj.fem.sg.dat	Degree=Pos|Gender=Fem|Number=Sing|Case=Dat	19	iobj	_	gloss=bronze one
+14	ἔλεγεν	λέγω	VERB	verb.impf.ind.act.3sg	Aspect=Imp|Mood=Ind|Tense=Imp|Voice=Act|Number=Sing|Person=3	0	root	_	gloss=said
+15	·	·	PUNCT	punctuation	_	14	punct	_	gloss=:
+16	Μακρόθεν	μακρόθεν	ADV	adverb	_	17	advmod	_	gloss=from afar
+17	μου	ἐγώ	PRON	pron.fem.sg.gen	PronType=Prs|Gender=Fem|Number=Sing|Case=Gen	16	obl	_	gloss=from me
+18	κολύμβα	κολυμβάω	VERB	verb.pres.imper.act.2sg	Mood=Imp|Tense=Pres|VerbForm=Fin|Voice=Act|Number=Sing|Person=2	14	ccomp	_	gloss=swim
+19	καὶ	καί	CCONJ	conjunction	_	21	cc	_	gloss=and
+20	μὴ	μή	PART	neg.particle	Polarity=Neg	21	advmod	_	gloss=not
+21	πλησίον	πλησίον	ADV	adverb	_	18	conj	_	gloss=near
+22	·	·	PUNCT	punctuation	_	21	punct	_	gloss=:
+23	ἐὰν	ἐάν	SCONJ	conjunction	_	25	mark	_	gloss=if
+24	γάρ	γάρ	CCONJ	conjunction	_	25	cc	_	gloss=for
+25	μοι	ἐγώ	PRON	pron.fem.sg.dat	PronType=Prs|Gender=Fem|Number=Sing|Case=Dat	27	obl	_	gloss=to me
+26	σύ	σύ	PRON	pron.masc.sg.nom	PronType=Prs|Gender=Masc|Number=Sing|Case=Nom	27	nsubj	_	gloss=you
+27	προσψαύσῃς	προψαύω	VERB	verb.aor.subj.act.2sg	Aspect=Perf|Mood=Sub|Tense=Aor|Voice=Act|Number=Sing|Person=2	18	advcl	_	gloss=touch
+28	κατακλῶμαι	κατάκλαω	VERB	verb.aor.subj.mp.1sg	Aspect=Perf|Mood=Sub|Tense=Aor|Voice=Mid|Number=Sing|Person=1	27	advcl	_	gloss=I am broken
+29	,	,	PUNCT	punctuation	_	28	punct	_	gloss=,
+30	κἂν	καί ἄν	SCONJ	conjunction	_	33	mark	_	gloss=even if
+31	ἐγώ	ἐγώ	PRON	pron.fem.sg.nom	PronType=Prs|Gender=Fem|Number=Sing|Case=Nom	33	nsubj	_	gloss=I
+32	μὴ	μή	PART	neg.particle	Polarity=Neg	33	advmod	_	gloss=not
+33	θέλουσα	θέλω	VERB	verb.pres.ptcp.act.fem.sg.nom	Aspect=Imp|Mood=Part|Tense=Pres|Voice=Act|Gender=Fem|Number=Sing|Case=Nom	34	advcl	_	gloss=wishing
+34	προσψαύσω	προψαύω	VERB	verb.aor.subj.act.1sg	Aspect=Perf|Mood=Sub|Tense=Aor|Voice=Act|Number=Sing|Person=1	28	conj	_	gloss=I touch
+35	.	.	PUNCT	punctuation	_	34	punct	_	gloss=.
+
+# sent_id = perry-378-s3
+# text = Ὅτι ἐπισφαλής ἐστι βίος πένητι δυναστοῦ ἅρπαγος πλησίον παροικοῦντι.
+# parallel_id = lyceum-aesop-p378/s3
+# translation_lang = en
+# prose_translation = The story shows that life is precarious for a poor man living next to a powerful man's rapacity.
+# literal_translation = That precarious is life for a poor man of a powerful man's rapacity living nearby.
+36	Ὅτι	ὅτι	SCONJ	conjunction	ConjType=Comp	39	mark	_	gloss=that
+37	ἐπισφαλής	ἐπισφαλής	ADJ	adj.masc.sg.nom	Degree=Pos|Gender=Masc|Number=Sing|Case=Nom	38	amod	_	gloss=precarious
+38	ἐστι	εἰμί	VERB	verb.pres.ind.act.3sg	Mood=Ind|Tense=Pres|VerbForm=Fin|Voice=Act|Number=Sing|Person=3	0	root	_	gloss=is
+39	βίος	βίος	NOUN	noun.masc.sg.nom	Gender=Masc|Number=Sing|Case=Nom	38	nsubj	_	gloss=life
+40	πένητι	πένης	NOUN	noun.masc.sg.dat	Gender=Masc|Number=Sing|Case=Dat	43	iobj	_	gloss=poor man
+41	δυναστοῦ	δυναστής	NOUN	noun.masc.sg.gen	Gender=Masc|Number=Sing|Case=Gen	42	nmod	_	gloss=powerful man
+42	ἅρπαγος	ἅρπαξ	ADJ	adj.masc.sg.gen	Degree=Pos|Gender=Masc|Number=Sing|Case=Gen	41	amod	_	gloss=rapacious
+43	πλησίον	πλησίον	ADV	adverb	_	38	advmod	_	gloss=nearby
+44	παροικοῦντι	παροικέω	VERB	verb.pres.ptcp.act.masc.sg.dat	Aspect=Imp|Mood=Part|Tense=Pres|Voice=Act|Gender=Masc|Number=Sing|Case=Dat	40	acl	_	gloss=living nearby
+45	.	.	PUNCT	punctuation	_	44	punct	_	gloss=.

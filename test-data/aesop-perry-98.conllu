@@ -1,0 +1,68 @@
+# title = The Kid on the Roof and the Wolf
+# sent_id = perry-98-s1
+# text = Ἔριφος ἐπὶ τινος δώματος ἑστώς, ἐπειδὴ λύκον παριόντα εἶδεν, ἐλοιδόρει καὶ ἔσκωπτεν αὐτόν.
+# parallel_id = lyceum-aesop-p98/s1
+# translation_lang = en
+# prose_translation = A kid, standing on a certain rooftop, when he saw a wolf passing by, reviled and mocked him.
+# literal_translation = A kid on a certain roof standing, when a wolf passing by he saw, reviled and mocked him.
+1	Ἔριφος	ἔριφος	NOUN	noun.masc.sg.nom	Gender=Masc|Number=Sing|Case=Nom	12	nsubj	_	gloss=kid
+2	ἐπὶ	ἐπί	ADP	preposition.gen	_	4	case	_	gloss=on
+3	τινος	τις	PRON	pron.neut.sg.gen	PronType=Ind|Gender=Neut|Number=Sing|Case=Gen	4	det	_	gloss=a certain
+4	δώματος	δῶμα	NOUN	noun.neut.sg.gen	Gender=Neut|Number=Sing|Case=Gen	5	obl	_	gloss=rooftop
+5	ἑστώς	ἵστημι	VERB	verb.perf.ptcp.act.masc.sg.nom	Aspect=Perf|Mood=Part|Tense=Perf|Voice=Act|Gender=Masc|Number=Sing|Case=Nom	12	advcl	_	gloss=standing
+6	ἐπειδὴ	ἐπεί	SCONJ	conjunction	_	9	mark	_	gloss=when
+7	λύκον	λύκος	NOUN	noun.masc.sg.acc	Gender=Masc|Number=Sing|Case=Acc	9	obj	_	gloss=wolf
+8	παριόντα	παρίημι	VERB	verb.pres.ptcp.act.masc.sg.acc	Aspect=Imp|Mood=Part|Tense=Pres|Voice=Act|Gender=Masc|Number=Sing|Case=Acc	7	acl	_	gloss=passing by
+9	εἶδεν	ὁράω	VERB	verb.aor.ind.act.3sg	Aspect=Perf|Mood=Ind|Tense=Aor|Voice=Act|Number=Sing|Person=3	12	advcl	_	gloss=saw
+10	ἐλοιδόρει	λοιδορέω	VERB	verb.impf.ind.act.3sg	Aspect=Imp|Mood=Ind|Tense=Imp|Voice=Act|Number=Sing|Person=3	0	root	_	gloss=reviled
+11	καὶ	καί	CCONJ	conjunction	_	12	cc	_	gloss=and
+12	ἔσκωπτεν	σκώπτω	VERB	verb.impf.ind.act.3sg	Aspect=Imp|Mood=Ind|Tense=Imp|Voice=Act|Number=Sing|Person=3	10	conj	_	gloss=mocked
+13	αὐτόν	αὐτός	PRON	pron.masc.sg.acc	Gender=Masc|Number=Sing|Case=Acc	12	obj	_	gloss=him
+14	.	.	PUNCT	punctuation	_	12	punct	_	gloss=.
+
+# sent_id = perry-98-s2
+# text = Ὁ δὲ λύκος ἔφη· Ὦ οὗτος, οὐ σύ με λοιδορεῖς, ἀλλ' ὁ τόπος.
+# parallel_id = lyceum-aesop-p98/s2
+# translation_lang = en
+# prose_translation = But the wolf said, "O you there, it is not you who are insulting me, but the place."
+# literal_translation = But the wolf said, "O this one, not you me insult, but the place."
+15	Ὁ	ὁ	DET	article.masc.sg.nom	Definite=Def|PronType=Art|Gender=Masc|Number=Sing|Case=Nom	16	det	_	gloss=the
+16	δὲ	δέ	CCONJ	conjunction	_	17	cc	_	gloss=but
+17	λύκος	λύκος	NOUN	noun.masc.sg.nom	Gender=Masc|Number=Sing|Case=Nom	18	nsubj	_	gloss=wolf
+18	ἔφη	φημί	VERB	verb.impf.ind.act.3sg	Mood=Ind|Tense=Imp|VerbForm=Fin|Voice=Act|Number=Sing|Person=3	0	root	_	gloss=said
+19	·	·	PUNCT	punctuation	_	18	punct	_	gloss=:
+20	Ὦ	ὦ	PART	interjection	_	21	discourse	_	gloss=O
+21	οὗτος	οὗτος	PRON	pron.masc.sg.nom	PronType=Dem|Gender=Masc|Number=Sing|Case=Nom	18	vocative	_	gloss=you there
+22	οὐ	οὐ	PART	neg.particle	Polarity=Neg	24	advmod	_	gloss=not
+23	σύ	σύ	PRON	pron.masc.sg.nom	PronType=Prs|Gender=Masc|Number=Sing|Case=Nom	24	nsubj	_	gloss=you
+24	με	ἐγώ	PRON	pron.masc.sg.acc	PronType=Prs|Gender=Masc|Number=Sing|Case=Acc	25	obj	_	gloss=me
+25	λοιδορεῖς	λοιδορέω	VERB	verb.pres.ind.act.2sg	Aspect=Imp|Mood=Ind|Tense=Pres|Voice=Act|Number=Sing|Person=2	18	ccomp	_	gloss=insult
+26	ἀλλ'	ἀλλά	CCONJ	conjunction	_	28	cc	_	gloss=but
+27	ὁ	ὁ	DET	article.masc.sg.nom	Definite=Def|PronType=Art|Gender=Masc|Number=Sing|Case=Nom	28	det	_	gloss=the
+28	τόπος	τόπος	NOUN	noun.masc.sg.nom	Gender=Masc|Number=Sing|Case=Nom	25	conj	_	gloss=place
+29	.	.	PUNCT	punctuation	_	28	punct	_	gloss=.
+
+# sent_id = perry-98-s3
+# text = Ὁ μῦθος δηλοῖ ὅτι πολλάκις καὶ ὁ τόπος καὶ ὁ καιρὸς δίδωσι τὸ θράσος κατά τῶν ἀμεινόνων.
+# parallel_id = lyceum-aesop-p98/s3
+# translation_lang = en
+# prose_translation = The story shows that often both the place and the occasion give boldness against one's betters.
+# literal_translation = The story shows that often both the place and the occasion gives boldness against the better.
+30	Ὁ	ὁ	DET	article.masc.sg.nom	Definite=Def|PronType=Art|Gender=Masc|Number=Sing|Case=Nom	31	det	_	gloss=the
+31	μῦθος	μῦθος	NOUN	noun.masc.sg.nom	Gender=Masc|Number=Sing|Case=Nom	32	nsubj	_	gloss=story
+32	δηλοῖ	δηλόω	VERB	verb.pres.ind.act.3sg	Aspect=Imp|Mood=Ind|Tense=Pres|Voice=Act|Number=Sing|Person=3	0	root	_	gloss=shows
+33	ὅτι	ὅτι	SCONJ	conjunction	_	40	mark	_	gloss=that
+34	πολλάκις	πολλάκις	ADV	adverb	_	40	advmod	_	gloss=often
+35	καὶ	καί	CCONJ	conjunction	_	36	cc	_	gloss=both
+36	ὁ	ὁ	DET	article.masc.sg.nom	Definite=Def|PronType=Art|Gender=Masc|Number=Sing|Case=Nom	37	det	_	gloss=the
+37	τόπος	τόπος	NOUN	noun.masc.sg.nom	Gender=Masc|Number=Sing|Case=Nom	40	nsubj	_	gloss=place
+38	καὶ	καί	CCONJ	conjunction	_	39	cc	_	gloss=and
+39	ὁ	ὁ	DET	article.masc.sg.nom	Definite=Def|PronType=Art|Gender=Masc|Number=Sing|Case=Nom	40	det	_	gloss=the
+40	καιρὸς	καιρός	NOUN	noun.masc.sg.nom	Gender=Masc|Number=Sing|Case=Nom	37	conj	_	gloss=occasion
+41	δίδωσι	δίδωμι	VERB	verb.pres.ind.act.3sg	Aspect=Imp|Mood=Ind|Tense=Pres|Voice=Act|Number=Sing|Person=3	32	ccomp	_	gloss=gives
+42	τὸ	ὁ	DET	article.neut.sg.acc	Definite=Def|PronType=Art|Gender=Neut|Number=Sing|Case=Acc	43	det	_	gloss=the
+43	θράσος	θράσος	NOUN	noun.neut.sg.acc	Gender=Neut|Number=Sing|Case=Acc	41	obj	_	gloss=boldness
+44	κατά	κατά	ADP	preposition.gen	_	45	case	_	gloss=against
+45	τῶν	ὁ	DET	article.masc.pl.gen	Definite=Def|PronType=Art|Gender=Masc|Number=Plur|Case=Gen	46	det	_	gloss=the
+46	ἀμεινόνων	ἀμείνων	ADJ	adj.masc.pl.gen	Degree=Cmp|Gender=Masc|Number=Plur|Case=Gen	43	nmod	_	gloss=better
+47	.	.	PUNCT	punctuation	_	46	punct	_	gloss=.
