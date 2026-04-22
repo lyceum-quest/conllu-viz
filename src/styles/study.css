@@ -111,7 +111,7 @@
 
 .study-card {
   width: 100%;
-  min-height: 320px;
+  min-height: 440px;
   position: relative;
   transform-style: preserve-3d;
   transition: transform 400ms ease;
@@ -160,7 +160,7 @@
 
 .study-card-front .study-greek-sentence {
   font-family: var(--font-greek);
-  font-size: 15px;
+  font-size: 20px;
   color: var(--text-primary);
   line-height: 1.5;
 }
@@ -256,7 +256,7 @@
 
 .study-greek-sentence {
   font-family: var(--font-greek);
-  font-size: 15px;
+  font-size: 20px;
   color: var(--text-primary);
   line-height: 1.5;
   margin-bottom: 6px;
@@ -666,7 +666,7 @@
   }
 
   .study-card-front .study-greek-sentence {
-    font-size: 14px;
+    font-size: 20px;
   }
 
   .study-card-back {
