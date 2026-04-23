@@ -7,7 +7,7 @@
 # literal_translation = Near a well a certain boy was sleeping.
 1	Ἐγγὺς	ἐγγύς	ADV	adverb	_	3	advmod	_	gloss=near
 2	φρέατος	φρέαρ	NOUN	noun.neut.sg.gen	Gender=Neut|Number=Sing|Case=Gen	1	nmod	_	gloss=well
-3	παῖς	παῖς	NOUN	noun.masc.sg.nom	Gender=Masc|Number=Sing|Case=Nom	4	nsubj	_	gloss=boy
+3	παῖς	παῖς	NOUN	noun.masc.sg.nom	Gender=Masc|Number=Sing|Case=Nom	5	nsubj	_	gloss=boy
 4	τις	τις	PRON	pron.masc.sg.nom	PronType=Ind|Gender=Masc|Number=Sing|Case=Nom	3	det	_	gloss=a certain
 5	ἐκοιμᾶτο	κοιμάω	VERB	verb.impf.ind.mp.3sg	Aspect=Imp|Mood=Ind|Tense=Imp|Voice=Mid|Number=Sing|Person=3	0	root	_	gloss=was sleeping
 6	.	.	PUNCT	punctuation	_	5	punct	_	gloss=.
@@ -31,7 +31,7 @@
 17	ἐντεῦθεν	ἐντεῦθεν	ADV	adverb	_	16	advmod	_	gloss=from here
 18	μή	μή	PART	neg.particle	Polarity=Neg	22	advmod	_	gloss=lest
 19	πως	πως	ADV	adverb	_	22	advmod	_	gloss=somehow
-20	κάτωθεν	κάτωθεν	ADV	adverb	_	22	advmod	_	gloss=from below
+20	κάτωθεν	κάτωθεν	ADV	adverb	_	23	advmod	_	gloss=from below
 21	τοῦ	ὁ	DET	article.neut.sg.gen	Definite=Def|PronType=Art|Gender=Neut|Number=Sing|Case=Gen	22	det	_	gloss=the
 22	φρέατος	φρέαρ	NOUN	noun.neut.sg.gen	Gender=Neut|Number=Sing|Case=Gen	20	nmod	_	gloss=well
 23	πέσῃς	πίπτω	VERB	verb.aor.subj.act.2sg	Aspect=Perf|Mood=Sub|Tense=Aor|Voice=Act|Number=Sing|Person=2	14	advcl	_	gloss=you fall

@@ -55,7 +55,7 @@
 34	πολλάκις	πολλάκις	ADV	adverb	_	40	advmod	_	gloss=often
 35	καὶ	καί	CCONJ	conjunction	_	36	cc	_	gloss=both
 36	ὁ	ὁ	DET	article.masc.sg.nom	Definite=Def|PronType=Art|Gender=Masc|Number=Sing|Case=Nom	37	det	_	gloss=the
-37	τόπος	τόπος	NOUN	noun.masc.sg.nom	Gender=Masc|Number=Sing|Case=Nom	40	nsubj	_	gloss=place
+37	τόπος	τόπος	NOUN	noun.masc.sg.nom	Gender=Masc|Number=Sing|Case=Nom	41	nsubj	_	gloss=place
 38	καὶ	καί	CCONJ	conjunction	_	39	cc	_	gloss=and
 39	ὁ	ὁ	DET	article.masc.sg.nom	Definite=Def|PronType=Art|Gender=Masc|Number=Sing|Case=Nom	40	det	_	gloss=the
 40	καιρὸς	καιρός	NOUN	noun.masc.sg.nom	Gender=Masc|Number=Sing|Case=Nom	37	conj	_	gloss=occasion

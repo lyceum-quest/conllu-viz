@@ -9,7 +9,7 @@
 2	ἐν	ἐν	ADP	preposition.dat	_	3	case	_	gloss=in
 3	κλοιῷ	κλοῖος	NOUN	noun.masc.sg.dat	Gender=Masc|Number=Sing|Case=Dat	4	obl	_	gloss=chain
 4	δεδεμένον	δέω	VERB	verb.perf.ptcp.mp.masc.sg.acc	Aspect=Perf|Mood=Part|Tense=Perf|Voice=Mid|Gender=Masc|Number=Sing|Case=Acc	5	acl	_	gloss=bound
-5	ὁρῶν	ὁράω	VERB	verb.pres.ptcp.act.masc.sg.nom	Aspect=Imp|Mood=Part|Tense=Pres|Voice=Act|Gender=Masc|Number=Sing|Case=Nom	7	advcl	_	gloss=seeing
+5	ὁρῶν	ὁράω	VERB	verb.pres.ptcp.act.masc.sg.nom	Aspect=Imp|Mood=Part|Tense=Pres|Voice=Act|Gender=Masc|Number=Sing|Case=Nom	8	advcl	_	gloss=seeing
 6	μέγιστον	μέγας	ADJ	adj.masc.sg.acc	Degree=Sup|Gender=Masc|Number=Sing|Case=Acc	8	amod	_	gloss=very large
 7	κύνα	κύων	NOUN	noun.masc.sg.acc	Gender=Masc|Number=Sing|Case=Acc	5	obj	_	gloss=dog
 8	ἤρετο	ἐρωτάω	VERB	verb.impf.ind.mp.3sg	Aspect=Imp|Mood=Ind|Tense=Imp|Voice=Mid|Number=Sing|Person=3	0	root	_	gloss=asked

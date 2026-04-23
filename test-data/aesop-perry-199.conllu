@@ -23,13 +23,13 @@
 9	δὲ	δέ	CCONJ	conjunction	_	17	cc	_	gloss=but
 10	τὸ	ὁ	DET	article.neut.sg.acc	Definite=Def|PronType=Art|Gender=Neut|Number=Sing|Case=Acc	14	det	_	gloss=the
 11	τοῦ	ὁ	DET	article.masc.sg.gen	Definite=Def|PronType=Art|Gender=Masc|Number=Sing|Case=Gen	12	det	_	gloss=of the
-12	παιδὸς	παῖς	NOUN	noun.masc.sg.gen	Gender=Masc|Number=Sing|Case=Gen	11	nmod	_	gloss=boy
+12	παιδὸς	παῖς	NOUN	noun.masc.sg.gen	Gender=Masc|Number=Sing|Case=Gen	13	nmod	_	gloss=boy
 13	ἁπλοῦν	ἁπλοῦς	ADJ	adj.neut.sg.acc	Degree=Pos|Gender=Neut|Number=Sing|Case=Acc	14	obj	_	gloss=simplicity / simplicity
 14	θεασάμενος	θεάομαι	VERB	verb.aor.ptcp.mp.masc.sg.nom	Aspect=Perf|Voice=Mid|Mood=Part|Tense=Aor|Gender=Masc|Number=Sing|Case=Nom	17	advcl	_	gloss=having seen
 15	,	,	PUNCT	punctuation	_	14	punct	_	gloss=,
 16	τὸ	ὁ	DET	article.neut.sg.acc	Definite=Def|PronType=Art|Gender=Neut|Number=Sing|Case=Acc	17	det	_	gloss=the
 17	κέντρον	κέντρον	NOUN	noun.neut.sg.acc	Gender=Neut|Number=Sing|Case=Acc	18	obj	_	gloss=sting
-18	ὀξύνας	ὀξύνω	VERB	verb.aor.ptcp.act.masc.sg.nom	Aspect=Perf|Mood=Part|Tense=Aor|Voice=Act|Gender=Masc|Number=Sing|Case=Nom	19	advcl	_	gloss=having sharpened
+18	ὀξύνας	ὀξύνω	VERB	verb.aor.ptcp.act.masc.sg.nom	Aspect=Perf|Mood=Part|Tense=Aor|Voice=Act|Gender=Masc|Number=Sing|Case=Nom	20	advcl	_	gloss=having sharpened
 19	,	,	PUNCT	punctuation	_	18	punct	_	gloss=,
 20	εἶπεν	λέγω	VERB	verb.aor.ind.act.3sg	Aspect=Perf|Mood=Ind|Tense=Aor|Voice=Act|Number=Sing|Person=3	0	root	_	gloss=said
 21	·	·	PUNCT	punctuation	_	20	punct	_	gloss=:
@@ -62,10 +62,10 @@
 # prose_translation = The story shows that we must beware of those who are able to harm everyone.
 # literal_translation = The story shows that to pay attention it is necessary to those able to harm all.
 36	Ὁ	ὁ	DET	article.masc.sg.nom	Definite=Def|PronType=Art|Gender=Masc|Number=Sing|Case=Nom	37	det	_	gloss=the
-37	μῦθος	μῦθος	NOUN	noun.masc.sg.nom	Gender=Masc|Number=Sing|Case=Nom	40	nsubj	_	gloss=story / fable
+37	μῦθος	μῦθος	NOUN	noun.masc.sg.nom	Gender=Masc|Number=Sing|Case=Nom	38	nsubj	_	gloss=story / fable
 38	δηλοῖ	δηλόω	VERB	verb.pres.ind.act.3sg	Aspect=Imp|Mood=Ind|Tense=Pres|Voice=Act|Number=Sing|Person=3	0	root	_	gloss=shows
 39	ὄτι	ὅτι	SCONJ	conjunction	_	41	mark	_	gloss=that
-40	προσέχειν	προσέχω	VERB	verb.pres.inf.act	Aspect=Imp|Mood=Inf|Tense=Pres|Voice=Act	43	xcomp	_	gloss=to pay attention / beware
+40	προσέχειν	προσέχω	VERB	verb.pres.inf.act	Aspect=Imp|Mood=Inf|Tense=Pres|Voice=Act	41	xcomp	_	gloss=to pay attention / beware
 41	δεῖ	δεῖ	VERB	verb.impers.pres.ind.3sg	Mood=Ind|Tense=Pres|VerbForm=Fin|Person=3	38	ccomp	_	gloss=it is necessary
 42	τοὺς	ὁ	DET	article.masc.pl.acc	Definite=Def|PronType=Art|Gender=Masc|Number=Plur|Case=Acc	43	det	_	gloss=those
 43	δυναμένους	δύναμαι	VERB	verb.pres.ptcp.mp.masc.pl.acc	Aspect=Imp|Voice=Mid|Mood=Part|Tense=Pres|Gender=Masc|Number=Plur|Case=Acc	40	obj	_	gloss=able

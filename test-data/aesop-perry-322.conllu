@@ -37,7 +37,7 @@
 23	ὀρθὰ	ὀρθός	ADV	adverb	_	24	advmod	_	gloss=straight
 24	βάδιζε	βαδίζω	VERB	verb.pres.imper.act.2sg	Mood=Imp|Tense=Pres|VerbForm=Fin|Voice=Act|Number=Sing|Person=2	17	ccomp	_	gloss=walk
 25	καὶ	καί	CCONJ	conjunction	_	27	cc	_	gloss=and
-26	βλὲπον	βλέπω	VERB	verb.pres.ptcp.act.masc.sg.nom	Aspect=Imp|Mood=Part|Tense=Pres|Voice=Act|Gender=Masc|Number=Sing|Case=Nom	27	advcl	_	gloss=seeing
+26	βλὲπον	βλέπω	VERB	verb.pres.ptcp.act.masc.sg.nom	Aspect=Imp|Mood=Part|Tense=Pres|Voice=Act|Gender=Masc|Number=Sing|Case=Nom	28	advcl	_	gloss=seeing
 27	σε	σύ	PRON	pron.fem.sg.acc	PronType=Prs|Gender=Fem|Number=Sing|Case=Acc	26	obj	_	gloss=you
 28	ζηλὼσω	ζηλόω	VERB	verb.aor.subj.act.1sg	Aspect=Perf|Mood=Sub|Tense=Aor|Voice=Act|Number=Sing|Person=1	24	conj	_	gloss=I will imitate
 29	.	.	PUNCT	punctuation	_	28	punct	_	gloss=.

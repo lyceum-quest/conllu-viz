@@ -31,7 +31,7 @@
 17	φραγμοῦ	φραγμός	NOUN	noun.masc.sg.gen	Gender=Masc|Number=Sing|Case=Gen	16	nmod	_	gloss=hedge
 18	ἀκούσασα	ἀκούω	VERB	verb.aor.ptcp.act.fem.sg.nom	Aspect=Perf|Mood=Part|Tense=Aor|Voice=Act|Gender=Fem|Number=Sing|Case=Nom	23	advcl	_	gloss=having heard
 19	·	·	PUNCT	punctuation	_	18	punct	_	gloss=:
-20	Παυσώμεθα	παύω	VERB	verb.aor.subj.mp.1pl	Aspect=Perf|Mood=Sub|Tense=Aor|Voice=Mid|Number=Plur|Person=1	23	ccomp	_	gloss=let us cease
+20	Παυσώμεθα	παύω	VERB	verb.aor.subj.mp.1pl	Aspect=Perf|Mood=Sub|Tense=Aor|Voice=Mid|Number=Plur|Person=1	21	ccomp	_	gloss=let us cease
 21	εἶπεν	λέγω	VERB	verb.aor.ind.act.3sg	Aspect=Perf|Mood=Ind|Tense=Aor|Voice=Act|Number=Sing|Person=3	0	root	_	gloss=she said
 22	ὦ	ὀ	PART	interjection	_	23	vocative	_	gloss=O
 23	φίλαι	φίλος	ADJ	adj.fem.pl.voc	Degree=Pos|Gender=Fem|Number=Plur|Case=Voc	20	vocative	_	gloss=friends
@@ -51,7 +51,7 @@
 30	ὅτι	ὅτι	SCONJ	conjunction	_	35	mark	_	gloss=that
 31	ἐν	ἐν	ADP	preposition.dat	_	33	case	_	gloss=in
 32	ταῖς	ὁ	DET	article.fem.pl.dat	Definite=Def|PronType=Art|Gender=Fem|Number=Plur|Case=Dat	33	det	_	gloss=the
-33	στάσεσι	στάσις	NOUN	noun.fem.pl.dat	Gender=Fem|Number=Plur|Case=Dat	35	obl	_	gloss=quarrels
+33	στάσεσι	στάσις	NOUN	noun.fem.pl.dat	Gender=Fem|Number=Plur|Case=Dat	40	obl	_	gloss=quarrels
 34	τῶν	ὁ	DET	article.masc.pl.gen	Definite=Def|PronType=Art|Gender=Masc|Number=Plur|Case=Gen	35	det	_	gloss=of the
 35	ἀμεινόνων	ἀμείνων	ADJ	adj.masc.pl.gen	Degree=Cmp|Gender=Masc|Number=Plur|Case=Gen	33	nmod	_	gloss=better
 36	καὶ	καί	CCONJ	conjunction	_	38	cc	_	gloss=even

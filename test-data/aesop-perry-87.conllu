@@ -24,7 +24,7 @@
 10	δὲ	δέ	CCONJ	conjunction	_	17	cc	_	gloss=but
 11	ἔνδον	ἔνδον	ADV	adverb	_	14	advmod	_	gloss=inside
 12	αὐτῆς	αὐτός	PRON	pron.fem.sg.gen	Gender=Fem|Number=Sing|Case=Gen	11	nmod	_	gloss=her
-13	ὄγκον	ὄγκος	NOUN	noun.masc.sg.acc	Gender=Masc|Number=Sing|Case=Acc	14	obj	_	gloss=mass
+13	ὄγκον	ὄγκος	NOUN	noun.masc.sg.acc	Gender=Masc|Number=Sing|Case=Acc	15	obj	_	gloss=mass
 14	χρυσίου	χρύσιον	NOUN	noun.neut.sg.gen	Gender=Neut|Number=Sing|Case=Gen	13	nmod	_	gloss=gold
 15	εἶναι	εἰμί	VERB	verb.pres.inf.act	Aspect=Imp|Mood=Inf|Tense=Pres|Voice=Act	9	xcomp	_	gloss=to be
 16	καὶ	καί	CCONJ	conjunction	_	17	cc	_	gloss=and
@@ -52,7 +52,7 @@
 31	καὶ	καί	CCONJ	conjunction	_	32	cc	_	gloss=and
 32	τοῦ	ὁ	DET	article.neut.sg.gen	Definite=Def|PronType=Art|Gender=Neut|Number=Sing|Case=Gen	33	det	_	gloss=of the
 33	μικροῦ	μικρός	ADJ	adj.neut.sg.gen	Degree=Pos|Gender=Neut|Number=Sing|Case=Gen	34	amod	_	gloss=small
-34	κέρδους	κέρδος	NOUN	noun.neut.sg.gen	Gender=Neut|Number=Sing|Case=Gen	31	obl	_	gloss=gain
+34	κέρδους	κέρδος	NOUN	noun.neut.sg.gen	Gender=Neut|Number=Sing|Case=Gen	35	obl	_	gloss=gain
 35	ἐστερήθη	στερέω	VERB	verb.aor.ind.mp.3sg	Aspect=Perf|Mood=Ind|Tense=Aor|Voice=Mid|Number=Sing|Person=3	0	root	_	gloss=he was deprived
 36	.	.	PUNCT	punctuation	_	35	punct	_	gloss=.
 

@@ -1,6 +1,6 @@
 # title = The Fox and the Actor's Mask
 # sent_id = perry-27-s1
-# text = Ἀλώπηξ εἰς οἰκίαν ἐλθοῦσα ὑποκριτοῦ καὶ ἕκαστα τῶν αὐτοῦ σκευῶν διερευνομμένη, εὗρε καὶ κεφαλὴν μορμολυκείου εὐφυῶς κατεσκευασμένην, ἣν καὶ ἀναλαβοῦσα ταῖς χερσὶν ἔφη·
+# text = Ἀλώπηξ εἰς οἰκίαν ἐλθοῦσα ὑποκριτοῦ καὶ ἕκαστα τῶν αὐτοῦ σκευῶν διερευνωμένη, εὗρε καὶ κεφαλὴν μορμολυκείου εὐφυῶς κατεσκευασμένην, ἣν καὶ ἀναλαβοῦσα ταῖς χερσὶν ἔφη·
 # parallel_id = lyceum-aesop-p27/s1
 # translation_lang = en
 # prose_translation = A fox, having entered the house of an actor and searching through all his equipment, found also a carefully made mask of a monster, which taking up in her hands she said,
@@ -11,11 +11,11 @@
 4	ἐλθοῦσα	ἔρχομαι	VERB	verb.aor.ptcp.act.fem.sg.nom	Aspect=Perf|Mood=Part|Tense=Aor|Voice=Act|Gender=Fem|Number=Sing|Case=Nom	20	advcl	_	gloss=having entered
 5	ὑποκριτοῦ	ὑποκριτής	NOUN	noun.masc.sg.gen	Gender=Masc|Number=Sing|Case=Gen	3	nmod	_	gloss=actor
 6	καὶ	καί	CCONJ	conjunction	_	8	cc	_	gloss=and
-7	ἕκαστα	ἕκαστος	ADJ	adj.neut.pl.acc	Degree=Pos|Gender=Neut|Number=Plur|Case=Acc	8	amod	_	gloss=each
+7	ἕκαστα	ἕκαστος	ADJ	adj.neut.pl.acc	Degree=Pos|Gender=Neut|Number=Plur|Case=Acc	11	obj	_	gloss=each
 8	τῶν	ὁ	DET	article.neut.pl.gen	Definite=Def|PronType=Art|Gender=Neut|Number=Plur|Case=Gen	9	det	_	gloss=of the
 9	αὐτοῦ	αὐτός	PRON	pron.masc.sg.gen	PronType=Prs|Gender=Masc|Number=Sing|Case=Gen	10	nmod	_	gloss=his
 10	σκευῶν	σκευή	NOUN	noun.fem.pl.gen	Gender=Fem|Number=Plur|Case=Gen	7	nmod	_	gloss=equipment
-11	διερευνομμένη	διερευνάω	VERB	verb.pres.ptcp.mp.fem.sg.nom	Aspect=Imp|Mood=Part|Tense=Pres|Voice=Mid|Gender=Fem|Number=Sing|Case=Nom	4	conj	_	gloss=searching through
+11	διερευνωμένη	διερευνάω	VERB	verb.pres.ptcp.mp.fem.sg.nom	Aspect=Imp|Mood=Part|Tense=Pres|Voice=Mid|Gender=Fem|Number=Sing|Case=Nom	4	conj	_	gloss=searching through
 12	εὗρε	εὑρίσκω	VERB	verb.aor.ind.act.3sg	Aspect=Perf|Mood=Ind|Tense=Aor|Voice=Act|Number=Sing|Person=3	0	root	_	gloss=found
 13	καὶ	καί	CCONJ	conjunction	_	14	cc	_	gloss=also
 14	κεφαλὴν	κεφαλή	NOUN	noun.fem.sg.acc	Gender=Fem|Number=Sing|Case=Acc	12	obj	_	gloss=head
@@ -24,7 +24,7 @@
 17	κατεσκευασμένην	κατασκευάζω	VERB	verb.perf.ptcp.mp.fem.sg.acc	Aspect=Perf|Mood=Part|Tense=Perf|Voice=Mid|Gender=Fem|Number=Sing|Case=Acc	14	acl	_	gloss=crafted
 18	ἣν	ὅς	PRON	pron.fem.sg.acc	PronType=Rel|Gender=Fem|Number=Sing|Case=Acc	19	obj	_	gloss=which
 19	καὶ	καί	ADV	adverb	_	20	advmod	_	gloss=also
-20	ἀναλαβοῦσα	ἀναλαμβάνω	VERB	verb.aor.ptcp.act.fem.sg.nom	Aspect=Perf|Mood=Part|Tense=Aor|Voice=Act|Gender=Fem|Number=Sing|Case=Nom	22	advcl	_	gloss=taking up
+20	ἀναλαβοῦσα	ἀναλαμβάνω	VERB	verb.aor.ptcp.act.fem.sg.nom	Aspect=Perf|Mood=Part|Tense=Aor|Voice=Act|Gender=Fem|Number=Sing|Case=Nom	23	advcl	_	gloss=taking up
 21	ταῖς	ὁ	DET	article.fem.pl.dat	Definite=Def|PronType=Art|Gender=Fem|Number=Plur|Case=Dat	22	det	_	gloss=the
 22	χερσὶν	χείρ	NOUN	noun.fem.pl.dat	Gender=Fem|Number=Plur|Case=Dat	20	obl	_	gloss=hands
 23	ἔφη	φημί	VERB	verb.impf.ind.act.3sg	Mood=Ind|Tense=Imp|VerbForm=Fin|Voice=Act|Number=Sing|Person=3	12	conj	_	gloss=said

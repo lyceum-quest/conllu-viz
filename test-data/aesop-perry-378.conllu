@@ -27,7 +27,7 @@
 13	χαλκῇ	χαλκοῦς	ADJ	adj.fem.sg.dat	Degree=Pos|Gender=Fem|Number=Sing|Case=Dat	19	iobj	_	gloss=bronze one
 14	ἔλεγεν	λέγω	VERB	verb.impf.ind.act.3sg	Aspect=Imp|Mood=Ind|Tense=Imp|Voice=Act|Number=Sing|Person=3	0	root	_	gloss=said
 15	·	·	PUNCT	punctuation	_	14	punct	_	gloss=:
-16	Μακρόθεν	μακρόθεν	ADV	adverb	_	17	advmod	_	gloss=from afar
+16	Μακρόθεν	μακρόθεν	ADV	adverb	_	18	advmod	_	gloss=from afar
 17	μου	ἐγώ	PRON	pron.fem.sg.gen	PronType=Prs|Gender=Fem|Number=Sing|Case=Gen	16	obl	_	gloss=from me
 18	κολύμβα	κολυμβάω	VERB	verb.pres.imper.act.2sg	Mood=Imp|Tense=Pres|VerbForm=Fin|Voice=Act|Number=Sing|Person=2	14	ccomp	_	gloss=swim
 19	καὶ	καί	CCONJ	conjunction	_	21	cc	_	gloss=and
@@ -60,7 +60,7 @@
 39	βίος	βίος	NOUN	noun.masc.sg.nom	Gender=Masc|Number=Sing|Case=Nom	38	nsubj	_	gloss=life
 40	πένητι	πένης	NOUN	noun.masc.sg.dat	Gender=Masc|Number=Sing|Case=Dat	43	iobj	_	gloss=poor man
 41	δυναστοῦ	δυναστής	NOUN	noun.masc.sg.gen	Gender=Masc|Number=Sing|Case=Gen	42	nmod	_	gloss=powerful man
-42	ἅρπαγος	ἅρπαξ	ADJ	adj.masc.sg.gen	Degree=Pos|Gender=Masc|Number=Sing|Case=Gen	41	amod	_	gloss=rapacious
+42	ἅρπαγος	ἅρπαξ	ADJ	adj.masc.sg.gen	Degree=Pos|Gender=Masc|Number=Sing|Case=Gen	43	nmod	_	gloss=rapacious
 43	πλησίον	πλησίον	ADV	adverb	_	38	advmod	_	gloss=nearby
 44	παροικοῦντι	παροικέω	VERB	verb.pres.ptcp.act.masc.sg.dat	Aspect=Imp|Mood=Part|Tense=Pres|Voice=Act|Gender=Masc|Number=Sing|Case=Dat	40	acl	_	gloss=living nearby
 45	.	.	PUNCT	punctuation	_	44	punct	_	gloss=.

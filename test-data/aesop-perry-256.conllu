@@ -26,7 +26,7 @@
 12	ἔφησαν	φημί	VERB	verb.aor.ind.act.3pl	Aspect=Perf|Mood=Ind|Tense=Aor|Voice=Act|Number=Plur|Person=3	0	root	_	gloss=they said
 13	·	·	PUNCT	punctuation	_	12	punct	_	gloss=:
 14	"	"	PUNCT	punctuation	_	15	punct	_	gloss="
-15	Ἐβοηθήσαμεν	βοηθέω	VERB	verb.aor.ind.act.1pl	Aspect=Perf|Mood=Ind|Tense=Aor|Voice=Act|Number=Plur|Person=1	17	xcomp	_	gloss=we would help
+15	Ἐβοηθήσαμεν	βοηθέω	VERB	verb.aor.ind.act.1pl	Aspect=Perf|Mood=Ind|Tense=Aor|Voice=Act|Number=Plur|Person=1	12	ccomp	_	gloss=we would help
 16	ἂν	ἄν	PART	particle	_	15	aux	_	gloss=would
 17	ὑμῖν	σύ	PRON	pron.2pl.dat	Number=Plur|Person=2	15	iobj	_	gloss=you
 18	,	,	PUNCT	punctuation	_	17	punct	_	gloss=,

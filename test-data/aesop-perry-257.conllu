@@ -17,7 +17,7 @@
 10	τίκτειν	τίκτω	VERB	verb.pres.inf.act	Aspect=Imp|Mood=Inf|Tense=Pres|Voice=Act	6	acl	_	gloss=to bear / give birth
 11	·	·	PUNCT	punctuation	_	10	punct	_	gloss=:
 12	"	"	PUNCT	punctuation	_	13	punct	_	gloss="
-13	Ἕνα	εἷς	NUM	numeral.masc.sg.acc	NumType=Card|Gender=Masc|Number=Sing|Case=Acc	14	discourse	_	gloss=one
+13	Ἕνα	εἷς	NUM	numeral.masc.sg.acc	NumType=Card|Gender=Masc|Number=Sing|Case=Acc	15	ccomp	_	gloss=one
 14	,	,	PUNCT	punctuation	_	13	punct	_	gloss=,
 15	ἔφη	φημί	VERB	verb.impf.ind.act.3sg	Mood=Ind|Tense=Imp|VerbForm=Fin|Voice=Act|Number=Sing|Person=3	0	root	_	gloss=she said
 16	,	,	PUNCT	punctuation	_	15	punct	_	gloss=,

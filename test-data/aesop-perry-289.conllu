@@ -5,7 +5,7 @@
 # translation_lang = en
 # prose_translation = Once when a frog was in the lake and cried out to all the animals, "I am a physician, skilled in medicines,"
 # literal_translation = There being once a frog in the lake and to all the animals having cried out, "I a physician am, of medicines skilled,"
-1	Ὄντος	εἰμί	VERB	verb.pres.ptcp.act.masc.sg.gen	Aspect=Imp|Mood=Part|Tense=Pres|Voice=Act|Gender=Masc|Number=Sing|Case=Gen	9	advcl	_	gloss=being
+1	Ὄντος	εἰμί	VERB	verb.pres.ptcp.act.masc.sg.gen	Aspect=Imp|Mood=Part|Tense=Pres|Voice=Act|Gender=Masc|Number=Sing|Case=Gen	15	advcl	_	gloss=being
 2	ποτὲ	ποτέ	ADV	adverb	_	1	advmod	_	gloss=once
 3	βατράχου	βάτραχος	NOUN	noun.masc.sg.gen	Gender=Masc|Number=Sing|Case=Gen	1	nsubj	_	gloss=frog
 4	ἐν	ἐν	ADP	preposition.dat	_	6	case	_	gloss=in
@@ -13,12 +13,12 @@
 6	λίμνῃ	λίμνη	NOUN	noun.fem.sg.dat	Gender=Fem|Number=Sing|Case=Dat	1	obl	_	gloss=lake
 7	καὶ	καί	CCONJ	conjunction	_	8	cc	_	gloss=and
 8	τοῖς	ὁ	DET	article.masc.pl.dat	Definite=Def|PronType=Art|Gender=Masc|Number=Plur|Case=Dat	9	det	_	gloss=to the
-9	ζώοις	ζῷον	NOUN	noun.neut.pl.dat	Gender=Neut|Number=Plur|Case=Dat	10	iobj	_	gloss=animals
+9	ζώοις	ζῷον	NOUN	noun.neut.pl.dat	Gender=Neut|Number=Plur|Case=Dat	11	iobj	_	gloss=animals
 10	πᾶσιν	πᾶς	ADJ	adj.neut.pl.dat	Degree=Pos|Gender=Neut|Number=Plur|Case=Dat	9	amod	_	gloss=all
 11	ἀναβοήσαντος	ἀναβοάω	VERB	verb.aor.ptcp.act.masc.sg.gen	Aspect=Perf|Mood=Part|Tense=Aor|Voice=Act|Gender=Masc|Number=Sing|Case=Gen	1	conj	_	gloss=having cried out
 12	·	·	PUNCT	punctuation	_	11	punct	_	gloss=:
-13	Ἐγὼ	ἐγώ	PRON	pron.masc.sg.nom	PronType=Prs|Gender=Masc|Number=Sing|Case=Nom	14	nsubj	_	gloss=I
-14	ἰατρὸς	ἰατρός	NOUN	noun.masc.sg.nom	Gender=Masc|Number=Sing|Case=Nom	17	nsubj	_	gloss=physician
+13	Ἐγὼ	ἐγώ	PRON	pron.masc.sg.nom	PronType=Prs|Gender=Masc|Number=Sing|Case=Nom	15	nsubj	_	gloss=I
+14	ἰατρὸς	ἰατρός	NOUN	noun.masc.sg.nom	Gender=Masc|Number=Sing|Case=Nom	15	xcomp	_	gloss=physician
 15	εἰμι	εἰμί	VERB	verb.pres.ind.act.1sg	Mood=Ind|Tense=Pres|VerbForm=Fin|Voice=Act|Number=Sing|Person=1	0	root	_	gloss=I am
 16	φαρμάκων	φάρμακον	NOUN	noun.neut.pl.gen	Gender=Neut|Number=Plur|Case=Gen	17	obl	_	gloss=of medicines
 17	ἐπιστήμων	ἐπιστήμων	ADJ	adj.masc.sg.nom	Degree=Pos|Gender=Masc|Number=Sing|Case=Nom	14	amod	_	gloss=skilled

@@ -9,10 +9,10 @@
 2	λιμώττουσα	λιμώττω	VERB	verb.pres.ptcp.act.fem.sg.nom	Aspect=Imp|Mood=Part|Tense=Pres|Voice=Act|Gender=Fem|Number=Sing|Case=Nom	1	acl	_	gloss=being hungry
 3	,	,	PUNCT	punctuation	_	2	punct	_	gloss=,
 4	ὡς	ὡς	SCONJ	conjunction	_	5	mark	_	gloss=when
-5	ἐθεάσατο	θεάομαι	VERB	verb.aor.ind.mp.3sg	Aspect=Perf|Mood=Ind|Tense=Aor|Voice=Mid|Number=Sing|Person=3	10	advcl	_	gloss=saw
+5	ἐθεάσατο	θεάομαι	VERB	verb.aor.ind.mp.3sg	Aspect=Perf|Mood=Ind|Tense=Aor|Voice=Mid|Number=Sing|Person=3	12	advcl	_	gloss=saw
 6	ἀπό	ἀπό	ADP	preposition.gen	_	8	case	_	gloss=from
 7	τινος	τις	PRON	pron.fem.sg.gen	PronType=Ind|Gender=Fem|Number=Sing|Case=Gen	8	det	_	gloss=some
-8	ἀναδενδράδος	ἀναδενδρίς	NOUN	noun.fem.sg.gen	Gender=Fem|Number=Sing|Case=Gen	6	obl	_	gloss=vine
+8	ἀναδενδράδος	ἀναδενδρίς	NOUN	noun.fem.sg.gen	Gender=Fem|Number=Sing|Case=Gen	5	obl	_	gloss=vine
 9	βότρυας	βότρυς	NOUN	noun.masc.pl.acc	Gender=Masc|Number=Plur|Case=Acc	5	obj	_	gloss=bunches / grapes
 10	κρεμαμένους	κρεμάννυμι	VERB	verb.pres.ptcp.pass.masc.pl.acc	Aspect=Imp|Voice=Pass|Mood=Part|Tense=Pres|Gender=Masc|Number=Plur|Case=Acc	9	acl	_	gloss=hanging
 11	,	,	PUNCT	punctuation	_	10	punct	_	gloss=,
@@ -36,7 +36,7 @@
 22	ἑαυτὴν	ἑαυτοῦ	PRON	pron.fem.sg.acc	Gender=Fem|Number=Sing|Case=Acc	23	iobj	_	gloss=to herself
 23	εἶπεν	λέγω	VERB	verb.aor.ind.act.3sg	Aspect=Perf|Mood=Ind|Tense=Aor|Voice=Act|Number=Sing|Person=3	0	root	_	gloss=she said
 24	·	·	PUNCT	punctuation	_	23	punct	_	gloss=:
-25	Ὄμφακές	ὄμφαξ	NOUN	noun.fem.pl.nom	Gender=Fem|Number=Plur|Case=Nom	27	nsubj	_	gloss=sour grapes / green grapes
+25	Ὄμφακές	ὄμφαξ	NOUN	noun.fem.pl.nom	Gender=Fem|Number=Plur|Case=Nom	23	ccomp	_	gloss=sour grapes / green grapes
 26	εἰσιν	εἰμί	VERB	verb.pres.ind.act.3pl	Mood=Ind|Tense=Pres|VerbForm=Fin|Voice=Act|Number=Plur|Person=3	25	cop	_	gloss=they are
 27	.	.	PUNCT	punctuation	_	26	punct	_	gloss=.
 
@@ -53,9 +53,9 @@
 32	ἔνιοι	ἔνιοι	PRON	pron.masc.pl.nom	PronType=Ind|Gender=Masc|Number=Plur|Case=Nom	38	nsubj	_	gloss=some
 33	τῶν	ὁ	DET	article.neut.pl.gen	Definite=Def|PronType=Art|Gender=Neut|Number=Plur|Case=Gen	34	det	_	gloss=of the
 34	πραγμάτων	πρᾶγμα	NOUN	noun.neut.pl.gen	Gender=Neut|Number=Plur|Case=Gen	35	obl	_	gloss=things / affairs
-35	ἐφικέσθαι	ἐφικνέομαι	VERB	verb.aor.inf.mp	Aspect=Perf|Mood=Inf|Tense=Aor|Voice=Mid	38	xcomp	_	gloss=to reach / attain
+35	ἐφικέσθαι	ἐφικνέομαι	VERB	verb.aor.inf.mp	Aspect=Perf|Mood=Inf|Tense=Aor|Voice=Mid	37	xcomp	_	gloss=to reach / attain
 36	μὴ	μή	PART	neg.particle	Polarity=Neg	38	advmod	_	gloss=not
-37	δυνάμενοι	δύναμαι	VERB	verb.pres.ptcp.mp.masc.pl.nom	Aspect=Imp|Voice=Mid|Mood=Part|Tense=Pres|Gender=Masc|Number=Plur|Case=Nom	38	advcl	_	gloss=being able
+37	δυνάμενοι	δύναμαι	VERB	verb.pres.ptcp.mp.masc.pl.nom	Aspect=Imp|Voice=Mid|Mood=Part|Tense=Pres|Gender=Masc|Number=Plur|Case=Nom	42	advcl	_	gloss=being able
 38	δι'	διά	ADP	preposition.acc	_	39	case	_	gloss=on account of
 39	ἀσθένειαν	ἀσθένεια	NOUN	noun.fem.sg.acc	Gender=Fem|Number=Sing|Case=Acc	35	obl	_	gloss=weakness
 40	τοὺς	ὁ	DET	article.masc.pl.acc	Definite=Def|PronType=Art|Gender=Masc|Number=Plur|Case=Acc	41	det	_	gloss=the
