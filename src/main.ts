@@ -53,10 +53,10 @@ const translationClose = document.getElementById('translation-close') as HTMLBut
 // ── Color maps ─────────────────────────────────────────────────────────────
 
 const POS_COLORS: Record<string, string> = {
-  NOUN: '#e0af68', VERB: '#f7768e', ADJ: '#9ece6a', ADV: '#73daca',
-  DET: '#7dcfff', PRON: '#b4f9f8', PROPN: '#ff9e64', ADP: '#bb9af7',
-  CCONJ: '#9d7cd8', SCONJ: '#7aa2f7', PART: '#c0caf5', NUM: '#e06c75',
-  PUNCT: '#565f89', AUX: '#f7768e', INTJ: '#ff007f', X: '#565f89',
+  NOUN: '#d4903a', VERB: '#c44040', ADJ: '#6a9a4a', ADV: '#4a9a8a',
+  DET: '#6aaac8', PRON: '#6aaac8', PROPN: '#d4783a', ADP: '#9a7ac8',
+  CCONJ: '#7a5aaa', SCONJ: '#c9a84c', PART: '#e8d5b5', NUM: '#c86060',
+  PUNCT: '#7a6650', AUX: '#c44040', INTJ: '#d44080', X: '#7a6650',
 };
 
 const POS_LABELS: Record<string, string> = {
@@ -69,14 +69,14 @@ const POS_LABELS: Record<string, string> = {
 };
 
 const DEP_COLORS: Record<string, string> = {
-  'root': '#7aa2f7', 'nsubj': '#f7768e', 'obj': '#9ece6a',
-  'obl': '#bb9af7', 'obl:agent': '#bb9af7', 'advcl': '#73daca',
-  'acl': '#ff9e64', 'advmod': '#7dcfff', 'det': '#7dcfff',
-  'case': '#9d7cd8', 'conj': '#9d7cd8', 'cc': '#c0caf5',
-  'mark': '#7aa2f7', 'amod': '#9ece6a', 'nummod': '#e06c75',
-  'discourse': '#e0af68', 'xcomp': '#f7768e',
-  'ccomp': '#f7768e', 'cop': '#c0caf5', 'aux': '#c0caf5',
-  'nmod': '#bb9af7', 'fixed': '#565f89', 'punct': '#565f89',
+  'root': '#c9a84c', 'nsubj': '#c44040', 'obj': '#6a9a4a',
+  'obl': '#9a7ac8', 'obl:agent': '#9a7ac8', 'advcl': '#4a9a8a',
+  'acl': '#d4783a', 'advmod': '#6aaac8', 'det': '#6aaac8',
+  'case': '#7a5aaa', 'conj': '#7a5aaa', 'cc': '#e8d5b5',
+  'mark': '#c9a84c', 'amod': '#6a9a4a', 'nummod': '#c86060',
+  'discourse': '#d4903a', 'xcomp': '#c44040',
+  'ccomp': '#c44040', 'cop': '#e8d5b5', 'aux': '#e8d5b5',
+  'nmod': '#9a7ac8', 'fixed': '#7a6650', 'punct': '#7a6650',
 };
 
 // ── State ─────────────────────────────────────────────────────────────────
@@ -770,4 +770,4 @@ document.querySelectorAll('.nav-link').forEach(a => {
 
 handleRoute();
 
-console.log('🌳 conllu-viz ready');
+console.log('⚜ conllu-viz ready');

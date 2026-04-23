@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>conllu-viz — Dependency Tree Viewer &amp; SRS Study</title>
+  <title>conllu-viz — Noble Scriptorium</title>
 </head>
 <body>
   <!-- Global top-nav (shown on all pages) -->
   <nav id="top-nav">
-    <a href="#browser" class="nav-link" data-page="browser">📁 Files</a>
+    <a href="#browser" class="nav-link" data-page="browser">📜 Files</a>
     <span class="nav-divider">|</span>
     <a href="#tree" class="nav-link" data-page="tree" id="nav-tree" style="display:none">🌳 Tree</a>
     <span class="nav-divider" id="nav-tree-sep" style="display:none">|</span>
@@ -17,7 +17,7 @@
     <a href="#study" class="nav-link" data-page="study" id="nav-study" style="display:none">📝 Study</a>
     <span id="nav-title" class="nav-title"></span>
     <div class="nav-spacer"></div>
-    <span class="nav-hint">🌳 conllu-viz</span>
+    <span class="nav-hint">⚜ conllu-viz</span>
   </nav>
 
   <!-- Page content — filled by router -->
@@ -26,13 +26,13 @@
   <!-- Tree view — hidden until activated by router -->
   <div id="app" style="display:none">
     <header id="toolbar">
-      <h1>🌳 <span id="toolbar-title">conllu-viz</span></h1>
+      <h1>⚜ <span id="toolbar-title">conllu-viz</span></h1>
       <div id="toolbar-right">
-        <button id="btn-open" title="Open .conllu file">📂 Open</button>
+        <button id="btn-open" title="Open .conllu file">📜 Open</button>
         <input type="file" id="file-input" accept=".conllu,.conll,.txt" hidden />
         <button id="btn-reset" title="Reset zoom">↺ Reset</button>
         <button id="btn-legend-toggle" title="Toggle legend">📋 Legend</button>
-        <button id="btn-export" title="Export SVG">📥 SVG</button>
+        <button id="btn-export" title="Export SVG">🖋 SVG</button>
         <select id="lang-select" title="Translation language" style="display:none;padding:4px 8px;background:var(--bg-tertiary);color:var(--text-primary);border:1px solid var(--border-default);border-radius:var(--radius-sm);font-size:13px;"></select>
         <span id="file-name" class="filename"></span>
       </div>
@@ -53,7 +53,7 @@
         <div id="sentence-display"></div>
         <div id="drop-overlay">
           <div class="drop-content">
-            <span class="drop-icon">🌳</span>
+            <span class="drop-icon">⚜</span>
             <p>Drop a <code>.conllu</code> file here, or click <strong>Open</strong></p>
             <p class="hint">Supports multi-sentence CoNLL-U files</p>
           </div>

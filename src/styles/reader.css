@@ -151,7 +151,7 @@
 }
 
 .reader-title {
-  font-family: var(--font-greek);
+  font-family: var(--font-display), var(--font-greek);
   font-size: 24px;
   font-weight: 600;
   color: var(--text-primary);
@@ -275,7 +275,6 @@
 .reader-feats,
 .reader-dep {
   display: none;
-  font-family: var(--font-body);
   font-size: 12px;
   line-height: 1.3;
   text-align: center;
@@ -283,6 +282,17 @@
   max-width: 120px;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.reader-gloss,
+.reader-feats,
+.reader-dep {
+  font-family: var(--font-latin);
+}
+
+.reader-upos,
+.reader-xpos {
+  font-family: var(--font-body);
 }
 
 .reader-lemma {
@@ -359,6 +369,7 @@
   line-height: 1.5;
   margin-bottom: 4px;
   padding-bottom: 4px;
+  font-family: var(--font-latin);
 }
 
 /* When both prose and literal are showing, add a subtle divider */
@@ -371,6 +382,7 @@
   font-size: 13px;
   color: var(--text-muted);
   line-height: 1.5;
+  font-family: var(--font-latin);
 }
 
 .reader-translation-prose-label,

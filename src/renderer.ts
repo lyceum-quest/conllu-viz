@@ -11,7 +11,7 @@ const POS_COLORS: Record<string, string> = {
   NOUN: '#e0af68', VERB: '#f7768e', ADJ: '#9ece6a', ADV: '#73daca',
   DET: '#7dcfff', PRON: '#b4f9f8', PROPN: '#ff9e64', ADP: '#bb9af7',
   CCONJ: '#9d7cd8', SCONJ: '#7aa2f7', PART: '#c0caf5', NUM: '#e06c75',
-  PUNCT: '#565f89', AUX: '#f7768e', INTJ: '#ff007f', X: '#565f89',
+  PUNCT: '#8a92b8', AUX: '#f7768e', INTJ: '#ff007f', X: '#8a92b8',
 };
 
 const DEP_COLORS: Record<string, string> = {
@@ -24,7 +24,7 @@ const DEP_COLORS: Record<string, string> = {
   'cop': '#c0caf5', 'aux': '#c0caf5', 'nmod': '#bb9af7',
 };
 
-function posColor(t: Token): string { return POS_COLORS[t.upos] || '#565f89'; }
+function posColor(t: Token): string { return POS_COLORS[t.upos] || '#8a92b8'; }
 function depColor(d: string): string { return DEP_COLORS[d] || '#8892b0'; }
 
 const NS = 'http://www.w3.org/2000/svg';

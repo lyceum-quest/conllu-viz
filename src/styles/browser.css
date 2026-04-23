@@ -20,6 +20,7 @@
   padding: 2px 8px;
   border-radius: var(--radius-sm);
   transition: color var(--t-fast), background var(--t-fast);
+  font-family: var(--font-body);
 }
 
 .nav-link:hover {
@@ -49,9 +50,10 @@
 }
 
 .nav-hint {
-  font-size: 12px;
+  font-size: 13px;
   color: var(--text-muted);
-  letter-spacing: -0.3px;
+  letter-spacing: 0.5px;
+  font-family: var(--font-display);
 }
 
 /* ===== File Browser Page ===== */
@@ -68,6 +70,7 @@
   font-weight: 700;
   color: var(--accent);
   margin-bottom: 4px;
+  font-family: var(--font-display);
 }
 
 .browser-subtitle {
@@ -238,9 +241,9 @@
 }
 
 .file-card-actions .action-cram {
-  background: color-mix(in srgb, #e0af68 18%, var(--bg-secondary));
-  border-color: #e0af68;
-  color: #e0af68;
+  background: color-mix(in srgb, #d4903a 18%, var(--bg-secondary));
+  border-color: #d4903a;
+  color: #d4903a;
 }
 
 .file-card-actions button:disabled {

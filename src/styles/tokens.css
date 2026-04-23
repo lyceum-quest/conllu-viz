@@ -1,50 +1,55 @@
 /* ==========================================================================
-   Design Tokens — dark mode, colorblind-friendly
+   Design Tokens — noble / uncial theme
    ========================================================================== */
 
+@import url('https://fonts.googleapis.com/css2?family=Uncial+Antiqua&family=Cinzel:wght@400;600;700&family=Cinzel+Decorative:wght@400;700&display=swap');
+
 :root {
-  --bg-primary: #1a1b26;
-  --bg-secondary: #1e1e2e;
-  --bg-tertiary: #2a2a3e;
-  --bg-surface: #242438;
-  --bg-hover: #33334d;
+  --bg-primary: #141010;
+  --bg-secondary: #1c1614;
+  --bg-tertiary: #2a2018;
+  --bg-surface: #221a16;
+  --bg-hover: #352a20;
 
-  --text-primary: #c0caf5;
-  --text-secondary: #8892b0;
-  --text-muted: #565f89;
+  --text-primary: #e8d5b5;
+  --text-secondary: #b89e78;
+  --text-muted: #9a8268;
 
-  --border-subtle: #292e42;
-  --border-default: #3b4261;
-  --border-focus: #7aa2f7;
+  --border-subtle: #3e3224;
+  --border-default: #4a3a28;
+  --border-focus: #c9a84c;
 
-  --accent: #7aa2f7;
-  --accent-warn: #e0af68;
-  --accent-danger: #f7768e;
-  --accent-success: #9ece6a;
+  --accent: #c9a84c;
+  --accent-warn: #d4903a;
+  --accent-danger: #c44040;
+  --accent-success: #6a9a4a;
 
-  /* POS colors — colorblind-safe palette */
-  --pos-NOUN: #e0af68;
-  --pos-VERB: #f7768e;
-  --pos-ADJ: #9ece6a;
-  --pos-ADV: #73daca;
-  --pos-DET: #7dcfff;
-  --pos-PRON: #7dcfff;
-  --pos-PROPN: #ff9e64;
-  --pos-ADP: #bb9af7;
-  --pos-CCONJ: #9d7cd8;
-  --pos-SCONJ: #7aa2f7;
-  --pos-PART: #c0caf5;
-  --pos-NUM: #e06c75;
-  --pos-PUNCT: #565f89;
-  --pos-AUX: #f7768e;
-  --pos-INTJ: #ff007f;
-  --pos-X: #565f89;
+  /* POS colors — noble palette */
+  --pos-NOUN: #d4903a;
+  --pos-VERB: #d45050;
+  --pos-ADJ: #6a9a4a;
+  --pos-ADV: #4a9a8a;
+  --pos-DET: #6aaac8;
+  --pos-PRON: #6aaac8;
+  --pos-PROPN: #d4783a;
+  --pos-ADP: #9a7ac8;
+  --pos-CCONJ: #9a72c0;
+  --pos-SCONJ: #c9a84c;
+  --pos-PART: #e8d5b5;
+  --pos-NUM: #c86060;
+  --pos-PUNCT: #9a8268;
+  --pos-AUX: #d45050;
+  --pos-INTJ: #e04890;
+  --pos-X: #9a8268;
 
-  --edge-color: #3b4261;
-  --root-border: #7aa2f7;
+  --edge-color: #7a6848;
+  --root-border: #c9a84c;
 
-  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-body: 'Cinzel', 'Palatino Linotype', 'Book Antiqua', serif;
+  --font-latin: 'Palatino Linotype', 'Book Antiqua', 'Georgia', serif;
   --font-greek: 'Noto Serif', 'Gentium', 'Palatino Linotype', 'Times New Roman', serif;
+  --font-display: 'Cinzel Decorative', 'Uncial Antiqua', 'Palatino Linotype', serif;
+  --font-uncial: 'Uncial Antiqua', 'Cinzel Decorative', serif;
 
   --radius-sm: 4px;
   --radius-md: 6px;
