@@ -50,7 +50,7 @@
 29	·	·	PUNCT	punctuation	_	25	punct	_	gloss=:
 30	λιμὸς	λιμός	NOUN	noun.masc.sg.nom	Gender=Masc|Number=Sing|Case=Nom	31	nsubj	_	gloss=hunger
 31	γὰρ	γάρ	CCONJ	conjunction	_	32	cc	_	gloss=for
-32	ἡ	ὁ	DET	article.fem.sg.nom	Definite=Def|PronType=Art|Gender=Fem|Number=Sing|Case=Nom	33	det	_	gloss=the
+32	ἡ	ὁ	DET	article.fem.sg.nom	Definite=Def|PronType=Art|Gender=Fem|Number=Sing|Case=Nom	34	det	_	gloss=the
 33	κλοιοῦ	κλοῖος	NOUN	noun.masc.sg.gen	Gender=Masc|Number=Sing|Case=Gen	34	nmod	_	gloss=chain
 34	βαρύτης	βαρύτης	NOUN	noun.masc.sg.nom	Gender=Masc|Number=Sing|Case=Nom	25	parataxis	_	gloss=weight
 35	.	.	PUNCT	punctuation	_	34	punct	_	gloss=.
@@ -64,7 +64,7 @@
 36	Ὁ	ὁ	DET	article.masc.sg.nom	Definite=Def|PronType=Art|Gender=Masc|Number=Sing|Case=Nom	37	det	_	gloss=the
 37	λόγος	λόγος	NOUN	noun.masc.sg.nom	Gender=Masc|Number=Sing|Case=Nom	38	nsubj	_	gloss=saying
 38	δηλοῖ	δηλόω	VERB	verb.pres.ind.act.3sg	Aspect=Imp|Mood=Ind|Tense=Pres|Voice=Act|Number=Sing|Person=3	0	root	_	gloss=shows
-39	τὸ	ὁ	DET	article.neut.sg.acc	Definite=Def|PronType=Art|Gender=Neut|Number=Sing|Case=Acc	41	det	_	gloss=the
+39	τὸ	ὁ	DET	article.neut.sg.acc	Definite=Def|PronType=Art|Gender=Neut|Number=Sing|Case=Acc	44	det	_	gloss=the
 40	ἐν	ἐν	ADP	preposition.dat	_	41	case	_	gloss=in
 41	ταῖς	ὁ	DET	article.fem.pl.dat	Definite=Def|PronType=Art|Gender=Fem|Number=Plur|Case=Dat	42	det	_	gloss=the
 42	συμφοραῖς	συμφορά	NOUN	noun.fem.pl.dat	Gender=Fem|Number=Plur|Case=Dat	43	obl	_	gloss=misfortunes

@@ -55,8 +55,8 @@
 34	φιλονεικοῦντες	φιλονεικέω	VERB	verb.pres.ptcp.act.masc.pl.nom	Aspect=Imp|Mood=Part|Tense=Pres|Voice=Act|Gender=Masc|Number=Plur|Case=Nom	40	acl	_	gloss=contending / quarreling
 35	τοῖς	ὁ	DET	article.masc.pl.dat	Definite=Def|PronType=Art|Gender=Masc|Number=Plur|Case=Dat	40	obl	_	gloss=with the
 36	κρείττοσι	κρείττων	ADJ	adj.masc.pl.dat	Degree=Cmp|Gender=Masc|Number=Plur|Case=Dat	35	amod	_	gloss=stronger ones
-37	τῆς	ὁ	DET	article.fem.sg.gen	Definite=Def|PronType=Art|Gender=Fem|Number=Sing|Case=Gen	40	det	_	gloss=of their own
-38	ἑαυτῶν	ἑαυτοῦ	PRON	pron.masc.pl.gen	Gender=Masc|Number=Plur|Case=Gen	37	nmod	_	gloss=themselves
+37	τῆς	ὁ	DET	article.fem.sg.gen	Definite=Def|PronType=Art|Gender=Fem|Number=Sing|Case=Gen	39	det	_	gloss=of their own
+38	ἑαυτῶν	ἑαυτοῦ	PRON	pron.masc.pl.gen	Gender=Masc|Number=Plur|Case=Gen	39	nmod	_	gloss=themselves
 39	σωτηρίας	σωτηρία	NOUN	noun.fem.sg.gen	Gender=Fem|Number=Sing|Case=Gen	40	obj	_	gloss=safety
 40	καταφρονοῦσι	καταφρονέω	VERB	verb.pres.ind.act.3pl	Aspect=Imp|Mood=Ind|Tense=Pres|Voice=Act|Number=Plur|Person=3	31	ccomp	_	gloss=disregard / despise
 41	.	.	PUNCT	punctuation	_	40	punct	_	gloss=.

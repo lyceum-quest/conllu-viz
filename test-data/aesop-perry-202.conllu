@@ -46,7 +46,7 @@
 25	τοσοῦτον	τοσοῦτος	PRON	pron.neut.sg.acc	PronType=Dem|Gender=Neut|Number=Sing|Case=Acc	28	advmod	_	gloss=so much
 26	περισσοτέρους	περισσός	ADJ	adj.masc.pl.acc	Degree=Cmp|Gender=Masc|Number=Plur|Case=Acc	28	amod	_	gloss=more
 27	δούλους	δοῦλος	NOUN	noun.masc.pl.acc	Gender=Masc|Number=Plur|Case=Acc	28	obj	_	gloss=slaves
-28	συνάξεις	συνάγω	VERB	verb.fut.ind.act.2sg	Aspect=Perf|Mood=Ind|Tense=Fut|Voice=Act|Number=Sing|Person=2	16	ccomp	_	gloss=you will gather
+28	συνάξεις	συνάγω	VERB	verb.fut.ind.act.2sg	Mood=Ind|Tense=Fut|Voice=Act|Number=Sing|Person=2	16	ccomp	_	gloss=you will gather
 29	.	.	PUNCT	punctuation	_	28	punct	_	gloss=.
 
 # sent_id = perry-202-s4

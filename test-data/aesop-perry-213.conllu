@@ -55,7 +55,7 @@
 34	τῶν	ὁ	DET	article.masc.pl.gen	Definite=Def|PronType=Art|Gender=Masc|Number=Plur|Case=Gen	35	det	_	gloss=of the
 35	ἀμεινόνων	ἀμείνων	ADJ	adj.masc.pl.gen	Degree=Cmp|Gender=Masc|Number=Plur|Case=Gen	33	nmod	_	gloss=better
 36	καὶ	καί	CCONJ	conjunction	_	38	cc	_	gloss=even
-37	οἱ	ὁ	DET	article.masc.pl.nom	Definite=Def|PronType=Art|Gender=Masc|Number=Plur|Case=Nom	38	det	_	gloss=those
+37	οἱ	ὁ	DET	article.masc.pl.nom	Definite=Def|PronType=Art|Gender=Masc|Number=Plur|Case=Nom	39	det	_	gloss=those
 38	μηδενὸς	μηδείς	PRON	pron.neut.sg.gen	PronType=Neg|Gender=Neut|Number=Sing|Case=Gen	39	nmod	_	gloss=nothing
 39	ἄξιοι	ἄξιος	ADJ	adj.masc.pl.nom	Degree=Pos|Gender=Masc|Number=Plur|Case=Nom	41	nsubj	_	gloss=worthy
 40	πειρῶνται	πειράω	VERB	verb.pres.ind.mp.3pl	Aspect=Imp|Mood=Ind|Tense=Pres|Voice=Mid|Number=Plur|Person=3	29	ccomp	_	gloss=they try

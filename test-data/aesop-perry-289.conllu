@@ -12,7 +12,7 @@
 5	τῇ	ὁ	DET	article.fem.sg.dat	Definite=Def|PronType=Art|Gender=Fem|Number=Sing|Case=Dat	6	det	_	gloss=the
 6	λίμνῃ	λίμνη	NOUN	noun.fem.sg.dat	Gender=Fem|Number=Sing|Case=Dat	1	obl	_	gloss=lake
 7	καὶ	καί	CCONJ	conjunction	_	8	cc	_	gloss=and
-8	τοῖς	ὁ	DET	article.masc.pl.dat	Definite=Def|PronType=Art|Gender=Masc|Number=Plur|Case=Dat	9	det	_	gloss=to the
+8	τοῖς	ὁ	DET	article.neut.pl.dat	Definite=Def|PronType=Art|Gender=Neut|Number=Plur|Case=Dat	9	det	_	gloss=to the
 9	ζώοις	ζῷον	NOUN	noun.neut.pl.dat	Gender=Neut|Number=Plur|Case=Dat	11	iobj	_	gloss=animals
 10	πᾶσιν	πᾶς	ADJ	adj.neut.pl.dat	Degree=Pos|Gender=Neut|Number=Plur|Case=Dat	9	amod	_	gloss=all
 11	ἀναβοήσαντος	ἀναβοάω	VERB	verb.aor.ptcp.act.masc.sg.gen	Aspect=Perf|Mood=Part|Tense=Aor|Voice=Act|Gender=Masc|Number=Sing|Case=Gen	1	conj	_	gloss=having cried out
@@ -37,7 +37,7 @@
 23	Πῶς	πῶς	ADV	adverb	_	26	advmod	_	gloss=how
 24	σύ	σύ	PRON	pron.masc.sg.nom	PronType=Prs|Gender=Masc|Number=Sing|Case=Nom	26	nsubj	_	gloss=you
 25	ἄλλους	ἄλλος	PRON	pron.masc.pl.acc	PronType=Ind|Gender=Masc|Number=Plur|Case=Acc	26	obj	_	gloss=others
-26	σώσεις	σῴζω	VERB	verb.fut.ind.act.2sg	Aspect=Perf|Mood=Ind|Tense=Fut|Voice=Act|Number=Sing|Person=2	21	ccomp	_	gloss=you will save
+26	σώσεις	σῴζω	VERB	verb.fut.ind.act.2sg	Mood=Ind|Tense=Fut|Voice=Act|Number=Sing|Person=2	21	ccomp	_	gloss=you will save
 27	σεαυτὸν	σεαυτοῦ	PRON	pron.masc.sg.acc	PronType=Ref|Gender=Masc|Number=Sing|Case=Acc	30	obj	_	gloss=yourself
 28	χωλὸν	χωλός	ADJ	adj.masc.sg.acc	Degree=Pos|Gender=Masc|Number=Sing|Case=Acc	27	amod	_	gloss=lame
 29	ὄντα	εἰμί	VERB	verb.pres.ptcp.act.masc.sg.acc	Aspect=Imp|Mood=Part|Tense=Pres|Voice=Act|Gender=Masc|Number=Sing|Case=Acc	27	acl	_	gloss=being
@@ -55,12 +55,12 @@
 34	μῦθος	μῦθος	NOUN	noun.masc.sg.nom	Gender=Masc|Number=Sing|Case=Nom	35	nsubj	_	gloss=story
 35	δηλοῖ	δηλόω	VERB	verb.pres.ind.act.3sg	Aspect=Imp|Mood=Ind|Tense=Pres|Voice=Act|Number=Sing|Person=3	0	root	_	gloss=shows
 36	ὅτι	ὅτι	SCONJ	conjunction	_	40	mark	_	gloss=that
-37	ὁ	ὁ	DET	article.masc.sg.nom	Definite=Def|PronType=Art|Gender=Masc|Number=Sing|Case=Nom	38	det	_	gloss=the
+37	ὁ	ὁ	DET	article.masc.sg.nom	Definite=Def|PronType=Art|Gender=Masc|Number=Sing|Case=Nom	39	det	_	gloss=the
 38	παιδείας	παιδεία	NOUN	noun.fem.sg.gen	Gender=Fem|Number=Sing|Case=Gen	39	nmod	_	gloss=education
 39	ἀμύητος	ἀμύητος	ADJ	adj.masc.sg.nom	Degree=Pos|Gender=Masc|Number=Sing|Case=Nom	40	nsubj	_	gloss=uninitiated
 40	ὑπάρχων	ὑπάρχω	VERB	verb.pres.ptcp.act.masc.sg.nom	Aspect=Imp|Mood=Part|Tense=Pres|Voice=Act|Gender=Masc|Number=Sing|Case=Nom	41	acl	_	gloss=being
 41	πῶς	πῶς	ADV	adverb	_	43	advmod	_	gloss=how
 42	ἄλλους	ἄλλος	PRON	pron.masc.pl.acc	PronType=Ind|Gender=Masc|Number=Plur|Case=Acc	44	obj	_	gloss=others
 43	παιδεῦσαι	παιδεύω	VERB	verb.aor.inf.act	Aspect=Perf|Mood=Inf|Tense=Aor|Voice=Act	44	xcomp	_	gloss=to educate
-44	δυνήσεται	δύναμαι	VERB	verb.fut.ind.mp.3sg	Aspect=Perf|Mood=Ind|Tense=Fut|Voice=Mid|Number=Sing|Person=3	35	ccomp	_	gloss=he will be able
+44	δυνήσεται	δύναμαι	VERB	verb.fut.ind.mp.3sg	Mood=Ind|Tense=Fut|Voice=Mid|Number=Sing|Person=3	35	ccomp	_	gloss=he will be able
 45	;	;	PUNCT	punctuation	_	44	punct	_	gloss=?

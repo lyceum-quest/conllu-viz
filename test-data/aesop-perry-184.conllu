@@ -42,7 +42,7 @@
 28	ὅπως	ὅπως	SCONJ	conjunction	_	31	mark	_	gloss=so that
 29	αὐτῇ	αὐτός	PRON	pron.fem.sg.dat	Gender=Fem|Number=Sing|Case=Dat	31	iobj	_	gloss=to her
 30	κέρατα	κέρας	NOUN	noun.neut.pl.acc	Gender=Neut|Number=Plur|Case=Acc	31	obj	_	gloss=horns
-31	προσνείμῃ	προσνέμω	VERB	verb.aor.subj.act.3sg	Mood=Subj|Tense=Aor|Voice=Act|Number=Sing|Person=3	26	advcl	_	gloss=he would grant
+31	προσνείμῃ	προσνέμω	VERB	verb.aor.subj.act.3sg	Mood=Sub|Tense=Aor|Voice=Act|Number=Sing|Person=3	26	advcl	_	gloss=he would grant
 32	.	.	PUNCT	punctuation	_	31	punct	_	gloss=.
 
 # sent_id = perry-184-s3
@@ -59,7 +59,7 @@
 38	αὐτῆς	αὐτός	PRON	pron.fem.sg.gen	Gender=Fem|Number=Sing|Case=Gen	36	obl	_	gloss=her
 39	,	,	PUNCT	punctuation	_	38	punct	_	gloss=,
 40	εἴγε	εἴγε	SCONJ	conjunction	_	43	mark	_	gloss=since indeed / if indeed
-41	ἀρκοῖτο	ἀρκέω	VERB	verb.impf.subj.mp.3sg	Aspect=Imp|Mood=Subj|Tense=Imp|Voice=Mid|Number=Sing|Person=3	36	advcl	_	gloss=she was content / satisfied
+41	ἀρκοῖτο	ἀρκέω	VERB	verb.impf.subj.mp.3sg	Aspect=Imp|Mood=Sub|Tense=Imp|Voice=Mid|Number=Sing|Person=3	36	advcl	_	gloss=she was content / satisfied
 42	μὴ	μή	PART	neg.particle	Polarity=Neg	41	advmod	_	gloss=not
 43	τῷ	ὁ	DET	article.neut.sg.dat	Definite=Def|PronType=Art|Gender=Neut|Number=Sing|Case=Dat	44	det	_	gloss=the
 44	μεγέθει	μέγεθος	NOUN	noun.neut.sg.dat	Gender=Neut|Number=Sing|Case=Dat	41	obl	_	gloss=size / magnitude

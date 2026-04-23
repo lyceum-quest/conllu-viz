@@ -44,7 +44,7 @@
 30	πρώτης	πρῶτος	ADJ	adj.fem.sg.gen	Degree=Sup|Gender=Fem|Number=Sing|Case=Gen	31	amod	_	gloss=first
 31	τοῦ	ὁ	DET	article.neut.sg.gen	Definite=Def|PronType=Art|Gender=Neut|Number=Sing|Case=Gen	32	det	_	gloss=the
 32	ἀδικεῖν	ἀδικέω	VERB	verb.pres.inf.act	Aspect=Imp|Mood=Inf|Tense=Pres|Voice=Act	33	xcomp	_	gloss=to do wrong
-33	ἄρξεται	ἄρχω	VERB	verb.fut.ind.mp.3sg	Aspect=Perf|Mood=Ind|Tense=Fut|Voice=Mid|Number=Sing|Person=3	24	acl:relcl	_	gloss=will begin
+33	ἄρξεται	ἄρχω	VERB	verb.fut.ind.mp.3sg	Mood=Ind|Tense=Fut|Voice=Mid|Number=Sing|Person=3	24	acl:relcl	_	gloss=will begin
 34	;	;	PUNCT	punctuation	_	33	punct	_	gloss=?
 
 # sent_id = perry-192-s3

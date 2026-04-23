@@ -21,7 +21,7 @@
 # literal_translation = But he, having seen the boy's simplicity, having sharpened the sting, said.
 8	Ὁ	ὁ	DET	article.masc.sg.nom	Definite=Def|PronType=Art|Gender=Masc|Number=Sing|Case=Nom	17	nsubj	_	gloss=he
 9	δὲ	δέ	CCONJ	conjunction	_	17	cc	_	gloss=but
-10	τὸ	ὁ	DET	article.neut.sg.acc	Definite=Def|PronType=Art|Gender=Neut|Number=Sing|Case=Acc	14	det	_	gloss=the
+10	τὸ	ὁ	DET	article.neut.sg.acc	Definite=Def|PronType=Art|Gender=Neut|Number=Sing|Case=Acc	13	det	_	gloss=the
 11	τοῦ	ὁ	DET	article.masc.sg.gen	Definite=Def|PronType=Art|Gender=Masc|Number=Sing|Case=Gen	12	det	_	gloss=of the
 12	παιδὸς	παῖς	NOUN	noun.masc.sg.gen	Gender=Masc|Number=Sing|Case=Gen	13	nmod	_	gloss=boy
 13	ἁπλοῦν	ἁπλοῦς	ADJ	adj.neut.sg.acc	Degree=Pos|Gender=Neut|Number=Sing|Case=Acc	14	obj	_	gloss=simplicity / simplicity
@@ -47,12 +47,12 @@
 26	καὶ	καί	CCONJ	conjunction	_	27	cc	_	gloss=and
 27	σώζου	σῴζω	VERB	verb.pres.imper.mp.2sg	Mood=Imp|Tense=Pres|VerbForm=Fin|Voice=Mid|Number=Sing|Person=2	22	conj	_	gloss=be saved / save yourself
 28	μὴ	μή	PART	neg.particle	Polarity=Neg	31	advmod	_	gloss=lest / not
-29	κἀμὲ	καί	CONJ	conjunction	_	31	obl	_	gloss=also me
+29	κἀμὲ	καί	CCONJ	conjunction	_	31	obl	_	gloss=also me
 30	θηρεύων	θηρεύω	VERB	verb.pres.ptcp.act.masc.sg.nom	Aspect=Imp|Mood=Part|Tense=Pres|Voice=Act|Gender=Masc|Number=Sing|Case=Nom	31	advcl	_	gloss=hunting
 31	πάσας	πᾶς	ADJ	adj.fem.pl.acc	Degree=Pos|Gender=Fem|Number=Plur|Case=Acc	34	obj	_	gloss=all
 32	ἃς	ὅς	PRON	pron.fem.pl.acc	PronType=Rel|Gender=Fem|Number=Plur|Case=Acc	34	obj	_	gloss=which
 33	ἔχεις	ἔχω	VERB	verb.pres.ind.act.2sg	Aspect=Imp|Mood=Ind|Tense=Pres|Voice=Act|Number=Sing|Person=2	31	acl:relcl	_	gloss=you have
-34	ἀπολέσῃς	ἀπόλλυμι	VERB	verb.aor.subj.act.2sg	Mood=Subj|Tense=Aor|Voice=Act|Number=Sing|Person=2	27	advcl	_	gloss=you lose
+34	ἀπολέσῃς	ἀπόλλυμι	VERB	verb.aor.subj.act.2sg	Mood=Sub|Tense=Aor|Voice=Act|Number=Sing|Person=2	27	advcl	_	gloss=you lose
 35	.	.	PUNCT	punctuation	_	34	punct	_	gloss=.
 
 # sent_id = perry-199-s4

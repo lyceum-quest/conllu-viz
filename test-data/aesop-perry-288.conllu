@@ -1,6 +1,6 @@
 # title = The Bear and the Fox
 # sent_id = perry-288-s1
-# text = Ἄρκος μεγάλως ἐκαυχᾶτο ὡς φιλάνθρωπος ὤν, ἐπεὶ νεκρὸν σῶμα οὐκ ἐσθίει·
+# text = Ἄρκτος μεγάλως ἐκαυχᾶτο ὡς φιλάνθρωπος ὤν, ἐπεὶ νεκρὸν σῶμα οὐκ ἐσθίει·
 # parallel_id = lyceum-aesop-p288/s1
 # translation_lang = en
 # prose_translation = A bear was boasting greatly that he was humane, on the grounds that he does not eat dead bodies.
@@ -13,14 +13,14 @@
 6	ὤν	εἰμί	VERB	verb.pres.ptcp.act.masc.sg.nom	Aspect=Imp|Mood=Part|Tense=Pres|Voice=Act|Gender=Masc|Number=Sing|Case=Nom	5	cop	_	gloss=being
 7	,	,	PUNCT	punctuation	_	6	punct	_	gloss=,
 8	ἐπεὶ	ἐπεί	SCONJ	conjunction	_	12	mark	_	gloss=since
-9	νεκρὸν	νεκρός	ADJ	adj.masc.sg.acc	Degree=Pos|Gender=Masc|Number=Sing|Case=Acc	10	amod	_	gloss=dead
+9	νεκρὸν	νεκρός	ADJ	adj.neut.sg.acc	Degree=Pos|Gender=Neut|Number=Sing|Case=Acc	10	amod	_	gloss=dead
 10	σῶμα	σῶμα	NOUN	noun.neut.sg.acc	Gender=Neut|Number=Sing|Case=Acc	12	obj	_	gloss=body / corpse
 11	οὐκ	οὐ	PART	neg.particle	Polarity=Neg	12	advmod	_	gloss=not
 12	ἐσθίει	ἐσθίω	VERB	verb.pres.ind.act.3sg	Aspect=Imp|Mood=Ind|Tense=Pres|Voice=Act|Number=Sing|Person=3	3	advcl	_	gloss=he eats
 13	·	·	PUNCT	punctuation	_	12	punct	_	gloss=:
 
 # sent_id = perry-288-s2
-# text = πρὸς ὃν ἡ ἀλώπηξ εἶπεν· Εἴθε νεκροὺς εἷλκες, ἀλλὰ μὴ τοὺ ζῶντας
+# text = πρὸς ὃν ἡ ἀλώπηξ εἶπεν· Εἴθε νεκροὺς εἷλκες, ἀλλὰ μὴ τοὺς ζῶντας
 # parallel_id = lyceum-aesop-p288/s2
 # translation_lang = en
 # prose_translation = To him the fox said, "If only you would eat the dead, but not the living!"

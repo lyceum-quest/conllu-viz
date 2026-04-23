@@ -12,7 +12,7 @@
 5	ὑποκριτοῦ	ὑποκριτής	NOUN	noun.masc.sg.gen	Gender=Masc|Number=Sing|Case=Gen	3	nmod	_	gloss=actor
 6	καὶ	καί	CCONJ	conjunction	_	8	cc	_	gloss=and
 7	ἕκαστα	ἕκαστος	ADJ	adj.neut.pl.acc	Degree=Pos|Gender=Neut|Number=Plur|Case=Acc	11	obj	_	gloss=each
-8	τῶν	ὁ	DET	article.neut.pl.gen	Definite=Def|PronType=Art|Gender=Neut|Number=Plur|Case=Gen	9	det	_	gloss=of the
+8	τῶν	ὁ	DET	article.fem.pl.gen	Definite=Def|PronType=Art|Gender=Fem|Number=Plur|Case=Gen	10	det	_	gloss=of the
 9	αὐτοῦ	αὐτός	PRON	pron.masc.sg.gen	PronType=Prs|Gender=Masc|Number=Sing|Case=Gen	10	nmod	_	gloss=his
 10	σκευῶν	σκευή	NOUN	noun.fem.pl.gen	Gender=Fem|Number=Plur|Case=Gen	7	nmod	_	gloss=equipment
 11	διερευνωμένη	διερευνάω	VERB	verb.pres.ptcp.mp.fem.sg.nom	Aspect=Imp|Mood=Part|Tense=Pres|Voice=Mid|Gender=Fem|Number=Sing|Case=Nom	4	conj	_	gloss=searching through
