@@ -2,6 +2,8 @@
 
 Interactive visualizer for [CoNLL-U](https://universaldependencies.org/format.html) dependency trees, built for Ancient Greek language learning.
 
+**Live:** [conllu.lyceum.quest](https://conllu.lyceum.quest)
+
 ## Features
 
 - **Dependency tree view** — Pan/zoom SVG trees with color-coded POS tags and dependency relations. Click any node for full morphology analysis.
@@ -62,6 +64,18 @@ src/
   styles/       CSS
 test-data/      Sample CoNLL-U files (Aesop, Xenophon)
 ```
+
+## CoNLL-U Pipeline
+
+The [docs/CONLLU.md](docs/CONLLU.md) guide covers how to add new Aesop fables to the project — from retrieving the Greek text through building, tagging, and validating CoNLL-U files. It includes:
+
+- Tracking table of completed fables (22 done, ordered by difficulty)
+- Step-by-step instructions: get Greek text → segment → build CoNLL-U → translate → build dependency tree → validate → save
+- XPOS tagging conventions for verb and noun morphology
+- Header metadata format (sentence ID, translations, parallel IDs)
+- Dependency relation conventions for Ancient Greek
+
+The `test-data/` directory contains the finished CoNLL-U files referenced in that guide (Aesop fables plus Xenophon's Anabasis).
 
 ## License
 
