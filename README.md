@@ -79,4 +79,4 @@ The `test-data/` directory contains the finished CoNLL-U files referenced in tha
 
 ## License
 
-Private
+[MIT](LICENSE)
