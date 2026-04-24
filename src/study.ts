@@ -313,6 +313,43 @@ function onKeydown(e: KeyboardEvent) {
     return;
   }
 
+  // Arrow Left/Right — move to previous/next sentence
+  if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
+    e.preventDefault();
+    const st = state;
+    if (!st) return;
+    const sentences = st.sentences;
+    // Find the last selected sentence to determine current position
+    const selectedArr = orderedSelectedSentences(sentences, st.selectedSentences);
+    const lastSelectedId = selectedArr[selectedArr.length - 1];
+    const currentSentIdx = sentences.findIndex(s => s.id === lastSelectedId);
+    if (currentSentIdx === -1) return;
+    const nextIdx = e.key === 'ArrowRight'
+      ? Math.min(currentSentIdx + 1, sentences.length - 1)
+      : Math.max(currentSentIdx - 1, 0);
+    if (nextIdx !== currentSentIdx) {
+      moveStudyToSentence(sentences[nextIdx].id);
+    }
+    return;
+  }
+
+  // Arrow Up/Down — move to previous/next work
+  if (e.key === 'ArrowUp' || e.key === 'ArrowDown') {
+    e.preventDefault();
+    const st = state;
+    if (!st) return;
+    const files = listFiles(st.store);
+    const currentIdx = files.findIndex(f => f.id === st.fileId);
+    if (currentIdx === -1) return;
+    const nextIdx = e.key === 'ArrowDown'
+      ? Math.min(currentIdx + 1, files.length - 1)
+      : Math.max(currentIdx - 1, 0);
+    if (nextIdx !== currentIdx) {
+      leaveStudy('study', files[nextIdx].id, { studyMode: st.mode });
+    }
+    return;
+  }
+
   // S key — toggle sentence selector
   if (e.key.toLowerCase() === 's') {
     e.preventDefault();
@@ -783,8 +820,8 @@ function createRatings(container: Element, cardKey: string) {
   const help = document.createElement('div');
   help.className = 'study-kbd-hint';
   help.innerHTML = state && isCramMode(state)
-    ? '<kbd>Space</kbd> flip · <kbd>1</kbd><kbd>2</kbd><kbd>3</kbd><kbd>4</kbd> rate · <kbd>S</kbd> sentences · <kbd>Esc</kbd> back · session only'
-    : '<kbd>Space</kbd> flip · <kbd>1</kbd><kbd>2</kbd><kbd>3</kbd><kbd>4</kbd> rate · <kbd>S</kbd> sentences · <kbd>Esc</kbd> back';
+    ? '<kbd>Space</kbd> flip · <kbd>1</kbd><kbd>2</kbd><kbd>3</kbd><kbd>4</kbd> rate · <kbd>←</kbd><kbd>→</kbd> sentence · <kbd>↑</kbd><kbd>↓</kbd> work · <kbd>S</kbd> select · <kbd>Esc</kbd> back · session only'
+    : '<kbd>Space</kbd> flip · <kbd>1</kbd><kbd>2</kbd><kbd>3</kbd><kbd>4</kbd> rate · <kbd>←</kbd><kbd>→</kbd> sentence · <kbd>↑</kbd><kbd>↓</kbd> work · <kbd>S</kbd> select · <kbd>Esc</kbd> back';
   wrap.appendChild(help);
 
   container.appendChild(wrap);
