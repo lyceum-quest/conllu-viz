@@ -496,6 +496,19 @@ function restartStudyWithSelection(selectedSentences: Set<string>) {
 }
 
 function moveStudyToSentence(sentenceId: string) {
+  if (!state) return;
+  // Reset nextReview for cards in the target sentence so they appear fresh,
+  // not skipped as "future" cards (same logic as "Review Again" button)
+  if (!isCramMode(state)) {
+    const targetKeys = state.allKeys.filter(key => parseTokenKey(key).sentId === sentenceId);
+    for (const key of targetKeys) {
+      if (state.session.tokens[key]) {
+        state.session.tokens[key].nextReview = 0;
+      }
+    }
+    state.store.sessions[state.fileId] = state.session;
+    saveStore(state.store);
+  }
   restartStudyWithSelection(new Set([sentenceId]));
 }
 
