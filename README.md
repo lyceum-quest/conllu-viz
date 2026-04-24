@@ -1,6 +1,6 @@
 # conllu-viz
 
-Interactive visualizer for [CoNLL-U](https://universaldependencies.org/format.html) dependency trees, built for Ancient Greek language learning.
+Interactive visualizer for [CoNLL-U](https://universaldependencies.org/format.html) dependency trees, built for Ancient Greek language learning. Part of the [Lyceum](https://lyceum.quest) project.
 
 **Live:** [conllu.lyceum.quest](https://conllu.lyceum.quest)
 
