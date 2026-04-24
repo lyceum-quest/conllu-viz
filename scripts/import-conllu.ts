@@ -89,8 +89,8 @@ Options:
   --help, -h    Show this help
 
 Examples:
-  tsx scripts/import-conllu.ts test-data/aesop-perry-257.conllu
-  tsx scripts/import-conllu.ts test-data/ --dry-run
+  tsx scripts/import-conllu.ts conllu/aesop/fables/perry-257.conllu
+  tsx scripts/import-conllu.ts conllu/ --dry-run
   tsx scripts/import-conllu.ts . --migrate-only
 `);
 }
