@@ -141,5 +141,115 @@
     "editionLabel": "Aesop, Perry 27 (The Fox and the Actor's Mask)",
     "editionType": "treebank",
     "editionDescription": "CoNLL-U treebank edition of Aesop's Fable 27"
+  },
+  "aesop-perry-29.conllu": {
+    "editionUrn": "urn:cts:greekLit:tlg0096.tlg001.workspace-grc1-perry029",
+    "authorUrn": "urn:cts:greekLit:tlg0096",
+    "authorName": "Aesop",
+    "workUrn": "urn:cts:greekLit:tlg0096.tlg001",
+    "workTitle": "Aesop, Fables",
+    "language": "grc",
+    "editionLabel": "Aesop, Perry 29 (The Charcoal Burner and the Fuller)",
+    "editionType": "treebank",
+    "editionDescription": "CoNLL-U treebank edition of Aesop's Fable 29"
+  },
+  "aesop-perry-76.conllu": {
+    "editionUrn": "urn:cts:greekLit:tlg0096.tlg001.workspace-grc1-perry076",
+    "authorUrn": "urn:cts:greekLit:tlg0096",
+    "authorName": "Aesop",
+    "workUrn": "urn:cts:greekLit:tlg0096.tlg001",
+    "workTitle": "Aesop, Fables",
+    "language": "grc",
+    "editionLabel": "Aesop, Perry 76 (The Deer and the Lion)",
+    "editionType": "treebank",
+    "editionDescription": "CoNLL-U treebank edition of Aesop's Fable 76"
+  },
+  "aesop-perry-80.conllu": {
+    "editionUrn": "urn:cts:greekLit:tlg0096.tlg001.workspace-grc1-perry080",
+    "authorUrn": "urn:cts:greekLit:tlg0096",
+    "authorName": "Aesop",
+    "workUrn": "urn:cts:greekLit:tlg0096.tlg001",
+    "workTitle": "Aesop, Fables",
+    "language": "grc",
+    "editionLabel": "Aesop, Perry 80 (The Flies and the Honey)",
+    "editionType": "treebank",
+    "editionDescription": "CoNLL-U treebank edition of Aesop's Fable 80"
+  },
+  "aesop-perry-86.conllu": {
+    "editionUrn": "urn:cts:greekLit:tlg0096.tlg001.workspace-grc1-perry086",
+    "authorUrn": "urn:cts:greekLit:tlg0096",
+    "authorName": "Aesop",
+    "workUrn": "urn:cts:greekLit:tlg0096.tlg001",
+    "workTitle": "Aesop, Fables",
+    "language": "grc",
+    "editionLabel": "Aesop, Perry 86 (The Thrush and the Birdlime)",
+    "editionType": "treebank",
+    "editionDescription": "CoNLL-U treebank edition of Aesop's Fable 86"
+  },
+  "aesop-perry-126.conllu": {
+    "editionUrn": "urn:cts:greekLit:tlg0096.tlg001.workspace-grc1-perry126",
+    "authorUrn": "urn:cts:greekLit:tlg0096",
+    "authorName": "Aesop",
+    "workUrn": "urn:cts:greekLit:tlg0096.tlg001",
+    "workTitle": "Aesop, Fables",
+    "language": "grc",
+    "editionLabel": "Aesop, Perry 126 (The Crow and the Figs)",
+    "editionType": "treebank",
+    "editionDescription": "CoNLL-U treebank edition of Aesop's Fable 126"
+  },
+  "aesop-perry-136.conllu": {
+    "editionUrn": "urn:cts:greekLit:tlg0096.tlg001.workspace-grc1-perry136",
+    "authorUrn": "urn:cts:greekLit:tlg0096",
+    "authorName": "Aesop",
+    "workUrn": "urn:cts:greekLit:tlg0096.tlg001",
+    "workTitle": "Aesop, Fables",
+    "language": "grc",
+    "editionLabel": "Aesop, Perry 136 (The Dog and the Hare)",
+    "editionType": "treebank",
+    "editionDescription": "CoNLL-U treebank edition of Aesop's Fable 136"
+  },
+  "aesop-perry-139.conllu": {
+    "editionUrn": "urn:cts:greekLit:tlg0096.tlg001.workspace-grc1-perry139",
+    "authorUrn": "urn:cts:greekLit:tlg0096",
+    "authorName": "Aesop",
+    "workUrn": "urn:cts:greekLit:tlg0096.tlg001",
+    "workTitle": "Aesop, Fables",
+    "language": "grc",
+    "editionLabel": "Aesop, Perry 139 (The Seagull and the Kite)",
+    "editionType": "treebank",
+    "editionDescription": "CoNLL-U treebank edition of Aesop's Fable 139"
+  },
+  "aesop-perry-216.conllu": {
+    "editionUrn": "urn:cts:greekLit:tlg0096.tlg001.workspace-grc1-perry216",
+    "authorUrn": "urn:cts:greekLit:tlg0096",
+    "authorName": "Aesop",
+    "workUrn": "urn:cts:greekLit:tlg0096.tlg001",
+    "workTitle": "Aesop, Fables",
+    "language": "grc",
+    "editionLabel": "Aesop, Perry 216 (The Wasp and the Snake)",
+    "editionType": "treebank",
+    "editionDescription": "CoNLL-U treebank edition of Aesop's Fable 216"
+  },
+  "aesop-perry-294.conllu": {
+    "editionUrn": "urn:cts:greekLit:tlg0096.tlg001.workspace-grc1-perry294",
+    "authorUrn": "urn:cts:greekLit:tlg0096",
+    "authorName": "Aesop",
+    "workUrn": "urn:cts:greekLit:tlg0096.tlg001",
+    "workTitle": "Aesop, Fables",
+    "language": "grc",
+    "editionLabel": "Aesop, Perry 294 (The Peacock and the Crane)",
+    "editionType": "treebank",
+    "editionDescription": "CoNLL-U treebank edition of Aesop's Fable 294"
+  },
+  "aesop-perry-303.conllu": {
+    "editionUrn": "urn:cts:greekLit:tlg0096.tlg001.workspace-grc1-perry303",
+    "authorUrn": "urn:cts:greekLit:tlg0096",
+    "authorName": "Aesop",
+    "workUrn": "urn:cts:greekLit:tlg0096.tlg001",
+    "workTitle": "Aesop, Fables",
+    "language": "grc",
+    "editionLabel": "Aesop, Perry 303 (The Pine Tree and the Wedges)",
+    "editionType": "treebank",
+    "editionDescription": "CoNLL-U treebank edition of Aesop's Fable 303"
   }
 }

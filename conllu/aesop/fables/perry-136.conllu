@@ -1,0 +1,67 @@
+# title = The Dog and the Hare
+# sent_id = perry-136-s1
+# text = Κύων θηρευτικὸς λαγωὸν συλλαβών, τοῦτον ποτὲ μὲν ἔδακνε, ποτὲ δὲ αὐτοῦ τὰ χείλη περιέλειχεν.
+# parallel_id = lyceum-aesop-p136/s1
+# translation_lang = en
+# prose_translation = A hunting dog, having caught a hare, sometimes bit it, sometimes licked its lips.
+# literal_translation = A hunting dog a hare having caught, this sometimes indeed bit, sometimes its lips licked.
+1	Κύων	κύων	NOUN	noun.masc.sg.nom	Gender=Masc|Number=Sing|Case=Nom	4	nsubj	_	gloss=dog
+2	θηρευτικὸς	θηρευτικός	ADJ	adj.masc.sg.nom	Degree=Pos|Gender=Masc|Number=Sing|Case=Nom	1	amod	_	gloss=hunting
+3	λαγωὸν	λαγώς	NOUN	noun.masc.sg.acc	Gender=Masc|Number=Sing|Case=Acc	4	obj	_	gloss=hare
+4	συλλαβών	συλλαμβάνω	VERB	verb.aor.ptcp.act.masc.sg.nom	Aspect=Perf|Mood=Part|Tense=Aor|Voice=Act|Gender=Masc|Number=Sing|Case=Nom	5	advcl	_	gloss=having caught
+5	τοῦτον	οὗτος	PRON	pron.masc.sg.acc	PronType=Dem|Gender=Masc|Number=Sing|Case=Acc	6	obj	_	gloss=this
+6	ποτὲ	ποτέ	ADV	adverb	_	7	advmod	_	gloss=sometimes
+7	μὲν	μέν	CCONJ	conjunction	_	8	cc	_	gloss=indeed
+8	ἔδακνε	δάκνω	VERB	verb.impf.ind.act.3sg	Aspect=Imp|Mood=Ind|Tense=Imp|Voice=Act|Number=Sing|Person=3	0	root	_	gloss=bit
+9	ποτὲ	ποτέ	ADV	adverb	_	11	advmod	_	gloss=sometimes
+10	δὲ	δέ	CCONJ	conjunction	_	11	cc	_	gloss=but
+11	αὐτοῦ	αὐτός	PRON	pron.masc.sg.gen	PronType=Prs|Gender=Masc|Number=Sing|Case=Gen	13	nmod	_	gloss=its
+12	τὰ	ὁ	DET	article.neut.pl.acc	Definite=Def|PronType=Art|Gender=Neut|Number=Plur|Case=Acc	13	det	_	gloss=the
+13	χείλη	χεῖλος	NOUN	noun.neut.pl.acc	Gender=Neut|Number=Plur|Case=Acc	14	obj	_	gloss=lips
+14	περιέλειχεν	περιλείχω	VERB	verb.impf.ind.act.3sg	Aspect=Imp|Mood=Ind|Tense=Imp|Voice=Act|Number=Sing|Person=3	8	conj	_	gloss=licked
+15	.	.	PUNCT	punctuation	_	14	punct	_	gloss=.
+
+# sent_id = perry-136-s2
+# text = Ὁ δὲ ἀπαυδήσας ἔφη πρὸς αὐτόν· " Ἀλλ', ὦ οὗτος, παῦσαί με καταδάκνων ἤ καταφιλῶν, ἵνα γνῶ πότερον ἐχθρὸς ἤ φίλος μου καθέστηκας."
+# parallel_id = lyceum-aesop-p136/s2
+# translation_lang = en
+# prose_translation = But the hare, losing patience, said to him, "Please, my friend, stop biting me or kissing me, so that I may know whether you are my enemy or my friend."
+# literal_translation = But losing patience said to him, "But, O you there, stop me biting or kissing, so that I may know whether enemy or friend of me you have become."
+16	Ὁ	ὁ	DET	article.masc.sg.nom	Definite=Def|PronType=Art|Gender=Masc|Number=Sing|Case=Nom	17	det	_	gloss=the
+17	δὲ	δέ	CCONJ	conjunction	_	18	cc	_	gloss=but
+18	ἀπαυδήσας	ἀπαυδάω	VERB	verb.aor.ptcp.act.masc.sg.nom	Aspect=Perf|Mood=Part|Tense=Aor|Voice=Act|Gender=Masc|Number=Sing|Case=Nom	19	advcl	_	gloss=losing patience
+19	ἔφη	φημί	VERB	verb.impf.ind.act.3sg	Mood=Ind|Tense=Imp|VerbForm=Fin|Voice=Act|Number=Sing|Person=3	0	root	_	gloss=said
+20	πρὸς	πρός	ADP	preposition.acc	_	21	case	_	gloss=to
+21	αὐτόν	αὐτός	PRON	pron.masc.sg.acc	PronType=Prs|Gender=Masc|Number=Sing|Case=Acc	19	obl	_	gloss=him
+22	·	·	PUNCT	punctuation	_	19	punct	_	gloss=:
+23	Ἀλλ'	ἀλλά	CCONJ	conjunction	_	24	cc	_	gloss=but / please
+24	ὦ	ὦ	PART	interjection	_	25	discourse	_	gloss=O
+25	οὗτος	οὗτος	PRON	pron.masc.sg.nom	PronType=Dem|Gender=Masc|Number=Sing|Case=Nom	19	vocative	_	gloss=you there
+26	παῦσαί	παύω	VERB	verb.aor.imper.mp.2sg	Mood=Imp|Tense=Aor|VerbForm=Fin|Voice=Mid|Number=Sing|Person=2	19	ccomp	_	gloss=stop
+27	με	ἐγώ	PRON	pron.1sg.acc	PronType=Prs|Number=Sing|Person=1|Case=Acc	28	obj	_	gloss=me
+28	καταδάκνων	καταδάκνω	VERB	verb.pres.ptcp.act.masc.sg.nom	Aspect=Imp|Mood=Part|Tense=Pres|Voice=Act|Gender=Masc|Number=Sing|Case=Nom	26	xcomp	_	gloss=biting
+29	ἤ	ἤ	CCONJ	conjunction	_	30	cc	_	gloss=or
+30	καταφιλῶν	καταφιλέω	VERB	verb.pres.ptcp.act.masc.sg.nom	Aspect=Imp|Mood=Part|Tense=Pres|Voice=Act|Gender=Masc|Number=Sing|Case=Nom	28	conj	_	gloss=kissing
+31	ἵνα	ἵνα	SCONJ	conjunction	_	32	mark	_	gloss=so that
+32	γνῶ	γιγνώσκω	VERB	verb.aor.opt.act.1sg	Mood=Opt|Tense=Aor|VerbForm=Fin|Voice=Act|Number=Sing|Person=1	26	advcl	_	gloss=I may know
+33	πότερον	πότερος	PRON	pron.masc.sg.acc	PronType=Int|Gender=Masc|Number=Sing|Case=Acc	32	obj	_	gloss=which of the two
+34	ἐχθρὸς	ἐχθρός	ADJ	adj.masc.sg.nom	Degree=Pos|Gender=Masc|Number=Sing|Case=Nom	33	nsubj	_	gloss=enemy
+35	ἤ	ἤ	CCONJ	conjunction	_	36	cc	_	gloss=or
+36	φίλος	φίλος	ADJ	adj.masc.sg.nom	Degree=Pos|Gender=Masc|Number=Sing|Case=Nom	34	conj	_	gloss=friend
+37	μου	ἐγώ	PRON	pron.1sg.gen	PronType=Prs|Number=Sing|Person=1|Case=Gen	36	nmod	_	gloss=my
+38	καθέστηκας	καθίστημι	VERB	verb.perf.ind.act.2sg	Aspect=Perf|Mood=Ind|Tense=Perf|Voice=Act|Number=Sing|Person=2	32	ccomp	_	gloss=you have become
+39	.	.	PUNCT	punctuation	_	38	punct	_	gloss=.
+
+# sent_id = perry-136-s3
+# text = Πρὸς ἄνδρα ἀμφίβολον ὁ λόγος εὔκαιρος.
+# parallel_id = lyceum-aesop-p136/s3
+# translation_lang = en
+# prose_translation = The story is apt for an ambiguous man.
+# literal_translation = Toward an ambiguous man the story is apt.
+40	Πρὸς	πρός	ADP	preposition.acc	_	41	case	_	gloss=toward
+41	ἄνδρα	ἀνήρ	NOUN	noun.masc.sg.acc	Gender=Masc|Number=Sing|Case=Acc	45	obl	_	gloss=man
+42	ἀμφίβολον	ἀμφίβολος	ADJ	adj.masc.sg.acc	Degree=Pos|Gender=Masc|Number=Sing|Case=Acc	41	amod	_	gloss=ambiguous
+43	ὁ	ὁ	DET	article.masc.sg.nom	Definite=Def|PronType=Art|Gender=Masc|Number=Sing|Case=Nom	44	det	_	gloss=the
+44	λόγος	λόγος	NOUN	noun.masc.sg.nom	Gender=Masc|Number=Sing|Case=Nom	45	nsubj	_	gloss=story
+45	εὔκαιρος	εὔκαιρος	ADJ	adj.masc.sg.nom	Degree=Pos|Gender=Masc|Number=Sing|Case=Nom	0	root	_	gloss=apt
+46	.	.	PUNCT	punctuation	_	45	punct	_	gloss=.

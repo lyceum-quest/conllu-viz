@@ -1,0 +1,67 @@
+# title = The Seagull and the Kite
+# sent_id = perry-139-s1
+# text = Λάρος ἰχθὺν καταπιών, διαρραγέντος αὐτῷ τοῦ φάρυγγος, ἐπὶ τῆς ἠϊόνος νεκρὸς ἔκειτο.
+# parallel_id = lyceum-aesop-p139/s1
+# translation_lang = en
+# prose_translation = A seagull, having swallowed a fish, burst his throat and lay dead on the beach.
+# literal_translation = A seagull a fish having swallowed, his throat having burst, on the beach dead lay.
+1	Λάρος	λᾶρος	NOUN	noun.masc.sg.nom	Gender=Masc|Number=Sing|Case=Nom	2	nsubj	_	gloss=seagull
+2	ἰχθὺν	ἰχθύς	NOUN	noun.masc.sg.acc	Gender=Masc|Number=Sing|Case=Acc	3	obj	_	gloss=fish
+3	καταπιών	καταπίνω	VERB	verb.aor.ptcp.act.masc.sg.nom	Aspect=Perf|Mood=Part|Tense=Aor|Voice=Act|Gender=Masc|Number=Sing|Case=Nom	8	advcl	_	gloss=having swallowed
+4	διαρραγέντος	διαρράγνυμι	VERB	verb.aor.ptcp.pass.masc.sg.gen	Aspect=Perf|Mood=Part|Tense=Aor|Voice=Pass|Gender=Masc|Number=Sing|Case=Gen	8	advcl	_	gloss=having burst
+5	αὐτῷ	αὐτός	PRON	pron.masc.sg.dat	PronType=Prs|Gender=Masc|Number=Sing|Case=Dat	6	nmod	_	gloss=his
+6	τοῦ	ὁ	DET	article.masc.sg.gen	Definite=Def|PronType=Art|Gender=Masc|Number=Sing|Case=Gen	7	det	_	gloss=the
+7	φάρυγγος	φάρυγξ	NOUN	noun.masc.sg.gen	Gender=Masc|Number=Sing|Case=Gen	4	nsubj	_	gloss=throat
+8	ἔκειτο	κεῖμαι	VERB	verb.impf.ind.mp.3sg	Aspect=Imp|Mood=Ind|Tense=Imp|Voice=Mid|Number=Sing|Person=3	0	root	_	gloss=lay
+9	ἐπὶ	ἐπί	ADP	preposition.gen	_	10	case	_	gloss=on
+10	τῆς	ὁ	DET	article.fem.sg.gen	Definite=Def|PronType=Art|Gender=Fem|Number=Sing|Case=Gen	11	det	_	gloss=the
+11	ἠϊόνος	ἠϊών	NOUN	noun.fem.sg.gen	Gender=Fem|Number=Sing|Case=Gen	8	obl	_	gloss=beach
+12	νεκρὸς	νεκρός	ADJ	adj.masc.sg.nom	Degree=Pos|Gender=Masc|Number=Sing|Case=Nom	8	xcomp	_	gloss=dead
+13	.	.	PUNCT	punctuation	_	8	punct	_	gloss=.
+
+# sent_id = perry-139-s2
+# text = Ἰκτῖνος δὲ αὐτὸν θεασάμενος ἔφη· "Ἄξια σύ γε πέπονθας, ὅτι πτηνὸν γεννηθεὶς ἐπὶ θαλάσσης τὴν δίαιταν ἐποιοῦ."
+# parallel_id = lyceum-aesop-p139/s2
+# translation_lang = en
+# prose_translation = But a kite, having seen him, said, "You have suffered deservedly, because though born a creature of the air you made your living on the sea."
+# literal_translation = But a kite having seen him said, "Worthy things you have suffered, because a winged creature having been born on the sea your dwelling you were making."
+14	Ἰκτῖνος	ἴκτινος	NOUN	noun.masc.sg.nom	Gender=Masc|Number=Sing|Case=Nom	17	nsubj	_	gloss=kite
+15	δὲ	δέ	CCONJ	conjunction	_	17	cc	_	gloss=but
+16	αὐτὸν	αὐτός	PRON	pron.masc.sg.acc	PronType=Prs|Gender=Masc|Number=Sing|Case=Acc	14	obj	_	gloss=him
+17	θεασάμενος	θεάομαι	VERB	verb.aor.ptcp.mp.masc.sg.nom	Aspect=Perf|Mood=Part|Tense=Aor|Voice=Mid|Gender=Masc|Number=Sing|Case=Nom	18	advcl	_	gloss=having seen
+18	ἔφη	φημί	VERB	verb.impf.ind.act.3sg	Mood=Ind|Tense=Imp|VerbForm=Fin|Voice=Act|Number=Sing|Person=3	0	root	_	gloss=said
+19	·	·	PUNCT	punctuation	_	18	punct	_	gloss=:
+20	Ἄξια	ἄξιος	ADJ	adj.neut.pl.acc	Degree=Pos|Gender=Neut|Number=Plur|Case=Acc	21	obj	_	gloss=deserved things
+21	σύ	σύ	PRON	pron.2sg.nom	PronType=Prs|Number=Sing|Person=2|Case=Nom	22	nsubj	_	gloss=you
+22	γε	γέ	PART	particle	_	21	advmod	_	gloss=at least
+23	πέπονθας	πάσχω	VERB	verb.perf.ind.act.2sg	Aspect=Perf|Mood=Ind|Tense=Perf|Voice=Act|Number=Sing|Person=2	18	ccomp	_	gloss=you have suffered
+24	ὅτι	ὅτι	SCONJ	conjunction	_	28	mark	_	gloss=because
+25	πτηνὸν	πτηνός	ADJ	adj.neut.sg.nom	Degree=Pos|Gender=Neut|Number=Sing|Case=Nom	26	amod	_	gloss=winged creature
+26	γεννηθεὶς	γίγνομαι	VERB	verb.aor.ptcp.pass.masc.sg.nom	Aspect=Perf|Mood=Part|Tense=Aor|Voice=Pass|Gender=Masc|Number=Sing|Case=Nom	28	advcl	_	gloss=having been born
+27	ἐπὶ	ἐπί	ADP	preposition.gen	_	28	case	_	gloss=on
+28	θαλάσσης	θάλασσα	NOUN	noun.fem.sg.gen	Gender=Fem|Number=Sing|Case=Gen	26	obl	_	gloss=sea
+29	τὴν	ὁ	DET	article.fem.sg.acc	Definite=Def|PronType=Art|Gender=Fem|Number=Sing|Case=Acc	30	det	_	gloss=the
+30	δίαιταν	δίαιτα	NOUN	noun.fem.sg.acc	Gender=Fem|Number=Sing|Case=Acc	31	obj	_	gloss=dwelling / way of life
+31	ἐποιοῦ	ποιέω	VERB	verb.impf.ind.act.2sg	Aspect=Imp|Mood=Ind|Tense=Imp|Voice=Act|Number=Sing|Person=2	23	advcl	_	gloss=you were making
+32	.	.	PUNCT	punctuation	_	31	punct	_	gloss=.
+
+# sent_id = perry-139-s3
+# text = Οὕτως οἱ τὰ οἰκεῖα ἐπιτηδεύματα καταλιπόντες καὶ τοῖς μηδὲν προσήκουσιν ἐπιβαλλόμενοι εἰκότως δυστυχοῦσιν.
+# parallel_id = lyceum-aesop-p139/s3
+# translation_lang = en
+# prose_translation = Thus those who abandon their own pursuits and meddle with things that do not concern them naturally come to grief.
+# literal_translation = Thus those who their own pursuits abandon and to things not at all pertaining meddle naturally are unfortunate.
+33	Οὕτως	οὕτως	ADV	adverb	_	42	advmod	_	gloss=thus
+34	οἱ	ὁ	DET	article.masc.pl.nom	Definite=Def|PronType=Art|Gender=Masc|Number=Plur|Case=Nom	35	det	_	gloss=those who
+35	τὰ	ὁ	DET	article.neut.pl.acc	Definite=Def|PronType=Art|Gender=Neut|Number=Plur|Case=Acc	36	det	_	gloss=the
+36	οἰκεῖα	οἰκεῖος	ADJ	adj.neut.pl.acc	Degree=Pos|Gender=Neut|Number=Plur|Case=Acc	37	amod	_	gloss=own
+37	ἐπιτηδεύματα	ἐπιτήδευμα	NOUN	noun.neut.pl.acc	Gender=Neut|Number=Plur|Case=Acc	38	obj	_	gloss=pursuits
+38	καταλιπόντες	καταλείπω	VERB	verb.aor.ptcp.act.masc.pl.nom	Aspect=Perf|Mood=Part|Tense=Aor|Voice=Act|Gender=Masc|Number=Plur|Case=Nom	42	advcl	_	gloss=having abandoned
+39	καὶ	καί	CCONJ	conjunction	_	41	cc	_	gloss=and
+40	τοῖς	ὁ	DET	article.neut.pl.dat	Definite=Def|PronType=Art|Gender=Neut|Number=Plur|Case=Dat	41	det	_	gloss=the
+41	μηδὲν	μηδείς	ADJ	adj.neut.pl.dat	Degree=Pos|Gender=Neut|Number=Plur|Case=Dat	42	obl	_	gloss=not at all
+42	προσήκουσιν	προσήκω	VERB	verb.pres.ptcp.act.neut.pl.dat	Aspect=Imp|Mood=Part|Tense=Pres|Voice=Act|Gender=Neut|Number=Plur|Case=Dat	38	conj	_	gloss=pertaining
+43	ἐπιβαλλόμενοι	ἐπιβάλλω	VERB	verb.pres.ptcp.mp.masc.pl.nom	Aspect=Imp|Voice=Mid|Mood=Part|Tense=Pres|Gender=Masc|Number=Plur|Case=Nom	38	conj	_	gloss=meddling
+44	εἰκότως	εἰκότως	ADV	adverb	_	45	advmod	_	gloss=naturally / deservedly
+45	δυστυχοῦσιν	δυστυχέω	VERB	verb.pres.ind.act.3pl	Aspect=Imp|Mood=Ind|Tense=Pres|Voice=Act|Number=Plur|Person=3	0	root	_	gloss=they are unfortunate
+46	.	.	PUNCT	punctuation	_	45	punct	_	gloss=.

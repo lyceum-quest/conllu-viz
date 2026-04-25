@@ -1,0 +1,70 @@
+# title = The Pine Tree and the Wedges
+# sent_id = perry-303-s1
+# text = Δρυτόμοι ἔσχιζόν τινα πεύκην· σφῆνας δὲ ἐξ αὐτῆς πεποιηκότες εὐκόλως ἔσχιζον.
+# parallel_id = lyceum-aesop-p303/s1
+# translation_lang = en
+# prose_translation = Woodcutters were splitting a certain pine tree, and having made wedges from it they were splitting it easily.
+# literal_translation = Woodcutters were splitting a certain pine, and wedges from it having made easily they were splitting.
+1	Δρυτόμοι	δρυτόμος	NOUN	noun.masc.pl.nom	Gender=Masc|Number=Plur|Case=Nom	2	nsubj	_	gloss=woodcutters
+2	ἔσχιζόν	σχίζω	VERB	verb.impf.ind.act.3pl	Aspect=Imp|Mood=Ind|Tense=Imp|Voice=Act|Number=Plur|Person=3	0	root	_	gloss=were splitting
+3	τινα	τις	PRON	pron.fem.sg.acc	PronType=Ind|Gender=Fem|Number=Sing|Case=Acc	4	det	_	gloss=a certain
+4	πεύκην	πεύκη	NOUN	noun.fem.sg.acc	Gender=Fem|Number=Sing|Case=Acc	2	obj	_	gloss=pine tree
+5	·	·	PUNCT	punctuation	_	2	punct	_	gloss=;
+6	σφῆνας	σφήν	NOUN	noun.masc.pl.acc	Gender=Masc|Number=Plur|Case=Acc	7	obj	_	gloss=wedges
+7	δὲ	δέ	CCONJ	conjunction	_	9	cc	_	gloss=and
+8	ἐξ	ἐκ	ADP	preposition.gen	_	9	case	_	gloss=from
+9	αὐτῆς	αὐτός	PRON	pron.fem.sg.gen	PronType=Prs|Gender=Fem|Number=Sing|Case=Gen	10	obl	_	gloss=it
+10	πεποιηκότες	ποιέω	VERB	verb.perf.ptcp.act.masc.pl.nom	Aspect=Perf|Mood=Part|Tense=Perf|Voice=Act|Gender=Masc|Number=Plur|Case=Nom	11	advcl	_	gloss=having made
+11	εὐκόλως	εὐκόλως	ADV	adverb	_	12	advmod	_	gloss=easily
+12	ἔσχιζον	σχίζω	VERB	verb.impf.ind.act.3pl	Aspect=Imp|Mood=Ind|Tense=Imp|Voice=Act|Number=Plur|Person=3	2	conj	_	gloss=they were splitting
+13	.	.	PUNCT	punctuation	_	12	punct	_	gloss=.
+
+# sent_id = perry-303-s2
+# text = Ἡ δὲ εἶπεν· "Οὐ τοσοῦτον τὸν κόψαντα πέλεκυν μέμφομαι ὅσον τοὺς ἐξ ἐμοῦ γεννηγέντας σφῆνας."
+# parallel_id = lyceum-aesop-p303/s2
+# translation_lang = en
+# prose_translation = But she said, "I do not blame the axe that struck me so much as the wedges born from me."
+# literal_translation = But she said, "Not so much the having-struck axe I blame as the from me born wedges."
+14	Ἡ	ὁ	DET	article.fem.sg.nom	Definite=Def|PronType=Art|Gender=Fem|Number=Sing|Case=Nom	15	det	_	gloss=the
+15	δὲ	δέ	CCONJ	conjunction	_	16	cc	_	gloss=but
+16	εἶπεν	λέγω	VERB	verb.aor.ind.act.3sg	Aspect=Perf|Mood=Ind|Tense=Aor|Voice=Act|Number=Sing|Person=3	0	root	_	gloss=said
+17	·	·	PUNCT	punctuation	_	16	punct	_	gloss=:
+18	Οὐ	οὐ	PART	neg.particle	Polarity=Neg	25	advmod	_	gloss=not
+19	τοσοῦτον	τοσοῦτος	ADJ	adj.neut.sg.acc	Degree=Pos|Gender=Neut|Number=Sing|Case=Acc	25	advmod	_	gloss=so much
+20	τὸν	ὁ	DET	article.masc.sg.acc	Definite=Def|PronType=Art|Gender=Masc|Number=Sing|Case=Acc	21	det	_	gloss=the
+21	κόψαντα	κόπτω	VERB	verb.aor.ptcp.act.masc.sg.acc	Aspect=Perf|Mood=Part|Tense=Aor|Voice=Act|Gender=Masc|Number=Sing|Case=Acc	22	acl	_	gloss=having struck
+22	πέλεκυν	πέλεκυς	NOUN	noun.masc.sg.acc	Gender=Masc|Number=Sing|Case=Acc	25	obj	_	gloss=axe
+23	μέμφομαι	μέμφομαι	VERB	verb.pres.ind.mp.1sg	Aspect=Imp|Mood=Ind|Tense=Pres|Voice=Mid|Number=Sing|Person=1	16	ccomp	_	gloss=I blame
+24	ὅσον	ὅσος	ADJ	adj.masc.sg.acc	Degree=Pos|Gender=Masc|Number=Sing|Case=Acc	25	obj	_	gloss=as much as
+25	τοὺς	ὁ	DET	article.masc.pl.acc	Definite=Def|PronType=Art|Gender=Masc|Number=Plur|Case=Acc	26	det	_	gloss=the
+26	ἐξ	ἐκ	ADP	preposition.gen	_	27	case	_	gloss=from
+27	ἐμοῦ	ἐγώ	PRON	pron.1sg.gen	PronType=Prs|Number=Sing|Person=1|Case=Gen	28	obl	_	gloss=me
+28	γεννηγέντας	γεννάω	VERB	verb.aor.ptcp.act.masc.pl.acc	Aspect=Perf|Mood=Part|Tense=Aor|Voice=Act|Gender=Masc|Number=Plur|Case=Acc	29	acl	_	gloss=born
+29	σφῆνας	σφήν	NOUN	noun.masc.pl.acc	Gender=Masc|Number=Plur|Case=Acc	23	obj	_	gloss=wedges
+30	.	.	PUNCT	punctuation	_	29	punct	_	gloss=.
+
+# sent_id = perry-303-s3
+# text = Ὅτι οὐ τοσοῦτόν ἐστι δεινόν, ὅτε τις ὑπὸ ἀλλοτρίων ἀνθρώπων πάθῃ τι τῶν ἀπαισίων ὅσον ὑπὸ τῶν οἰκείων.
+# parallel_id = lyceum-aesop-p303/s3
+# translation_lang = en
+# prose_translation = For it is not so terrible when one suffers something unpleasant at the hands of strangers as at the hands of one's own people.
+# literal_translation = That not so terrible it is, when someone by strange men suffers something of the unpleasant as by one's own.
+31	Ὅτι	ὅτι	SCONJ	conjunction	_	33	mark	_	gloss=that
+32	οὐ	οὐ	PART	neg.particle	Polarity=Neg	33	advmod	_	gloss=not
+33	τοσοῦτόν	τοσοῦτος	ADJ	adj.neut.sg.nom	Degree=Pos|Gender=Neut|Number=Sing|Case=Nom	34	amod	_	gloss=so great
+34	ἐστι	εἰμί	VERB	verb.pres.ind.act.3sg	Mood=Ind|Tense=Pres|VerbForm=Fin|Voice=Act|Number=Sing|Person=3	0	root	_	gloss=is
+35	δεινόν	δεινός	ADJ	adj.neut.sg.nom	Degree=Pos|Gender=Neut|Number=Sing|Case=Nom	34	xcomp	_	gloss=terrible
+36	ὅτε	ὅτε	SCONJ	conjunction	_	38	mark	_	gloss=when
+37	τις	τις	PRON	pron.masc.sg.nom	PronType=Ind|Gender=Masc|Number=Sing|Case=Nom	38	nsubj	_	gloss=someone
+38	πάθῃ	πάσχω	VERB	verb.aor.opt.act.3sg	Mood=Opt|Tense=Aor|VerbForm=Fin|Voice=Act|Number=Sing|Person=3	34	advcl	_	gloss=may suffer
+39	τι	τις	PRON	pron.neut.sg.acc	PronType=Ind|Gender=Neut|Number=Sing|Case=Acc	38	obj	_	gloss=something
+40	τῶν	ὁ	DET	article.neut.pl.gen	Definite=Def|PronType=Art|Gender=Neut|Number=Plur|Case=Gen	41	det	_	gloss=of the
+41	ἀπαισίων	ἀπαίσιός	ADJ	adj.neut.pl.gen	Degree=Pos|Gender=Neut|Number=Plur|Case=Gen	39	nmod	_	gloss=unpleasant
+42	ὑπὸ	ὑπό	ADP	preposition.gen	_	43	case	_	gloss=by
+43	ἀλλοτρίων	ἀλλότριος	ADJ	adj.masc.pl.gen	Degree=Pos|Gender=Masc|Number=Plur|Case=Gen	44	amod	_	gloss=strange
+44	ἀνθρώπων	ἄνθρωπος	NOUN	noun.masc.pl.gen	Gender=Masc|Number=Plur|Case=Gen	38	obl:agent	_	gloss=men
+45	ὅσον	ὅσος	ADJ	adj.neut.sg.nom	Degree=Pos|Gender=Neut|Number=Sing|Case=Nom	38	advmod	_	gloss=as much as
+46	ὑπὸ	ὑπό	ADP	preposition.gen	_	47	case	_	gloss=by
+47	τῶν	ὁ	DET	article.masc.pl.gen	Definite=Def|PronType=Art|Gender=Masc|Number=Plur|Case=Gen	48	det	_	gloss=the
+48	οἰκείων	οἰκεῖος	ADJ	adj.masc.pl.gen	Degree=Pos|Gender=Masc|Number=Plur|Case=Gen	38	obl:agent	_	gloss=one's own
+49	.	.	PUNCT	punctuation	_	48	punct	_	gloss=.

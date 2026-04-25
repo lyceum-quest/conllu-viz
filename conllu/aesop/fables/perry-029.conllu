@@ -1,0 +1,66 @@
+# title = The Charcoal Burner and the Fuller
+# sent_id = perry-29-s1
+# text = Ἀνθρακεὺς ἐπί τινος οἰκῶν οἰκίας ἠξίου καὶ κναφέα παραγενόμενον αὐτῷ συνοικῆσαι.
+# parallel_id = lyceum-aesop-p29/s1
+# translation_lang = en
+# prose_translation = A charcoal burner living in a certain house asked a fuller who had come to him to share the dwelling.
+# literal_translation = A charcoal burner living in a certain house asked also a fuller having come to him to share the dwelling.
+1	Ἀνθρακεὺς	ἀνθρακεύς	NOUN	noun.masc.sg.nom	Gender=Masc|Number=Sing|Case=Nom	6	nsubj	_	gloss=charcoal burner
+2	ἐπί	ἐπί	ADP	preposition.gen	_	4	case	_	gloss=in
+3	τινος	τις	PRON	pron.fem.sg.gen	PronType=Ind|Gender=Fem|Number=Sing|Case=Gen	4	det	_	gloss=a certain
+4	οἰκῶν	οἰκέω	VERB	verb.pres.ptcp.act.masc.sg.nom	Aspect=Imp|Mood=Part|Tense=Pres|Voice=Act|Gender=Masc|Number=Sing|Case=Nom	6	advcl	_	gloss=living
+5	οἰκίας	οἰκία	NOUN	noun.fem.sg.gen	Gender=Fem|Number=Sing|Case=Gen	4	obj	_	gloss=house
+6	ἠξίου	ἀξιόω	VERB	verb.impf.ind.act.3sg	Aspect=Imp|Mood=Ind|Tense=Imp|Voice=Act|Number=Sing|Person=3	0	root	_	gloss=he asked
+7	καὶ	καί	CCONJ	conjunction	_	8	cc	_	gloss=also
+8	κναφέα	κναφεύς	NOUN	noun.masc.sg.acc	Gender=Masc|Number=Sing|Case=Acc	9	nsubj	_	gloss=fuller
+9	παραγενόμενον	παραγίγνομαι	VERB	verb.aor.ptcp.mp.masc.sg.acc	Aspect=Perf|Mood=Part|Tense=Aor|Voice=Mid|Gender=Masc|Number=Sing|Case=Acc	8	acl	_	gloss=having come
+10	αὐτῷ	αὐτός	PRON	pron.masc.sg.dat	Gender=Masc|Number=Sing|Case=Dat	9	obl	_	gloss=to him
+11	συνοικῆσαι	συνοικέω	VERB	verb.aor.inf.act	Aspect=Perf|Mood=Inf|Tense=Aor|Voice=Act	6	xcomp	_	gloss=to share the dwelling
+12	.	.	PUNCT	punctuation	_	6	punct	_	gloss=.
+
+# sent_id = perry-29-s2
+# text = Ὁ δὲ κναφεὺς ὑπολαβὼν ἔφη· Ἀλλ' οὐκ ἂν τοῦτο δυναίμην ἔγωγε πρᾶξαι· δέδια γὰρ μή πως ἅπερ ἐγὼ λευκαίνω, αὐτὸς ἀσβόλης πληροῖς.
+# parallel_id = lyceum-aesop-p29/s2
+# translation_lang = en
+# prose_translation = But the fuller, taking it up, said, "But I could not possibly do this, for I fear that whatever I whiten, you might fill with soot."
+# literal_translation = But the fuller taking it up said, "But not this I could do I at least, I fear for lest somehow what I whiten, you with soot might fill."
+13	Ὁ	ὁ	DET	article.masc.sg.nom	Definite=Def|PronType=Art|Gender=Masc|Number=Sing|Case=Nom	14	det	_	gloss=the
+14	δὲ	δέ	CCONJ	conjunction	_	15	cc	_	gloss=but
+15	κναφεὺς	κναφεύς	NOUN	noun.masc.sg.nom	Gender=Masc|Number=Sing|Case=Nom	16	nsubj	_	gloss=fuller
+16	ὑπολαβὼν	ὑπολαμβάνω	VERB	verb.aor.ptcp.act.masc.sg.nom	Aspect=Perf|Mood=Part|Tense=Aor|Voice=Act|Gender=Masc|Number=Sing|Case=Nom	17	advcl	_	gloss=taking it up
+17	ἔφη	φημί	VERB	verb.impf.ind.act.3sg	Mood=Ind|Tense=Imp|VerbForm=Fin|Voice=Act|Number=Sing|Person=3	0	root	_	gloss=said
+18	·	·	PUNCT	punctuation	_	17	punct	_	gloss=:
+19	Ἀλλ'	ἀλλά	CCONJ	conjunction	_	22	cc	_	gloss=but
+20	οὐκ	οὐ	PART	neg.particle	Polarity=Neg	22	advmod	_	gloss=not
+21	ἂν	ἄν	PART	particle	_	22	advmod	_	gloss=possibly
+22	δυναίμην	δύναμαι	VERB	verb.pres.opt.mp.1sg	Mood=Opt|Tense=Pres|VerbForm=Fin|Voice=Mid|Number=Sing|Person=1	17	ccomp	_	gloss=I could
+23	τοῦτο	οὗτος	PRON	pron.neut.sg.acc	PronType=Dem|Gender=Neut|Number=Sing|Case=Acc	22	obj	_	gloss=this
+24	πρᾶξαι	πάσσω	VERB	verb.aor.inf.act	Aspect=Perf|Mood=Inf|Tense=Aor|Voice=Act	22	xcomp	_	gloss=to do
+25	ἔγωγε	ἐγώ	PRON	pron.1sg.nom	PronType=Prs|Number=Sing|Person=1|Case=Nom	22	nsubj	_	gloss=I at least
+26	·	·	PUNCT	punctuation	_	22	punct	_	gloss=:
+27	δέδια	δείδω	VERB	verb.perf.ind.act.1sg	Aspect=Perf|Mood=Ind|Tense=Perf|Voice=Act|Number=Sing|Person=1	22	conj	_	gloss=I fear
+28	γὰρ	γάρ	CCONJ	conjunction	_	27	cc	_	gloss=for
+29	μή	μή	PART	neg.particle	Polarity=Neg	31	mark	_	gloss=lest
+30	πώς	πώς	ADV	adverb	_	31	advmod	_	gloss=somehow
+31	ἅπερ	ὅσπερ	PRON	pron.neut.pl.acc	PronType=Rel|Gender=Neut|Number=Plur|Case=Acc	32	obj	_	gloss=whatever
+32	λευκαίνω	λευκαίνω	VERB	verb.pres.ind.act.1sg	Aspect=Imp|Mood=Ind|Tense=Pres|Voice=Act|Number=Sing|Person=1	27	ccomp	_	gloss=I whiten
+33	αὐτὸς	αὐτός	PRON	pron.masc.sg.nom	PronType=Prs|Gender=Masc|Number=Sing|Case=Nom	34	nsubj	_	gloss=you yourself
+34	ἀσβόλης	ἀσβολή	NOUN	noun.fem.sg.gen	Gender=Fem|Number=Sing|Case=Gen	35	obl	_	gloss=with soot
+35	πληροῖς	πληρόω	VERB	verb.pres.opt.act.2sg	Mood=Opt|Tense=Pres|VerbForm=Fin|Voice=Act|Number=Sing|Person=2	32	conj	_	gloss=you might fill
+36	.	.	PUNCT	punctuation	_	35	punct	_	gloss=.
+
+# sent_id = perry-29-s3
+# text = Ὁ μῦθος δηλοῖ ὅτι πᾶν τὸ ἀνόμοιον ἀκοινώνητον.
+# parallel_id = lyceum-aesop-p29/s3
+# translation_lang = en
+# prose_translation = The story shows that everything unlike is incompatible.
+# literal_translation = The story shows that all the unlike is without communion.
+37	Ὁ	ὁ	DET	article.masc.sg.nom	Definite=Def|PronType=Art|Gender=Masc|Number=Sing|Case=Nom	38	det	_	gloss=the
+38	μῦθος	μῦθος	NOUN	noun.masc.sg.nom	Gender=Masc|Number=Sing|Case=Nom	39	nsubj	_	gloss=story
+39	δηλοῖ	δηλόω	VERB	verb.pres.ind.act.3sg	Aspect=Imp|Mood=Ind|Tense=Pres|Voice=Act|Number=Sing|Person=3	0	root	_	gloss=shows
+40	ὅτι	ὅτι	SCONJ	conjunction	_	42	mark	_	gloss=that
+41	πᾶν	πᾶς	ADJ	adj.neut.sg.nom	Degree=Pos|Gender=Neut|Number=Sing|Case=Nom	42	amod	_	gloss=all
+42	τὸ	ὁ	DET	article.neut.sg.nom	Definite=Def|PronType=Art|Gender=Neut|Number=Sing|Case=Nom	43	det	_	gloss=the
+43	ἀνόμοιον	ἀνόμοιος	ADJ	adj.neut.sg.nom	Degree=Pos|Gender=Neut|Number=Sing|Case=Nom	44	nsubj	_	gloss=unlike
+44	ἀκοινώνητον	ἀκοινωνήτως	ADV	adverb	_	39	ccomp	_	gloss=incompatible
+45	.	.	PUNCT	punctuation	_	44	punct	_	gloss=.

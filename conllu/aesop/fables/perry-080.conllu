@@ -1,0 +1,68 @@
+# title = The Flies and the Honey
+# sent_id = perry-80-s1
+# text = Ἔν τινι ταμιείῳ μέλιτος ἐπεκχυθέντος, μυῖαι προσπτᾶσαι κατήσθιον· διὰ δὲ τὴν γλυκύτητα τοῦ καρποῦ οὐκ ἀφίσταντο.
+# parallel_id = lyceum-aesop-p80/s1
+# translation_lang = en
+# prose_translation = When honey had been spilled in a certain pantry, flies flew upon it and were eating it, but because of the sweetness of the juice they did not pull away.
+# literal_translation = In a certain pantry of honey having been poured out, flies flying upon kept eating, but through the sweetness of the juice they were not pulling away.
+1	Ἔν	ἐν	ADP	preposition.dat	_	2	case	_	gloss=in
+2	τινι	τις	PRON	pron.masc.sg.dat	PronType=Ind|Gender=Masc|Number=Sing|Case=Dat	8	obl	_	gloss=a certain
+3	ταμιείῳ	ταμεῖον	NOUN	noun.neut.sg.dat	Gender=Neut|Number=Sing|Case=Dat	2	nmod	_	gloss=pantry
+4	μέλιτος	μέλι	NOUN	noun.neut.sg.gen	Gender=Neut|Number=Sing|Case=Gen	5	nsubj	_	gloss=of honey
+5	ἐπεκχυθέντος	ἐκχέω	VERB	verb.aor.ptcp.pass.neut.sg.gen	Aspect=Perf|Mood=Part|Tense=Aor|Voice=Pass|Gender=Neut|Number=Sing|Case=Gen	8	advcl	_	gloss=having been poured out
+6	μυῖαι	μυῖα	NOUN	noun.fem.pl.nom	Gender=Fem|Number=Plur|Case=Nom	8	nsubj	_	gloss=flies
+7	προσπτᾶσαι	προσπέτομαι	VERB	verb.aor.ptcp.act.fem.pl.nom	Aspect=Perf|Mood=Part|Tense=Aor|Voice=Act|Gender=Fem|Number=Plur|Case=Nom	8	advcl	_	gloss=flying upon
+8	κατήσθιον	καθιεσθίω	VERB	verb.impf.ind.act.3pl	Aspect=Imp|Mood=Ind|Tense=Imp|Voice=Act|Number=Plur|Person=3	0	root	_	gloss=kept eating
+9	·	·	PUNCT	punctuation	_	8	punct	_	gloss=;
+10	διὰ	διά	ADP	preposition.acc	_	13	case	_	gloss=because of
+11	δὲ	δέ	CCONJ	conjunction	_	15	cc	_	gloss=but
+12	τὴν	ὁ	DET	article.fem.sg.acc	Definite=Def|PronType=Art|Gender=Fem|Number=Sing|Case=Acc	13	det	_	gloss=the
+13	γλυκύτητα	γλυκύτης	NOUN	noun.fem.sg.acc	Gender=Fem|Number=Sing|Case=Acc	15	obl	_	gloss=sweetness
+14	τοῦ	ὁ	DET	article.masc.sg.gen	Definite=Def|PronType=Art|Gender=Masc|Number=Sing|Case=Gen	15	det	_	gloss=of the
+15	καρποῦ	καρπός	NOUN	noun.masc.sg.gen	Gender=Masc|Number=Sing|Case=Gen	13	nmod	_	gloss=juice
+16	οὐκ	οὐ	PART	neg.particle	Polarity=Neg	17	advmod	_	gloss=not
+17	ἀφίσταντο	ἀφίστημι	VERB	verb.impf.ind.mp.3pl	Aspect=Imp|Mood=Ind|Tense=Imp|Voice=Mid|Number=Plur|Person=3	8	conj	_	gloss=they were pulling away
+18	.	.	PUNCT	punctuation	_	17	punct	_	gloss=.
+
+# sent_id = perry-80-s2
+# text = Ἐμπαγέντων δὲ αὐτῶν τῶν ποδῶν, ὡς οὐκ ἐδύναντο ἀναπτῆναι, ἀποπνιγόμεναι ἔφασαν· Ἄθλιαι ἡμεῖς, αἳ διὰ βραχεῖαν ἡδονὴν ἀπολλύμεθα.
+# parallel_id = lyceum-aesop-p80/s2
+# translation_lang = en
+# prose_translation = But when their feet got stuck, since they could not fly away, being suffocated they said, "We are wretched, who perish for the sake of a brief pleasure."
+# literal_translation = But of them the feet having been stuck fast, since they were not able to fly up, being suffocated they said, "Wretched we, who through a brief pleasure are perishing."
+19	Ἐμπαγέντων	ἐμπήγνυμι	VERB	verb.aor.ptcp.pass.masc.pl.gen	Aspect=Perf|Mood=Part|Tense=Aor|Voice=Pass|Gender=Masc|Number=Plur|Case=Gen	29	advcl	_	gloss=having been stuck fast
+20	δὲ	δέ	CCONJ	conjunction	_	29	cc	_	gloss=but
+21	αὐτῶν	αὐτός	PRON	pron.fem.pl.gen	PronType=Prs|Gender=Fem|Number=Plur|Case=Gen	22	nmod	_	gloss=their
+22	τῶν	ὁ	DET	article.masc.pl.gen	Definite=Def|PronType=Art|Gender=Masc|Number=Plur|Case=Gen	23	det	_	gloss=the
+23	ποδῶν	πούς	NOUN	noun.masc.pl.gen	Gender=Masc|Number=Plur|Case=Gen	19	nsubj	_	gloss=feet
+24	ὡς	ὡς	SCONJ	conjunction	_	26	mark	_	gloss=since
+25	οὐκ	οὐ	PART	neg.particle	Polarity=Neg	26	advmod	_	gloss=not
+26	ἐδύναντο	δύναμαι	VERB	verb.impf.ind.mp.3pl	Aspect=Imp|Mood=Ind|Tense=Imp|Voice=Mid|Number=Plur|Person=3	29	advcl	_	gloss=they were able
+27	ἀναπτῆναι	ἀναπάτομαι	VERB	verb.aor.inf.mp	Aspect=Perf|Mood=Inf|Tense=Aor|Voice=Mid	26	xcomp	_	gloss=to fly up
+28	ἀποπνιγόμεναι	ἀποπνίγω	VERB	verb.pres.ptcp.pass.fem.pl.nom	Aspect=Imp|Mood=Part|Tense=Pres|Voice=Pass|Gender=Fem|Number=Plur|Case=Nom	29	advcl	_	gloss=being suffocated
+29	ἔφασαν	φημί	VERB	verb.impf.ind.act.3pl	Mood=Ind|Tense=Imp|VerbForm=Fin|Voice=Act|Number=Plur|Person=3	0	root	_	gloss=they said
+30	·	·	PUNCT	punctuation	_	29	punct	_	gloss=:
+31	Ἄθλιαι	ἄθλιος	ADJ	adj.fem.pl.nom	Degree=Pos|Gender=Fem|Number=Plur|Case=Nom	32	amod	_	gloss=wretched
+32	ἡμεῖς	ἐγώ	PRON	pron.1pl.nom	PronType=Prs|Number=Plur|Person=1|Case=Nom	33	nsubj	_	gloss=we
+33	αἳ	ὅς	PRON	pron.fem.pl.nom	PronType=Rel|Gender=Fem|Number=Plur|Case=Nom	35	nsubj	_	gloss=who
+34	διὰ	διά	ADP	preposition.acc	_	35	case	_	gloss=for the sake of
+35	βραχεῖαν	βραχύς	ADJ	adj.fem.sg.acc	Degree=Pos|Gender=Fem|Number=Sing|Case=Acc	36	obl	_	gloss=brief
+36	ἡδονὴν	ἡδονή	NOUN	noun.fem.sg.acc	Gender=Fem|Number=Sing|Case=Acc	37	obj	_	gloss=pleasure
+37	ἀπολλύμεθα	ἀπόλλυμι	VERB	verb.pres.ind.mp.1pl	Aspect=Imp|Mood=Ind|Tense=Pres|Voice=Mid|Number=Plur|Person=1	29	ccomp	_	gloss=we are perishing
+38	.	.	PUNCT	punctuation	_	37	punct	_	gloss=.
+
+# sent_id = perry-80-s3
+# text = Οὕτω πολλοῖς ἡ λιχνεία πολλῶν αἰτία κακῶν γίνεται.
+# parallel_id = lyceum-aesop-p80/s3
+# translation_lang = en
+# prose_translation = So for many people greed becomes the cause of many evils.
+# literal_translation = Thus for many greed of many evils becomes the cause.
+39	Οὕτω	οὕτω	ADV	adverb	_	45	advmod	_	gloss=thus
+40	πολλοῖς	πολλός	ADJ	adj.masc.pl.dat	Degree=Pos|Gender=Masc|Number=Plur|Case=Dat	45	obl	_	gloss=for many
+41	ἡ	ὁ	DET	article.fem.sg.nom	Definite=Def|PronType=Art|Gender=Fem|Number=Sing|Case=Nom	42	det	_	gloss=the
+42	λιχνεία	λιχνεία	NOUN	noun.fem.sg.nom	Gender=Fem|Number=Sing|Case=Nom	45	nsubj	_	gloss=greed
+43	πολλῶν	πολλός	ADJ	adj.neut.pl.gen	Degree=Pos|Gender=Neut|Number=Plur|Case=Gen	44	amod	_	gloss=of many
+44	κακῶν	κακόν	NOUN	noun.neut.pl.gen	Gender=Neut|Number=Plur|Case=Gen	45	nmod	_	gloss=evils
+45	αἰτία	αἰτία	NOUN	noun.fem.sg.nom	Gender=Fem|Number=Sing|Case=Nom	0	root	_	gloss=cause
+46	γίνεται	γίγνομαι	VERB	verb.pres.ind.mp.3sg	Aspect=Imp|Mood=Ind|Tense=Pres|Voice=Mid|Number=Sing|Person=3	45	cop	_	gloss=becomes
+47	.	.	PUNCT	punctuation	_	45	punct	_	gloss=.
