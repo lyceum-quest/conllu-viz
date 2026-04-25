@@ -1,3 +1,18 @@
+# global.columns = ID FORM LEMMA UPOS XPOS FEATS HEAD DEPREL DEPS MISC
+# corpus_id = Aristotle_Poetics_UD_Bekker_2026
+# source_text = Aristotelis Opera. Edidit Immanuel Bekker. Academia Regia Borussica, Berolini, 1831.
+# source_treebank = Glaux 1.0 (Automatically generated)
+# author = Aristotle
+# work = De Arte Poetica (Poetics)
+# document_id = 0086-034
+# language = grc
+# annotation_style = Universal Dependencies v2.x
+# supervisor = Gregory Crane (Human Supervisor)
+# annotator = Gemini 3 Flash (Paid Tier AI Collaborator)
+# version = Gemini-UD-Bekker-2.0 (Processed April 25, 2026)
+# comment = Philological correction, UD conversion, and context-aware glossing of Glaux 1.0. 
+# comment = All grave accents and punctuation preserved according to Bekker's 1831 text.
+
 # sentence_id = 1
 # document_id = 0086-034
 # subdoc = 1.1
