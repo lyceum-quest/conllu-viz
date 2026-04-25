@@ -1,38 +1,215 @@
-# Aesop CoNLL-U Pipeline: Adding Fables
+# CoNLL-U Format Specification
 
-## Tracking Completed Fables
-
-| # | Perry | Difficulty | File | Status |
-|---|-------|-----------|------|--------|
-| 1 | 257 | 18.8 | aesop-perry-257.conllu | ✅ Done |
-| 2 | 184 | 19.9 | aesop-perry-184.conllu | ✅ Done |
-| 3 | 365 | 22.3 | aesop-perry-365.conllu | ✅ Done |
-| 4 | 45 | 22.7 | aesop-perry-45.conllu | ✅ Done |
-| 5 | 374 | 23.1 | aesop-perry-374.conllu | ✅ Done |
-| 6 | 288 | 24.5 | aesop-perry-288.conllu | ✅ Done |
-| 7 | 250 | 24.7 | aesop-perry-250.conllu | ✅ Done |
-| 8 | 256 | 25.7 | aesop-perry-256.conllu | ✅ Done |
-| 9 | 229 | 26.7 | aesop-perry-229.conllu | ✅ Done |
-| 10 | 15 | 26.8 | aesop-perry-15.conllu | ✅ Done |
-| 11 | 199 | 26.8 | aesop-perry-199.conllu | ✅ Done |
-| 12 | 202 | 26.9 | aesop-perry-202.conllu | ✅ Done |
-| 13 | 378 | 27.2 | aesop-perry-378.conllu | ✅ Done |
-| 14 | 322 | 27.7 | aesop-perry-322.conllu | ✅ Done |
-| 15 | 213 | 28.2 | aesop-perry-213.conllu | ✅ Done |
-| 16 | 289 | 28.2 | aesop-perry-289.conllu | ✅ Done |
-| 17 | 346 | 28.5 | aesop-perry-346.conllu | ✅ Done |
-| 18 | 192 | 28.6 | aesop-perry-192.conllu | ✅ Done |
-| 19 | 174 | 29.1 | aesop-perry-174.conllu | ✅ Done |
-| 20 | 87 | 29.3 | aesop-perry-87.conllu | ✅ Done |
-| 21 | 98 | 29.4 | aesop-perry-98.conllu | ✅ Done |
-| 22 | 27 | 29.5 | aesop-perry-27.conllu | ✅ Done |
-| 23 | 29 | 29.5 | — | ⬜ Next |
-
-**Next fable**: Read `perry-difficulty-map.csv` and find the first row whose perry number doesn't have a `.conllu` file. That's your next target.
+This document defines the canonical CoNLL-U format for all Greek texts in this project. See [PROGRESS.md](PROGRESS.md) for completed works and migration status.
 
 ---
 
-## Instructions for Each New Fable
+## File Organization
+
+```
+conllu/
+├── aesop/fables/          # One file per fable: perry-NNN.conllu
+├── xenophon/anabasis/     # One file per book: book-NN.tb.conllu
+└── ...                    # Future authors/works follow same pattern
+```
+
+---
+
+## File-Level Header
+
+Every CoNLL-U file must begin with these metadata comments before the first sentence:
+
+```
+# global.columns = ID FORM LEMMA UPOS XPOS FEATS HEAD DEPREL DEPS MISC
+# source = <Author, Work (Book N)>
+# source_edition = <Edition information>
+# encoder = <Who/what produced the annotations>
+# editor = Brandon Lucas
+# project = Lyceum Digital Library
+# conversion_method = <How the data was produced>
+# gloss_type = Context-aware philological glosses
+# license = CC BY-SA 4.0
+# date_modified = YYYY-MM-DD
+# contact = support@lyceum.quest
+```
+
+Defaults:
+- **editor**: `Brandon Lucas` (override only if a different human reviewed the file)
+- **project**: `Lyceum Digital Library` (override only for external contributions)
+- **contact**: `support@lyceum.quest`
+
+Other fields are set per file:
+- **source**: e.g. `Aesop, Fables (Chambry edition)` or `Xenophon, Anabasis (Book 1)`
+- **source_edition**: e.g. `Chambry (Perry numbering)` or `Glaux (Greek Language Automated XML)`
+- **encoder**: e.g. `LLM-assisted` or `Gemini 3 Flash (Large Language Model)`
+- **conversion_method**: e.g. `Manual annotation with LLM assistance` or `LLM-augmented transformation to Universal Dependencies`
+
+---
+
+## Sentence-Level Headers
+
+Every sentence block must include these headers:
+
+```
+# sent_id = <work-specific ID>
+# text = <raw Greek sentence>
+# translation_lang = en
+# prose_translation = <natural English translation>
+# literal_translation = <word-for-word literal translation>
+```
+
+Additional sentence-level headers by work type:
+
+| Header | Aesop | Xenophon | Notes |
+|--------|-------|----------|-------|
+| `# title` | ✅ Required | ❌ Not applicable | Fable title (first sentence only) |
+| `# parallel_id` | ✅ Required | ❌ Not applicable | Link to Lyceum edition |
+| `# document_id` | ❌ Not applicable | ✅ Required | Perseus document ID |
+| `# subdoc` | ❌ Not applicable | ✅ Required | Citation (e.g. `1.4.4`) |
+
+### sent_id convention
+
+- Aesop: `perry-NNN-sN` (e.g., `perry-045-s1`)
+- Xenophon: `xen-anabasis-01-sN` (e.g., `xen-anabasis-01-s1`)
+
+---
+
+## Token Rows
+
+Tab-separated, 10 columns:
+
+```
+ID \t FORM \t LEMMA \t UPOS \t XPOS \t FEATS \t HEAD \t DEPREL \t DEPS \t MISC
+```
+
+---
+
+## Column Specifications
+
+### UPOS (Column 3)
+
+| UPOS | Description | Notes |
+|------|-------------|-------|
+| ADJ | Adjective | |
+| ADP | Adposition | |
+| ADV | Adverb | |
+| AUX | Auxiliary verb | εἰμί as copula or auxiliary |
+| CCONJ | Coordinating conjunction | |
+| DET | Determiner / Article | |
+| INTJ | Interjection | ὦ as exclamation |
+| NOUN | Noun | |
+| NUM | Numeral | |
+| PART | Particle | |
+| PRON | Pronoun | |
+| PROPN | Proper noun | Ζεύς, Κῦρος, Ἀρταξέρξης, etc. |
+| PUNCT | Punctuation | |
+| SCONJ | Subordinating conjunction | |
+| VERB | Verb | |
+
+### XPOS (Column 4)
+
+Human-readable morphological description:
+
+| Category | Pattern | Example |
+|----------|---------|---------|
+| Verb (finite) | `verb.{tense}.{mood}.{voice}.{person}sg/pl` | `verb.impf.ind.act.3sg` |
+| Verb (infinitive) | `verb.{tense}.inf.{voice}` | `verb.aor.inf.act` |
+| Verb (participle) | `verb.{tense}.ptcp.{voice}.{gender}.{number}.{case}` | `verb.pres.ptcp.mp.fem.sg.nom` |
+| Verb (impersonal) | `verb.impers.{tense}.{mood}.3sg` | `verb.impers.pres.ind.3sg` |
+| Noun | `noun.{gender}.{number}.{case}` | `noun.masc.pl.nom` |
+| Proper noun | `propn.{gender}.{number}.{case}` | `propn.masc.sg.nom` |
+| Adjective | `adj.{degree}.{gender}.{number}.{case}` | `adj.pos.fem.sg.acc` |
+| Article | `article.{gender}.{number}.{case}` | `article.masc.sg.acc` |
+| Pronoun | `pron.{type}.{gender}.{number}.{case}` | `pron.demonstr.fem.sg.nom` |
+| Numeral | `numeral.{gender}.{number}.{case}` | `numeral.masc.pl.nom` |
+| Preposition | `preposition` or `preposition.{case}` | `preposition.acc` |
+| Conjunction | `conjunction` | `conjunction` |
+| Particle | `{type}.particle` | `neg.particle` |
+
+### FEATS (Column 6)
+
+Pipe-separated UD morphological features. Use `_` for no features.
+
+Standard features for Greek:
+
+| Feature | Values | Used with |
+|---------|--------|-----------|
+| Case | Nom, Gen, Dat, Acc, Voc | Nouns, ADJ, DET, PRON, PROPN, NUM |
+| Gender | Masc, Fem, Neut, Com | Nouns, ADJ, DET, PRON, PROPN, NUM |
+| Number | Sing, Plur, Dual | Nouns, ADJ, DET, PRON, PROPN, NUM, VERB |
+| Person | 1, 2, 3 | VERB, PRON |
+| Tense | Pres, Imp, Aor, Perf, Fut | VERB |
+| Mood | Ind, Sub, Opt, Imp, Inf | VERB |
+| Voice | Act, Mid, Pass | VERB |
+| Aspect | Imp, Perf | VERB |
+| VerbForm | Fin, Inf, Part, Ger | VERB |
+| Degree | Pos, Cmp, Sup | ADJ |
+| Definite | Def | DET |
+| PronType | Art, Dem, Int, Rel, Prs, Rcp | PRON, DET |
+
+### DEPREL (Column 8)
+
+Dependency relations used in this project:
+
+| DEPREL | Description |
+|--------|-------------|
+| `root` | Root |
+| `nsubj` | Nominal subject |
+| `nsubj:pass` | Passive nominal subject |
+| `obj` | Direct object |
+| `iobj` | Indirect object |
+| `csubj` | Clausal subject |
+| `csubj:pass` | Passive clausal subject |
+| `ccomp` | Clausal complement |
+| `xcomp` | Open clausal complement |
+| `nummod` | Numeric modifier |
+| `acl` | Clausal modifier of noun |
+| `acl:relcl` | Relative clause modifier |
+| `amod` | Adjectival modifier |
+| `appos` | Apposition |
+| `advcl` | Adverbial clause modifier |
+| `advmod` | Adverbial modifier |
+| `discourse` | Discourse element |
+| `vocative` | Vocative |
+| `dislocated` | Dislocated element |
+| `orphan` | Orphan (ellipsis) |
+| `obl` | Oblique nominal |
+| `obl:agent` | Agent oblique |
+| `case` | Case marking |
+| `det` | Determiner |
+| `nmod` | Nominal modifier |
+| `compound` | Compound |
+| `flat` | Flat structure (names) |
+| `conj` | Conjunct |
+| `cc` | Coordinating conjunction |
+| `cop` | Copula |
+| `aux` | Auxiliary |
+| `mark` | Marker |
+| `fixed` | Fixed multiword expression |
+| `parataxis` | Parataxis |
+| `punct` | Punctuation |
+| `gen` | Genitive modifier (Aesop convention) |
+
+> **`nsubjpass`** is deprecated in UD v2. Use `nsubj:pass` instead.
+
+### DEPS (Column 9)
+
+Always `_`. Enhanced dependencies are not used.
+
+### MISC (Column 10)
+
+Pipe-separated key=value pairs. Always use lowercase keys.
+
+| Key | Description | Required |
+|-----|-------------|----------|
+| `Ref` | Citation reference (e.g., `1.1.1`) | Xenophon: ✅ Aesop: optional |
+| `gloss` | English gloss for the token | ✅ Always |
+
+Format: `Ref=1.1.1|gloss=of-Darius` or just `gloss=camel`
+
+---
+
+## Instructions for New Aesop Fables
 
 ### Step 1: Get the Greek Text
 
@@ -58,44 +235,27 @@ Split the text at sentence boundaries (period, interrogative mark, semicolon act
 
 ### Step 3: Build the CoNLL-U File
 
-For each sentence, create a block with:
+Start with the file-level header block, then for each sentence create a block with:
 
-#### Header metadata:
+#### Sentence headers:
 ```
-# sent_id = perry-NNN-s1
+# sent_id = perry-NNN-sN
 # text = <raw greek sentence>
-# parallel_id = lyceum-aesop-pNNN/s1
+# parallel_id = lyceum-aesop-pNNN/sN
 # translation_lang = en
 # prose_translation = <natural English translation>
 # literal_translation = <word-for-word literal translation>
+```
+
+The first sentence in the file also gets the `# title` header:
+```
+# title = <English title of the fable>
 ```
 
 #### Token rows (tab-separated):
 ```
 ID \t FORM \t LEMMA \t UPOS \t XPOS \t FEATS \t HEAD \t DEPREL \t _ \t MISC
 ```
-
-Columns:
-- **ID**: Token number (global across all sentences in the file, starting at 1)
-- **FORM**: The actual Greek word form
-- **LEMMA**: Dictionary form of the word
-- **UPOS**: Universal POS tag (NOUN, VERB, ADJ, ADV, DET, PRON, PROPN, ADP, CCONJ, SCONJ, PART, NUM, PUNCT, AUX)
-- **XPOS**: Detailed morph description (e.g., `noun.fem.sg.nom`, `verb.aor.inf.act`, `verb.pres.ptcp.mp.masc.sg.nom`)
-- **FEATS**: Pipe-separated UD features (e.g., `Gender=Fem|Number=Sing|Case=Nom`)
-- **HEAD**: ID of the word this token depends on (0 = root of sentence)
-- **DEPREL**: Dependency relation (nsubj, obj, obl, advcl, acl, root, advmod, det, case, conj, cc, mark, amod, xcomp, ccomp, cop, aux, punct, discourse, nummod, etc.)
-- **DEPS**: `_` (enhanced dependencies — leave blank)
-- **MISC**: Gloss in format `gloss=<english gloss>` (e.g., `gloss=camel`, `gloss=seeing`)
-
-#### Morphology detail conventions:
-- Verbs: `verb.{tense}.{voice}.{mood}.{person/number}` or `verb.{tense}.ptcp.{voice}.{gender}.{number}.{case}` or `verb.{tense}.inf.{voice}`
-- Nouns: `noun.{gender}.{number}.{case}`
-- Adjectives: `adj.{gender}.{number}.{case}`
-- Articles: `article.{gender}.{number}.{case}`
-- Pronouns: `pron.{gender}.{number}.{case}`
-- Numerals: `numeral.{gender}.{number}.{case}`
-- Adpositions: `preposition` or `preposition.{case}`
-- Particles: `neg.particle` or `interrogative.particle`
 
 ### Step 4: Translations
 
@@ -113,21 +273,23 @@ Build the UD dependency tree:
 - Prepositional phrases as `obl` with `case` on the preposition
 - Negation particles as `advmod`
 - Conjunctions: `conj` on the conjoined element, `cc` on the conjunction word
+- Copular constructions: `cop` on εἰμί, `nsubj` on the subject, predicate as head
+- Proper names: `PROPN` UPOS, use `flat` for multi-word names
 
 ### Step 6: Validate
 
 Run the viewer to check the parse:
 ```bash
-./conllu-view.sh aesop-perry-NNN.conllu
+./conllu-view.sh perry-NNN.conllu
 ```
 
 ### Step 7: Save the File
 
-Write to `aesop-perry-NNN.conllu` in this directory (`/home/blu/src/greek/lyceum/projects/lyceum-quest/aesop/`).
+Write to `conllu/aesop/fables/perry-NNN.conllu`.
 
-### Step 8: Update This Document
+### Step 8: Update Progress
 
-Add the completed fable to the tracking table at the top.
+Add the completed fable to the tracking table in [PROGRESS.md](PROGRESS.md).
 
 ---
 
@@ -152,3 +314,10 @@ See the completed Perry 257 file for examples of each POS type and morphological
 | `noun.masc.sg.acc` | λέοντα |
 | `noun.neut.sg.dat` | πλήθει |
 | `noun.fem.sg.gen` | ἀλώπεκος |
+
+### Proper Noun Morphology
+| Pattern | Example |
+|---------|---------|
+| `propn.masc.sg.nom` | Κῦρος |
+| `propn.fem.sg.gen` | Παρυσάτιδος |
+| `propn.masc.sg.acc` | Ἀρταξέρξη |

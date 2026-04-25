@@ -3,13 +3,29 @@
  */
 
 import { parseConllu } from './types';
-import { AppStore, loadStore, saveStore, addFile, listFiles,
+import { AppStore, StoredFile, loadStore, saveStore, addFile, listFiles,
          getReviewedCount, getMasteredCount, getMasteryPct } from './store';
 import { navigate } from './router';
 
 import './styles/tokens.css';
 import './styles/browser.css';
 
+// ── Sort options ─────────────────────────────────────────────────────────
+
+type SortKey = 'recent' | 'name' | 'most-reviewed' | 'least-reviewed' | 'most-mastered' | 'least-mastered' | 'most-words' | 'least-words';
+
+const SORT_OPTIONS: { key: SortKey; label: string }[] = [
+  { key: 'recent', label: 'Recently added' },
+  { key: 'name', label: 'Name A→Z' },
+  { key: 'most-reviewed', label: 'Most reviewed' },
+  { key: 'least-reviewed', label: 'Least reviewed' },
+  { key: 'most-mastered', label: 'Most mastered' },
+  { key: 'least-mastered', label: 'Least mastered' },
+  { key: 'most-words', label: 'Most words' },
+  { key: 'least-words', label: 'Least words' },
+];
+
+let currentSort: SortKey = 'recent';
 let store: AppStore;
 
 export function mount() {
@@ -27,6 +43,7 @@ export function mount() {
   container.appendChild(createHeader());
   container.appendChild(createDropZone());
   container.appendChild(createActionButtons(container));
+  container.appendChild(createSortControl());
   container.appendChild(createFileGrid());
 
   page.appendChild(container);
@@ -123,9 +140,83 @@ function loadFileObj(file: File) {
   reader.readAsText(file);
 }
 
+function sortFiles(files: StoredFile[]): StoredFile[] {
+  const sorted = [...files];
+
+  // Pre-compute stats for each file
+  const stats = new Map<string, { reviewed: number; mastered: number; totalTokens: number; name: string; loadedAt: number }>();
+  for (const file of sorted) {
+    let totalTokens = 0;
+    let name = file.name;
+    try {
+      const treebank = parseConllu(file.content, file.name);
+      totalTokens = treebank.sentences.reduce((a, s) => a + s.tokens.filter(t => t.upos !== 'PUNCT').length, 0);
+      name = treebank.title || file.name;
+    } catch { /* corrupt file */ }
+    const session = store.sessions[file.id];
+    stats.set(file.id, {
+      reviewed: session ? getReviewedCount(session) : 0,
+      mastered: session ? getMasteredCount(session) : 0,
+      totalTokens,
+      name: name.toLowerCase(),
+      loadedAt: file.loadedAt,
+    });
+  }
+
+  sorted.sort((a, b) => {
+    const sa = stats.get(a.id)!;
+    const sb = stats.get(b.id)!;
+
+    switch (currentSort) {
+      case 'recent': return sb.loadedAt - sa.loadedAt;
+      case 'name': return sa.name.localeCompare(sb.name);
+      case 'most-reviewed': return sb.reviewed - sa.reviewed;
+      case 'least-reviewed': return sa.reviewed - sb.reviewed;
+      case 'most-mastered': return sb.mastered - sa.mastered;
+      case 'least-mastered': return sa.mastered - sb.mastered;
+      case 'most-words': return sb.totalTokens - sa.totalTokens;
+      case 'least-words': return sa.totalTokens - sb.totalTokens;
+      default: return 0;
+    }
+  });
+
+  return sorted;
+}
+
+function createSortControl() {
+  const wrap = createEl('div', 'browser-sort');
+
+  const label = createEl('span', 'browser-sort-label');
+  label.textContent = 'Sort by';
+  wrap.appendChild(label);
+
+  const select = document.createElement('select') as HTMLSelectElement;
+  select.className = 'browser-sort-select';
+  for (const opt of SORT_OPTIONS) {
+    const o = document.createElement('option') as HTMLOptionElement;
+    o.value = opt.key;
+    o.textContent = opt.label;
+    if (opt.key === currentSort) o.selected = true;
+    select.appendChild(o);
+  }
+
+  select.addEventListener('change', () => {
+    currentSort = select.value as SortKey;
+    // Re-render just the grid
+    const grid = document.querySelector('.file-grid');
+    if (grid) {
+      const newGrid = createFileGrid();
+      grid.replaceWith(newGrid);
+    }
+  });
+
+  wrap.appendChild(select);
+  return wrap;
+}
+
 function createFileGrid() {
   const div = createEl('div', 'file-grid');
-  const files = listFiles(store);
+  const files = sortFiles(listFiles(store));
 
   if (files.length === 0) {
     div.innerHTML = `
