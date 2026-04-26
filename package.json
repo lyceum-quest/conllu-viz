@@ -9,7 +9,9 @@
     "build": "tsc && vite build",
     "preview": "vite preview",
     "deploy": "bash ./scripts/deploy.sh",
-    "import": "tsx scripts/import-conllu.ts"
+    "import": "tsx scripts/import-conllu.ts",
+    "lint": "tsx scripts/lint.ts",
+    "lint:all": "tsx scripts/lint.ts"
   },
   "devDependencies": {
     "tsx": "^4.21.0",
