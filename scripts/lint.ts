@@ -73,7 +73,7 @@ const REQUIRED_SENTENCE_HEADERS = [
 
 // ─── Types ───────────────────────────────────────────────────────────────────
 
-interface Finding {
+export interface Finding {
   severity: "error" | "warning";
   location: string; // file:line or file:sent_id:tok
   rule: string;
@@ -129,11 +129,10 @@ function loc(file: string, sentId?: string, tokId?: string, lineNum?: number): s
 
 // ─── Linter ──────────────────────────────────────────────────────────────────
 
-function lintFile(filePath: string): Finding[] {
+export function lintContent(content: string, filePath: string): Finding[] {
   const findings: Finding[] = [];
   const fileName = path.basename(filePath);
   const workType = detectWorkType(filePath);
-  const content = fs.readFileSync(filePath, "utf-8");
   const lines = content.replace(/\r\n/g, "\n").split("\n");
 
   // ── Phase 1: Parse file-level headers ──
@@ -148,12 +147,12 @@ function lintFile(filePath: string): Finding[] {
         !line.startsWith("# prose_translation") && !line.startsWith("# literal_translation") &&
         !line.startsWith("# title") && !line.startsWith("# document_id") && !line.startsWith("# subdoc") &&
         !line.startsWith("# sentence_id")) {
-      const m = line.match(/^#\s+(\w+)\s*=\s*(.*)/);
+      const m = line.match(/^#\s+([\w.]+)\s*=\s*(.*)/);
       if (m) {
         fileHeaders[m[1]] = m[2].trim();
         fileHeaderEnd = i + 1;
       }
-    } else if (line.startsWith("#") && !line.match(/^#\s+\w+\s*=/)) {
+    } else if (line.startsWith("#") && !line.match(/^#\s+[\w.]+\s*=/)) {
       // comment line not a key=value, skip
       fileHeaderEnd = i + 1;
       continue;
@@ -233,13 +232,14 @@ function lintFile(filePath: string): Finding[] {
     const line = lines[i].trim();
 
     if (line.startsWith("#")) {
-      const m = line.match(/^#\s+(\w+)\s*=\s*(.*)/);
+      const m = line.match(/^#\s+([\w.]+)\s*=\s*(.*)/);
       if (m) {
         if (Object.keys(currentHeaders).length === 0) currentStartLine = i + 1;
         currentHeaders[m[1]] = m[2].trim();
       }
     } else if (line === "") {
-      if (currentTokens.length > 0 || Object.keys(currentHeaders).length > 0) {
+      if (currentTokens.length > 0) {
+        // End of a sentence with tokens — always flush
         sentences.push({
           headers: currentHeaders,
           tokens: currentTokens,
@@ -248,6 +248,13 @@ function lintFile(filePath: string): Finding[] {
         currentHeaders = {};
         currentTokens = [];
         firstSentence = false;
+      } else if (Object.keys(currentHeaders).length > 0 && currentHeaders["sent_id"]) {
+        // Headers with a sent_id but no tokens yet — keep accumulating
+        // (sentence tokens may come after the blank line)
+        // Do nothing, keep currentHeaders for the next block
+      } else {
+        // Empty block with no meaningful headers — discard
+        currentHeaders = {};
       }
     } else {
       // Token line
@@ -631,17 +638,23 @@ function lintFile(filePath: string): Finding[] {
     firstSentence = false;
   }
 
-  // Check that the file has at least one sentence
-  if (sentences.length === 0) {
+  // Check that the file has at least one sentence with tokens
+  const sentencesWithTokens = sentences.filter(s => s.tokens.length > 0);
+  if (sentencesWithTokens.length === 0) {
     findings.push({
       severity: "error",
       location: loc(fileName),
       rule: "empty-file",
-      message: "File contains no sentences",
+      message: "File contains no sentences with tokens",
     });
   }
 
   return findings;
+}
+
+function lintFile(filePath: string): Finding[] {
+  const content = fs.readFileSync(filePath, "utf-8");
+  return lintContent(content, filePath);
 }
 
 // ─── Main ────────────────────────────────────────────────────────────────────
@@ -714,4 +727,6 @@ function findConlluFiles(dir: string): string[] {
   return results;
 }
 
-main();
+// Only run main when executed directly (not when imported for testing)
+const isMain = process.argv[1]?.endsWith("lint.ts");
+if (isMain) main();

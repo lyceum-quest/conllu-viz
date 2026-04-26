@@ -11,7 +11,8 @@
     "deploy": "bash ./scripts/deploy.sh",
     "import": "tsx scripts/import-conllu.ts",
     "lint": "tsx scripts/lint.ts",
-    "lint:all": "tsx scripts/lint.ts"
+    "lint:all": "tsx scripts/lint.ts",
+    "lint:test": "tsx scripts/lint-test.ts"
   },
   "devDependencies": {
     "tsx": "^4.21.0",
