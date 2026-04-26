@@ -3,7 +3,7 @@
  */
 
 import { parseConllu } from './types';
-import { AppStore, StoredFile, loadStore, saveStore, addFile, listFiles,
+import { AppStore, StoredFile, loadStore, saveStore, addFile, removeFile, listFiles,
          getReviewedCount, getMasteredCount, getMasteryPct } from './store';
 import { navigate } from './router';
 
@@ -271,6 +271,7 @@ function createFileCard(file: import('./store').StoredFile) {
       <button class="action-cram" data-action="cram">🔥 Cram</button>
       <button data-action="reader">📖 Read</button>
       <button data-action="browse">🌳 Browse</button>
+      <button class="action-delete" data-action="delete">🗑️</button>
     </div>
   `;
 
@@ -278,6 +279,7 @@ function createFileCard(file: import('./store').StoredFile) {
   const cramBtn = card.querySelector('[data-action="cram"]')!;
   const readerBtn = card.querySelector('[data-action="reader"]')!;
   const browseBtn = card.querySelector('[data-action="browse"]')!;
+  const deleteBtn = card.querySelector('[data-action="delete"]')!;
 
   studyBtn.addEventListener('click', (e) => {
     e.stopPropagation();
@@ -289,6 +291,15 @@ function createFileCard(file: import('./store').StoredFile) {
   });
   readerBtn.addEventListener('click', (e) => { e.stopPropagation(); navigate('reader', file.id); });
   browseBtn.addEventListener('click', (e) => { e.stopPropagation(); navigate('tree', file.id); });
+  deleteBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    if (confirm(`Delete "${escapeHTML(displayTitle)}"? This removes the file and all study progress.`)) {
+      store = loadStore();
+      removeFile(store, file.id);
+      saveStore(store);
+      mount();
+    }
+  });
 
   return card;
 }

@@ -106,6 +106,13 @@ export function listFiles(store: AppStore): StoredFile[] {
   return Object.values(store.files).sort((a, b) => b.loadedAt - a.loadedAt);
 }
 
+export function removeFile(store: AppStore, fileId: string): AppStore {
+  delete store.files[fileId];
+  delete store.sessions[fileId];
+  if (store.studyPrefs) delete store.studyPrefs[fileId];
+  return store;
+}
+
 export function hasSession(store: AppStore, fileId: string): boolean {
   return !!(store.files[fileId] && store.sessions[fileId]);
 }

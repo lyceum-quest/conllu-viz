@@ -284,6 +284,19 @@
   color: #d4903a;
 }
 
+.file-card-actions .action-delete {
+  flex: 0;
+  padding: 6px 10px;
+  background: color-mix(in srgb, #c53030 15%, var(--bg-secondary));
+  border-color: #c53030;
+  color: #c53030;
+  min-width: auto;
+}
+
+.file-card-actions .action-delete:hover {
+  background: color-mix(in srgb, #c53030 30%, var(--bg-secondary));
+}
+
 .file-card-actions button:disabled {
   opacity: 0.4;
   cursor: not-allowed;
