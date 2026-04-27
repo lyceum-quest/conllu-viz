@@ -32,6 +32,8 @@ Drop a `.conllu` file onto the page, or click **Open**. Sample files are in `tes
 | `npm run preview` | Preview production build |
 | `npm run deploy` | rsync `dist/` to server (requires `.env`) |
 | `npm run import` | Bulk-import `.conllu` files into SQLite |
+| `npm run lint` | Lint all `.conllu` files under `conllu/` |
+| `npm run lint:test` | Run linter test suite |
 
 ## Bulk Import
 
@@ -64,6 +66,18 @@ src/
   styles/       CSS
 test-data/      Sample CoNLL-U files (Aesop, Xenophon)
 ```
+
+## CoNLL-U Linter
+
+Validate `.conllu` files against project conventions:
+
+```bash
+npm run lint              # lint all files under conllu/
+npm run lint -- path/file.conllu   # lint specific files
+npm run lint:test         # run linter test suite
+```
+
+The linter checks file headers, sentence metadata, UPOS/DEPREL validity, morphological feature consistency, gloss requirements, and work-specific rules (Aesop vs Xenophon). See [docs/LINTER.md](docs/LINTER.md) for the full rule reference and extension guide.
 
 ## CoNLL-U Pipeline
 
