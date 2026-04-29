@@ -1,0 +1,70 @@
+# title = The Geese and the Cranes
+# sent_id = perry-228-s1
+# text = Χῆνες καὶ γέρανοι ἐπὶ ταὐτοῦ λειμῶνος ἐνέμοντο.
+# parallel_id = lyceum-aesop-p228/s1
+# translation_lang = en
+# prose_translation = Geese and cranes were feeding on the same meadow.
+# literal_translation = Geese and cranes on the same meadow were feeding.
+1	Χῆνες	χήν	NOUN	noun.masc.pl.nom	Gender=Masc|Number=Plur|Case=Nom	6	nsubj	_	gloss=geese
+2	καὶ	καί	CCONJ	conjunction	_	3	cc	_	gloss=and
+3	γέρανοι	γέρανος	NOUN	noun.masc.pl.nom	Gender=Masc|Number=Plur|Case=Nom	1	conj	_	gloss=cranes
+4	ἐπὶ	ἐπί	ADP	preposition.gen	_	5	case	_	gloss=on
+5	ταὐτοῦ	αὐτός	ADJ	adj.neut.sg.gen	Gender=Neut|Number=Sing|Case=Gen	6	obl	_	gloss=the same
+6	λειμῶνος	λειμών	NOUN	noun.masc.sg.gen	Gender=Masc|Number=Sing|Case=Gen	4	obl	_	gloss=meadow
+7	ἐνέμοντο	 νέμω	VERB	verb.impf.ind.mp.3pl	Aspect=Imp|Mood=Ind|Tense=Imp|Voice=Mid|Number=Plur|Person=3	0	root	_	gloss=were feeding / grazing
+8	.	.	PUNCT	punctuation	_	7	punct	_	gloss=.
+
+# sent_id = perry-228-s2
+# text = Τῶν δὲ θηρευτῶν ἐπιφανέντων, οἱ μὲν γέρανοι, κοῦφοι ὄντες, ταχέως ἀπέπτησαν, οἱ δὲ χῆνες, διὰ τὸ βάρος τῶν σωμάτων μείναντες, συνελήφθησαν.
+# parallel_id = lyceum-aesop-p228/s2
+# translation_lang = en
+# prose_translation = When the hunters appeared, the cranes, being light, quickly flew away, but the geese, remaining because of the weight of their bodies, were caught.
+# literal_translation = Of the hunters having appeared, the indeed cranes, light being, quickly flew away, the but geese, on account of the weight of the bodies remaining, were caught.
+9	Τῶν	ὁ	DET	article.masc.pl.gen	Definite=Def|PronType=Art|Gender=Masc|Number=Plur|Case=Gen	10	det	_	gloss=the
+10	δὲ	δέ	CCONJ	conjunction	_	16	cc	_	gloss=but
+11	θηρευτῶν	θηρευτής	NOUN	noun.masc.pl.gen	Gender=Masc|Number=Plur|Case=Gen	12	nsubj	_	gloss=hunters
+12	ἐπιφανέντων	ἐπιφαίνομαι	VERB	verb.aor.ptcp.act.masc.pl.gen	Aspect=Perf|Mood=Part|Tense=Aor|Voice=Act|Gender=Masc|Number=Plur|Case=Gen	16	advcl	_	gloss=having appeared
+13	οἱ	ὁ	DET	article.masc.pl.nom	Definite=Def|PronType=Art|Gender=Masc|Number=Plur|Case=Nom	14	det	_	gloss=the
+14	μὲν	μέν	CCONJ	conjunction	_	16	cc	_	gloss=indeed
+15	γέρανοι	γέρανος	NOUN	noun.masc.pl.nom	Gender=Masc|Number=Plur|Case=Nom	16	nsubj	_	gloss=cranes
+16	κοῦφοι	κοῦφος	ADJ	adj.masc.pl.nom	Degree=Pos|Gender=Masc|Number=Plur|Case=Nom	17	advcl	_	gloss=light
+17	ὄντες	εἰμί	VERB	verb.pres.ptcp.act.masc.pl.nom	Aspect=Imp|Mood=Part|Tense=Pres|Voice=Act|Gender=Masc|Number=Plur|Case=Nom	20	advcl	_	gloss=being
+18	ταχέως	ταχέως	ADV	adverb	Degree=Pos	20	advmod	_	gloss=quickly
+19	ἀπέπτησαν	ἀποπέτομαι	VERB	verb.aor.ind.act.3pl	Aspect=Perf|Mood=Ind|Tense=Aor|Voice=Act|Number=Plur|Person=3	0	root	_	gloss=flew away
+20	οἱ	ὁ	DET	article.masc.pl.nom	Definite=Def|PronType=Art|Gender=Masc|Number=Plur|Case=Nom	21	det	_	gloss=the
+21	δὲ	δέ	CCONJ	conjunction	_	19	cc	_	gloss=but
+22	χῆνες	χήν	NOUN	noun.masc.pl.nom	Gender=Masc|Number=Plur|Case=Nom	19	conj	_	gloss=geese
+23	διὰ	διά	ADP	preposition.acc	_	25	case	_	gloss=on account of
+24	τὸ	ὁ	DET	article.neut.sg.acc	Definite=Def|PronType=Art|Gender=Neut|Number=Sing|Case=Acc	25	det	_	gloss=the
+25	βάρος	βάρος	NOUN	noun.neut.sg.acc	Gender=Neut|Number=Sing|Case=Acc	26	obl	_	gloss=weight
+26	τῶν	ὁ	DET	article.neut.pl.gen	Definite=Def|PronType=Art|Gender=Neut|Number=Plur|Case=Gen	27	det	_	gloss=the
+27	σωμάτων	σῶμα	NOUN	noun.neut.pl.gen	Gender=Neut|Number=Plur|Case=Gen	25	nmod	_	gloss=of bodies
+28	μείναντες	μένω	VERB	verb.aor.ptcp.act.masc.pl.nom	Aspect=Perf|Mood=Part|Tense=Aor|Voice=Act|Gender=Masc|Number=Plur|Case=Nom	19	advcl	_	gloss=remaining
+29	συνελήφθησαν	συναιρέω	VERB	verb.aor.ind.mp.3pl	Aspect=Perf|Mood=Ind|Tense=Aor|Voice=Mid|Number=Plur|Person=3	0	root	_	gloss=were caught / seized
+30	.	.	PUNCT	punctuation	_	29	punct	_	gloss=.
+
+# sent_id = perry-228-s3
+# text = Ὁ μῦθος δηλοῖ ὅτι καὶ ἐν ἁλώσει πόλεως οἱ μὲν ἀκτήμονες εὐχερῶς φεύγουσιν, οἱ δὲ πλούσιοι δουλεύουσιν ἁλισκόμενοι.
+# parallel_id = lyceum-aesop-p228/s3
+# translation_lang = en
+# prose_translation = The fable shows that also in the capture of a city, the propertyless easily flee, while the rich are enslaved being captured.
+# literal_translation = The fable shows that also in the capture of a city the indeed propertyless easily flee, the but rich are enslaved being captured.
+31	Ὁ	ὁ	DET	article.masc.sg.nom	Definite=Def|PronType=Art|Gender=Masc|Number=Sing|Case=Nom	32	det	_	gloss=the
+32	μῦθος	μῦθος	NOUN	noun.masc.sg.nom	Gender=Masc|Number=Sing|Case=Nom	33	nsubj	_	gloss=fable
+33	δηλοῖ	δηλόω	VERB	verb.pres.ind.act.3sg	Aspect=Imp|Mood=Ind|Tense=Pres|Voice=Act|Number=Sing|Person=3	0	root	_	gloss=shows / reveals
+34	ὅτι	ὅτι	SCONJ	conjunction	ConjType=Comp	38	mark	_	gloss=that
+35	καὶ	καί	ADV	adverb	_	38	advmod	_	gloss=also
+36	ἐν	ἐν	ADP	preposition.dat	_	37	case	_	gloss=in
+37	ἁλώσει	ἅλωσις	NOUN	noun.fem.sg.dat	Gender=Fem|Number=Sing|Case=Dat	38	obl	_	gloss=capture
+38	πόλεως	πόλις	NOUN	noun.fem.sg.gen	Gender=Fem|Number=Sing|Case=Gen	37	nmod	_	gloss=of a city
+39	οἱ	ὁ	DET	article.masc.pl.nom	Definite=Def|PronType=Art|Gender=Masc|Number=Plur|Case=Nom	40	det	_	gloss=the
+40	μὲν	μέν	CCONJ	conjunction	_	42	cc	_	gloss=indeed
+41	ἀκτήμονες	ἀκτήμων	ADJ	adj.masc.pl.nom	Degree=Pos|Gender=Masc|Number=Plur|Case=Nom	42	nsubj	_	gloss=propertyless
+42	εὐχερῶς	εὐχερῶς	ADV	adverb	Degree=Pos	43	advmod	_	gloss=easily
+43	φεύγουσιν	φεύγω	VERB	verb.pres.ind.act.3pl	Aspect=Imp|Mood=Ind|Tense=Pres|Voice=Act|Number=Plur|Person=3	33	ccomp	_	gloss=flee
+44	οἱ	ὁ	DET	article.masc.pl.nom	Definite=Def|PronType=Art|Gender=Masc|Number=Plur|Case=Nom	45	det	_	gloss=the
+45	δὲ	δέ	CCONJ	conjunction	_	46	cc	_	gloss=but
+46	πλούσιοι	πλούσιος	ADJ	adj.masc.pl.nom	Degree=Pos|Gender=Masc|Number=Plur|Case=Nom	47	nsubj	_	gloss=rich
+47	δουλεύουσιν	δουλεύω	VERB	verb.pres.ind.act.3pl	Aspect=Imp|Mood=Ind|Tense=Pres|Voice=Act|Number=Plur|Person=3	43	conj	_	gloss=are enslaved
+48	ἁλισκόμενοι	ἁλίσκομαι	VERB	verb.pres.ptcp.mp.masc.pl.nom	Aspect=Imp|Mood=Part|Tense=Pres|Voice=Mid|Gender=Masc|Number=Plur|Case=Nom	47	advcl	_	gloss=being captured
+49	.	.	PUNCT	punctuation	_	47	punct	_	gloss=.

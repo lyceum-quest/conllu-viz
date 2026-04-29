@@ -1,0 +1,73 @@
+# title = The Three Bulls and the Lion
+# sent_id = perry-372-s1
+# text = Ἐνέμοντο μετ' ἀλλήλων τρεῖς ἀεὶ βόες.
+# parallel_id = lyceum-aesop-p372/s1
+# translation_lang = en
+# prose_translation = Three bulls always fed together.
+# literal_translation = They fed with each other three always bulls.
+1	Ἐνέμοντο	 νέμω	VERB	verb.impf.ind.mp.3pl	Aspect=Imp|Mood=Ind|Tense=Imp|Voice=Mid|Number=Plur|Person=3	0	root	_	gloss=they fed / grazed
+2	μετ'	μετά	ADP	preposition.gen	_	3	case	_	gloss=with
+3	ἀλλήλων	ἀλλήλων	PRON	pron.masc.pl.gen	PronType=Rcp|Gender=Masc|Number=Plur|Case=Gen	1	obl	_	gloss=each other
+4	τρεῖς	τρεῖς	NUM	numeral.masc.pl.nom	NumType=Card|Gender=Masc|Number=Plur|Case=Nom	5	nummod	_	gloss=three
+5	ἀεὶ	ἀεί	ADV	adverb	_	1	advmod	_	gloss=always
+6	βόες	βοῦς	NOUN	noun.masc.pl.nom	Gender=Masc|Number=Plur|Case=Nom	1	nsubj	_	gloss=bulls
+7	.	.	PUNCT	punctuation	_	1	punct	_	gloss=.
+
+# sent_id = perry-372-s2
+# text = Λέων δὲ τούτους φαγεῖν θέλων διὰ τὴν αὐτῶν ὁμόνοιαν οὐκ ἠδύνατο· ὑπούλοις δὲ λόγοις διαβαλὼν ἐχώρισεν ἀπ' ἀλλήλων, καὶ τότε ἕνα ἕκαστον αὐτῶν μεμονωμένους εὑρὼν κατεθοινήσατο.
+# parallel_id = lyceum-aesop-p372/s2
+# translation_lang = en
+# prose_translation = A lion, wanting to eat them, could not because of their unity; but with deceitful words he slandered and separated them from each other, and then finding each one isolated, he devoured them.
+# literal_translation = A lion but these to eat wanting on account of their unity not was able; deceitful but words having slandered he separated from each other, and then one each of them isolated having found he devoured.
+8	Λέων	λέων	NOUN	noun.masc.sg.nom	Gender=Masc|Number=Sing|Case=Nom	11	nsubj	_	gloss=lion
+9	δὲ	δέ	CCONJ	conjunction	_	11	cc	_	gloss=but
+10	τούτους	οὗτος	PRON	pron.masc.pl.acc	PronType=Dem|Gender=Masc|Number=Plur|Case=Acc	11	obj	_	gloss=these
+11	φαγεῖν	ἐσθίω	VERB	verb.aor.inf.act	Aspect=Perf|Mood=Inf|Tense=Aor|Voice=Act	12	xcomp	_	gloss=to eat
+12	θέλων	θέλω	VERB	verb.pres.ptcp.act.masc.sg.nom	Aspect=Imp|Mood=Part|Tense=Pres|Voice=Act|Gender=Masc|Number=Sing|Case=Nom	13	advcl	_	gloss=wanting
+13	διὰ	διά	ADP	preposition.acc	_	15	case	_	gloss=on account of
+14	τὴν	ὁ	DET	article.fem.sg.acc	Definite=Def|PronType=Art|Gender=Fem|Number=Sing|Case=Acc	15	det	_	gloss=the
+15	αὐτῶν	αὐτός	PRON	pron.masc.pl.gen	PronType=Prs|Gender=Masc|Number=Plur|Case=Gen	16	nmod	_	gloss=their
+16	ὁμόνοιαν	ὁμόνοια	NOUN	noun.fem.sg.acc	Gender=Fem|Number=Sing|Case=Acc	17	obl	_	gloss=unity / concord
+17	οὐκ	οὐ	PART	neg.particle	Polarity=Neg	18	advmod	_	gloss=not
+18	ἠδύνατο	δύναμαι	VERB	verb.impf.ind.mp.3sg	Aspect=Imp|Mood=Ind|Tense=Imp|Voice=Mid|Number=Sing|Person=3	0	root	_	gloss=was able
+19	·	·	PUNCT	punctuation	_	18	punct	_	gloss=:
+20	ὑπούλοις	ὑποῦλος	ADJ	adj.masc.pl.dat	Degree=Pos|Gender=Masc|Number=Plur|Case=Dat	21	amod	_	gloss=deceitful
+21	δὲ	δέ	CCONJ	conjunction	_	24	cc	_	gloss=but
+22	λόγοις	λόγος	NOUN	noun.masc.pl.dat	Gender=Masc|Number=Plur|Case=Dat	23	obl	_	gloss=words
+23	διαβαλὼν	διαβάλλω	VERB	verb.aor.ptcp.act.masc.sg.nom	Aspect=Perf|Mood=Part|Tense=Aor|Voice=Act|Gender=Masc|Number=Sing|Case=Nom	24	advcl	_	gloss=having slandered
+24	ἐχώρισεν	χωρίζω	VERB	verb.aor.ind.act.3sg	Aspect=Perf|Mood=Ind|Tense=Aor|Voice=Act|Number=Sing|Person=3	18	conj	_	gloss=separated
+25	ἀπ'	ἀπό	ADP	preposition.gen	_	26	case	_	gloss=from
+26	ἀλλήλων	ἀλλήλων	PRON	pron.masc.pl.gen	PronType=Rcp|Gender=Masc|Number=Plur|Case=Gen	24	obl	_	gloss=each other
+27	καὶ	καί	CCONJ	conjunction	_	28	cc	_	gloss=and
+28	τότε	τότε	ADV	adverb	_	31	advmod	_	gloss=then
+29	ἕνα	εἷς	NUM	numeral.masc.sg.acc	NumType=Card|Gender=Masc|Number=Sing|Case=Acc	30	nummod	_	gloss=one
+30	ἕκαστον	ἕκαστος	ADJ	adj.masc.sg.acc	Degree=Pos|Gender=Masc|Number=Sing|Case=Acc	31	obj	_	gloss=each
+31	αὐτῶν	αὐτός	PRON	pron.masc.pl.gen	PronType=Prs|Gender=Masc|Number=Plur|Case=Gen	30	nmod	_	gloss=of them
+32	μεμονωμένους	μονόω	VERB	verb.perf.ptcp.mp.masc.pl.acc	Aspect=Perf|Mood=Part|Tense=Perf|Voice=Mid|Gender=Masc|Number=Plur|Case=Acc	31	acl	_	gloss=isolated
+33	εὑρὼν	εὑρίσκω	VERB	verb.aor.ptcp.act.masc.sg.nom	Aspect=Perf|Mood=Part|Tense=Aor|Voice=Act|Gender=Masc|Number=Sing|Case=Nom	34	advcl	_	gloss=having found
+34	κατεθοινήσατο	καταιθοινάομαι	VERB	verb.aor.ind.mp.3sg	Aspect=Perf|Mood=Ind|Tense=Aor|Voice=Mid|Number=Sing|Person=3	24	conj	_	gloss=devoured
+35	.	.	PUNCT	punctuation	_	34	punct	_	gloss=.
+
+# sent_id = perry-372-s3
+# text = Ὅτι εἰ θέλεις μάλιστα ζῆν ἀκινδύνως, τοῖς μὲν ἐχθροῖς ἀπίστει, τοῖς δὲ φίλοις πίστευε καὶ συντήρει.
+# parallel_id = lyceum-aesop-p372/s3
+# translation_lang = en
+# prose_translation = That if you wish most to live safely, distrust your enemies, but trust and keep faith with your friends.
+# literal_translation = That if you wish most to live safely, the enemies distrust, the friends trust and keep.
+36	Ὅτι	ὅτι	SCONJ	conjunction	ConjType=Comp	37	mark	_	gloss=that
+37	εἰ	εἰ	SCONJ	conjunction	_	38	mark	_	gloss=if
+38	θέλεις	θέλω	VERB	verb.pres.ind.act.2sg	Aspect=Imp|Mood=Ind|Tense=Pres|Voice=Act|Number=Sing|Person=2	39	advcl	_	gloss=you wish
+39	μάλιστα	μάλιστα	ADV	adverb	Degree=Sup	40	advmod	_	gloss=most
+40	ζῆν	ζάω	VERB	verb.pres.inf.act	Aspect=Imp|Mood=Inf|Tense=Pres|Voice=Act	38	xcomp	_	gloss=to live
+41	ἀκινδύνως	ἀκίνδυνος	ADV	adverb	Degree=Pos	42	advmod	_	gloss=safely
+42	τοῖς	ὁ	DET	article.masc.pl.dat	Definite=Def|PronType=Art|Gender=Masc|Number=Plur|Case=Dat	43	det	_	gloss=the
+43	μὲν	μέν	CCONJ	conjunction	_	44	cc	_	gloss=indeed
+44	ἐχθροῖς	ἐχθρός	ADJ	adj.masc.pl.dat	Degree=Pos|Gender=Masc|Number=Plur|Case=Dat	45	obl	_	gloss=enemies
+45	ἀπίστει	ἀπιστέω	VERB	verb.pres.imper.act.2sg	Mood=Imp|Tense=Pres|VerbForm=Fin|Voice=Act|Number=Sing|Person=2	0	root	_	gloss=distrust
+46	τοῖς	ὁ	DET	article.masc.pl.dat	Definite=Def|PronType=Art|Gender=Masc|Number=Plur|Case=Dat	47	det	_	gloss=the
+47	δὲ	δέ	CCONJ	conjunction	_	48	cc	_	gloss=but
+48	φίλοις	φίλος	ADJ	adj.masc.pl.dat	Degree=Pos|Gender=Masc|Number=Plur|Case=Dat	49	obl	_	gloss=friends
+49	πίστευε	πιστεύω	VERB	verb.pres.imper.act.2sg	Mood=Imp|Tense=Pres|VerbForm=Fin|Voice=Act|Number=Sing|Person=2	45	conj	_	gloss=trust
+50	καὶ	καί	CCONJ	conjunction	_	51	cc	_	gloss=and
+51	συντήρει	συντηρέω	VERB	verb.pres.imper.act.2sg	Mood=Imp|Tense=Pres|VerbForm=Fin|Voice=Act|Number=Sing|Person=2	49	conj	_	gloss=keep faith with
+52	.	.	PUNCT	punctuation	_	51	punct	_	gloss=.

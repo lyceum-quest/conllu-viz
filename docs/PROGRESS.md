@@ -36,7 +36,17 @@
 | 30 | 294 | 30.6 | perry-294.conllu | ✅ Done |
 | 31 | 76 | 30.7 | perry-076.conllu | ✅ Done |
 | 32 | 136 | 31.0 | perry-136.conllu | ✅ Done |
-| 33 | 228 | 31.0 | — | ⬜ Next |
+| 33 | 228 | 31.0 | perry-228.conllu | ✅ Done |
+| 34 | 366 | 31.3 | perry-366.conllu | ✅ Done |
+| 35 | 211 | 31.8 | perry-211.conllu | ✅ Done |
+| 36 | 231 | 32.3 | perry-231.conllu | ✅ Done |
+| 37 | 323 | 32.5 | perry-323.conllu | ✅ Done |
+| 38 | 324 | 32.7 | perry-324.conllu | ✅ Done |
+| 39 | 415 | 32.7 | perry-415.conllu | ✅ Done |
+| 40 | 372 | 33.0 | perry-372.conllu | ✅ Done |
+| 41 | 300 | 33.3 | perry-300.conllu | ✅ Done |
+| 42 | 12 | 33.5 | perry-012.conllu | ✅ Done |
+| 43 | 217 | 33.5 | — | ⬜ Next |
 
 **Next fable**: Read `perry-difficulty-map.csv` and find the first row whose Perry number doesn't have a `.conllu` file. That's your next target.
 
