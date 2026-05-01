@@ -1,0 +1,89 @@
+# title = The Boy Bathing
+# sent_id = perry-211-s1
+# text = Παῖς λουόμενος ἐν ποταμῷ ἐκινδύνευε πνιγῆναι.
+# parallel_id = lyceum-aesop-p211/s1
+# translation_lang = en
+# prose_translation = A boy bathing in a river was in danger of drowning.
+# literal_translation = A boy bathing in a river was in danger to be drowned.
+1	Παῖς	παῖς	NOUN	noun.masc.sg.nom	Gender=Masc|Number=Sing|Case=Nom	4	nsubj	_	gloss=boy
+2	λουόμενος	λούω	VERB	verb.pres.ptcp.mp.masc.sg.nom	Aspect=Imp|Mood=Part|Tense=Pres|Voice=Mid|Gender=Masc|Number=Sing|Case=Nom	4	advcl	_	gloss=bathing
+3	ἐν	ἐν	ADP	preposition.dat	_	5	case	_	gloss=in
+4	ποταμῷ	ποταμός	NOUN	noun.masc.sg.dat	Gender=Masc|Number=Sing|Case=Dat	2	obl	_	gloss=river
+5	ἐκινδύνευε	κινδυνεύω	VERB	verb.impf.ind.act.3sg	Aspect=Imp|Mood=Ind|Tense=Imp|Voice=Act|Number=Sing|Person=3	0	root	_	gloss=was in danger
+6	πνιγῆναι	πνίγω	VERB	verb.aor.inf.mp	Aspect=Perf|Mood=Inf|Tense=Aor|Voice=Mid	5	xcomp	_	gloss=to be drowned
+7	.	.	PUNCT	punctuation	_	5	punct	_	gloss=.
+
+# sent_id = perry-211-s2
+# text = Καὶ ἰδών τινα παροδίτην ἐπεφώνει· Βοήθησόν τι.
+# parallel_id = lyceum-aesop-p211/s2
+# translation_lang = en
+# prose_translation = And seeing a passerby, he called out: "Help me!"
+# literal_translation = And seeing a certain passerby he called out: Help somewhat.
+8	Καὶ	καί	CCONJ	conjunction	_	11	cc	_	gloss=and
+9	ἰδών	ὁράω	VERB	verb.aor.ptcp.act.masc.sg.nom	Aspect=Perf|Mood=Part|Tense=Aor|Voice=Act|Gender=Masc|Number=Sing|Case=Nom	11	advcl	_	gloss=seeing
+10	τινα	τὶς	PRON	pron.masc.sg.acc	PronType=Ind|Gender=Masc|Number=Sing|Case=Acc	11	obj	_	gloss=a certain
+11	παροδίτην	παροδίτης	NOUN	noun.masc.sg.acc	Gender=Masc|Number=Sing|Case=Acc	9	obj	_	gloss=passerby
+12	ἐπεφώνει	ἐπιφωνέω	VERB	verb.impf.ind.act.3sg	Aspect=Imp|Mood=Ind|Tense=Imp|Voice=Act|Number=Sing|Person=3	0	root	_	gloss=called out
+13	·	·	PUNCT	punctuation	_	12	punct	_	gloss=:
+14	Βοήθησόν	βοηθέω	VERB	verb.aor.imper.act.2sg	Mood=Imp|Tense=Aor|VerbForm=Fin|Voice=Act|Number=Sing|Person=2	12	ccomp	_	gloss=help
+15	τι	τὶς	PRON	pron.neut.sg.acc	PronType=Ind|Gender=Neut|Number=Sing|Case=Acc	14	obj	_	gloss=somewhat / a little
+16	.	.	PUNCT	punctuation	_	14	punct	_	gloss=.
+
+# sent_id = perry-211-s3
+# text = Ὁ δὲ ἐμέμφετο τῷ παιδὶ τολμηρίαν.
+# parallel_id = lyceum-aesop-p211/s3
+# translation_lang = en
+# prose_translation = But the man reproved the boy's recklessness.
+# literal_translation = He but reproved the boy for recklessness.
+17	Ὑμὲν	ὁ	DET	article.masc.sg.nom	Definite=Def|PronType=Art|Gender=Masc|Number=Sing|Case=Nom	19	nsubj	_	gloss=he
+18	δὲ	δέ	CCONJ	conjunction	_	19	cc	_	gloss=but
+19	ἐμέμφετο	μέμφομαι	VERB	verb.impf.ind.mp.3sg	Aspect=Imp|Mood=Ind|Tense=Imp|Voice=Mid|Number=Sing|Person=3	0	root	_	gloss=reproved / found fault
+20	τῷ	ὁ	DET	article.masc.sg.dat	Definite=Def|PronType=Art|Gender=Masc|Number=Sing|Case=Dat	21	det	_	gloss=the
+21	παιδὶ	παῖς	NOUN	noun.masc.sg.dat	Gender=Masc|Number=Sing|Case=Dat	19	obl	_	gloss=boy
+22	τολμηρίαν	τολμηρία	NOUN	noun.fem.sg.acc	Gender=Fem|Number=Sing|Case=Acc	19	obj	_	gloss=recklessness
+23	.	.	PUNCT	punctuation	_	19	punct	_	gloss=.
+
+# sent_id = perry-211-s4
+# text = Τὸ δὲ παιδίον εἶπεν· Ἀλλὰ νῦν μοι βοήθησον· ὕστερον δὲ σωθέντα μέμφου.
+# parallel_id = lyceum-aesop-p211/s4
+# translation_lang = en
+# prose_translation = But the child said: "But now help me; later, when I am saved, find fault."
+# literal_translation = The but child said: But now me help; later but having been saved find fault.
+24	Τὸ	ὁ	DET	article.neut.sg.nom	Definite=Def|PronType=Art|Gender=Neut|Number=Sing|Case=Nom	25	det	_	gloss=the
+25	δὲ	δέ	CCONJ	conjunction	_	26	cc	_	gloss=but
+26	παιδίον	παιδίον	NOUN	noun.neut.sg.nom	Gender=Neut|Number=Sing|Case=Nom	27	nsubj	_	gloss=child
+27	εἶπεν	λέγω	VERB	verb.aor.ind.act.3sg	Aspect=Perf|Mood=Ind|Tense=Aor|Voice=Act|Number=Sing|Person=3	0	root	_	gloss=said
+28	·	·	PUNCT	punctuation	_	27	punct	_	gloss=:
+29	Ἀλλὰ	ἀλλά	CCONJ	conjunction	_	31	cc	_	gloss=but
+30	νῦν	νῦν	ADV	adverb	_	31	advmod	_	gloss=now
+31	μοι	ἐγώ	PRON	pron.1sg.dat	PronType=Prs|Number=Sing|Person=1|Case=Dat	32	obl	_	gloss=me
+32	βοήθησον	βοηθέω	VERB	verb.aor.imper.act.2sg	Mood=Imp|Tense=Aor|VerbForm=Fin|Voice=Act|Number=Sing|Person=2	27	ccomp	_	gloss=help
+33	·	·	PUNCT	punctuation	_	32	punct	_	gloss=:
+34	ὕστερον	ὕστερον	ADV	adverb	Degree=Pos	37	advmod	_	gloss=later
+35	δὲ	δέ	CCONJ	conjunction	_	37	cc	_	gloss=but
+36	σωθέντα	σῴζω	VERB	verb.aor.ptcp.mp.masc.sg.acc	Aspect=Perf|Mood=Part|Tense=Aor|Voice=Mid|Gender=Masc|Number=Sing|Case=Acc	37	advcl	_	gloss=having been saved
+37	μέμφου	μέμφομαι	VERB	verb.pres.imper.mp.2sg	Mood=Imp|Tense=Pres|VerbForm=Fin|Voice=Mid|Number=Sing|Person=2	32	conj	_	gloss=find fault
+38	.	.	PUNCT	punctuation	_	37	punct	_	gloss=.
+
+# sent_id = perry-211-s5
+# text = Ὁ μῦθος δηλοῖ ὅτι μὴ μέμφου, πλὴν ἐλέει· καὶ γὰρ παράληκτον ποιεῖς τὸν λυπούμενον.
+# parallel_id = lyceum-aesop-p211/s5
+# translation_lang = en
+# prose_translation = The fable shows that one should not find fault except with pity; for you make the suffering person more negligent.
+# literal_translation = The fable shows that not find fault, except by pity; for even negligent you make the one suffering.
+39	Ὁ	ὁ	DET	article.masc.sg.nom	Definite=Def|PronType=Art|Gender=Masc|Number=Sing|Case=Nom	40	det	_	gloss=the
+40	μῦθος	μῦθος	NOUN	noun.masc.sg.nom	Gender=Masc|Number=Sing|Case=Nom	41	nsubj	_	gloss=fable
+41	δηλοῖ	δηλόω	VERB	verb.pres.ind.act.3sg	Aspect=Imp|Mood=Ind|Tense=Pres|Voice=Act|Number=Sing|Person=3	0	root	_	gloss=shows
+42	ὅτι	ὅτι	SCONJ	conjunction	ConjType=Comp	43	mark	_	gloss=that
+43	μὴ	μή	CCONJ	conjunction	Polarity=Neg	44	advmod	_	gloss=not
+44	μέμφου	μέμφομαι	VERB	verb.pres.imper.mp.2sg	Mood=Imp|Tense=Pres|VerbForm=Fin|Voice=Mid|Number=Sing|Person=2	41	ccomp	_	gloss=find fault
+45	πλὴν	πλήν	ADP	preposition.gen	_	46	case	_	gloss=except
+46	ἐλέει	ἔλεος	NOUN	noun.neut.sg.dat	Gender=Neut|Number=Sing|Case=Dat	44	obl	_	gloss=with pity
+47	·	·	PUNCT	punctuation	_	44	punct	_	gloss=:
+48	καὶ	καί	CCONJ	conjunction	_	51	cc	_	gloss=for
+49	γὰρ	γάρ	CCONJ	conjunction	_	51	cc	_	gloss=for
+50	παράληκτον	παράληκτος	ADJ	adj.masc.sg.acc	Degree=Pos|Gender=Masc|Number=Sing|Case=Acc	51	xcomp	_	gloss=negligent / remiss
+51	ποιεῖς	ποιέω	VERB	verb.pres.ind.act.2sg	Aspect=Imp|Mood=Ind|Tense=Pres|Voice=Act|Number=Sing|Person=2	41	conj	_	gloss=you make
+52	τὸν	ὁ	DET	article.masc.sg.acc	Definite=Def|PronType=Art|Gender=Masc|Number=Sing|Case=Acc	53	det	_	gloss=the
+53	λυπούμενον	λύπω	VERB	verb.pres.ptcp.mp.masc.sg.acc	Aspect=Imp|Mood=Part|Tense=Pres|Voice=Mid|Gender=Masc|Number=Sing|Case=Acc	51	obj	_	gloss=one suffering
+54	.	.	PUNCT	punctuation	_	51	punct	_	gloss=.

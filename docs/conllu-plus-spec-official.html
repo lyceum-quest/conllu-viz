@@ -1,0 +1,375 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-GB" xml:lang="en-GB" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title>CoNLL-U Plus Format</title>
+    <link rel="icon" href="https://universaldependencies.org/logos/logo-ud.png" type="image/png">
+    <link rel="root" href=""/> <!-- for JS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/jquery-ui-redmond.css"/>
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="css/style-vis.css"/>
+    <link rel="stylesheet" type="text/css" href="css/hint.css"/>
+    <script type="text/javascript" src="lib/ext/head.load.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/3.2.2/anchor.min.js"></script>
+    <script>document.addEventListener("DOMContentLoaded", function(event) {anchors.add();});</script>
+    <!-- Set up this custom Google search at https://programmablesearchengine.google.com/controlpanel/overview?cx=001145188882102106025%3Adl1mehhcgbo
+         or try it at https://cse.google.com/cse?cx=001145188882102106025%3Adl1mehhcgbo -->
+    <!-- DZ 2021-01-22: I am temporarily hiding the search field to find out whether it slows down loading of the title page.
+         DZ 2025-11-18: Turning it on again (the homepage is slow anyway, because of other factors). -->
+    <script>
+      (function() {
+        var cx = '001145188882102106025:dl1mehhcgbo';
+        var gcse = document.createElement('script');
+        gcse.type = 'text/javascript';
+        gcse.async = true;
+        gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(gcse, s);
+      })();
+    </script>
+
+
+  </head>
+  <body>
+    <div id="main" class="center">
+
+      <div id="hp-header">
+        <table width="100%"><tr><td width="50%">
+          <span class="header-text"><a href="http://universaldependencies.org/#language-">home</a></span>
+
+          <span class="header-text"><a href="https://github.com/universaldependencies/docs/edit/pages-source/ext-format.md" target="#">edit page</a></span>
+          <span class="header-text"><a href="https://github.com/universaldependencies/docs/issues">issue tracker</a></span>
+        </td><td>
+          <gcse:search></gcse:search>
+        </td></tr></table>
+      </div>
+
+      <hr/>
+
+      
+      <div class="v2complete">
+        This page pertains to UD version 2.
+      </div>
+      
+
+      <div id="content">
+        <noscript>
+          <div id="noscript">
+            It appears that you have Javascript disabled.
+            Please consider enabling Javascript for this page to see the visualizations.
+          </div>
+        </noscript>
+
+        <!-- The content may include scripts and styles, hence we must load the shared libraries before the content. -->
+        <script type="text/javascript">
+            console.time('loading libraries');
+            var root = ''; // filled in by jekyll
+            head.js(
+                // External libraries
+                // DZ: Copied from embedding.html. I don't know which one is needed for what, so I'm currently keeping them all.
+                root + 'lib/ext/jquery.min.js',
+                root + 'lib/ext/jquery.svg.min.js',
+                root + 'lib/ext/jquery.svgdom.min.js',
+                root + 'lib/ext/jquery.timeago.js',
+                root + 'lib/ext/jquery-ui.min.js',
+                root + 'lib/ext/waypoints.min.js',
+                root + 'lib/ext/jquery.address.min.js'
+            );
+        </script>
+        <!-- This specification was drafted in collaboration between the UD core group (Joakim Nivre, Dan Zeman, Filip Ginter) and the PARSEME initiative (Agata Savary, Carlos Ramisch, Silvio Cordeiro). -->
+<!-- Minutes from the Skype talk 2018-01-17 https://docs.google.com/document/d/108tEbDZyngpc-zqfy7phnSxRVaEzmiHDTzzRLINVgUM/edit?usp=sharing -->
+<!-- UD-to-Any format interface (CoNLL-U Plus first specification) https://docs.google.com/document/d/1_P5FK9yTRcTPEXU_iQ4SNvgUHKIWoUG9J5hk5B45584/edit#heading=h.kpu17fj0h6x7 -->
+
+<h1 id="conll-u-plus-format">CoNLL-U Plus Format</h1>
+
+<p>In theory, the <a href="format.html">basic CoNLL-U format</a> can encode any kind of annotation
+using a combination of the sentence-level comments and the MISC attributes. However,
+in projects that systematically add a new annotation layer to existing UD treebanks
+it becomes impractical to pack everything into these two places.</p>
+
+<p>We define a general technique of extending the CoNLL-U format, with the hope that
+various extensions will remain as compatible with each other as possible. We call
+this generic format “CoNLL-U Plus,” with the filename extension <code class="language-plaintext highlighter-rouge">.conllup</code>.</p>
+
+<p>Note that this page is not about the <a href="/u/overview/enhanced-syntax.html">enhanced UD representation</a>,
+which, despite being arguably an extension in its own right, is part of the standard
+CoNLL-U format.</p>
+
+<h2 id="new-columns">New columns</h2>
+
+<p>The extension is actually very simple. While a CoNLL-U file has always precisely ten
+columns separated by TAB characters, a CoNLL-U Plus file can have any non-zero number
+of columns. In addition, the first line must be a sentence-level comment (i.e., starting
+with a <code class="language-plaintext highlighter-rouge">#</code> character) that lists the names of the columns used in this file.
+There are ten predefined column names that identify the original columns of the core
+CoNLL-U files (<a href="format.html">see specification</a>). A CoNLL-U Plus file may contain any
+subset of them (or none of them, although for stand-off annotation of UD files,
+at least the ID column is typically needed).</p>
+
+<p>A valid CoNLL-U file thus becomes valid CoNLL-U Plus file when the comment listing
+its columns is inserted as the first line (here the column names are separated by
+a simple space character instead of a TAB):</p>
+
+<pre>
+# global.columns = ID FORM LEMMA UPOS XPOS FEATS HEAD DEPREL DEPS MISC
+# newdoc id = mf920901-001
+# newpar id = mf920901-001-p1
+# sent_id = mf920901-001-p1s1A
+# text = Slovenská ústava: pro i proti
+# text_en = Slovak constitution: pros and cons
+1   Slovenská   slovenský   ADJ     AAFS1----1A---- Case=Nom|Degree=Pos|Gender=Fem|Number=Sing|Polarity=Pos 2 amod _ _
+2   ústava      ústava      NOUN    NNFS1-----A---- Case=Nom|Gender=Fem|Number=Sing|Polarity=Pos 0 root _ SpaceAfter=No
+3   :           :           PUNCT   Z:------------- _          2       punct   _       _
+4   pro         pro         ADP     RR--4---------- Case=Acc   2       appos   _       LId=pro-1
+5   i           i           CCONJ   J^------------- _          6       cc      _       LId=i-1
+6   proti       proti       ADP     RR--3---------- Case=Dat   4       conj    _       LId=proti-1
+
+</pre>
+
+<p>Note that the comment can safely reside in a CoNLL-U file and it stays a valid
+CoNLL-U file as long as no columns are added, reordered or removed. However, we
+intentionally do not make the comment mandatory in basic CoNLL-U files.
+We want to be able to simply split a basic CoNLL-U file on a sentence boundary
+and get two valid CoNLL-U files—something that is not possible with CoNLL-U Plus.</p>
+
+<p>Any column names other than the original ten are considered project-specific and
+must use a namespace identifier that distinguishes the columns of the given project
+from columns defined by other initiatives, should they eventually
+end up in the same file. A column name consists of uppercase English letters
+and of a colon as the namespace delimiter:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># global.columns = ID FORM PARSEME:MWE
+</code></pre></div></div>
+
+<p>The internal requirements and semantics of the new column must be documented by
+the initiative that defined the column. The only global limitation specified by
+CoNLL-U Plus is that the column does not contain a TAB, CR or LF character (but it may
+contain other whitespace characters if allowed by the column specification).
+In addition:</p>
+
+<ul>
+  <li>The underscore <code class="language-plaintext highlighter-rouge">_</code>, when it occurs alone in the field, is reserved for underspecified
+annotations. It can be used in incomplete annotations or in blind versions of the
+annotated files. (Note that in the FORM and LEMMA fields of the basic CoNLL-U file,
+the underscore may also mean a literal underscore appearing in the underlying text.)</li>
+  <li>If an extension needs to distinguish unknown values from known but empty values, it is
+recommended that the asterisk <code class="language-plaintext highlighter-rouge">*</code> is used for the empty value. For example, the
+<code class="language-plaintext highlighter-rouge">PARSEME:MWE</code> column uses the asterisk to indicate that a token does not belong to
+any multi-word expression, while the underscore is used in blind files where multi-word
+expression annotation is not provided, that is, one does not know whether the token
+belongs to a MWE or not. Note that the core UD columns use the underscore in both
+situations.</li>
+  <li>The use of the underscore <code class="language-plaintext highlighter-rouge">_</code> (and of the asterisk <code class="language-plaintext highlighter-rouge">*</code>) is unconstrained when they
+occur with other characters (e.g. in feature names or values, as in <code class="language-plaintext highlighter-rouge">spec_char=*</code>).</li>
+</ul>
+
+<p>If the file is an extension of an existing UD treebank, it is assumed that sentence-level
+metadata defined in UD (in particular, the <code class="language-plaintext highlighter-rouge">text</code> attribute), as well as the contents of
+the core UD columns, is identical to the source treebank.</p>
+
+<h2 id="cross-reference-to-a-ud-treebank">Cross-reference to a UD treebank</h2>
+
+<p>In case of stand-off annotation, it becomes crucial to be able to identify the underlying UD file.
+Any official UD release is identified by its permanent URI in the LINDAT/CLARIN repository,
+e.g.,</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">http://hdl.handle.net/11234/1-1983</code> for UD 2.0.</li>
+  <li><code class="language-plaintext highlighter-rouge">http://hdl.handle.net/11234/1-2515</code> for UD 2.1.</li>
+</ul>
+
+<p>Within a release, each file can be identified by a path.
+For UD releases, the path consists of the name of the treebank folder
+(corresponding to the name of the Github repository, e.g., <code class="language-plaintext highlighter-rouge">UD_German-PUD</code>)
+and of the actual name of the file
+(e.g., <code class="language-plaintext highlighter-rouge">de_pud-ud-test.conllu</code>).
+The delimiter character is always the slash and never the backslash,
+regardless of operating system:
+<code class="language-plaintext highlighter-rouge">UD_German-PUD/de_pud-ud-test.conllu</code>.</p>
+
+<p>Within a file, each sentence has a unique sentence id
+(UD actually requires that the sentence id be unique treebank-wide,
+but for easier processing we keep the filename in the identification string).
+Within a sentence, the token/word id from the <code class="language-plaintext highlighter-rouge">ID</code> column unambiguously
+points to a tree node or a multi-word token.</p>
+
+<p>In the CoNLL-U Plus file, the reference appears in a sentence-level attribute
+called <code class="language-plaintext highlighter-rouge">source_sent_id</code>, where the id string contains a source format specifier,
+followed by three of the reference parts discussed above:
+release id, file path and sentence id.
+The format specifier is a single word consisting of lowercase English letters.
+As long as we are referring to a CoNLL-U file, the format specifier is always
+“conllu”. This allows us to distinguish references to source corpora that are
+not saved in CoNLL-U; nevertheless, we do not define the other formats here
+and whoever uses them must also document them.</p>
+
+<p>These four parts are separated by spaces,
+not slashes, because the release id itself contains slashes.</p>
+
+<p>The <code class="language-plaintext highlighter-rouge">source_sent_id</code> attribute is optional and may be omitted if the file belongs
+to a standalone corpus rather than a stand-off annotation layer. On the other hand,
+the <code class="language-plaintext highlighter-rouge">sent_id</code> attribute is required even if there is a <code class="language-plaintext highlighter-rouge">source_sent_id</code> attribute
+in the same sentence. It is not even required that the value of <code class="language-plaintext highlighter-rouge">sent_id</code> is identical
+to the last part of <code class="language-plaintext highlighter-rouge">source_sent_id</code>, although it often makes sense and may be
+required by individual annotation projects. The only requirement is that the value
+of <code class="language-plaintext highlighter-rouge">sent_id</code> is unique—at least within the file in which it appears, but a project
+may require that it is unique across a set of files that constitute a corpus.
+Furthermore, the general <a href="format.html#sentence-boundaries-and-comments">requirements</a>
+of the basic CoNLL-U format also apply (e.g., the sentence id cannot contain whitespace
+characters).</p>
+
+<pre>
+# global.columns = ID FORM UPOS HEAD DEPREL MISC PARSEME:MWE
+# source_sent_id = conllu http://hdl.handle.net/11234/1-2837 UD_German-GSD/de_gsd-ud-train.conllu train-s1682
+# sent_id = train-s1682
+# text = Der CDU-Politiker strebt einen einheitlichen Wohnungsmarkt an, auf dem sich die Preise an der ortsüblichen Vergleichsmiete orientieren.
+1	Der	DET	2	det	_	*
+2	CDU	PROPN	4	compound	SpaceAfter=No	*
+3	-	PUNCT	2	punct	SpaceAfter=No	*
+4	Politiker	NOUN	5	nsubj	_	*
+5	strebt	VERB	0	root	_	2:VPC.full
+6	einen	DET	8	det	_	*
+7	einheitlichen	ADJ	8	amod	_	*
+8	Wohnungsmarkt	NOUN	5	obj	_	*
+9	an	ADP	5	compound:prt	SpaceAfter=No	2
+10	,	PUNCT	5	punct	_	*
+11	auf	ADP	12	case	_	*
+12	dem	PRON	20	obl	_	*
+13	sich	PRON	20	obj	_	1:IRV
+14	die	DET	15	det	_	*
+15	Preise	NOUN	20	nsubj	_	*
+16	an	ADP	19	case	_	*
+17	der	DET	19	det	_	*
+18	ortsüblichen	ADJ	19	amod	_	*
+19	Vergleichsmiete	NOUN	20	obl	_	*
+20	orientieren	VERB	8	acl	SpaceAfter=No	1
+21	.	PUNCT	5	punct	_	*
+
+</pre>
+
+<h3 id="cross-reference-to-another-source">Cross-reference to another source</h3>
+
+<p>Other cross-references are in principle similar to referring to UD treebanks.
+Instead of UD release handle, another URI identifying the download site can be
+used; however, it must permanently refer to the same version of the corpus, i.e.,
+the corpus must be immutable. Using <a href="https://lindat.mff.cuni.cz/repository/xmlui/">LINDAT/CLARIN</a>
+handles is highly recommended.</p>
+
+<p>If the source treebank is local or if there is no source treebank, the release id
+is a single period (<code class="language-plaintext highlighter-rouge">.</code>).</p>
+
+<p>If the release id identifies just one file, the file path is also a single period (<code class="language-plaintext highlighter-rouge">.</code>).</p>
+
+<p>The sentence id part of the reference string must be identical to the <code class="language-plaintext highlighter-rouge">sent_id</code> in the
+CoNLL-U file we are referring to.</p>
+
+<h1 id="known-extensions-of-ud">Known extensions of UD</h1>
+
+<p>A few projects ran before this specification was created; their data probably do not
+comply with this specification.</p>
+
+<ul>
+  <li><a href="https://universalpropositions.github.io">Universal Proposition Banks</a> (IBM Research; see also <a href="https://github.com/UniversalDependencies/docs/issues/344">issue #344</a>)</li>
+</ul>
+
+<p>One extension was based on an early draft of this specification.
+It is not 100% compliant with the final version but it is close:</p>
+
+<ul>
+  <li>PARSEME annotation of <a href="http://multiword.sourceforge.net/PHITE.php?sitesig=CONF&amp;page=CONF_04_LAW-MWE-CxG_2018___lb__COLING__rb__&amp;subpage=CONF_45_Format_specification">multi-word expressions</a></li>
+</ul>
+
+<p>Planned extensions:</p>
+
+<ul>
+  <li><a href="https://unimorph.github.io/">Unimorph-style</a> annotation of morphology in the UD treebanks</li>
+  <li>Several projects on named-entity annotation (see also <a href="https://github.com/UniversalDependencies/docs/issues/562">issue #562</a>)</li>
+  <li>Various semantic extensions</li>
+</ul>
+
+<hr />
+
+<p><b>Related work:</b> The CoNLL-* file formats date back to the 2006 task (CoNLL-X conference,
+hence the format was sometimes called CoNLL-X and sometimes CoNLL-ST (for <em>shared task</em>) or
+simply CoNLL. Before CoNLL-U (universal dependencies) and CoNLL-U Plus, some extensions of the
+format were proposed by Straňák and Štěpánek (2010) [Pavel Straňák and Jan Štěpánek. 2010.
+<a href="http://ufal.mff.cuni.cz/biblio/servlet/File?field=File&amp;id=1081727559264548387">Representing Layered and Structured Data in the CoNLL-ST Format</a>.
+In: <em>Proceedings of the Second International Conference on Global Interoperability for Language Resources,</em>
+pp. 143–152, Hong Kong, China, ISBN 978-962-442-323-5.]</p>
+
+      </div>
+
+<!-- support for embedded visualizations -->
+<script type="text/javascript">
+    var root = ''; // filled in by jekyll
+    head.js(
+        // We assume that external libraries such as jquery.min.js have already been loaded outside!
+        // (See _layouts/base.html.)
+
+        // brat helper modules
+        root + 'lib/brat/configuration.js',
+        root + 'lib/brat/util.js',
+        root + 'lib/brat/annotation_log.js',
+        root + 'lib/ext/webfont.js',
+        // brat modules
+        root + 'lib/brat/dispatcher.js',
+        root + 'lib/brat/url_monitor.js',
+        root + 'lib/brat/visualizer.js',
+
+        // embedding configuration
+        root + 'lib/local/config.js',
+        // project-specific collection data
+        root + 'lib/local/collections.js',
+
+        // Annodoc
+        root + 'lib/annodoc/annodoc.js',
+
+        // NOTE: non-local libraries
+        'https://spyysalo.github.io/conllu.js/conllu.js'
+    );
+
+    var webFontURLs = [
+//        root + 'static/fonts/Astloch-Bold.ttf',
+        root + 'static/fonts/PT_Sans-Caption-Web-Regular.ttf',
+        root + 'static/fonts/Liberation_Sans-Regular.ttf'
+    ];
+
+    var setupTimeago = function() {
+        jQuery("time.timeago").timeago();
+    };
+
+    head.ready(function() {
+        setupTimeago();
+
+        // mark current collection (filled in by Jekyll)
+        Collections.listing['_current'] = '';
+
+	// perform all embedding and support functions
+	Annodoc.activate(Config.bratCollData, Collections.listing);
+    });
+</script>
+
+
+<!-- google analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-55233688-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+      <div id="footer">
+          <p class="footer-text">&copy; 2014–2024
+            <a href="http://universaldependencies.org/introduction.html#contributors" style="color:gray">Universal Dependencies contributors</a>.
+            Site powered by <a href="http://spyysalo.github.io/annodoc" style="color:gray">Annodoc</a> and <a href="http://brat.nlplab.org/" style="color:gray">brat</a></p>.
+      </div>
+    </div>
+  </body>
+</html>

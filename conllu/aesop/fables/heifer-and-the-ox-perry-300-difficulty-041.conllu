@@ -1,0 +1,80 @@
+# title = The Heifer and the Ox
+# sent_id = perry-300-s1
+# text = Δάμαλις βοῦν ὁρῶσα ἐργαζόμενον ἐταλάνιζεν αὐτὸν ἐπὶ τῷ κόπῳ.
+# parallel_id = lyceum-aesop-p300/s1
+# translation_lang = en
+# prose_translation = A heifer, seeing an ox working, used to mock him for his toil.
+# literal_translation = A heifer an ox seeing working mocked him on account of the toil.
+1	Δάμαλις	δάμαλις	NOUN	noun.fem.sg.nom	Gender=Fem|Number=Sing|Case=Nom	5	nsubj	_	gloss=heifer
+2	βοῦν	βοῦς	NOUN	noun.masc.sg.acc	Gender=Masc|Number=Sing|Case=Acc	3	obj	_	gloss=ox
+3	ὁρῶσα	ὁράω	VERB	verb.pres.ptcp.act.fem.sg.nom	Aspect=Imp|Mood=Part|Tense=Pres|Voice=Act|Gender=Fem|Number=Sing|Case=Nom	5	advcl	_	gloss=seeing
+4	ἐργαζόμενον	ἐργάζομαι	VERB	verb.pres.ptcp.mp.masc.sg.acc	Aspect=Imp|Mood=Part|Tense=Pres|Voice=Mid|Gender=Masc|Number=Sing|Case=Acc	3	xcomp	_	gloss=working
+5	ἐταλάνιζεν	ταλαντεύω	VERB	verb.impf.ind.act.3sg	Aspect=Imp|Mood=Ind|Tense=Imp|Voice=Act|Number=Sing|Person=3	0	root	_	gloss=mocked / ridiculed
+6	αὐτὸν	αὐτός	PRON	pron.masc.sg.acc	PronType=Prs|Gender=Masc|Number=Sing|Case=Acc	5	obj	_	gloss=him
+7	ἐπὶ	ἐπί	ADP	preposition.dat	_	8	case	_	gloss=on account of
+8	τῷ	ὁ	DET	article.masc.sg.dat	Definite=Def|PronType=Art|Gender=Masc|Number=Sing|Case=Dat	9	det	_	gloss=the
+9	κόπῳ	κόπος	NOUN	noun.masc.sg.dat	Gender=Masc|Number=Sing|Case=Dat	5	obl	_	gloss=toil
+10	.	.	PUNCT	punctuation	_	5	punct	_	gloss=.
+
+# sent_id = perry-300-s2
+# text = Ἐπειδὴ δὲ ἑορτὴ κατέλαβε, τὸν βοῦν ἀπολύσαντες, τὴν δάμαλιν ἐκράτησαν τοῦ σφάξαι.
+# parallel_id = lyceum-aesop-p300/s2
+# translation_lang = en
+# prose_translation = But when a festival arrived, having released the ox, they seized the heifer to slaughter.
+# literal_translation = When but a festival arrived, the ox having released, the heifer they seized to slaughter.
+11	Ἐπειδὴ	ἐπεί	SCONJ	conjunction	_	12	mark	_	gloss=when
+12	δὲ	δέ	CCONJ	conjunction	_	13	cc	_	gloss=but
+13	ἑορτὴ	ἑορτή	NOUN	noun.fem.sg.nom	Gender=Fem|Number=Sing|Case=Nom	14	nsubj	_	gloss=festival
+14	κατέλαβε	καταλαμβάνω	VERB	verb.aor.ind.act.3sg	Aspect=Perf|Mood=Ind|Tense=Aor|Voice=Act|Number=Sing|Person=3	18	advcl	_	gloss=arrived / overtook
+15	τὸν	ὁ	DET	article.masc.sg.acc	Definite=Def|PronType=Art|Gender=Masc|Number=Sing|Case=Acc	16	det	_	gloss=the
+16	βοῦν	βοῦς	NOUN	noun.masc.sg.acc	Gender=Masc|Number=Sing|Case=Acc	17	obj	_	gloss=ox
+17	ἀπολύσαντες	ἀπολύω	VERB	verb.aor.ptcp.act.masc.pl.nom	Aspect=Perf|Mood=Part|Tense=Aor|Voice=Act|Gender=Masc|Number=Plur|Case=Nom	18	advcl	_	gloss=having released
+18	τὴν	ὁ	DET	article.fem.sg.acc	Definite=Def|PronType=Art|Gender=Fem|Number=Sing|Case=Acc	19	det	_	gloss=the
+19	δάμαλιν	δάμαλις	NOUN	noun.fem.sg.acc	Gender=Fem|Number=Sing|Case=Acc	20	obj	_	gloss=heifer
+20	ἐκράτησαν	κρατέω	VERB	verb.aor.ind.act.3pl	Aspect=Perf|Mood=Ind|Tense=Aor|Voice=Act|Number=Plur|Person=3	0	root	_	gloss=they seized
+21	τοῦ	ὁ	DET	article.masc.sg.gen	Definite=Def|PronType=Art|Gender=Masc|Number=Sing|Case=Gen	22	det	_	gloss=the
+22	σφάξαι	σφάζω	VERB	verb.aor.inf.act	Aspect=Perf|Mood=Inf|Tense=Aor|Voice=Act	20	xcomp	_	gloss=to slaughter
+23	.	.	PUNCT	punctuation	_	20	punct	_	gloss=.
+
+# sent_id = perry-300-s3
+# text = Ἰδὼν δὲ ὁ βοῦς ἐμειδίασε καὶ πρὸς αὐτὴν εἶπεν· Ὦ δάμαλις, διὰ τοῦτο ἤργεις διότι ἔμελλες ἀρτίως τυθῆναι.
+# parallel_id = lyceum-aesop-p300/s3
+# translation_lang = en
+# prose_translation = The ox, seeing this, smiled and said to her: "O heifer, this is why you were idle, because you were about to be sacrificed."
+# literal_translation = Seeing but the ox smiled and to her said: O heifer, on account of this you were idle because you were about soon to be sacrificed.
+24	Ἰδὼν	ὁράω	VERB	verb.aor.ptcp.act.masc.sg.nom	Aspect=Perf|Mood=Part|Tense=Aor|Voice=Act|Gender=Masc|Number=Sing|Case=Nom	26	advcl	_	gloss=seeing
+25	δὲ	δέ	CCONJ	conjunction	_	26	cc	_	gloss=but
+26	ὁ	ὁ	DET	article.masc.sg.nom	Definite=Def|PronType=Art|Gender=Masc|Number=Sing|Case=Nom	27	det	_	gloss=the
+27	βοῦς	βοῦς	NOUN	noun.masc.sg.nom	Gender=Masc|Number=Sing|Case=Nom	28	nsubj	_	gloss=ox
+28	ἐμειδίασε	μειδιάω	VERB	verb.aor.ind.act.3sg	Aspect=Perf|Mood=Ind|Tense=Aor|Voice=Act|Number=Sing|Person=3	0	root	_	gloss=smiled
+29	καὶ	καί	CCONJ	conjunction	_	30	cc	_	gloss=and
+30	πρὸς	πρός	ADP	preposition.acc	_	31	case	_	gloss=to
+31	αὐτὴν	αὐτός	PRON	pron.fem.sg.acc	PronType=Prs|Gender=Fem|Number=Sing|Case=Acc	32	obl	_	gloss=her
+32	εἶπεν	λέγω	VERB	verb.aor.ind.act.3sg	Aspect=Perf|Mood=Ind|Tense=Aor|Voice=Act|Number=Sing|Person=3	28	conj	_	gloss=said
+33	·	·	PUNCT	punctuation	_	32	punct	_	gloss=:
+34	Ὦ	ὦ	PART	interjection	_	35	discourse	_	gloss=O
+35	δάμαλις	δάμαλις	NOUN	noun.fem.sg.voc	Gender=Fem|Number=Sing|Case=Voc	32	vocative	_	gloss=heifer
+36	διὰ	διά	ADP	preposition.acc	_	37	case	_	gloss=on account of
+37	τοῦτο	οὗτος	PRON	pron.neut.sg.acc	PronType=Dem|Gender=Neut|Number=Sing|Case=Acc	38	obl	_	gloss=this
+38	ἤργεις	ἀργέω	VERB	verb.impf.ind.act.2sg	Aspect=Imp|Mood=Ind|Tense=Imp|Voice=Act|Number=Sing|Person=2	32	ccomp	_	gloss=you were idle
+39	διότι	διότι	SCONJ	conjunction	_	40	mark	_	gloss=because
+40	ἔμελλες	μέλλω	VERB	verb.impf.ind.act.2sg	Aspect=Imp|Mood=Ind|Tense=Imp|Voice=Act|Number=Sing|Person=2	38	advcl	_	gloss=you were about
+41	ἀρτίως	ἀρτίως	ADV	adverb	_	42	advmod	_	gloss=recently / just now
+42	τυθῆναι	θύω	VERB	verb.aor.inf.mp	Aspect=Perf|Mood=Inf|Tense=Aor|Voice=Mid	40	xcomp	_	gloss=to be sacrificed
+43	.	.	PUNCT	punctuation	_	38	punct	_	gloss=.
+
+# sent_id = perry-300-s4
+# text = Ὁ μῦθος δηλοῖ ὅτι τὸν ἀργοῦντα κίνδυνος μένει.
+# parallel_id = lyceum-aesop-p300/s4
+# translation_lang = en
+# prose_translation = The fable shows that danger awaits the idle person.
+# literal_translation = The fable shows that the idle one danger awaits.
+44	Ὁ	ὁ	DET	article.masc.sg.nom	Definite=Def|PronType=Art|Gender=Masc|Number=Sing|Case=Nom	45	det	_	gloss=the
+45	μῦθος	μῦθος	NOUN	noun.masc.sg.nom	Gender=Masc|Number=Sing|Case=Nom	46	nsubj	_	gloss=fable
+46	δηλοῖ	δηλόω	VERB	verb.pres.ind.act.3sg	Aspect=Imp|Mood=Ind|Tense=Pres|Voice=Act|Number=Sing|Person=3	0	root	_	gloss=shows
+47	ὅτι	ὅτι	SCONJ	conjunction	ConjType=Comp	49	mark	_	gloss=that
+48	τὸν	ὁ	DET	article.masc.sg.acc	Definite=Def|PronType=Art|Gender=Masc|Number=Sing|Case=Acc	49	det	_	gloss=the
+49	ἀργοῦντα	ἀργέω	VERB	verb.pres.ptcp.act.masc.sg.acc	Aspect=Imp|Mood=Part|Tense=Pres|Voice=Act|Gender=Masc|Number=Sing|Case=Acc	50	obj	_	gloss=idle one
+50	κίνδυνος	κίνδυνος	NOUN	noun.masc.sg.nom	Gender=Masc|Number=Sing|Case=Nom	51	nsubj	_	gloss=danger
+51	μένει	μένω	VERB	verb.pres.ind.act.3sg	Aspect=Imp|Mood=Ind|Tense=Pres|Voice=Act|Number=Sing|Person=3	46	ccomp	_	gloss=awaits / remains
+52	.	.	PUNCT	punctuation	_	51	punct	_	gloss=.

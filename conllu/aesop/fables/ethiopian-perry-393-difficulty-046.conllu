@@ -1,0 +1,97 @@
+# global.columns = ID FORM LEMMA UPOS XPOS FEATS HEAD DEPREL DEPS MISC
+# source = Aesop, Fables (Chambry edition)
+# source_edition = Chambry (Perry numbering)
+# encoder = LLM-assisted
+# editor = Brandon Lucas
+# project = Lyceum Digital Library
+# conversion_method = Manual annotation with LLM assistance
+# gloss_type = Context-aware philological glosses
+# license = CC BY-SA 4.0
+# date_modified = 2026-05-01
+# contact = support@lyceum.quest
+
+# title = The Ethiopian
+# sent_id = perry-393-s1
+# text = Αἰθίοπά τις ὠνήσατο τοιοῦτον αὐτῷ τὸ χρῶμα εἶναι δοκῶν ἀμελείᾳ τοῦ πρότερον ἔχοντος.
+# parallel_id = lyceum-aesop-p393/s1
+# translation_lang = en
+# prose_translation = Someone bought an Ethiopian, thinking that his skin color was such from the neglect of his previous owner.
+# literal_translation = An Ethiopian someone bought such to him the skin color being thinking from neglect of the former owner.
+1	Αἰθίοπά	Αἰθίοψ	NOUN	noun.masc.sg.acc	Gender=Masc|Number=Sing|Case=Acc	2	obj	_	gloss=Ethiopian
+2	τις	τις	PRON	pron.indef.masc.sg.nom	PronType=Ind|Gender=Masc|Number=Sing|Case=Nom	3	nsubj	_	gloss=someone
+3	ὠνήσατο	ὠνέομαι	VERB	verb.aor.ind.mp.3sg	Aspect=Perf|Mood=Ind|Tense=Aor|VerbForm=Fin|Voice=Mid|Number=Sing|Person=3	0	root	_	gloss=bought
+4	τοιοῦτον	τοιοῦτος	ADJ	adj.masc.sg.acc	Degree=Pos|Gender=Masc|Number=Sing|Case=Acc	7	amod	_	gloss=such
+5	αὐτῷ	αὐτός	PRON	pron.prs.3sg.dat	PronType=Prs|Gender=Masc|Number=Sing|Case=Dat	7	obl	_	gloss=for him
+6	τὸ	ὁ	DET	article.neut.sg.nom	Definite=Def|PronType=Art|Gender=Neut|Number=Sing|Case=Nom	7	det	_	gloss=the
+7	χρῶμα	χρῶμα	NOUN	noun.neut.sg.nom	Gender=Neut|Number=Sing|Case=Nom	8	nsubj	_	gloss=skin color
+8	εἶναι	εἰμί	VERB	verb.pres.inf.act	Aspect=Imp|Mood=Inf|Tense=Pres|VerbForm=Inf|Voice=Act	9	xcomp	_	gloss=to be
+9	δοκῶν	δοκέω	VERB	verb.pres.ptcp.act.masc.sg.nom	Aspect=Imp|Mood=Part|Tense=Pres|Voice=Act|Gender=Masc|Number=Sing|Case=Nom	3	advcl	_	gloss=thinking
+10	ἀμελείᾳ	ἀμέλεια	NOUN	noun.fem.sg.dat	Gender=Fem|Number=Sing|Case=Dat	8	obl	_	gloss=from neglect
+11	τοῦ	ὁ	DET	article.masc.sg.gen	Definite=Def|PronType=Art|Gender=Masc|Number=Sing|Case=Gen	12	det	_	gloss=the
+12	πρότερον	πρότερος	ADJ	adj.masc.sg.gen	Degree=Cmp|Gender=Masc|Number=Sing|Case=Gen	13	amod	_	gloss=former / previous
+13	ἔχοντος	ἔχω	VERB	verb.pres.ptcp.act.masc.sg.gen	Aspect=Imp|Mood=Part|Tense=Pres|Voice=Act|Gender=Masc|Number=Sing|Case=Gen	10	nmod	_	gloss=of the one having / owner
+14	.	.	PUNCT	punctuation	_	3	punct	_	gloss=.
+
+# sent_id = perry-393-s2
+# text = Καὶ παραλαβὼν οἴκαδε, πάντα μὲν αὐτῷ προσῆγε τὰ ῥύμματα, πᾶσι δὲ λούτροις ἐπειρᾶτο καθαίρειν.
+# parallel_id = lyceum-aesop-p393/s2
+# translation_lang = en
+# prose_translation = And taking him home, he brought him all the ointments, and with all washes he tried to clean him.
+# literal_translation = And having taken home, all indeed to him he brought the ointments, with all but washes he tried to cleanse.
+15	Καὶ	καί	CCONJ	conjunction	_	16	cc	_	gloss=and
+16	παραλαβὼν	παραλαμβάνω	VERB	verb.aor.ptcp.act.masc.sg.nom	Aspect=Perf|Mood=Part|Tense=Aor|Voice=Act|Gender=Masc|Number=Sing|Case=Nom	20	advcl	_	gloss=having taken
+17	οἴκαδε	οἴκαδε	ADV	adverb	_	16	advmod	_	gloss=home
+18	,	,	PUNCT	punctuation	_	16	punct	_	gloss=,
+19	πάντα	πᾶς	ADJ	adj.neut.pl.acc	Degree=Pos|Gender=Neut|Number=Plur|Case=Acc	21	amod	_	gloss=all
+20	μὲν	μέν	PART	particle	_	21	discourse	_	gloss=indeed
+21	αὐτῷ	αὐτός	PRON	pron.prs.3sg.dat	PronType=Prs|Gender=Masc|Number=Sing|Case=Dat	22	obl	_	gloss=to him
+22	προσῆγε	προσάγω	VERB	verb.impf.ind.act.3sg	Aspect=Imp|Mood=Ind|Tense=Imp|VerbForm=Fin|Voice=Act|Number=Sing|Person=3	0	root	_	gloss=was bringing
+23	τὰ	ὁ	DET	article.neut.pl.acc	Definite=Def|PronType=Art|Gender=Neut|Number=Plur|Case=Acc	24	det	_	gloss=the
+24	ῥύμματα	ῥύμμα	NOUN	noun.neut.pl.acc	Gender=Neut|Number=Plur|Case=Acc	22	obj	_	gloss=ointments / unguents
+25	,	,	PUNCT	punctuation	_	24	punct	_	gloss=,
+26	πᾶσι	πᾶς	ADJ	adj.neut.pl.dat	Degree=Pos|Gender=Neut|Number=Plur|Case=Dat	27	amod	_	gloss=all
+27	δὲ	δέ	CCONJ	conjunction	_	28	cc	_	gloss=but
+28	λουτροις	λουτρόν	NOUN	noun.neut.pl.dat	Gender=Neut|Number=Plur|Case=Dat	29	obl	_	gloss=washes
+29	ἐπειρᾶτο	πειράω	VERB	verb.impf.ind.mp.3sg	Aspect=Imp|Mood=Ind|Tense=Imp|VerbForm=Fin|Voice=Mid|Number=Sing|Person=3	22	conj	_	gloss=was trying
+30	καθαίρειν	καθαίρω	VERB	verb.pres.inf.act	Aspect=Imp|Mood=Inf|Tense=Pres|VerbForm=Inf|Voice=Act	29	xcomp	_	gloss=to cleanse
+31	.	.	PUNCT	punctuation	_	29	punct	_	gloss=.
+
+# sent_id = perry-393-s3
+# text = Καὶ τὸ μὲν χρῶμα μεταβάλλειν οὐκ εἶχε, νοσεῖν δὲ τῷ πονεῖν παρεσκεύασεν.
+# parallel_id = lyceum-aesop-p393/s3
+# translation_lang = en
+# prose_translation = And he could not change the skin color, but the labor caused him to become sick.
+# literal_translation = And the indeed skin color to change not he could, to be sick but by the laboring he prepared.
+32	Καὶ	καί	CCONJ	conjunction	_	38	cc	_	gloss=and
+33	τὸ	ὁ	DET	article.neut.sg.nom	Definite=Def|PronType=Art|Gender=Neut|Number=Sing|Case=Nom	34	det	_	gloss=the
+34	μὲν	μέν	PART	particle	_	35	discourse	_	gloss=indeed
+35	χρῶμα	χρῶμα	NOUN	noun.neut.sg.nom	Gender=Neut|Number=Sing|Case=Nom	36	obj	_	gloss=skin color
+36	μεταβάλλειν	μεταβάλλω	VERB	verb.pres.inf.act	Aspect=Imp|Mood=Inf|Tense=Pres|VerbForm=Inf|Voice=Act	38	xcomp	_	gloss=to change
+37	οὐκ	οὐ	PART	neg.particle	Polarity=Neg	38	advmod	_	gloss=not
+38	εἶχε	ἔχω	VERB	verb.impf.ind.act.3sg	Aspect=Imp|Mood=Ind|Tense=Imp|VerbForm=Fin|Voice=Act|Number=Sing|Person=3	0	root	_	gloss=he had / could
+39	,	,	PUNCT	punctuation	_	38	punct	_	gloss=,
+40	νοσεῖν	νοσέω	VERB	verb.pres.inf.act	Aspect=Imp|Mood=Inf|Tense=Pres|VerbForm=Inf|Voice=Act	43	xcomp	_	gloss=to be sick
+41	δὲ	δέ	CCONJ	conjunction	_	43	cc	_	gloss=but
+42	τῷ	ὁ	DET	article.neut.sg.dat	Definite=Def|PronType=Art|Gender=Neut|Number=Sing|Case=Dat	43	det	_	gloss=the
+43	πονεῖν	πονέω	VERB	verb.pres.inf.act	Aspect=Imp|Mood=Inf|Tense=Pres|VerbForm=Inf|Voice=Act	40	obl	_	gloss=laboring
+44	παρεσκεύασεν	παρασκευάζω	VERB	verb.aor.ind.act.3sg	Aspect=Perf|Mood=Ind|Tense=Aor|VerbForm=Fin|Voice=Act|Number=Sing|Person=3	38	conj	_	gloss=he prepared / caused
+45	.	.	PUNCT	punctuation	_	44	punct	_	gloss=.
+
+# sent_id = perry-393-s4
+# text = Ὁ μῦθος δηλοῖ ὅτι μένουσιν αἱ φύσεις ὡς προῆλθον τὴν ἀρχήν.
+# parallel_id = lyceum-aesop-p393/s4
+# translation_lang = en
+# prose_translation = The fable shows that natures remain as they were from the beginning.
+# literal_translation = The fable shows that the natures remain as they went forth the beginning.
+46	Ὁ	ὁ	DET	article.masc.sg.nom	Definite=Def|PronType=Art|Gender=Masc|Number=Sing|Case=Nom	47	det	_	gloss=the
+47	μῦθος	μῦθος	NOUN	noun.masc.sg.nom	Gender=Masc|Number=Sing|Case=Nom	48	nsubj	_	gloss=fable
+48	δηλοῖ	δηλόω	VERB	verb.pres.ind.act.3sg	Aspect=Imp|Mood=Ind|Tense=Pres|VerbForm=Fin|Voice=Act|Number=Sing|Person=3	0	root	_	gloss=shows
+49	ὅτι	ὅτι	SCONJ	conjunction	_	50	mark	_	gloss=that
+50	μένουσιν	μένω	VERB	verb.pres.ind.act.3pl	Aspect=Imp|Mood=Ind|Tense=Pres|VerbForm=Fin|Voice=Act|Number=Plur|Person=3	48	ccomp	_	gloss=remain
+51	αἱ	ὁ	DET	article.fem.pl.nom	Definite=Def|PronType=Art|Gender=Fem|Number=Plur|Case=Nom	52	det	_	gloss=the
+52	φύσεις	φύσις	NOUN	noun.fem.pl.nom	Gender=Fem|Number=Plur|Case=Nom	50	nsubj	_	gloss=natures
+53	ὡς	ὡς	SCONJ	conjunction	_	54	mark	_	gloss=as
+54	προῆλθον	προέρχομαι	VERB	verb.aor.ind.act.3pl	Aspect=Perf|Mood=Ind|Tense=Aor|VerbForm=Fin|Voice=Act|Number=Plur|Person=3	50	advcl	_	gloss=they went forth / began
+55	τὴν	ὁ	DET	article.fem.sg.acc	Definite=Def|PronType=Art|Gender=Fem|Number=Sing|Case=Acc	56	det	_	gloss=the
+56	ἀρχήν	ἀρχή	NOUN	noun.fem.sg.acc	Gender=Fem|Number=Sing|Case=Acc	54	obl	_	gloss=beginning
+57	.	.	PUNCT	punctuation	_	50	punct	_	gloss=.

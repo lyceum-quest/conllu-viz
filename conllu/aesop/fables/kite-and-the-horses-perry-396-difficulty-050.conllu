@@ -1,0 +1,91 @@
+# global.columns = ID FORM LEMMA UPOS XPOS FEATS HEAD DEPREL DEPS MISC
+# source = Aesop, Fables (Chambry edition)
+# source_edition = Chambry (Perry numbering)
+# encoder = LLM-assisted
+# editor = Brandon Lucas
+# project = Lyceum Digital Library
+# conversion_method = Manual annotation with LLM assistance
+# gloss_type = Context-aware philological glosses
+# license = CC BY-SA 4.0
+# date_modified = 2026-05-01
+# contact = support@lyceum.quest
+
+# title = The Kite and the Horses
+# sent_id = perry-396-s1
+# text = Ἰκτῖνος φωνὴν εἶχεν ἄλλην ὀξείαν.
+# parallel_id = lyceum-aesop-p396/s1
+# translation_lang = en
+# prose_translation = A kite had a voice, another shrill one.
+# literal_translation = A kite a voice had another shrill.
+1	Ἰκτῖνος	ἴκτινος	NOUN	noun.masc.sg.nom	Gender=Masc|Number=Sing|Case=Nom	3	nsubj	_	gloss=kite
+2	φωνὴν	φωνή	NOUN	noun.fem.sg.acc	Gender=Fem|Number=Sing|Case=Acc	3	obj	_	gloss=voice
+3	εἶχεν	ἔχω	VERB	verb.impf.ind.act.3sg	Aspect=Imp|Mood=Ind|Tense=Imp|VerbForm=Fin|Voice=Act|Number=Sing|Person=3	0	root	_	gloss=had
+4	ἄλλην	ἄλλος	ADJ	adj.fem.sg.acc	Degree=Pos|Gender=Fem|Number=Sing|Case=Acc	2	amod	_	gloss=another
+5	ὀξείαν	ὀξύς	ADJ	adj.fem.sg.acc	Degree=Pos|Gender=Fem|Number=Sing|Case=Acc	4	amod	_	gloss=shrill
+6	.	.	PUNCT	punctuation	_	3	punct	_	gloss=.
+
+# sent_id = perry-396-s2
+# text = Ἴππου δὲ ἀκούσας καλῶς χρεμετίζοντος, μιμούμενος τὸν ἵππον καὶ συνεχῶς τοῦτο ποιῶν καὶ ταύτην μὴ καλῶς ἐκμαθών, καὶ τῆς ἰδίας φωνῆς ἐστέρηται, καὶ οὔτε τὴν τοῦ ἵππου ἔσχεν οὔτε τήν πρώτην.
+# parallel_id = lyceum-aesop-p396/s2
+# translation_lang = en
+# prose_translation = Hearing a horse neighing beautifully, imitating the horse and continually doing this and not learning it well, he was deprived of his own voice, and had neither the horse's nor his original one.
+# literal_translation = Of a horse but having heard beautifully neighing, imitating the horse and continually this doing and it not well having learned, and of his own voice he was deprived, and neither the of the horse he had nor the former.
+7	Ἴππου	ἵππος	NOUN	noun.masc.sg.gen	Gender=Masc|Number=Sing|Case=Gen	8	obj	_	gloss=of a horse
+8	δὲ	δέ	CCONJ	conjunction	_	9	cc	_	gloss=but
+9	ἀκούσας	ἀκούω	VERB	verb.aor.ptcp.act.masc.sg.nom	Aspect=Perf|Mood=Part|Tense=Aor|Voice=Act|Gender=Masc|Number=Sing|Case=Nom	22	advcl	_	gloss=having heard
+10	καλῶς	καλῶς	ADV	adverb	_	11	advmod	_	gloss=beautifully
+11	χρεμετίζοντος	χρεμετίζω	VERB	verb.pres.ptcp.act.masc.sg.gen	Aspect=Imp|Mood=Part|Tense=Pres|Voice=Act|Gender=Masc|Number=Sing|Case=Gen	9	obj	_	gloss=neighing
+12	,	,	PUNCT	punctuation	_	9	punct	_	gloss=,
+13	μιμούμενος	μιμέομαι	VERB	verb.pres.ptcp.mp.masc.sg.nom	Aspect=Imp|Mood=Part|Tense=Pres|Voice=Mid|Gender=Masc|Number=Sing|Case=Nom	22	advcl	_	gloss=imitating
+14	τὸν	ὁ	DET	article.masc.sg.acc	Definite=Def|PronType=Art|Gender=Masc|Number=Sing|Case=Acc	15	det	_	gloss=the
+15	ἵππον	ἵππος	NOUN	noun.masc.sg.acc	Gender=Masc|Number=Sing|Case=Acc	13	obj	_	gloss=horse
+16	καὶ	καί	CCONJ	conjunction	_	17	cc	_	gloss=and
+17	συνεχῶς	συνεχῶς	ADV	adverb	_	18	advmod	_	gloss=continually
+18	τοῦτο	οὗτος	PRON	pron.demonstr.neut.sg.acc	PronType=Dem|Gender=Neut|Number=Sing|Case=Acc	19	obj	_	gloss=this
+19	ποιῶν	ποιέω	VERB	verb.pres.ptcp.act.masc.sg.nom	Aspect=Imp|Mood=Part|Tense=Pres|Voice=Act|Gender=Masc|Number=Sing|Case=Nom	13	conj	_	gloss=doing
+20	καὶ	καί	CCONJ	conjunction	_	21	cc	_	gloss=and
+21	ταύτην	οὗτος	PRON	pron.demonstr.fem.sg.acc	PronType=Dem|Gender=Fem|Number=Sing|Case=Acc	22	obj	_	gloss=this
+22	μὴ	μή	PART	neg.particle	Polarity=Neg	23	advmod	_	gloss=not
+23	καλῶς	καλῶς	ADV	adverb	_	24	advmod	_	gloss=well
+24	ἐκμαθών	ἐκμανθάνω	VERB	verb.aor.ptcp.act.masc.sg.nom	Aspect=Perf|Mood=Part|Tense=Aor|Voice=Act|Gender=Masc|Number=Sing|Case=Nom	19	conj	_	gloss=having learned
+25	,	,	PUNCT	punctuation	_	24	punct	_	gloss=,
+26	καὶ	καί	CCONJ	conjunction	_	27	cc	_	gloss=and
+27	τῆς	ὁ	DET	article.fem.sg.gen	Definite=Def|PronType=Art|Gender=Fem|Number=Sing|Case=Gen	28	det	_	gloss=the
+28	ἰδίας	ἴδιος	ADJ	adj.fem.sg.gen	Degree=Pos|Gender=Fem|Number=Sing|Case=Gen	29	amod	_	gloss=own
+29	φωνῆς	φωνή	NOUN	noun.fem.sg.gen	Gender=Fem|Number=Sing|Case=Gen	30	obl	_	gloss=of voice
+30	ἐστέρηται	στερέω	VERB	verb.perf.ind.mp.3sg	Aspect=Perf|Mood=Ind|Tense=Perf|VerbForm=Fin|Voice=Mid|Number=Sing|Person=3	0	root	_	gloss=he has been deprived
+31	,	,	PUNCT	punctuation	_	30	punct	_	gloss=,
+32	καὶ	καί	CCONJ	conjunction	_	35	cc	_	gloss=and
+33	οὔτε	οὔτε	CCONJ	conjunction	_	37	cc	_	gloss=neither
+34	τὴν	ὁ	DET	article.fem.sg.acc	Definite=Def|PronType=Art|Gender=Fem|Number=Sing|Case=Acc	37	obj	_	gloss=the one
+35	τοῦ	ὁ	DET	article.masc.sg.gen	Definite=Def|PronType=Art|Gender=Masc|Number=Sing|Case=Gen	36	det	_	gloss=of the
+36	ἵππου	ἵππος	NOUN	noun.masc.sg.gen	Gender=Masc|Number=Sing|Case=Gen	34	nmod	_	gloss=of horse
+37	ἔσχεν	ἔχω	VERB	verb.aor.ind.act.3sg	Aspect=Perf|Mood=Ind|Tense=Aor|VerbForm=Fin|Voice=Act|Number=Sing|Person=3	30	conj	_	gloss=he had
+38	οὔτε	οὔτε	CCONJ	conjunction	_	39	cc	_	gloss=nor
+39	τήν	ὁ	DET	article.fem.sg.acc	Definite=Def|PronType=Art|Gender=Fem|Number=Sing|Case=Acc	40	det	_	gloss=the
+40	πρώτην	πρῶτος	ADJ	adj.fem.sg.acc	Degree=Pos|Gender=Fem|Number=Sing|Case=Acc	37	conj	_	gloss=former / original
+41	.	.	PUNCT	punctuation	_	37	punct	_	gloss=.
+
+# sent_id = perry-396-s3
+# text = Ὅτι οἱ εὐτελεῖς καὶ φθονεροὶ ζηλοῦντες τοῦ παρὰ τὴν ἑαυτῶν φύσιν καὶ τῶν κατὰ φύσιν στεροῦνται.
+# parallel_id = lyceum-aesop-p396/s3
+# translation_lang = en
+# prose_translation = That the lowly and envious, envying what is beyond their nature, are also deprived of what is according to nature.
+# literal_translation = That the lowly and envious envying the beyond their own nature and of the according to nature are deprived.
+41	Ὅτι	ὅτι	SCONJ	conjunction	_	48	mark	_	gloss=that
+42	οἱ	ὁ	DET	article.masc.pl.nom	Definite=Def|PronType=Art|Gender=Masc|Number=Plur|Case=Nom	43	det	_	gloss=the
+43	εὐτελεῖς	εὐτελής	ADJ	adj.masc.pl.nom	Degree=Pos|Gender=Masc|Number=Plur|Case=Nom	48	nsubj	_	gloss=lowly / base
+44	καὶ	καί	CCONJ	conjunction	_	45	cc	_	gloss=and
+45	φθονεροὶ	φθονερός	ADJ	adj.masc.pl.nom	Degree=Pos|Gender=Masc|Number=Plur|Case=Nom	43	conj	_	gloss=envious
+46	ζηλοῦντες	ζηλόω	VERB	verb.pres.ptcp.act.masc.pl.nom	Aspect=Imp|Mood=Part|Tense=Pres|Voice=Act|Gender=Masc|Number=Plur|Case=Nom	48	advcl	_	gloss=envying
+47	τοῦ	ὁ	DET	article.neut.sg.gen	Definite=Def|PronType=Art|Gender=Neut|Number=Sing|Case=Gen	48	det	_	gloss=the
+48	παρὰ	παρά	ADP	preposition.acc	_	49	case	_	gloss=beyond
+49	τὴν	ὁ	DET	article.fem.sg.acc	Definite=Def|PronType=Art|Gender=Fem|Number=Sing|Case=Acc	50	det	_	gloss=the
+50	ἑαυτῶν	ἑαυτοῦ	PRON	pron.refl.fem.sg.acc	PronType=Rcp|Gender=Fem|Number=Sing|Case=Acc	51	nmod	_	gloss=their own
+51	φύσιν	φύσις	NOUN	noun.fem.sg.acc	Gender=Fem|Number=Sing|Case=Acc	46	obj	_	gloss=nature
+52	καὶ	καί	ADV	adverb	_	53	advmod	_	gloss=also
+53	τῶν	ὁ	DET	article.neut.pl.gen	Definite=Def|PronType=Art|Gender=Neut|Number=Plur|Case=Gen	54	det	_	gloss=the
+54	κατὰ	κατά	ADP	preposition.acc	_	55	case	_	gloss=according to
+55	φύσιν	φύσις	NOUN	noun.fem.sg.acc	Gender=Fem|Number=Sing|Case=Acc	56	obl	_	gloss=nature
+56	στεροῦνται	στερέω	VERB	verb.pres.ind.mp.3pl	Aspect=Imp|Mood=Ind|Tense=Pres|VerbForm=Fin|Voice=Pass|Number=Plur|Person=3	0	root	_	gloss=they are deprived
+57	.	.	PUNCT	punctuation	_	56	punct	_	gloss=.

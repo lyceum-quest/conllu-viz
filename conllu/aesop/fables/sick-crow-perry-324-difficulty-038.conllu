@@ -1,0 +1,73 @@
+# title = The Sick Crow
+# sent_id = perry-324-s1
+# text = Κόραξ νοσῶν ἔφη τῇ μητρί· Μῆτερ, εὔχου τῷ θεῷ καὶ μὴ θρήνει.
+# parallel_id = lyceum-aesop-p324/s1
+# translation_lang = en
+# prose_translation = A sick crow said to its mother: "Mother, pray to the god and do not mourn."
+# literal_translation = A crow being sick said to its mother: Mother, pray to the god and do not mourn.
+1	Κόραξ	κόραξ	NOUN	noun.masc.sg.nom	Gender=Masc|Number=Sing|Case=Nom	3	nsubj	_	gloss=crow
+2	νοσῶν	νοσέω	VERB	verb.pres.ptcp.act.masc.sg.nom	Aspect=Imp|Mood=Part|Tense=Pres|Voice=Act|Gender=Masc|Number=Sing|Case=Nom	3	advcl	_	gloss=being sick
+3	ἔφη	φημί	VERB	verb.impf.ind.act.3sg	Mood=Ind|Tense=Imp|VerbForm=Fin|Voice=Act|Number=Sing|Person=3	0	root	_	gloss=said
+4	τῇ	ὁ	DET	article.fem.sg.dat	Definite=Def|PronType=Art|Gender=Fem|Number=Sing|Case=Dat	5	det	_	gloss=the
+5	μητρὶ	μήτηρ	NOUN	noun.fem.sg.dat	Gender=Fem|Number=Sing|Case=Dat	3	obl	_	gloss=mother
+6	·	·	PUNCT	punctuation	_	3	punct	_	gloss=:
+7	Μῆτερ	μήτηρ	NOUN	noun.fem.sg.voc	Gender=Fem|Number=Sing|Case=Voc	3	vocative	_	gloss=Mother
+8	εὔχου	εὔχομαι	VERB	verb.pres.imper.mp.2sg	Mood=Imp|Tense=Pres|VerbForm=Fin|Voice=Mid|Number=Sing|Person=2	3	ccomp	_	gloss=pray
+9	τῷ	ὁ	DET	article.masc.sg.dat	Definite=Def|PronType=Art|Gender=Masc|Number=Sing|Case=Dat	10	det	_	gloss=the
+10	θεῷ	θεός	NOUN	noun.masc.sg.dat	Gender=Masc|Number=Sing|Case=Dat	8	obl	_	gloss=god
+11	καὶ	καί	CCONJ	conjunction	_	12	cc	_	gloss=and
+12	μὴ	μή	CCONJ	conjunction	Polarity=Neg	13	advmod	_	gloss=not
+13	θρήνει	θρηνέω	VERB	verb.pres.imper.act.2sg	Mood=Imp|Tense=Pres|VerbForm=Fin|Voice=Act|Number=Sing|Person=2	8	conj	_	gloss=mourn
+14	.	.	PUNCT	punctuation	_	13	punct	_	gloss=.
+
+# sent_id = perry-324-s2
+# text = Ἡ δ' ὑπολαβοῦσα ἔφη· Τίς σε, ὦ τέκνον, τῶν θεῶν ἐλεήσει; τίνος γὰρ κρέας ὑπὸ σοῦ γε οὐκ ἐκλάπη;
+# parallel_id = lyceum-aesop-p324/s2
+# translation_lang = en
+# prose_translation = But she, answering, said: "Which of the gods, my child, will pity you? For whose flesh has not been stolen by you?"
+# literal_translation = She but answering said: Who you, O child, of the gods will pity? Of whom for flesh by you at least has not been stolen?
+15	Ἡ	ὁ	DET	article.fem.sg.nom	Definite=Def|PronType=Art|Gender=Fem|Number=Sing|Case=Nom	17	nsubj	_	gloss=she
+16	δ'	δέ	CCONJ	conjunction	_	17	cc	_	gloss=but
+17	ὑπολαβοῦσα	ὑπολαμβάνω	VERB	verb.aor.ptcp.act.fem.sg.nom	Aspect=Perf|Mood=Part|Tense=Aor|Voice=Act|Gender=Fem|Number=Sing|Case=Nom	18	advcl	_	gloss=answering
+18	ἔφη	φημί	VERB	verb.impf.ind.act.3sg	Mood=Ind|Tense=Imp|VerbForm=Fin|Voice=Act|Number=Sing|Person=3	0	root	_	gloss=said
+19	·	·	PUNCT	punctuation	_	18	punct	_	gloss=:
+20	Τίς	τίς	PRON	pron.masc.sg.nom	PronType=Int|Gender=Masc|Number=Sing|Case=Nom	21	nsubj	_	gloss=who
+21	σε	σύ	PRON	pron.2sg.acc	PronType=Prs|Number=Sing|Person=2|Case=Acc	22	obj	_	gloss=you
+22	ὦ	ὦ	PART	interjection	_	23	discourse	_	gloss=O
+23	τέκνον	τέκνον	NOUN	noun.neut.sg.voc	Gender=Neut|Number=Sing|Case=Voc	18	vocative	_	gloss=child
+24	τῶν	ὁ	DET	article.masc.pl.gen	Definite=Def|PronType=Art|Gender=Masc|Number=Plur|Case=Gen	25	det	_	gloss=the
+25	θεῶν	θεός	NOUN	noun.masc.pl.gen	Gender=Masc|Number=Plur|Case=Gen	20	nmod	_	gloss=of gods
+26	ἐλεήσει	ἐλεέω	VERB	verb.fut.ind.act.3sg	Aspect=Perf|Mood=Ind|Tense=Fut|Voice=Act|Number=Sing|Person=3	18	ccomp	_	gloss=will pity
+27	;	;	PUNCT	punctuation	_	26	punct	_	gloss=?
+28	τίνος	τίς	PRON	pron.masc.sg.gen	PronType=Int|Gender=Masc|Number=Sing|Case=Gen	30	nmod	_	gloss=of whom
+29	γὰρ	γάρ	CCONJ	conjunction	_	30	cc	_	gloss=for
+30	κρέας	κρέας	NOUN	noun.neut.sg.nom	Gender=Neut|Number=Sing|Case=Nom	32	nsubj	_	gloss=flesh
+31	ὑπὸ	ὑπό	ADP	preposition.gen	_	32	case	_	gloss=by
+32	σοῦ	σύ	PRON	pron.2sg.gen	PronType=Prs|Number=Sing|Person=2|Case=Gen	31	obl:agent	_	gloss=you
+33	γε	γε	PART	particle	_	32	advmod	_	gloss=at least
+34	οὐκ	οὐ	PART	neg.particle	Polarity=Neg	35	advmod	_	gloss=not
+35	ἐκλάπη	ἐκκλέπτω	VERB	verb.aor.ind.mp.3sg	Aspect=Perf|Mood=Ind|Tense=Aor|Voice=Mid|Number=Sing|Person=3	26	conj	_	gloss=has been stolen
+36	;	;	PUNCT	punctuation	_	35	punct	_	gloss=?
+
+# sent_id = perry-324-s3
+# text = Ὁ μῦθος δηλοῖ ὅτι οἱ πολλοὺς ἐχθροὺς ἐν βίῳ ἔχοντες οὐδένα φίλον ἐν ἀνάγκῃ εὑρήσουσιν.
+# parallel_id = lyceum-aesop-p324/s3
+# translation_lang = en
+# prose_translation = The fable shows that those who have many enemies in life will find no friend in time of need.
+# literal_translation = The fable shows that those many enemies in life having no one friend in need will find.
+37	Ὁ	ὁ	DET	article.masc.sg.nom	Definite=Def|PronType=Art|Gender=Masc|Number=Sing|Case=Nom	38	det	_	gloss=the
+38	μῦθος	μῦθος	NOUN	noun.masc.sg.nom	Gender=Masc|Number=Sing|Case=Nom	39	nsubj	_	gloss=fable
+39	δηλοῖ	δηλόω	VERB	verb.pres.ind.act.3sg	Aspect=Imp|Mood=Ind|Tense=Pres|Voice=Act|Number=Sing|Person=3	0	root	_	gloss=shows
+40	ὅτι	ὅτι	SCONJ	conjunction	ConjType=Comp	45	mark	_	gloss=that
+41	οἱ	ὁ	DET	article.masc.pl.nom	Definite=Def|PronType=Art|Gender=Masc|Number=Plur|Case=Nom	42	det	_	gloss=those
+42	πολλοὺς	πολύς	ADJ	adj.masc.pl.acc	Degree=Pos|Gender=Masc|Number=Plur|Case=Acc	43	obj	_	gloss=many
+43	ἐχθροὺς	ἐχθρός	ADJ	adj.masc.pl.acc	Degree=Pos|Gender=Masc|Number=Plur|Case=Acc	42	amod	_	gloss=enemies
+44	ἐν	ἐν	ADP	preposition.dat	_	45	case	_	gloss=in
+45	βίῳ	βίος	NOUN	noun.masc.sg.dat	Gender=Masc|Number=Sing|Case=Dat	43	obl	_	gloss=life
+46	ἔχοντες	ἔχω	VERB	verb.pres.ptcp.act.masc.pl.nom	Aspect=Imp|Mood=Part|Tense=Pres|Voice=Act|Gender=Masc|Number=Plur|Case=Nom	48	advcl	_	gloss=having
+47	οὐδένα	οὐδείς	PRON	pron.masc.sg.acc	PronType=Neg|Gender=Masc|Number=Sing|Case=Acc	48	obj	_	gloss=no one
+48	φίλον	φίλος	ADJ	adj.masc.sg.acc	Degree=Pos|Gender=Masc|Number=Sing|Case=Acc	47	amod	_	gloss=friend
+49	ἐν	ἐν	ADP	preposition.dat	_	50	case	_	gloss=in
+50	ἀνάγκῃ	ἀνάγκη	NOUN	noun.fem.sg.dat	Gender=Fem|Number=Sing|Case=Dat	48	obl	_	gloss=need
+51	εὑρήσουσιν	εὑρίσκω	VERB	verb.fut.ind.act.3pl	Aspect=Perf|Mood=Ind|Tense=Fut|Voice=Act|Number=Plur|Person=3	39	ccomp	_	gloss=will find
+52	.	.	PUNCT	punctuation	_	51	punct	_	gloss=.
