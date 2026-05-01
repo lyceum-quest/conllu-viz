@@ -1,0 +1,89 @@
+# global.columns = ID FORM LEMMA UPOS XPOS FEATS HEAD DEPREL DEPS MISC
+# source = Aesop, Fables (Chambry edition)
+# source_edition = Chambry (Perry numbering)
+# encoder = LLM-assisted
+# editor = Brandon Lucas
+# project = Lyceum Digital Library
+# conversion_method = Manual annotation with LLM assistance
+# gloss_type = Context-aware philological glosses
+# license = CC BY-SA 4.0
+# date_modified = 2026-05-01
+# contact = support@lyceum.quest
+
+# title = The Monkey and Her Two Babies
+# sent_id = perry-218-s1
+# text = Δύο τέκνων μητέρα τὸν πίθηκον εἶναι ἀκήκοα· ἀμφοτέροις οὖν κληρονομίαν χαρίζεσθαι, τῷ μὲν τὸ μῖσος, τῷ δὲ τὴν οἰκείαν ἀγάπην, δι' ἧς καὶ ἀποκτείνει τὸ πεφιλημένον, συχνῶν περιπτυσσομένη καὶ περιλείχουσα.
+# parallel_id = lyceum-aesop-p218/s1
+# translation_lang = en
+# prose_translation = I have heard that a monkey was a mother of two children; she was therefore granting an inheritance to both — to the one hatred, to the other her own love, through which she also kills the beloved one, often embracing and licking it.
+# literal_translation = Two of children mother the monkey to be I have heard; to both therefore an inheritance to grant, to the one hatred, to the other her own love, through which also she kills the beloved, often embracing and licking.
+1	Δύο	δύο	NUM	numeral.pl.nom	Number=Plur|Case=Nom	2	nummod	_	gloss=two
+2	τέκνων	τέκνον	NOUN	noun.neut.pl.gen	Gender=Neut|Number=Plur|Case=Gen	3	nmod	_	gloss=of children
+3	μητέρα	μήτηρ	NOUN	noun.fem.sg.nom	Gender=Fem|Number=Sing|Case=Nom	6	obj	_	gloss=mother
+4	τὸν	ὁ	DET	article.masc.sg.acc	Definite=Def|PronType=Art|Gender=Masc|Number=Sing|Case=Acc	5	det	_	gloss=the
+5	πίθηκον	πίθηκος	NOUN	noun.masc.sg.acc	Gender=Masc|Number=Sing|Case=Acc	3	appos	_	gloss=monkey
+6	εἶναι	εἰμί	VERB	verb.pres.inf.act	Aspect=Imp|Mood=Inf|Tense=Pres|VerbForm=Inf|Voice=Act	7	xcomp	_	gloss=to be
+7	ἀκήκοα	ἀκούω	VERB	verb.perf.ind.act.1sg	Aspect=Perf|Mood=Ind|Tense=Perf|VerbForm=Fin|Voice=Act|Number=Sing|Person=1	0	root	_	gloss=I have heard
+8	·	·	PUNCT	punctuation	_	7	punct	_	gloss=:
+9	ἀμφοτέροις	ἀμφότερος	ADJ	adj.masc.pl.dat	Degree=Pos|Gender=Masc|Number=Plur|Case=Dat	11	obl	_	gloss=to both
+10	οὖν	οὖν	ADV	adverb	_	11	advmod	_	gloss=therefore
+11	κληρονομίαν	κληρονομία	NOUN	noun.fem.sg.acc	Gender=Fem|Number=Sing|Case=Acc	12	obj	_	gloss=inheritance / portion
+12	χαρίζεσθαι	χαρίζομαι	VERB	verb.pres.inf.mp	Aspect=Imp|Mood=Inf|Tense=Pres|VerbForm=Inf|Voice=Mid	7	parataxis	_	gloss=to grant / bestow
+13	,	,	PUNCT	punctuation	_	12	punct	_	gloss=,
+14	τῷ	ὁ	DET	article.masc.sg.dat	Definite=Def|PronType=Art|Gender=Masc|Number=Sing|Case=Dat	16	obl	_	gloss=to the
+15	μὲν	μέν	PART	particle	_	16	discourse	_	gloss=on the one hand
+16	μῖσος	μῖσος	NOUN	noun.neut.sg.nom	Gender=Neut|Number=Sing|Case=Nom	11	conj	_	gloss=hatred
+17	,	,	PUNCT	punctuation	_	16	punct	_	gloss=,
+18	τῷ	ὁ	DET	article.masc.sg.dat	Definite=Def|PronType=Art|Gender=Masc|Number=Sing|Case=Dat	20	obl	_	gloss=to the
+19	δὲ	δέ	CCONJ	conjunction	_	20	cc	_	gloss=on the other hand
+20	τὴν	ὁ	DET	article.fem.sg.acc	Definite=Def|PronType=Art|Gender=Fem|Number=Sing|Case=Acc	21	det	_	gloss=the
+21	οἰκείαν	οἰκεῖος	ADJ	adj.fem.sg.acc	Degree=Pos|Gender=Fem|Number=Sing|Case=Acc	22	amod	_	gloss=own
+22	ἀγάπην	ἀγάπη	NOUN	noun.fem.sg.acc	Gender=Fem|Number=Sing|Case=Acc	16	conj	_	gloss=love
+23	,	,	PUNCT	punctuation	_	22	punct	_	gloss=,
+24	δι'	διά	ADP	preposition.gen	_	25	case	_	gloss=through
+25	ἧς	ὅς	PRON	pron.rel.fem.sg.gen	PronType=Rel|Gender=Fem|Number=Sing|Case=Gen	28	obl	_	gloss=which
+26	καὶ	καί	ADV	adverb	_	28	advmod	_	gloss=also
+27	ἀποκτείνει	ἀποκτείνω	VERB	verb.pres.ind.act.3sg	Aspect=Imp|Mood=Ind|Tense=Pres|VerbForm=Fin|Voice=Act|Number=Sing|Person=3	22	acl:relcl	_	gloss=kills
+28	τὸ	ὁ	DET	article.neut.sg.acc	Definite=Def|PronType=Art|Gender=Neut|Number=Sing|Case=Acc	29	det	_	gloss=the
+29	πεφιλημένον	φιλέω	VERB	verb.perf.ptcp.mp.neut.sg.acc	Aspect=Perf|Mood=Part|Tense=Perf|Voice=Mid|Gender=Neut|Number=Sing|Case=Acc	27	obj	_	gloss=beloved one
+30	,	,	PUNCT	punctuation	_	29	punct	_	gloss=,
+31	συχνῶν	συχνῶς	ADV	adverb	_	32	advmod	_	gloss=often
+32	περιπτυσσομένη	περιπτύσσομαι	VERB	verb.pres.ptcp.mp.fem.sg.nom	Aspect=Imp|Mood=Part|Tense=Pres|Voice=Mid|Gender=Fem|Number=Sing|Case=Nom	27	advcl	_	gloss=embracing
+33	καὶ	καί	CCONJ	conjunction	_	34	cc	_	gloss=and
+34	περιλείχουσα	περιλείχω	VERB	verb.pres.ptcp.act.fem.sg.nom	Aspect=Imp|Mood=Part|Tense=Pres|Voice=Act|Gender=Fem|Number=Sing|Case=Nom	32	conj	_	gloss=licking
+35	.	.	PUNCT	punctuation	_	34	punct	_	gloss=.
+
+# sent_id = perry-218-s2
+# text = Τὸ δὲ μισηθὲν τὰς ἐρήμους φοιτῆσαν, διέδρασε τὸν κίνδυνον.
+# parallel_id = lyceum-aesop-p218/s2
+# translation_lang = en
+# prose_translation = The hated one, having gone to the wilderness, escaped the danger.
+# literal_translation = The but hated one the wildernesses having gone to, escaped the danger.
+36	Τὸ	ὁ	DET	article.neut.sg.nom	Definite=Def|PronType=Art|Gender=Neut|Number=Sing|Case=Nom	37	det	_	gloss=the
+37	δὲ	δέ	CCONJ	conjunction	_	41	cc	_	gloss=but
+38	μισηθὲν	μισέω	VERB	verb.aor.ptcp.pass.neut.sg.nom	Aspect=Perf|Mood=Part|Tense=Aor|Voice=Pass|Gender=Neut|Number=Sing|Case=Nom	41	nsubj	_	gloss=hated one
+39	τὰς	ὁ	DET	article.fem.pl.acc	Definite=Def|PronType=Art|Gender=Fem|Number=Plur|Case=Acc	40	det	_	gloss=the
+40	ἐρήμους	ἔρημος	ADJ	adj.fem.pl.acc	Degree=Pos|Gender=Fem|Number=Plur|Case=Acc	42	obj	_	gloss=deserted / wilderness
+41	φοιτῆσαν	φοιτάω	VERB	verb.aor.ptcp.act.neut.sg.nom	Aspect=Perf|Mood=Part|Tense=Aor|Voice=Act|Gender=Neut|Number=Sing|Case=Nom	38	acl	_	gloss=having gone to
+42	διέδρασε	διαδράσκω	VERB	verb.aor.ind.act.3sg	Aspect=Perf|Mood=Ind|Tense=Aor|VerbForm=Fin|Voice=Act|Number=Sing|Person=3	0	root	_	gloss=escaped
+43	τὸν	ὁ	DET	article.masc.sg.acc	Definite=Def|PronType=Art|Gender=Masc|Number=Sing|Case=Acc	44	det	_	gloss=the
+44	κίνδυνον	κίνδυνος	NOUN	noun.masc.sg.acc	Gender=Masc|Number=Sing|Case=Acc	42	obj	_	gloss=danger
+45	.	.	PUNCT	punctuation	_	44	punct	_	gloss=.
+
+# sent_id = perry-218-s3
+# text = Κρείττω ἡμῖν τῆς κακίστης φιλίας τὴν ἐχθρὰν ἐλέγχει ὁ μῦθος.
+# parallel_id = lyceum-aesop-p218/s3
+# translation_lang = en
+# prose_translation = The fable proves that enmity is better for us than the worst friendship.
+# literal_translation = Better for us than the worst friendship enmity proves the fable.
+46	Κρείττω	κρείττων	ADJ	adj.fem.sg.nom	Degree=Cmp|Gender=Fem|Number=Sing|Case=Nom	50	xcomp	_	gloss=better
+47	ἡμῖν	ἡμεῖς	PRON	pron.prs.1pl.dat	PronType=Prs|Number=Plur|Person=1|Case=Dat	50	obl	_	gloss=for us
+48	τῆς	ὁ	DET	article.fem.sg.gen	Definite=Def|PronType=Art|Gender=Fem|Number=Sing|Case=Gen	49	det	_	gloss=the
+49	κακίστης	κάκιστος	ADJ	adj.fem.sg.gen	Degree=Sup|Gender=Fem|Number=Sing|Case=Gen	50	nmod	_	gloss=worst
+50	φιλίας	φιλία	NOUN	noun.fem.sg.gen	Gender=Fem|Number=Sing|Case=Gen	46	obl	_	gloss=of friendship
+51	τὴν	ὁ	DET	article.fem.sg.acc	Definite=Def|PronType=Art|Gender=Fem|Number=Sing|Case=Acc	52	det	_	gloss=the
+52	ἐχθρὰν	ἔχθρα	NOUN	noun.fem.sg.acc	Gender=Fem|Number=Sing|Case=Acc	53	obj	_	gloss=enmity
+53	ἐλέγχει	ἐλέγχω	VERB	verb.pres.ind.act.3sg	Aspect=Imp|Mood=Ind|Tense=Pres|VerbForm=Fin|Voice=Act|Number=Sing|Person=3	0	root	_	gloss=proves / shows
+54	ὁ	ὁ	DET	article.masc.sg.nom	Definite=Def|PronType=Art|Gender=Masc|Number=Sing|Case=Nom	55	det	_	gloss=the
+55	μῦθος	μῦθος	NOUN	noun.masc.sg.nom	Gender=Masc|Number=Sing|Case=Nom	53	nsubj	_	gloss=fable
+56	.	.	PUNCT	punctuation	_	55	punct	_	gloss=.
