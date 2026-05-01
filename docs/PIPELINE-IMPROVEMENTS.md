@@ -4,7 +4,7 @@ Lessons from creating fables 43–52 (perry 217, 218, 291, 393, 176, 253, 319, 3
 
 ---
 
-## 1. Add a File Template to the Spec
+## 1. Add a File Template to the Spec ✅ Done
 
 **Problem**: Had to read a reference file + spec separately. The spec describes file-level headers but the reference file (perry-257) didn't have them, causing a first-pass omission and a fix cycle.
 
@@ -35,7 +35,7 @@ Lessons from creating fables 43–52 (perry 217, 218, 291, 393, 176, 253, 319, 3
 
 ---
 
-## 2. Document the File Naming Convention
+## 2. Document the File Naming Convention ✅ Done
 
 **Problem**: Had to infer `slug-perry-NNN-difficulty-NNN.conllu` by listing the directory and reverse-engineering the pattern.
 
@@ -67,7 +67,7 @@ Lessons from creating fables 43–52 (perry 217, 218, 291, 393, 176, 253, 319, 3
 
 ---
 
-## 4. Build an XPOS Catalog from Existing Files
+## 4. Build an XPOS Catalog from Existing Files ✅ Done
 
 **Problem**: The spec gives XPOS patterns but leaves edge cases ambiguous (e.g., `verb.impers.pres.ind.3sg` vs `verb.pres.ind.act.3sg` for impersonals; `verb.plup.ind.act.3sg` vs `verb.perf.ind.act.3sg` for pluperfect — the linter rejects `Tense=Pqp`).
 
@@ -80,7 +80,7 @@ grep -h '^[0-9]' conllu/aesop/fables/*.conllu | cut -f5 | sort -u
 
 ---
 
-## 5. Add an Edition Map Entry Template
+## 5. Add an Edition Map Entry Template ✅ Done
 
 **Problem**: Had to read existing `conllu-edition-map.json` entries to reverse-engineer the URN format and field structure.
 
@@ -130,13 +130,13 @@ Even 80% accuracy would cut the manual work roughly in half, since the human rev
 
 ## Priority Order
 
-| # | Item | Effort | Impact |
-|---|------|--------|--------|
-| 1 | File template in spec | Low | Eliminates header omission |
-| 2 | File naming convention | Low | Eliminates directory listing step |
-| 3 | Dependency pattern reference | Medium | Reduces tree-building errors |
-| 4 | XPOS catalog | Low | Eliminates XPOS guessing |
-| 5 | Edition map template | Low | Eliminates JSON reverse-engineering |
-| 6 | Morph pre-fill script | High | Cuts ~60% of per-fable effort |
+| # | Item | Effort | Impact | Status |
+|---|------|--------|--------|--------|
+| 1 | File template in spec | Low | Eliminates header omission | ✅ Done |
+| 2 | File naming convention | Low | Eliminates directory listing step | ✅ Done |
+| 3 | Dependency pattern reference | Medium | Reduces tree-building errors | |
+| 4 | XPOS catalog | Low | Eliminates XPOS guessing | ✅ Done |
+| 5 | Edition map template | Low | Eliminates JSON reverse-engineering | ✅ Done |
+| 6 | Morph pre-fill script | High | Cuts ~60% of per-fable effort | |
 
 Items 1, 2, 4, 5 are quick doc changes. Item 3 is a moderate doc addition. Item 6 is the big win but requires implementation work.
