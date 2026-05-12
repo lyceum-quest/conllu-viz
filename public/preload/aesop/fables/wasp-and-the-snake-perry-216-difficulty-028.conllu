@@ -1,0 +1,70 @@
+# title = The Wasp and the Snake
+# sent_id = perry-216-s1
+# text = Σφὴξ ἐπὶ κεφαλὴν ὄφεως καθίσας καὶ συνεχῶς τῷ κέντρῳ πλήσσων ἐχείμαζεν.
+# parallel_id = lyceum-aesop-p216/s1
+# translation_lang = en
+# prose_translation = A wasp, having settled on a snake's head and continually striking with its sting, was tormenting it.
+# literal_translation = A wasp on the head of a snake having settled and continuously with the sting striking was tormenting.
+1	Σφὴξ	σφήξ	NOUN	noun.masc.sg.nom	Gender=Masc|Number=Sing|Case=Nom	2	nsubj	_	gloss=wasp
+2	ἐπὶ	ἐπί	ADP	preposition.acc	_	3	case	_	gloss=on
+3	κεφαλὴν	κεφαλή	NOUN	noun.fem.sg.acc	Gender=Fem|Number=Sing|Case=Acc	4	obl	_	gloss=head
+4	ὄφεως	ὄφις	NOUN	noun.masc.sg.gen	Gender=Masc|Number=Sing|Case=Gen	3	nmod	_	gloss=of a snake
+5	καθίσας	καθίζω	VERB	verb.aor.ptcp.act.masc.sg.nom	Aspect=Perf|Mood=Part|Tense=Aor|Voice=Act|Gender=Masc|Number=Sing|Case=Nom	9	advcl	_	gloss=having settled
+6	καὶ	καί	CCONJ	conjunction	_	7	cc	_	gloss=and
+7	συνεχῶς	συνεχῶς	ADV	adverb	_	8	advmod	_	gloss=continuously
+8	τῷ	ὁ	DET	article.neut.sg.dat	Definite=Def|PronType=Art|Gender=Neut|Number=Sing|Case=Dat	9	det	_	gloss=the
+9	κέντρῳ	κέντρον	NOUN	noun.neut.sg.dat	Gender=Neut|Number=Sing|Case=Dat	10	obl	_	gloss=sting
+10	πλήσσων	πλήσσω	VERB	verb.pres.ptcp.act.masc.sg.nom	Aspect=Imp|Mood=Part|Tense=Pres|Voice=Act|Gender=Masc|Number=Sing|Case=Nom	5	conj	_	gloss=striking
+11	ἐχείμαζεν	χειμάζω	VERB	verb.impf.ind.act.3sg	Aspect=Imp|Mood=Ind|Tense=Imp|Voice=Act|Number=Sing|Person=3	0	root	_	gloss=was tormenting
+12	.	.	PUNCT	punctuation	_	11	punct	_	gloss=.
+
+# sent_id = perry-216-s2
+# text = Ὁ δὲ περιώδυνος γενόμενος καὶ τὸν ἐχθρὸν οὐκ ἔχων ἀμύνασθαι, ἐξελθὼν ἐν τῇ ὁδῷ καὶ ἰδὼν ἅμαξαν ἐρχομένην, τὴν κεφαλὴν τῷ τρόχῳ ὑπέθηκε, φάσκων· Συναπόλλυμαι τῷ ἐχθρῷ μου.
+# parallel_id = lyceum-aesop-p216/s2
+# translation_lang = en
+# prose_translation = But the snake, being in great pain and unable to avenge itself on its enemy, went out onto the road and seeing a cart coming, placed its head under the wheel, saying, "I perish together with my enemy."
+# literal_translation = But being in great pain and the enemy not having to avenge, having gone out on the road and having seen a cart coming, the head under the wheel it placed, saying, "I perish together with my enemy."
+13	Ὁ	ὁ	DET	article.masc.sg.nom	Definite=Def|PronType=Art|Gender=Masc|Number=Sing|Case=Nom	14	det	_	gloss=the
+14	δὲ	δέ	CCONJ	conjunction	_	15	cc	_	gloss=but
+15	περιώδυνος	περιώδυνος	ADJ	adj.masc.sg.nom	Degree=Pos|Gender=Masc|Number=Sing|Case=Nom	16	xcomp	_	gloss=in great pain
+16	γενόμενος	γίγνομαι	VERB	verb.aor.ptcp.mp.masc.sg.nom	Aspect=Perf|Mood=Part|Tense=Aor|Voice=Mid|Gender=Masc|Number=Sing|Case=Nom	26	advcl	_	gloss=having become
+17	καὶ	καί	CCONJ	conjunction	_	19	cc	_	gloss=and
+18	τὸν	ὁ	DET	article.masc.sg.acc	Definite=Def|PronType=Art|Gender=Masc|Number=Sing|Case=Acc	19	det	_	gloss=the
+19	ἐχθρὸν	ἐχθρός	NOUN	noun.masc.sg.acc	Gender=Masc|Number=Sing|Case=Acc	20	obj	_	gloss=enemy
+20	οὐκ	οὐ	PART	neg.particle	Polarity=Neg	21	advmod	_	gloss=not
+21	ἔχων	ἔχω	VERB	verb.pres.ptcp.act.masc.sg.nom	Aspect=Imp|Mood=Part|Tense=Pres|Voice=Act|Gender=Masc|Number=Sing|Case=Nom	16	conj	_	gloss=having
+22	ἀμύνασθαι	ἀμύνω	VERB	verb.aor.inf.mp	Aspect=Perf|Mood=Inf|Tense=Aor|Voice=Mid	21	xcomp	_	gloss=to avenge
+23	ἐξελθὼν	ἐξέρχομαι	VERB	verb.aor.ptcp.act.masc.sg.nom	Aspect=Perf|Mood=Part|Tense=Aor|Voice=Act|Gender=Masc|Number=Sing|Case=Nom	26	advcl	_	gloss=having gone out
+24	ἐν	ἐν	ADP	preposition.dat	_	25	case	_	gloss=on
+25	τῇ	ὁ	DET	article.fem.sg.dat	Definite=Def|PronType=Art|Gender=Fem|Number=Sing|Case=Dat	26	det	_	gloss=the
+26	ὁδῷ	ὁδός	NOUN	noun.fem.sg.dat	Gender=Fem|Number=Sing|Case=Dat	23	obl	_	gloss=road
+27	καὶ	καί	CCONJ	conjunction	_	28	cc	_	gloss=and
+28	ἰδὼν	ὁράω	VERB	verb.aor.ptcp.act.masc.sg.nom	Aspect=Perf|Mood=Part|Tense=Aor|Voice=Act|Gender=Masc|Number=Sing|Case=Nom	26	conj	_	gloss=having seen
+29	ἅμαξαν	ἅμαξα	NOUN	noun.fem.sg.acc	Gender=Fem|Number=Sing|Case=Acc	28	obj	_	gloss=cart
+30	ἐρχομένην	ἔρχομαι	VERB	verb.pres.ptcp.mp.fem.sg.acc	Aspect=Imp|Mood=Part|Tense=Pres|Voice=Mid|Gender=Fem|Number=Sing|Case=Acc	29	acl	_	gloss=coming
+31	τὴν	ὁ	DET	article.fem.sg.acc	Definite=Def|PronType=Art|Gender=Fem|Number=Sing|Case=Acc	32	det	_	gloss=the
+32	κεφαλὴν	κεφαλή	NOUN	noun.fem.sg.acc	Gender=Fem|Number=Sing|Case=Acc	33	obj	_	gloss=head
+33	τῷ	ὁ	DET	article.masc.sg.dat	Definite=Def|PronType=Art|Gender=Masc|Number=Sing|Case=Dat	34	det	_	gloss=the
+34	τρόχῳ	τροχός	NOUN	noun.masc.sg.dat	Gender=Masc|Number=Sing|Case=Dat	33	obl	_	gloss=wheel
+35	ὑπέθηκε	ὑποτίθημι	VERB	verb.aor.ind.mp.3sg	Aspect=Perf|Mood=Ind|Tense=Aor|Voice=Mid|Number=Sing|Person=3	0	root	_	gloss=placed under
+36	φάσκων	φημί	VERB	verb.pres.ptcp.act.masc.sg.nom	Aspect=Imp|Mood=Part|Tense=Pres|Voice=Act|Gender=Masc|Number=Sing|Case=Nom	35	advcl	_	gloss=saying
+37	·	·	PUNCT	punctuation	_	36	punct	_	gloss=:
+38	Συναπόλλυμαι	συναπόλλυμι	VERB	verb.pres.ind.mp.1sg	Aspect=Imp|Mood=Ind|Tense=Pres|Voice=Mid|Number=Sing|Person=1	35	ccomp	_	gloss=I perish together
+39	τῷ	ὁ	DET	article.masc.sg.dat	Definite=Def|PronType=Art|Gender=Masc|Number=Sing|Case=Dat	40	det	_	gloss=the
+40	ἐχθρῷ	ἐχθρός	NOUN	noun.masc.sg.dat	Gender=Masc|Number=Sing|Case=Dat	38	obl	_	gloss=enemy
+41	μου	ἐγώ	PRON	pron.1sg.gen	PronType=Prs|Number=Sing|Person=1|Case=Gen	40	nmod	_	gloss=my
+42	.	.	PUNCT	punctuation	_	41	punct	_	gloss=.
+
+# sent_id = perry-216-s3
+# text = Πρὸς τοὺς συγκινδυνεύειν τῷ ἐχθρῷ ἐπιχειροῦντας.
+# parallel_id = lyceum-aesop-p216/s3
+# translation_lang = en
+# prose_translation = This applies to those who attempt to share danger with their enemy.
+# literal_translation = Toward those who with the enemy attempt to share danger.
+43	Πρὸς	πρός	ADP	preposition.acc	_	46	case	_	gloss=toward
+44	τοὺς	ὁ	DET	article.masc.pl.acc	Definite=Def|PronType=Art|Gender=Masc|Number=Plur|Case=Acc	46	det	_	gloss=those who
+45	συγκινδυνεύειν	συγκινδυνεύω	VERB	verb.pres.inf.act	Aspect=Imp|Mood=Inf|Tense=Pres|Voice=Act	46	xcomp	_	gloss=to share danger
+46	τῷ	ὁ	DET	article.masc.sg.dat	Definite=Def|PronType=Art|Gender=Masc|Number=Sing|Case=Dat	47	det	_	gloss=the
+47	ἐχθρῷ	ἐχθρός	NOUN	noun.masc.sg.dat	Gender=Masc|Number=Sing|Case=Dat	45	obl	_	gloss=enemy
+48	ἐπιχειροῦντας	ἐπιχειρέω	VERB	verb.pres.ptcp.act.masc.pl.acc	Aspect=Imp|Mood=Part|Tense=Pres|Voice=Act|Gender=Masc|Number=Plur|Case=Acc	0	root	_	gloss=attempting
+49	.	.	PUNCT	punctuation	_	48	punct	_	gloss=.

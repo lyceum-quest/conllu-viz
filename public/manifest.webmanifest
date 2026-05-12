@@ -1,0 +1,19 @@
+{
+  "name": "conllu-viz",
+  "short_name": "conllu",
+  "description": "Offline-friendly CoNLL-U dependency tree visualizer and study app.",
+  "start_url": "/#browser",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#15100b",
+  "theme_color": "#15100b",
+  "orientation": "any",
+  "icons": [
+    {
+      "src": "/icons/conllu-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

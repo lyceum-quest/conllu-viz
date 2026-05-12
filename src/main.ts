@@ -12,6 +12,7 @@ import './styles/tree.css';
 import './styles/browser.css';
 import './styles/study.css';
 import './styles/reader.css';
+import './pwa';
 
 import { parseConllu, collectLegend, Treebank, Sentence, Token } from './types';
 import { segmentGreekWord } from './segment';
@@ -22,7 +23,7 @@ import { mount as mountBrowser } from './browser';
 import { mount as mountReader, cleanup as cleanupReader } from './reader';
 import { mount as mountStudy } from './study';
 import { parseRoute, navigate, routeUrl, PageType } from './router';
-import { loadStore, saveStore, addFile } from './store';
+import { initStore, loadStore, saveStore, addFile } from './store';
 
 // ── DOM refs ───────────────────────────────────────────────────────────────
 
@@ -200,8 +201,6 @@ window.addEventListener('resize', () => {
 });
 
 // ── Router ─────────────────────────────────────────────────────────────────
-
-window.addEventListener('hashchange', handleRoute);
 
 function handleRoute() {
   const route = parseRoute();
@@ -768,6 +767,14 @@ document.querySelectorAll('.nav-link').forEach(a => {
 
 // ── Initial route ──────────────────────────────────────────────────────────
 
-handleRoute();
-
-console.log('⚜ conllu-viz ready');
+initStore()
+  .then(() => {
+    window.addEventListener('hashchange', handleRoute);
+    handleRoute();
+    console.log('⚜ conllu-viz ready');
+  })
+  .catch((err) => {
+    console.error('[store] failed to initialize persistence', err);
+    window.addEventListener('hashchange', handleRoute);
+    handleRoute();
+  });

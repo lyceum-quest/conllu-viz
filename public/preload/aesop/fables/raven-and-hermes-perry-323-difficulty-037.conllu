@@ -1,0 +1,81 @@
+# title = The Sick Raven
+# sent_id = perry-323-s1
+# text = Κόραξ ἐν παγίδι κρατηθεὶς ηὔξατο τῷ Ἀπόλλωνι λιβανωτὸν ἐπιθύσειν, εἰ τῆς παγίδος αὐτὸν ῥύσειε.
+# parallel_id = lyceum-aesop-p323/s1
+# translation_lang = en
+# prose_translation = A raven, having been caught in a snare, vowed to Apollo to offer incense if he would save it from the snare.
+# literal_translation = A raven in a snare having been caught vowed to Apollo incense to offer, if of the snare him he would save.
+1	Κόραξ	κόραξ	NOUN	noun.masc.sg.nom	Gender=Masc|Number=Sing|Case=Nom	3	nsubj	_	gloss=raven
+2	ἐν	ἐν	ADP	preposition.dat	_	4	case	_	gloss=in
+3	παγίδι	παγίς	NOUN	noun.fem.sg.dat	Gender=Fem|Number=Sing|Case=Dat	4	obl	_	gloss=snare
+4	κρατηθεὶς	κρατέω	VERB	verb.aor.ptcp.mp.masc.sg.nom	Aspect=Perf|Mood=Part|Tense=Aor|Voice=Mid|Gender=Masc|Number=Sing|Case=Nom	5	advcl	_	gloss=having been caught
+5	ηὔξατο	εὔχομαι	VERB	verb.aor.ind.mp.3sg	Aspect=Perf|Mood=Ind|Tense=Aor|Voice=Mid|Number=Sing|Person=3	0	root	_	gloss=vowed
+6	τῷ	ὁ	DET	article.masc.sg.dat	Definite=Def|PronType=Art|Gender=Masc|Number=Sing|Case=Dat	7	det	_	gloss=the
+7	Ἀπόλλωνι	Ἀπόλλων	NOUN	noun.masc.sg.dat	Gender=Masc|Number=Sing|Case=Dat	5	obl	_	gloss=Apollo
+8	λιβανωτὸν	λιβανωτός	NOUN	noun.masc.sg.acc	Gender=Masc|Number=Sing|Case=Acc	9	obj	_	gloss=incense
+9	ἐπιθύσειν	ἐπιθύω	VERB	verb.fut.inf.act	Aspect=Perf|Mood=Inf|Tense=Fut|Voice=Act	5	xcomp	_	gloss=to offer (burn)
+10	εἰ	εἰ	SCONJ	conjunction	_	12	mark	_	gloss=if
+11	τῆς	ὁ	DET	article.fem.sg.gen	Definite=Def|PronType=Art|Gender=Fem|Number=Sing|Case=Gen	13	det	_	gloss=the
+12	παγίδος	παγίς	NOUN	noun.fem.sg.gen	Gender=Fem|Number=Sing|Case=Gen	14	obl	_	gloss=snare
+13	αὐτὸν	αὐτός	PRON	pron.masc.sg.acc	PronType=Prs|Gender=Masc|Number=Sing|Case=Acc	14	obj	_	gloss=him
+14	ῥύσειε	ῥύομαι	VERB	verb.aor.opt.act.3sg	Mood=Opt|Tense=Aor|VerbForm=Fin|Voice=Act|Number=Sing|Person=3	5	advcl	_	gloss=he would save
+15	.	.	PUNCT	punctuation	_	5	punct	_	gloss=.
+
+# sent_id = perry-323-s2
+# text = Σωθεὶς δὲ τῆς ὑποσχέσεως ἐπελάθετο.
+# parallel_id = lyceum-aesop-p323/s2
+# translation_lang = en
+# prose_translation = Having been saved, it forgot its promise.
+# literal_translation = Having been saved but of the promise it forgot.
+16	Σωθεὶς	σῴζω	VERB	verb.aor.ptcp.mp.masc.sg.nom	Aspect=Perf|Mood=Part|Tense=Aor|Voice=Mid|Gender=Masc|Number=Sing|Case=Nom	19	advcl	_	gloss=having been saved
+17	δὲ	δέ	CCONJ	conjunction	_	19	cc	_	gloss=but
+18	τῆς	ὁ	DET	article.fem.sg.gen	Definite=Def|PronType=Art|Gender=Fem|Number=Sing|Case=Gen	19	det	_	gloss=the
+19	ὑποσχέσεως	ὑπόσχεσις	NOUN	noun.fem.sg.gen	Gender=Fem|Number=Sing|Case=Gen	20	obj	_	gloss=promise
+20	ἐπελάθετο	ἐπιλανθάνομαι	VERB	verb.aor.ind.mp.3sg	Aspect=Perf|Mood=Ind|Tense=Aor|Voice=Mid|Number=Sing|Person=3	0	root	_	gloss=forgot
+21	.	.	PUNCT	punctuation	_	20	punct	_	gloss=.
+
+# sent_id = perry-323-s3
+# text = Αὖθις δὲ ἐν ἑτέρᾳ παγίδι ληφθείς, ἀφεὶς τὸν Ἀπόλλωνα, τῷ Ἑρμῇ ηὔξατο θῦσαι.
+# parallel_id = lyceum-aesop-p323/s3
+# translation_lang = en
+# prose_translation = Again caught in another snare, leaving Apollo aside, it vowed to sacrifice to Hermes.
+# literal_translation = Again but in another snare having been caught, leaving Apollo, to Hermes it vowed to sacrifice.
+22	Αὖθις	αὖθις	ADV	adverb	_	28	advmod	_	gloss=again
+23	δὲ	δέ	CCONJ	conjunction	_	28	cc	_	gloss=but
+24	ἐν	ἐν	ADP	preposition.dat	_	26	case	_	gloss=in
+25	ἑτέρᾳ	ἕτερος	ADJ	adj.fem.sg.dat	Degree=Pos|Gender=Fem|Number=Sing|Case=Dat	26	amod	_	gloss=another
+26	παγίδι	παγίς	NOUN	noun.fem.sg.dat	Gender=Fem|Number=Sing|Case=Dat	27	obl	_	gloss=snare
+27	ληφθείς	λαμβάνω	VERB	verb.aor.ptcp.mp.masc.sg.nom	Aspect=Perf|Mood=Part|Tense=Aor|Voice=Mid|Gender=Masc|Number=Sing|Case=Nom	28	advcl	_	gloss=having been caught
+28	ἀφεὶς	ἀφίημι	VERB	verb.aor.ptcp.act.masc.sg.nom	Aspect=Perf|Mood=Part|Tense=Aor|Voice=Act|Gender=Masc|Number=Sing|Case=Nom	29	advcl	_	gloss=leaving / disregarding
+29	τὸν	ὁ	DET	article.masc.sg.acc	Definite=Def|PronType=Art|Gender=Masc|Number=Sing|Case=Acc	30	det	_	gloss=the
+30	Ἀπόλλωνα	Ἀπόλλων	NOUN	noun.masc.sg.acc	Gender=Masc|Number=Sing|Case=Acc	28	obj	_	gloss=Apollo
+31	τῷ	ὁ	DET	article.masc.sg.dat	Definite=Def|PronType=Art|Gender=Masc|Number=Sing|Case=Dat	32	det	_	gloss=the
+32	Ἑρμῇ	Ἑρμῆς	NOUN	noun.masc.sg.dat	Gender=Masc|Number=Sing|Case=Dat	33	obl	_	gloss=Hermes
+33	ηὔξατο	εὔχομαι	VERB	verb.aor.ind.mp.3sg	Aspect=Perf|Mood=Ind|Tense=Aor|Voice=Mid|Number=Sing|Person=3	0	root	_	gloss=vowed
+34	θῦσαι	θύω	VERB	verb.aor.inf.act	Aspect=Perf|Mood=Inf|Tense=Aor|Voice=Act	33	xcomp	_	gloss=to sacrifice
+35	.	.	PUNCT	punctuation	_	33	punct	_	gloss=.
+
+# sent_id = perry-323-s4
+# text = Ὁ δὲ πρὸς αὐτὸν εἶπεν· Ὦ κάκιστον ζῷον, πῶς σοι πιστεύσω, ὅτι πρότερόν σου δεσπότην ἠδίκησας;
+# parallel_id = lyceum-aesop-p323/s4
+# translation_lang = en
+# prose_translation = But he said to it: "O most wretched animal, how shall I trust you, since you previously wronged your master?"
+# literal_translation = He but to it said: O most wretched animal, how to you shall I trust, that previously of you a master you wronged?
+36	Ὁ	ὁ	DET	article.masc.sg.nom	Definite=Def|PronType=Art|Gender=Masc|Number=Sing|Case=Nom	38	nsubj	_	gloss=he
+37	δὲ	δέ	CCONJ	conjunction	_	38	cc	_	gloss=but
+38	πρὸς	πρός	ADP	preposition.acc	_	39	case	_	gloss=to
+39	αὐτὸν	αὐτός	PRON	pron.masc.sg.acc	PronType=Prs|Gender=Masc|Number=Sing|Case=Acc	38	obl	_	gloss=it
+40	εἶπεν	λέγω	VERB	verb.aor.ind.act.3sg	Aspect=Perf|Mood=Ind|Tense=Aor|Voice=Act|Number=Sing|Person=3	0	root	_	gloss=said
+41	·	·	PUNCT	punctuation	_	40	punct	_	gloss=:
+42	Ὦ	ὦ	PART	interjection	_	43	discourse	_	gloss=O
+43	κάκιστον	κάκιστος	ADJ	adj.neut.sg.acc	Degree=Sup|Gender=Neut|Number=Sing|Case=Acc	44	amod	_	gloss=most wretched
+44	ζῷον	ζῷον	NOUN	noun.neut.sg.acc	Gender=Neut|Number=Sing|Case=Acc	40	vocative	_	gloss=animal
+45	πῶς	πῶς	ADV	adverb	PronType=Int	47	advmod	_	gloss=how
+46	σοι	σύ	PRON	pron.2sg.dat	PronType=Prs|Number=Sing|Person=2|Case=Dat	47	obl	_	gloss=to you
+47	πιστεύσω	πιστεύω	VERB	verb.aor.opt.act.1sg	Mood=Opt|Tense=Aor|VerbForm=Fin|Voice=Act|Number=Sing|Person=1	40	ccomp	_	gloss=shall I trust
+48	ὅτι	ὅτι	SCONJ	conjunction	ConjType=Comp	52	mark	_	gloss=since
+49	πρότερόν	πρότερον	ADV	adverb	Degree=Pos	52	advmod	_	gloss=previously
+50	σου	σύ	PRON	pron.2sg.gen	PronType=Prs|Number=Sing|Person=2|Case=Gen	51	nmod	_	gloss=your
+51	δεσπότην	δεσπότης	NOUN	noun.masc.sg.acc	Gender=Masc|Number=Sing|Case=Acc	52	obj	_	gloss=master
+52	ἠδίκησας	ἀδικέω	VERB	verb.aor.ind.act.2sg	Aspect=Perf|Mood=Ind|Tense=Aor|Voice=Act|Number=Sing|Person=2	47	advcl	_	gloss=you wronged
+53	;	;	PUNCT	punctuation	_	52	punct	_	gloss=?

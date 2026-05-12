@@ -1,0 +1,76 @@
+# title = The Thrush and the Birdlime
+# sent_id = perry-86-s1
+# text = Ἔν τινι μυρσινῶνι κίχλα ἐνέμετο· διὰ δὲ τὴν γλυκύτητα τοῦ καρποῦ οὐκ ἀφίστατο.
+# parallel_id = lyceum-aesop-p86/s1
+# translation_lang = en
+# prose_translation = A thrush was feeding in a certain myrtle grove, but because of the sweetness of the fruit it did not pull away.
+# literal_translation = In a certain myrtle grove a thrush was feeding, but through the sweetness of the fruit it was not pulling away.
+1	Ἔν	ἐν	ADP	preposition.dat	_	2	case	_	gloss=in
+2	τινι	τις	PRON	pron.masc.sg.dat	PronType=Ind|Gender=Masc|Number=Sing|Case=Dat	3	obl	_	gloss=a certain
+3	μυρσινῶνι	μυρσινώων	NOUN	noun.masc.sg.dat	Gender=Masc|Number=Sing|Case=Dat	5	obl	_	gloss=myrtle grove
+4	κίχλα	κίχλη	NOUN	noun.fem.sg.nom	Gender=Fem|Number=Sing|Case=Nom	5	nsubj	_	gloss=thrush
+5	ἐνέμετο	νέμω	VERB	verb.impf.ind.mp.3sg	Aspect=Imp|Mood=Ind|Tense=Imp|Voice=Mid|Number=Sing|Person=3	0	root	_	gloss=was feeding
+6	·	·	PUNCT	punctuation	_	5	punct	_	gloss=;
+7	διὰ	διά	ADP	preposition.acc	_	10	case	_	gloss=because of
+8	δὲ	δέ	CCONJ	conjunction	_	11	cc	_	gloss=but
+9	τὴν	ὁ	DET	article.fem.sg.acc	Definite=Def|PronType=Art|Gender=Fem|Number=Sing|Case=Acc	10	det	_	gloss=the
+10	γλυκύτητα	γλυκύτης	NOUN	noun.fem.sg.acc	Gender=Fem|Number=Sing|Case=Acc	11	obl	_	gloss=sweetness
+11	τοῦ	ὁ	DET	article.masc.sg.gen	Definite=Def|PronType=Art|Gender=Masc|Number=Sing|Case=Gen	12	det	_	gloss=of the
+12	καρποῦ	καρπός	NOUN	noun.masc.sg.gen	Gender=Masc|Number=Sing|Case=Gen	10	nmod	_	gloss=fruit
+13	οὐκ	οὐ	PART	neg.particle	Polarity=Neg	14	advmod	_	gloss=not
+14	ἀφίστατο	ἀφίστημι	VERB	verb.impf.ind.mp.3sg	Aspect=Imp|Mood=Ind|Tense=Imp|Voice=Mid|Number=Sing|Person=3	5	conj	_	gloss=it was pulling away
+15	.	.	PUNCT	punctuation	_	14	punct	_	gloss=.
+
+# sent_id = perry-86-s2
+# text = Ἰξευτὴς δὲ παρατηρησάμενος ἐμφιλοχωροῦσαν ἰξεύσας συνέλαβε.
+# parallel_id = lyceum-aesop-p86/s2
+# translation_lang = en
+# prose_translation = But a birdcatcher, having observed it staying on, caught it by birdlime.
+# literal_translation = But a birdcatcher having observed it staying on, having birdlimed it caught it.
+16	Ἰξευτὴς	ἰξευτής	NOUN	noun.masc.sg.nom	Gender=Masc|Number=Sing|Case=Nom	20	nsubj	_	gloss=birdcatcher
+17	δὲ	δέ	CCONJ	conjunction	_	20	cc	_	gloss=but
+18	παρατηρησάμενος	παρατηρέω	VERB	verb.aor.ptcp.mp.masc.sg.nom	Aspect=Perf|Mood=Part|Tense=Aor|Voice=Mid|Gender=Masc|Number=Sing|Case=Nom	20	advcl	_	gloss=having observed
+19	ἐμφιλοχωροῦσαν	ἐμφιλοχωρέω	VERB	verb.pres.ptcp.act.fem.sg.acc	Aspect=Imp|Mood=Part|Tense=Pres|Voice=Act|Gender=Fem|Number=Sing|Case=Acc	18	obj	_	gloss=staying on
+20	ἰξεύσας	ἰσεύω	VERB	verb.aor.ptcp.act.masc.sg.nom	Aspect=Perf|Mood=Part|Tense=Aor|Voice=Act|Gender=Masc|Number=Sing|Case=Nom	21	advcl	_	gloss=having birdlimed
+21	συνέλαβε	συλλαμβάνω	VERB	verb.aor.ind.act.3sg	Aspect=Perf|Mood=Ind|Tense=Aor|Voice=Act|Number=Sing|Person=3	0	root	_	gloss=caught
+22	.	.	PUNCT	punctuation	_	21	punct	_	gloss=.
+
+# sent_id = perry-86-s3
+# text = Καὶ δὴ μέλλουσα ἀναιρεῖσθαι ἔφη· " Δειλαία εἰμί, ἥτις διὰ τροφῆς γλυκύτητα σωτηρίας στερίσκομαι."
+# parallel_id = lyceum-aesop-p86/s3
+# translation_lang = en
+# prose_translation = And about to be killed, it said, "I am wretched, who am deprived of my life for the sweetness of food."
+# literal_translation = And about to be killed it said, "Wretched I am, who through sweetness of food am deprived of safety."
+23	Καὶ	καί	CCONJ	conjunction	_	26	cc	_	gloss=and
+24	δὴ	δή	PART	particle	_	26	advmod	_	gloss=indeed
+25	μέλλουσα	μέλλω	VERB	verb.pres.ptcp.act.fem.sg.nom	Aspect=Imp|Mood=Part|Tense=Pres|Voice=Act|Gender=Fem|Number=Sing|Case=Nom	26	advcl	_	gloss=about to
+26	ἀναιρεῖσθαι	ἀναιρέω	VERB	verb.pres.inf.mp	Aspect=Imp|Mood=Inf|Tense=Pres|Voice=Mid	25	xcomp	_	gloss=be killed
+27	ἔφη	φημί	VERB	verb.impf.ind.act.3sg	Mood=Ind|Tense=Imp|VerbForm=Fin|Voice=Act|Number=Sing|Person=3	0	root	_	gloss=said
+28	·	·	PUNCT	punctuation	_	27	punct	_	gloss=:
+29	Δειλαία	δειλαία	ADJ	adj.fem.sg.nom	Degree=Pos|Gender=Fem|Number=Sing|Case=Nom	30	amod	_	gloss=wretched
+30	εἰμί	εἰμί	VERB	verb.pres.ind.act.1sg	Mood=Ind|Tense=Pres|VerbForm=Fin|Voice=Act|Number=Sing|Person=1	27	ccomp	_	gloss=I am
+31	ἥτις	ὅστις	PRON	pron.fem.sg.nom	PronType=Rel|Gender=Fem|Number=Sing|Case=Nom	33	nsubj	_	gloss=who
+32	διὰ	διά	ADP	preposition.acc	_	33	case	_	gloss=because of
+33	τροφῆς	τροφή	NOUN	noun.fem.sg.gen	Gender=Fem|Number=Sing|Case=Gen	34	obl	_	gloss=food
+34	γλυκύτητα	γλυκύτης	NOUN	noun.fem.sg.acc	Gender=Fem|Number=Sing|Case=Acc	35	obj	_	gloss=sweetness
+35	σωτηρίας	σωτηρία	NOUN	noun.fem.sg.gen	Gender=Fem|Number=Sing|Case=Gen	36	obl	_	gloss=of safety / life
+36	στερίσκομαι	στερέω	VERB	verb.pres.ind.mp.1sg	Aspect=Imp|Mood=Ind|Tense=Pres|Voice=Mid|Number=Sing|Person=1	30	acl:relcl	_	gloss=I am deprived
+37	.	.	PUNCT	punctuation	_	36	punct	_	gloss=.
+
+# sent_id = perry-86-s4
+# text = Ὁ λόγος πρὸς ἄνδρα ἄσωτον δι' ἡδυπάθειαν ἀπολωλότα εὔκαιρός ἐστιν.
+# parallel_id = lyceum-aesop-p86/s4
+# translation_lang = en
+# prose_translation = The story is apt for a man who has been ruined through self-indulgence.
+# literal_translation = The story toward a man profligate through self-indulgence having been ruined is apt.
+38	Ὁ	ὁ	DET	article.masc.sg.nom	Definite=Def|PronType=Art|Gender=Masc|Number=Sing|Case=Nom	39	det	_	gloss=the
+39	λόγος	λόγος	NOUN	noun.masc.sg.nom	Gender=Masc|Number=Sing|Case=Nom	44	nsubj	_	gloss=story
+40	πρὸς	πρός	ADP	preposition.acc	_	41	case	_	gloss=toward
+41	ἄνδρα	ἀνήρ	NOUN	noun.masc.sg.acc	Gender=Masc|Number=Sing|Case=Acc	44	obl	_	gloss=man
+42	ἄσωτον	ἄσωτος	ADJ	adj.masc.sg.acc	Degree=Pos|Gender=Masc|Number=Sing|Case=Acc	41	amod	_	gloss=profligate
+43	δι'	διά	ADP	preposition.acc	_	44	case	_	gloss=through
+44	ἡδυπάθειαν	ἡδυπάθεια	NOUN	noun.fem.sg.acc	Gender=Fem|Number=Sing|Case=Acc	42	obl	_	gloss=self-indulgence
+45	ἀπολωλότα	ἀπόλλυμι	VERB	verb.perf.ptcp.act.masc.sg.acc	Aspect=Perf|Mood=Part|Tense=Perf|Voice=Act|Gender=Masc|Number=Sing|Case=Acc	41	acl	_	gloss=having been ruined
+46	εὔκαιρός	εὔκαιρος	ADJ	adj.masc.sg.nom	Degree=Pos|Gender=Masc|Number=Sing|Case=Nom	39	amod	_	gloss=apt
+47	ἐστιν	εἰμί	VERB	verb.pres.ind.act.3sg	Mood=Ind|Tense=Pres|VerbForm=Fin|Voice=Act|Number=Sing|Person=3	0	root	_	gloss=is
+48	.	.	PUNCT	punctuation	_	47	punct	_	gloss=.

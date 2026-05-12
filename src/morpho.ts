@@ -5,6 +5,7 @@
  */
 
 import { featureSegmentType, segmentCategoryColor, SEGMENT_COLORS, WordSegment, segmentGreekWord } from './segment';
+import { buildEndingPatternHTML } from './endingPatterns';
 import type { Token } from './types';
 
 export interface MorphFeature {
@@ -848,6 +849,7 @@ export function buildMorphAnalysisHTML(
   const groups = buildSegmentGroups(segments, token.feats);
   const unlocalizedGroup = groups.find(g => g.segmentType === 'unlocalized');
   const wholeWordCue = buildWholeWordFeatureCue(token.feats, segments);
+  const endingPatternHTML = buildEndingPatternHTML(token, segments);
   const segmentTypeTitles: Record<string, string> = {
     stem: 'Stem (lemma root)',
     augment: 'Augment (past tense prefix)',
@@ -919,6 +921,7 @@ export function buildMorphAnalysisHTML(
       ${legendHTML ? `<div class="morph-char-legend">${legendHTML}</div>` : ''}
     </div>
     <div class="morph-content">
+      ${endingPatternHTML}
       ${morphSegmentHTML(groups)}
     </div>
   `;

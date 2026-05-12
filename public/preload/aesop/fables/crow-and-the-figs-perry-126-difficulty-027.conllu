@@ -1,0 +1,59 @@
+# title = The Crow and the Figs
+# sent_id = perry-126-s1
+# text = Κολοιὸς λιμώττων ἐπί τινος συκῆς ἐκάθισεν· εὑρὼν δὲ τοὺς ὀλύνθους μηδέπω πεπείρους προσέμενεν ἕως σῦκα γένωνται.
+# parallel_id = lyceum-aesop-p126/s1
+# translation_lang = en
+# prose_translation = A hungry crow sat on a fig tree, and finding the figs not yet ripe, he waited for them to become ripe.
+# literal_translation = A crow being hungry on a certain fig tree sat, and finding the figs not yet ripe he waited until they become figs.
+1	Κολοιὸς	κολοιός	NOUN	noun.masc.sg.nom	Gender=Masc|Number=Sing|Case=Nom	5	nsubj	_	gloss=crow
+2	λιμώττων	λιμάω	VERB	verb.pres.ptcp.act.masc.sg.nom	Aspect=Imp|Mood=Part|Tense=Pres|Voice=Act|Gender=Masc|Number=Sing|Case=Nom	5	advcl	_	gloss=being hungry
+3	ἐπί	ἐπί	ADP	preposition.gen	_	4	case	_	gloss=on
+4	τινος	τις	PRON	pron.fem.sg.gen	PronType=Ind|Gender=Fem|Number=Sing|Case=Gen	5	obl	_	gloss=a certain
+5	συκῆς	συκέα	NOUN	noun.fem.sg.gen	Gender=Fem|Number=Sing|Case=Gen	5	obl	_	gloss=fig tree
+6	ἐκάθισεν	κάθημαι	VERB	verb.aor.ind.mp.3sg	Aspect=Perf|Mood=Ind|Tense=Aor|Voice=Mid|Number=Sing|Person=3	0	root	_	gloss=sat
+7	·	·	PUNCT	punctuation	_	6	punct	_	gloss=;
+8	εὑρὼν	εὑρίσκω	VERB	verb.aor.ptcp.act.masc.sg.nom	Aspect=Perf|Mood=Part|Tense=Aor|Voice=Act|Gender=Masc|Number=Sing|Case=Nom	13	advcl	_	gloss=having found
+9	δὲ	δέ	CCONJ	conjunction	_	13	cc	_	gloss=and
+10	τοὺς	ὁ	DET	article.masc.pl.acc	Definite=Def|PronType=Art|Gender=Masc|Number=Plur|Case=Acc	11	det	_	gloss=the
+11	ὀλύνθους	ὄλυνθος	NOUN	noun.masc.pl.acc	Gender=Masc|Number=Plur|Case=Acc	8	obj	_	gloss=unripe figs
+12	μηδέπω	μηδέπω	ADV	adverb	_	13	advmod	_	gloss=not yet
+13	πεπείρους	πείρω	VERB	verb.perf.ptcp.pass.masc.pl.acc	Aspect=Perf|Mood=Part|Tense=Perf|Voice=Pass|Gender=Masc|Number=Plur|Case=Acc	6	conj	_	gloss=ripe
+14	προσέμενεν	προσμένω	VERB	verb.impf.ind.act.3sg	Aspect=Imp|Mood=Ind|Tense=Imp|Voice=Act|Number=Sing|Person=3	6	conj	_	gloss=he waited
+15	ἕως	ἕως	SCONJ	conjunction	_	17	mark	_	gloss=until
+16	σῦκα	σῦκον	NOUN	noun.neut.pl.nom	Gender=Neut|Number=Plur|Case=Nom	17	nsubj	_	gloss=ripe figs
+17	γένωνται	γίγνομαι	VERB	verb.aor.opt.mp.3pl	Mood=Opt|Tense=Aor|VerbForm=Fin|Voice=Mid|Number=Plur|Person=3	14	advcl	_	gloss=they become
+18	.	.	PUNCT	punctuation	_	17	punct	_	gloss=.
+
+# sent_id = perry-126-s2
+# text = Ἀλώπηξ δὲ θεασαμένη αὐτον ἐγχρονίζοντα καὶ τὴν αἰτίαν παρ' αὐτοῦ μαθοῦσα ἔφη · " Ἀλλὰ πεπλάνησαι, ὦ οὗτος, ἐλπίδι προσέχων, ἥτις βουκολεῖν μὲν οἶδε, τρέφειν δὲ οὐδαμῶς."
+# parallel_id = lyceum-aesop-p126/s2
+# translation_lang = en
+# prose_translation = But a fox, seeing him lingering and learning the reason from him, said, "But you are mistaken, my friend, trusting in hope, which knows how to deceive but not at all to nourish."
+# literal_translation = But a fox having seen him lingering and the cause from him having learned said, "But you are mistaken, O you there, trusting in hope, which to deceive indeed knows, to nourish but not at all."
+19	Ἀλώπηξ	ἀλώπηξ	NOUN	noun.fem.sg.nom	Gender=Fem|Number=Sing|Case=Nom	24	nsubj	_	gloss=fox
+20	δὲ	δέ	CCONJ	conjunction	_	24	cc	_	gloss=but
+21	θεασαμένη	θεάομαι	VERB	verb.aor.ptcp.mp.fem.sg.nom	Aspect=Perf|Mood=Part|Tense=Aor|Voice=Mid|Gender=Fem|Number=Sing|Case=Nom	24	advcl	_	gloss=having seen
+22	αὐτον	αὐτός	PRON	pron.masc.sg.acc	PronType=Prs|Gender=Masc|Number=Sing|Case=Acc	23	obj	_	gloss=him
+23	ἐγχρονίζοντα	ἐγχρονίζω	VERB	verb.pres.ptcp.act.masc.sg.acc	Aspect=Imp|Mood=Part|Tense=Pres|Voice=Act|Gender=Masc|Number=Sing|Case=Acc	21	obj	_	gloss=lingering / wasting time
+24	καὶ	καί	CCONJ	conjunction	_	27	cc	_	gloss=and
+25	τὴν	ὁ	DET	article.fem.sg.acc	Definite=Def|PronType=Art|Gender=Fem|Number=Sing|Case=Acc	26	det	_	gloss=the
+26	αἰτίαν	αἰτία	NOUN	noun.fem.sg.acc	Gender=Fem|Number=Sing|Case=Acc	27	obj	_	gloss=reason / cause
+27	παρ'	παρά	ADP	preposition.gen	_	28	case	_	gloss=from
+28	αὐτοῦ	αὐτός	PRON	pron.masc.sg.gen	PronType=Prs|Gender=Masc|Number=Sing|Case=Gen	26	obl	_	gloss=him
+29	μαθοῦσα	μανθάνω	VERB	verb.aor.ptcp.act.fem.sg.nom	Aspect=Perf|Mood=Part|Tense=Aor|Voice=Act|Gender=Fem|Number=Sing|Case=Nom	24	conj	_	gloss=having learned
+30	ἔφη	φημί	VERB	verb.impf.ind.act.3sg	Mood=Ind|Tense=Imp|VerbForm=Fin|Voice=Act|Number=Sing|Person=3	0	root	_	gloss=said
+31	·	·	PUNCT	punctuation	_	30	punct	_	gloss=:
+32	Ἀλλὰ	ἀλλά	CCONJ	conjunction	_	33	cc	_	gloss=but
+33	πεπλάνησαι	πλανάω	VERB	verb.perf.ind.mp.2sg	Aspect=Perf|Mood=Ind|Tense=Perf|Voice=Mid|Number=Sing|Person=2	30	ccomp	_	gloss=you are mistaken
+34	ὦ	ὦ	PART	interjection	_	35	discourse	_	gloss=O
+35	οὗτος	οὗτος	PRON	pron.masc.sg.nom	PronType=Dem|Gender=Masc|Number=Sing|Case=Nom	33	vocative	_	gloss=you there
+36	ἐλπίδι	ἐλπρίς	NOUN	noun.fem.sg.dat	Gender=Fem|Number=Sing|Case=Dat	37	obl	_	gloss=in hope
+37	προσέχων	προσέχω	VERB	verb.pres.ptcp.act.masc.sg.nom	Aspect=Imp|Mood=Part|Tense=Pres|Voice=Act|Gender=Masc|Number=Sing|Case=Nom	33	advcl	_	gloss=trusting
+38	ἥτις	ὅστις	PRON	pron.fem.sg.nom	PronType=Rel|Gender=Fem|Number=Sing|Case=Nom	39	nsubj	_	gloss=which
+39	βουκολεῖν	βουκολέω	VERB	verb.pres.inf.act	Aspect=Imp|Mood=Inf|Tense=Pres|Voice=Act	40	xcomp	_	gloss=to deceive
+40	μὲν	μέν	CCONJ	conjunction	_	39	cc	_	gloss=indeed
+41	οἶδε	οἶδα	VERB	verb.perf.ind.act.3sg	Aspect=Perf|Mood=Ind|Tense=Perf|Voice=Act|Number=Sing|Person=3	37	acl:relcl	_	gloss=knows
+42	τρέφειν	τρέφω	VERB	verb.pres.inf.act	Aspect=Imp|Mood=Inf|Tense=Pres|Voice=Act	41	conj	_	gloss=to nourish
+43	δὲ	δέ	CCONJ	conjunction	_	42	cc	_	gloss=but
+44	οὐδαμῶς	οὐδαμῶς	ADV	adverb	_	42	advmod	_	gloss=not at all
+45	.	.	PUNCT	punctuation	_	44	punct	_	gloss=.

@@ -1,0 +1,68 @@
+# title = The Peacock and the Crane
+# sent_id = perry-294-s1
+# text = Ἢριζεν εὐφυεῖ γεράνῳ ταὼς χρυσόπτερος, σκώπτουσα τὴν χροιὰν τῆς γεράνου.
+# parallel_id = lyceum-aesop-p294/s1
+# translation_lang = en
+# prose_translation = A golden-winged peacock was competing with a well-formed crane, mocking the crane's coloring.
+# literal_translation = Was competing with a well-formed crane a golden-winged peacock, mocking the color of the crane.
+1	Ἢριζεν	ἤρισα	VERB	verb.impf.ind.act.3sg	Aspect=Imp|Mood=Ind|Tense=Imp|Voice=Act|Number=Sing|Person=3	0	root	_	gloss=was competing
+2	εὐφυεῖ	εὐφυής	ADJ	adj.fem.sg.dat	Degree=Pos|Gender=Fem|Number=Sing|Case=Dat	3	amod	_	gloss=well-formed
+3	γεράνῳ	γέρανος	NOUN	noun.fem.sg.dat	Gender=Fem|Number=Sing|Case=Dat	1	obl	_	gloss=crane
+4	ταὼς	ταώς	NOUN	noun.masc.sg.nom	Gender=Masc|Number=Sing|Case=Nom	1	nsubj	_	gloss=peacock
+5	χρυσόπτερος	χρυσόπτερος	ADJ	adj.masc.sg.nom	Degree=Pos|Gender=Masc|Number=Sing|Case=Nom	4	amod	_	gloss=golden-winged
+6	σκώπτουσα	σκώπτω	VERB	verb.pres.ptcp.act.fem.sg.nom	Aspect=Imp|Mood=Part|Tense=Pres|Voice=Act|Gender=Fem|Number=Sing|Case=Nom	1	advcl	_	gloss=mocking
+7	τὴν	ὁ	DET	article.fem.sg.acc	Definite=Def|PronType=Art|Gender=Fem|Number=Sing|Case=Acc	8	det	_	gloss=the
+8	χροιὰν	χροιά	NOUN	noun.fem.sg.acc	Gender=Fem|Number=Sing|Case=Acc	6	obj	_	gloss=coloring
+9	τῆς	ὁ	DET	article.fem.sg.gen	Definite=Def|PronType=Art|Gender=Fem|Number=Sing|Case=Gen	10	det	_	gloss=of the
+10	γεράνου	γέρανος	NOUN	noun.fem.sg.gen	Gender=Fem|Number=Sing|Case=Gen	8	nmod	_	gloss=crane
+11	.	.	PUNCT	punctuation	_	1	punct	_	gloss=.
+
+# sent_id = perry-294-s2
+# text = Ἡ δὲ ἔφη· Ἀλλ' ἐγὼ ἄστρων ἐγγὺς ἵπταμαι καὶ φωνῶ· σὺ δὲ, ὡς ἀλέκτωρ, χαμαὶ πτερύσσῃ οὐδ' ἄνω φαίνῃ.
+# parallel_id = lyceum-aesop-p294/s2
+# translation_lang = en
+# prose_translation = But she said, "But I fly near the stars and sing, while you, like a barnyard cock, strut on the ground and never show yourself above."
+# literal_translation = But she said, "But I near the stars fly and sing, you but, like a cock, on the ground flutter and not above appear."
+12	Ἡ	ὁ	DET	article.fem.sg.nom	Definite=Def|PronType=Art|Gender=Fem|Number=Sing|Case=Nom	13	det	_	gloss=the
+13	δὲ	δέ	CCONJ	conjunction	_	14	cc	_	gloss=but
+14	ἔφη	φημί	VERB	verb.impf.ind.act.3sg	Mood=Ind|Tense=Imp|VerbForm=Fin|Voice=Act|Number=Sing|Person=3	0	root	_	gloss=said
+15	·	·	PUNCT	punctuation	_	14	punct	_	gloss=:
+16	Ἀλλ'	ἀλλά	CCONJ	conjunction	_	17	cc	_	gloss=but
+17	ἐγὼ	ἐγώ	PRON	pron.1sg.nom	PronType=Prs|Number=Sing|Person=1|Case=Nom	18	nsubj	_	gloss=I
+18	ἄστρων	ἄστρον	NOUN	noun.neut.pl.gen	Gender=Neut|Number=Plur|Case=Gen	19	obl	_	gloss=of the stars
+19	ἐγγὺς	ἐγγύς	ADV	adverb	_	20	advmod	_	gloss=near
+20	ἵπταμαι	πτάομαι	VERB	verb.pres.ind.mp.1sg	Aspect=Imp|Mood=Ind|Tense=Pres|Voice=Mid|Number=Sing|Person=1	14	ccomp	_	gloss=I fly
+21	καὶ	καί	CCONJ	conjunction	_	22	cc	_	gloss=and
+22	φωνῶ	φωνέω	VERB	verb.pres.ind.act.1sg	Aspect=Imp|Mood=Ind|Tense=Pres|Voice=Act|Number=Sing|Person=1	20	conj	_	gloss=I sing
+23	σὺ	σύ	PRON	pron.2sg.nom	PronType=Prs|Number=Sing|Person=2|Case=Nom	25	nsubj	_	gloss=you
+24	δὲ	δέ	CCONJ	conjunction	_	25	cc	_	gloss=but
+25	ὡς	ὡς	ADP	preposition.acc	_	26	case	_	gloss=like
+26	ἀλέκτωρ	ἀλέκτωρ	NOUN	noun.masc.sg.nom	Gender=Masc|Number=Sing|Case=Nom	23	obl	_	gloss=cock
+27	χαμαὶ	χαμαί	ADV	adverb	_	28	advmod	_	gloss=on the ground
+28	πτερύσσῃ	πτερύσσω	VERB	verb.pres.ind.act.2sg	Aspect=Imp|Mood=Ind|Tense=Pres|Voice=Act|Number=Sing|Person=2	20	conj	_	gloss=you flutter
+29	οὐδ'	οὐδέ	CCONJ	conjunction	_	30	cc	_	gloss=and not
+30	ἄνω	ἄνω	ADV	adverb	_	31	advmod	_	gloss=above
+31	φαίνῃ	φαίνω	VERB	verb.pres.opt.act.2sg	Mood=Opt|Tense=Pres|VerbForm=Fin|Voice=Act|Number=Sing|Person=2	28	conj	_	gloss=you appear
+32	.	.	PUNCT	punctuation	_	31	punct	_	gloss=.
+
+# sent_id = perry-294-s3
+# text = Ὅτι κρεῖσσον περὶβλεπτόν τινα εἶναι σὺν πενιχρᾷ ἐσθῆτι ἢ ζῆν ἀδόξως σὺν πλουσίᾳ ἐσθῆτι.
+# parallel_id = lyceum-aesop-p294/s3
+# translation_lang = en
+# prose_translation = For it is better to be conspicuous with humble clothing than to live in disgrace with wealthy clothing.
+# literal_translation = That better someone conspicuous to be with humble clothing than to live ingloriously with wealthy clothing.
+33	Ὅτι	ὅτι	SCONJ	conjunction	_	35	mark	_	gloss=that
+34	κρεῖσσον	κρείσσων	ADJ	adj.neut.sg.nom	Degree=Cmp|Gender=Neut|Number=Sing|Case=Nom	35	advmod	_	gloss=better
+35	περὶβλεπτόν	περίβλεπτος	ADJ	adj.masc.sg.acc	Degree=Pos|Gender=Masc|Number=Sing|Case=Acc	36	amod	_	gloss=conspicuous
+36	τινα	τις	PRON	pron.masc.sg.acc	PronType=Ind|Gender=Masc|Number=Sing|Case=Acc	37	nsubj	_	gloss=someone
+37	εἶναι	εἰμί	VERB	verb.pres.inf.act	Aspect=Imp|Mood=Inf|Tense=Pres|Voice=Act	0	root	_	gloss=to be
+38	σὺν	σύν	ADP	preposition.dat	_	39	case	_	gloss=with
+39	πενιχρᾷ	πενιχρός	ADJ	adj.fem.sg.dat	Degree=Pos|Gender=Fem|Number=Sing|Case=Dat	40	amod	_	gloss=humble
+40	ἐσθῆτι	ἐσθής	NOUN	noun.fem.sg.dat	Gender=Fem|Number=Sing|Case=Dat	37	obl	_	gloss=clothing
+41	ἢ	ἤ	CCONJ	conjunction	_	42	cc	_	gloss=than
+42	ζῆν	ζάω	VERB	verb.pres.inf.act	Aspect=Imp|Mood=Inf|Tense=Pres|Voice=Act	37	conj	_	gloss=to live
+43	ἀδόξως	ἀδόξως	ADV	adverb	_	42	advmod	_	gloss=ingloriously
+44	σὺν	σύν	ADP	preposition.dat	_	45	case	_	gloss=with
+45	πλουσίᾳ	πλούσιος	ADJ	adj.fem.sg.dat	Degree=Pos|Gender=Fem|Number=Sing|Case=Dat	46	amod	_	gloss=wealthy
+46	ἐσθῆτι	ἐσθής	NOUN	noun.fem.sg.dat	Gender=Fem|Number=Sing|Case=Dat	42	obl	_	gloss=clothing
+47	.	.	PUNCT	punctuation	_	46	punct	_	gloss=.

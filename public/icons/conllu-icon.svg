@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="conllu-viz icon">
+  <rect width="512" height="512" rx="112" fill="#15100b"/>
+  <path d="M102 364c70-92 120-92 186 0 30-78 68-134 130-168" fill="none" stroke="#c9a84c" stroke-width="28" stroke-linecap="round"/>
+  <circle cx="102" cy="364" r="34" fill="#d4903a"/>
+  <circle cx="288" cy="364" r="34" fill="#6a9a4a"/>
+  <circle cx="418" cy="196" r="34" fill="#9a7ac8"/>
+  <path d="M142 146h228M142 196h148M142 246h196" stroke="#f4e4c1" stroke-width="24" stroke-linecap="round" opacity=".9"/>
+</svg>

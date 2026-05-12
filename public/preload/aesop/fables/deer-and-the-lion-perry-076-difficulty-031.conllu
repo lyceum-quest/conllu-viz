@@ -1,0 +1,68 @@
+# title = The Deer and the Lion
+# sent_id = perry-76-s1
+# text = Ἔλαφος κυνηγοὺς φεύγουσα ἐγένετο κατά τι σπήλαιον, ἐν ᾧ λέων ἦν, καὶ ἐνταῦθα εἰσῄει κρυβησομένη.
+# parallel_id = lyceum-aesop-p76/s1
+# translation_lang = en
+# prose_translation = A deer fleeing hunters came upon a certain cave in which a lion was, and entered it to hide.
+# literal_translation = A deer hunters fleeing came upon a certain cave, in which a lion was, and there entered about to hide.
+1	Ἔλαφος	ἔλαφος	NOUN	noun.fem.sg.nom	Gender=Fem|Number=Sing|Case=Nom	3	nsubj	_	gloss=deer
+2	κυνηγοὺς	κυνηγός	NOUN	noun.masc.pl.acc	Gender=Masc|Number=Plur|Case=Acc	3	obj	_	gloss=hunters
+3	φεύγουσα	φεύγω	VERB	verb.pres.ptcp.act.fem.sg.nom	Aspect=Imp|Mood=Part|Tense=Pres|Voice=Act|Gender=Fem|Number=Sing|Case=Nom	4	advcl	_	gloss=fleeing
+4	ἐγένετο	γίγνομαι	VERB	verb.aor.ind.mp.3sg	Aspect=Perf|Mood=Ind|Tense=Aor|Voice=Mid|Number=Sing|Person=3	0	root	_	gloss=came upon
+5	κατά	κατά	ADP	preposition.acc	_	6	case	_	gloss=upon
+6	τι	τις	PRON	pron.neut.sg.acc	PronType=Ind|Gender=Neut|Number=Sing|Case=Acc	7	det	_	gloss=a certain
+7	σπήλαιον	σπήλαιον	NOUN	noun.neut.sg.acc	Gender=Neut|Number=Sing|Case=Acc	4	obl	_	gloss=cave
+8	ἐν	ἐν	ADP	preposition.dat	_	10	case	_	gloss=in
+9	ᾧ	ὅς	PRON	pron.neut.sg.dat	PronType=Rel|Gender=Neut|Number=Sing|Case=Dat	10	obl	_	gloss=which
+10	λέων	λέων	NOUN	noun.masc.sg.nom	Gender=Masc|Number=Sing|Case=Nom	4	acl:relcl	_	gloss=lion
+11	ἦν	εἰμί	VERB	verb.impf.ind.act.3sg	Aspect=Imp|Mood=Ind|Tense=Imp|Voice=Act|Number=Sing|Person=3	10	cop	_	gloss=was
+12	καὶ	καί	CCONJ	conjunction	_	13	cc	_	gloss=and
+13	ἐνταῦθα	ἐνταῦθα	ADV	adverb	_	14	advmod	_	gloss=there
+14	εἰσῄει	εἰσέρχομαι	VERB	verb.impf.ind.act.3sg	Aspect=Imp|Mood=Ind|Tense=Imp|Voice=Act|Number=Sing|Person=3	4	conj	_	gloss=entered
+15	κρυβησομένη	κρύπτω	VERB	verb.fut.ptcp.mp.fem.sg.nom	Tense=Fut|Voice=Mid|Mood=Part|Gender=Fem|Number=Sing|Case=Nom	14	advcl	_	gloss=about to hide
+16	.	.	PUNCT	punctuation	_	14	punct	_	gloss=.
+
+# sent_id = perry-76-s2
+# text = Συλληφθεῖσα δὲ ὑπὸ τοῦ λέοντος καὶ ἀναιρουμένη ἔφη· "Βαρυδαίμων ἔγωγε, ἥτις ἀνθρώπους φεύγουσα ἐμαυτὴν θηρίῳ ἐνεχείρισα."
+# parallel_id = lyceum-aesop-p76/s2
+# translation_lang = en
+# prose_translation = But being seized by the lion and being killed she said, "I am ill-fated, who fleeing from men delivered myself to a wild beast."
+# literal_translation = But having been seized by the lion and being killed she said, "Heavy-spirited I, who men fleeing myself to a wild beast delivered."
+17	Συλληφθεῖσα	συλλαμβάνω	VERB	verb.aor.ptcp.pass.fem.sg.nom	Aspect=Perf|Mood=Part|Tense=Aor|Voice=Pass|Gender=Fem|Number=Sing|Case=Nom	22	advcl	_	gloss=having been seized
+18	δὲ	δέ	CCONJ	conjunction	_	22	cc	_	gloss=but
+19	ὑπὸ	ὑπό	ADP	preposition.gen	_	20	case	_	gloss=by
+20	τοῦ	ὁ	DET	article.masc.sg.gen	Definite=Def|PronType=Art|Gender=Masc|Number=Sing|Case=Gen	21	det	_	gloss=the
+21	λέοντος	λέων	NOUN	noun.masc.sg.gen	Gender=Masc|Number=Sing|Case=Gen	17	obl:agent	_	gloss=lion
+22	καὶ	καί	CCONJ	conjunction	_	23	cc	_	gloss=and
+23	ἀναιρουμένη	ἀναιρέω	VERB	verb.pres.ptcp.pass.fem.sg.nom	Aspect=Imp|Mood=Part|Tense=Pres|Voice=Pass|Gender=Fem|Number=Sing|Case=Nom	17	conj	_	gloss=being killed
+24	ἔφη	φημί	VERB	verb.impf.ind.act.3sg	Mood=Ind|Tense=Imp|VerbForm=Fin|Voice=Act|Number=Sing|Person=3	0	root	_	gloss=said
+25	·	·	PUNCT	punctuation	_	24	punct	_	gloss=:
+26	Βαρυδαίμων	βαρυδαίμων	ADJ	adj.fem.sg.nom	Degree=Pos|Gender=Fem|Number=Sing|Case=Nom	27	amod	_	gloss=ill-fated
+27	ἔγωγε	ἐγώ	PRON	pron.1sg.nom	PronType=Prs|Number=Sing|Person=1|Case=Nom	24	ccomp	_	gloss=I at least
+28	ἥτις	ὅστις	PRON	pron.fem.sg.nom	PronType=Rel|Gender=Fem|Number=Sing|Case=Nom	29	nsubj	_	gloss=who
+29	ἀνθρώπους	ἄνθρωπος	NOUN	noun.masc.pl.acc	Gender=Masc|Number=Plur|Case=Acc	30	obj	_	gloss=men
+30	φεύγουσα	φεύγω	VERB	verb.pres.ptcp.act.fem.sg.nom	Aspect=Imp|Mood=Part|Tense=Pres|Voice=Act|Gender=Fem|Number=Sing|Case=Nom	31	advcl	_	gloss=fleeing
+31	ἐμαυτὴν	ἐμαυτοῦ	PRON	pron.fem.sg.acc	Gender=Fem|Number=Sing|Case=Acc	32	obj	_	gloss=myself
+32	θηρίῳ	θρίον	NOUN	noun.neut.sg.dat	Gender=Neut|Number=Sing|Case=Dat	33	obl	_	gloss=to a wild beast
+33	ἐνεχείρισα	ἐγχειρίζω	VERB	verb.aor.ind.act.1sg	Aspect=Perf|Mood=Ind|Tense=Aor|Voice=Act|Number=Sing|Person=1	27	acl:relcl	_	gloss=I delivered
+34	.	.	PUNCT	punctuation	_	33	punct	_	gloss=.
+
+# sent_id = perry-76-s3
+# text = Οὕτως ἔνιοι τῶν ἀνθρώπων διὰ φόβον ἐλάττονος εἰς κίνδυνον μείζονα ἑαυτοὺς ἐμβάλλουσιν.
+# parallel_id = lyceum-aesop-p76/s3
+# translation_lang = en
+# prose_translation = Thus some people out of fear of a lesser danger throw themselves into a greater danger.
+# literal_translation = Thus some of men through fear of the lesser into greater danger themselves throw.
+35	Οὕτως	οὕτως	ADV	adverb	_	43	advmod	_	gloss=thus
+36	ἔνιοι	ἔνιοι	PRON	pron.masc.pl.nom	PronType=Ind|Gender=Masc|Number=Plur|Case=Nom	43	nsubj	_	gloss=some
+37	τῶν	ὁ	DET	article.masc.pl.gen	Definite=Def|PronType=Art|Gender=Masc|Number=Plur|Case=Gen	38	det	_	gloss=of
+38	ἀνθρώπων	ἄνθρωπος	NOUN	noun.masc.pl.gen	Gender=Masc|Number=Plur|Case=Gen	36	nmod	_	gloss=men
+39	διὰ	διά	ADP	preposition.acc	_	41	case	_	gloss=on account of
+40	φόβον	φόβος	NOUN	noun.masc.sg.acc	Gender=Masc|Number=Sing|Case=Acc	39	obl	_	gloss=fear
+41	ἐλάττονος	ἐλάττων	ADJ	adj.masc.sg.gen	Degree=Cmp|Gender=Masc|Number=Sing|Case=Gen	40	amod	_	gloss=lesser
+42	εἰς	εἰς	ADP	preposition.acc	_	43	case	_	gloss=into
+43	κίνδυνον	κίνδυνος	NOUN	noun.masc.sg.acc	Gender=Masc|Number=Sing|Case=Acc	44	obl	_	gloss=danger
+44	μείζονα	μείζων	ADJ	adj.masc.sg.acc	Degree=Cmp|Gender=Masc|Number=Sing|Case=Acc	43	amod	_	gloss=greater
+45	ἑαυτοὺς	ἑαυτοῦ	PRON	pron.masc.pl.acc	Gender=Masc|Number=Plur|Case=Acc	46	obj	_	gloss=themselves
+46	ἐμβάλλουσιν	ἐμβάλλω	VERB	verb.pres.ind.act.3pl	Aspect=Imp|Mood=Ind|Tense=Pres|Voice=Act|Number=Plur|Person=3	0	root	_	gloss=they throw
+47	.	.	PUNCT	punctuation	_	46	punct	_	gloss=.
