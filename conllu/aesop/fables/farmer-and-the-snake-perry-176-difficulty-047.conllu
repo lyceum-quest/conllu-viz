@@ -1,0 +1,90 @@
+# global.columns = ID FORM LEMMA UPOS XPOS FEATS HEAD DEPREL DEPS MISC
+# source = Aesop, Fables (Chambry edition)
+# source_edition = Chambry (Perry numbering)
+# encoder = LLM-assisted
+# editor = Brandon Lucas
+# project = Lyceum Digital Library
+# conversion_method = Manual annotation with LLM assistance
+# gloss_type = Context-aware philological glosses
+# license = CC BY-SA 4.0
+# date_modified = 2026-05-01
+# contact = support@lyceum.quest
+
+# title = The Farmer and the Snake
+# sent_id = perry-176-s1
+# text = Γεωρός τις χειμῶνος ὥρᾳ ὄφιν εὑρὼν ὑπὸ κρύους πεπηγότα, τοῦτον ἐλεήσας καὶ λαβὼν ὑπὸ κόλπον ἔθετο.
+# parallel_id = lyceum-aesop-p176/s1
+# translation_lang = en
+# prose_translation = A certain farmer in wintertime found a snake frozen from the cold, and pitying it he took it and placed it in his bosom.
+# literal_translation = A farmer certain in wintertime a snake having found under cold frozen, it having pitied and having taken under bosom he placed.
+1	Γεωρός	γεωργός	NOUN	noun.masc.sg.nom	Gender=Masc|Number=Sing|Case=Nom	13	nsubj	_	gloss=farmer
+2	τις	τις	PRON	pron.indef.masc.sg.nom	PronType=Ind|Gender=Masc|Number=Sing|Case=Nom	1	nmod	_	gloss=a certain
+3	χειμῶνος	χειμών	NOUN	noun.masc.sg.gen	Gender=Masc|Number=Sing|Case=Gen	4	nmod	_	gloss=of winter
+4	ὥρᾳ	ὥρα	NOUN	noun.fem.sg.dat	Gender=Fem|Number=Sing|Case=Dat	13	obl	_	gloss=at the time / in the season
+5	ὄφιν	ὄφις	NOUN	noun.masc.sg.acc	Gender=Masc|Number=Sing|Case=Acc	6	obj	_	gloss=snake
+6	εὑρὼν	εὑρίσκω	VERB	verb.aor.ptcp.act.masc.sg.nom	Aspect=Perf|Mood=Part|Tense=Aor|Voice=Act|Gender=Masc|Number=Sing|Case=Nom	13	advcl	_	gloss=having found
+7	ὑπὸ	ὑπό	ADP	preposition.gen	_	8	case	_	gloss=from
+8	κρύους	κρύος	NOUN	noun.neut.sg.gen	Gender=Neut|Number=Sing|Case=Gen	9	obl	_	gloss=cold
+9	πεπηγότα	πήγνυμι	VERB	verb.perf.ptcp.act.masc.sg.acc	Aspect=Perf|Mood=Part|Tense=Perf|Voice=Act|Gender=Masc|Number=Sing|Case=Acc	5	acl	_	gloss=frozen
+10	,	,	PUNCT	punctuation	_	6	punct	_	gloss=,
+11	τοῦτον	οὗτος	PRON	pron.demonstr.masc.sg.acc	PronType=Dem|Gender=Masc|Number=Sing|Case=Acc	13	obj	_	gloss=it
+12	ἐλεήσας	ἐλεέω	VERB	verb.aor.ptcp.act.masc.sg.nom	Aspect=Perf|Mood=Part|Tense=Aor|Voice=Act|Gender=Masc|Number=Sing|Case=Nom	13	advcl	_	gloss=having pitied
+13	καὶ	καί	CCONJ	conjunction	_	14	cc	_	gloss=and
+14	λαβὼν	λαμβάνω	VERB	verb.aor.ptcp.act.masc.sg.nom	Aspect=Perf|Mood=Part|Tense=Aor|Voice=Act|Gender=Masc|Number=Sing|Case=Nom	12	conj	_	gloss=having taken
+15	ὑπὸ	ὑπό	ADP	preposition.acc	_	16	case	_	gloss=under / in
+16	κόλπον	κόλπος	NOUN	noun.masc.sg.acc	Gender=Masc|Number=Sing|Case=Acc	17	obl	_	gloss=bosom
+17	ἔθετο	τίθημι	VERB	verb.aor.ind.mp.3sg	Aspect=Perf|Mood=Ind|Tense=Aor|VerbForm=Fin|Voice=Mid|Number=Sing|Person=3	0	root	_	gloss=he placed
+18	.	.	PUNCT	punctuation	_	17	punct	_	gloss=.
+
+# sent_id = perry-176-s2
+# text = Θερμανθεὶς δὲ ἐκεῖνος καὶ ἀναλαβὼν τὴν ἰδίαν φύσιν ἔπληξε τὸν εὐεργέτην καὶ ἀνεῖλε· θνῄσκων δὲ ἔλεγε· Δίκαια πάσχω, τὸν πονηρὸν οἰκτείρας.
+# parallel_id = lyceum-aesop-p176/s2
+# translation_lang = en
+# prose_translation = But when it was warmed and recovered its nature, it struck its benefactor and killed him; dying he said: "I suffer justly, having pitied the wicked."
+# literal_translation = Having been warmed but it and having recovered its own nature struck the benefactor and killed; dying but he said: Justly I suffer, the wicked having pitied.
+19	Θερμανθεὶς	θερμαίνω	VERB	verb.aor.ptcp.pass.masc.sg.nom	Aspect=Perf|Mood=Part|Tense=Aor|Voice=Pass|Gender=Masc|Number=Sing|Case=Nom	25	advcl	_	gloss=having been warmed
+20	δὲ	δέ	CCONJ	conjunction	_	25	cc	_	gloss=but
+21	ἐκεῖνος	ἐκεῖνος	PRON	pron.demonstr.masc.sg.nom	PronType=Dem|Gender=Masc|Number=Sing|Case=Nom	25	nsubj	_	gloss=that one / it
+22	καὶ	καί	CCONJ	conjunction	_	23	cc	_	gloss=and
+23	ἀναλαβὼν	ἀναλαμβάνω	VERB	verb.aor.ptcp.act.masc.sg.nom	Aspect=Perf|Mood=Part|Tense=Aor|Voice=Act|Gender=Masc|Number=Sing|Case=Nom	19	conj	_	gloss=having recovered
+24	τὴν	ὁ	DET	article.fem.sg.acc	Definite=Def|PronType=Art|Gender=Fem|Number=Sing|Case=Acc	26	det	_	gloss=the
+25	ἰδίαν	ἴδιος	ADJ	adj.fem.sg.acc	Degree=Pos|Gender=Fem|Number=Sing|Case=Acc	26	amod	_	gloss=own
+26	φύσιν	φύσις	NOUN	noun.fem.sg.acc	Gender=Fem|Number=Sing|Case=Acc	23	obj	_	gloss=nature
+27	ἔπληξε	πλήσσω	VERB	verb.aor.ind.act.3sg	Aspect=Perf|Mood=Ind|Tense=Aor|VerbForm=Fin|Voice=Act|Number=Sing|Person=3	0	root	_	gloss=struck
+28	τὸν	ὁ	DET	article.masc.sg.acc	Definite=Def|PronType=Art|Gender=Masc|Number=Sing|Case=Acc	29	det	_	gloss=the
+29	εὐεργέτην	εὐεργέτης	NOUN	noun.masc.sg.acc	Gender=Masc|Number=Sing|Case=Acc	27	obj	_	gloss=benefactor
+30	καὶ	καί	CCONJ	conjunction	_	31	cc	_	gloss=and
+31	ἀνεῖλε	ἀναιρέω	VERB	verb.aor.ind.act.3sg	Aspect=Perf|Mood=Ind|Tense=Aor|VerbForm=Fin|Voice=Act|Number=Sing|Person=3	27	conj	_	gloss=killed
+32	·	·	PUNCT	punctuation	_	31	punct	_	gloss=;
+33	θνῄσκων	θνῄσκω	VERB	verb.pres.ptcp.act.masc.sg.nom	Aspect=Imp|Mood=Part|Tense=Pres|Voice=Act|Gender=Masc|Number=Sing|Case=Nom	35	advcl	_	gloss=dying
+34	δὲ	δέ	CCONJ	conjunction	_	35	cc	_	gloss=but
+35	ἔλεγε	λέγω	VERB	verb.impf.ind.act.3sg	Aspect=Imp|Mood=Ind|Tense=Imp|VerbForm=Fin|Voice=Act|Number=Sing|Person=3	27	parataxis	_	gloss=was saying
+36	·	·	PUNCT	punctuation	_	35	punct	_	gloss=:
+37	Δίκαια	δίκαιος	ADJ	adj.neut.sg.nom	Degree=Pos|Gender=Neut|Number=Sing|Case=Nom	38	xcomp	_	gloss=justly / rightly
+38	πάσχω	πάσχω	VERB	verb.pres.ind.act.1sg	Aspect=Imp|Mood=Ind|Tense=Pres|VerbForm=Fin|Voice=Act|Number=Sing|Person=1	35	ccomp	_	gloss=I suffer
+39	,	,	PUNCT	punctuation	_	38	punct	_	gloss=,
+40	τὸν	ὁ	DET	article.masc.sg.acc	Definite=Def|PronType=Art|Gender=Masc|Number=Sing|Case=Acc	41	det	_	gloss=the
+41	πονηρὸν	πονηρός	ADJ	adj.masc.sg.acc	Degree=Pos|Gender=Masc|Number=Sing|Case=Acc	42	obj	_	gloss=wicked
+42	οἰκτείρας	οἰκτείρω	VERB	verb.aor.ptcp.act.masc.sg.nom	Aspect=Perf|Mood=Part|Tense=Aor|Voice=Act|Gender=Masc|Number=Sing|Case=Nom	38	advcl	_	gloss=having pitied
+43	.	.	PUNCT	punctuation	_	42	punct	_	gloss=.
+
+# sent_id = perry-176-s3
+# text = Ὁ λόγος δηλοῖ ὅτι ἀμετάθετοί εἰσιν αἱ πονηρίαι, κἂν τὰ μέγιστα φιλανθρωπεύωνται.
+# parallel_id = lyceum-aesop-p176/s3
+# translation_lang = en
+# prose_translation = The story shows that wickednesses are unchangeable, even if they act most kindly.
+# literal_translation = The story shows that unchangeable are the wickednesses, even if the greatest acts of kindness they perform.
+43	Ὁ	ὁ	DET	article.masc.sg.nom	Definite=Def|PronType=Art|Gender=Masc|Number=Sing|Case=Nom	44	det	_	gloss=the
+44	λόγος	λόγος	NOUN	noun.masc.sg.nom	Gender=Masc|Number=Sing|Case=Nom	45	nsubj	_	gloss=story
+45	δηλοῖ	δηλόω	VERB	verb.pres.ind.act.3sg	Aspect=Imp|Mood=Ind|Tense=Pres|VerbForm=Fin|Voice=Act|Number=Sing|Person=3	0	root	_	gloss=shows
+46	ὅτι	ὅτι	SCONJ	conjunction	_	48	mark	_	gloss=that
+47	ἀμετάθετοί	ἀμετάθετος	ADJ	adj.masc.pl.nom	Degree=Pos|Gender=Masc|Number=Plur|Case=Nom	48	xcomp	_	gloss=unchangeable
+48	εἰσιν	εἰμί	VERB	verb.pres.ind.act.3pl	Aspect=Imp|Mood=Ind|Tense=Pres|VerbForm=Fin|Voice=Act|Number=Plur|Person=3	45	ccomp	_	gloss=are
+49	αἱ	ὁ	DET	article.fem.pl.nom	Definite=Def|PronType=Art|Gender=Fem|Number=Plur|Case=Nom	50	det	_	gloss=the
+50	πονηρίαι	πονηρία	NOUN	noun.fem.pl.nom	Gender=Fem|Number=Plur|Case=Nom	48	nsubj	_	gloss=wickednesses
+51	,	,	PUNCT	punctuation	_	50	punct	_	gloss=,
+52	κἂν	κἄν	SCONJ	conjunction	_	54	mark	_	gloss=even if
+53	τὰ	ὁ	DET	article.neut.pl.acc	Definite=Def|PronType=Art|Gender=Neut|Number=Plur|Case=Acc	54	det	_	gloss=the
+54	μέγιστα	μέγιστος	ADJ	adj.neut.pl.acc	Degree=Sup|Gender=Neut|Number=Plur|Case=Acc	55	obj	_	gloss=greatest
+55	φιλανθρωπεύωνται	φιλανθρωπέω	VERB	verb.pres.sub.mp.3pl	Mood=Sub|Tense=Pres|VerbForm=Fin|Voice=Mid|Number=Plur|Person=3	48	advcl	_	gloss=they act kindly
+56	.	.	PUNCT	punctuation	_	48	punct	_	gloss=.

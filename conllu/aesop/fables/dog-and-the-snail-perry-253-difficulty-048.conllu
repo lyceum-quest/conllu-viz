@@ -1,0 +1,91 @@
+# global.columns = ID FORM LEMMA UPOS XPOS FEATS HEAD DEPREL DEPS MISC
+# source = Aesop, Fables (Chambry edition)
+# source_edition = Chambry (Perry numbering)
+# encoder = LLM-assisted
+# editor = Brandon Lucas
+# project = Lyceum Digital Library
+# conversion_method = Manual annotation with LLM assistance
+# gloss_type = Context-aware philological glosses
+# license = CC BY-SA 4.0
+# date_modified = 2026-05-01
+# contact = support@lyceum.quest
+
+# title = The Dog and the Snail
+# sent_id = perry-253-s1
+# text = Ὤα τις κύων καταπίνειν εἰθισμένος, ἰδών τινα κόχλον, χάνας τὸ στόμα αὐτοῦ, μεγίστῃ συνολκῇ καταπέπωκε τοῦτον, οἰηθεὶς ὠὸν εἶναι.
+# parallel_id = lyceum-aesop-p253/s1
+# translation_lang = en
+# prose_translation = A certain dog accustomed to swallowing eggs, seeing a snail, gaping its mouth, has swallowed it with the greatest pull, thinking it was an egg.
+# literal_translation = Eggs a certain dog to swallow accustomed, having seen a certain snail, having gaped its mouth, with the greatest pull has swallowed it, having thought an egg to be.
+1	Ὤα	ᾠόν	NOUN	noun.neut.pl.acc	Gender=Neut|Number=Plur|Case=Acc	4	obj	_	gloss=eggs
+2	τις	τις	PRON	pron.indef.masc.sg.nom	PronType=Ind|Gender=Masc|Number=Sing|Case=Nom	3	nmod	_	gloss=a certain
+3	κύων	κύων	NOUN	noun.masc.sg.nom	Gender=Masc|Number=Sing|Case=Nom	12	nsubj	_	gloss=dog
+4	καταπίνειν	καταπίνω	VERB	verb.pres.inf.act	Aspect=Imp|Mood=Inf|Tense=Pres|VerbForm=Inf|Voice=Act	5	xcomp	_	gloss=to swallow
+5	εἰθισμένος	ἐθίζω	VERB	verb.perf.ptcp.pass.masc.sg.nom	Aspect=Perf|Mood=Part|Tense=Perf|Voice=Pass|Gender=Masc|Number=Sing|Case=Nom	12	advcl	_	gloss=accustomed
+6	,	,	PUNCT	punctuation	_	5	punct	_	gloss=,
+7	ἰδών	ὁράω	VERB	verb.aor.ptcp.act.masc.sg.nom	Aspect=Perf|Mood=Part|Tense=Aor|Voice=Act|Gender=Masc|Number=Sing|Case=Nom	12	advcl	_	gloss=having seen
+8	τινα	τις	PRON	pron.indef.masc.sg.acc	PronType=Ind|Gender=Masc|Number=Sing|Case=Acc	9	nmod	_	gloss=a certain
+9	κόχλον	κόχλος	NOUN	noun.masc.sg.acc	Gender=Masc|Number=Sing|Case=Acc	7	obj	_	gloss=snail
+10	,	,	PUNCT	punctuation	_	7	punct	_	gloss=,
+11	χάνας	χαίνω	VERB	verb.aor.ptcp.act.masc.sg.nom	Aspect=Perf|Mood=Part|Tense=Aor|Voice=Act|Gender=Masc|Number=Sing|Case=Nom	12	advcl	_	gloss=having gaped
+12	τὸ	ὁ	DET	article.neut.sg.acc	Definite=Def|PronType=Art|Gender=Neut|Number=Sing|Case=Acc	13	det	_	gloss=the
+13	στόμα	στόμα	NOUN	noun.neut.sg.acc	Gender=Neut|Number=Sing|Case=Acc	11	obj	_	gloss=mouth
+14	αὐτοῦ	αὐτός	PRON	pron.prs.3sg.gen	PronType=Prs|Gender=Masc|Number=Sing|Case=Gen	13	nmod	_	gloss=its
+15	,	,	PUNCT	punctuation	_	11	punct	_	gloss=,
+16	μεγίστῃ	μέγιστος	ADJ	adj.fem.sg.dat	Degree=Sup|Gender=Fem|Number=Sing|Case=Dat	17	amod	_	gloss=greatest
+17	συνολκῇ	σύνολξ	NOUN	noun.fem.sg.dat	Gender=Fem|Number=Sing|Case=Dat	18	obl	_	gloss=pull / suction
+18	καταπέπωκε	καταπίνω	VERB	verb.perf.ind.act.3sg	Aspect=Perf|Mood=Ind|Tense=Perf|VerbForm=Fin|Voice=Act|Number=Sing|Person=3	0	root	_	gloss=has swallowed
+19	τοῦτον	οὗτος	PRON	pron.demonstr.masc.sg.acc	PronType=Dem|Gender=Masc|Number=Sing|Case=Acc	18	obj	_	gloss=it
+20	,	,	PUNCT	punctuation	_	19	punct	_	gloss=,
+21	οἰηθεὶς	οἴομαι	VERB	verb.aor.ptcp.pass.masc.sg.nom	Aspect=Perf|Mood=Part|Tense=Aor|Voice=Pass|Gender=Masc|Number=Sing|Case=Nom	18	advcl	_	gloss=having thought
+22	ὠὸν	ᾠόν	NOUN	noun.neut.sg.acc	Gender=Neut|Number=Sing|Case=Acc	23	obj	_	gloss=egg
+23	εἶναι	εἰμί	VERB	verb.pres.inf.act	Aspect=Imp|Mood=Inf|Tense=Pres|VerbForm=Inf|Voice=Act	21	xcomp	_	gloss=to be
+24	.	.	PUNCT	punctuation	_	18	punct	_	gloss=.
+
+# sent_id = perry-253-s2
+# text = Βαρούμενος δὲ τὰ σπλάγχνα καὶ ὀδυνώμενος ἔλεγε· "Δίκαια ἔγωγε πέπονθα, εἴγε πάντα περιφερῆ ὠὰ πεπίστευκα."
+# parallel_id = lyceum-aesop-p253/s2
+# translation_lang = en
+# prose_translation = But weighed down in his innards and in pain, he said: "I have suffered justly, since I have trusted all round eggs."
+# literal_translation = Being weighed down but the innards and being in pain he said; "Justly I indeed have suffered, if indeed all round eggs I have trusted."
+25	Βαρούμενος	βαρέω	VERB	verb.pres.ptcp.mp.masc.sg.nom	Aspect=Imp|Mood=Part|Tense=Pres|Voice=Pass|Gender=Masc|Number=Sing|Case=Nom	30	advcl	_	gloss=being weighed down
+26	δὲ	δέ	CCONJ	conjunction	_	30	cc	_	gloss=but
+27	τὰ	ὁ	DET	article.neut.pl.acc	Definite=Def|PronType=Art|Gender=Neut|Number=Plur|Case=Acc	28	det	_	gloss=the
+28	σπλάγχνα	σπλάγχνον	NOUN	noun.neut.pl.acc	Gender=Neut|Number=Plur|Case=Acc	25	obj	_	gloss=innards
+29	καὶ	καί	CCONJ	conjunction	_	30	cc	_	gloss=and
+30	ὀδυνώμενος	ὀδυνάω	VERB	verb.pres.ptcp.mp.masc.sg.nom	Aspect=Imp|Mood=Part|Tense=Pres|Voice=Pass|Gender=Masc|Number=Sing|Case=Nom	25	conj	_	gloss=being in pain
+31	ἔλεγε	λέγω	VERB	verb.impf.ind.act.3sg	Aspect=Imp|Mood=Ind|Tense=Imp|VerbForm=Fin|Voice=Act|Number=Sing|Person=3	0	root	_	gloss=was saying
+32	·	·	PUNCT	punctuation	_	31	punct	_	gloss=:
+33	"	"	PUNCT	punctuation	_	34	punct	_	gloss="
+34	Δίκαια	δίκαιος	ADJ	adj.neut.sg.acc	Degree=Pos|Gender=Neut|Number=Sing|Case=Acc	35	xcomp	_	gloss=justly / rightly
+35	ἔγωγε	ἐγώγε	PRON	pron.prs.1sg.nom	PronType=Prs|Number=Sing|Person=1|Case=Nom	36	nsubj	_	gloss=I indeed
+36	πέπονθα	πάσχω	VERB	verb.perf.ind.act.1sg	Aspect=Perf|Mood=Ind|Tense=Perf|VerbForm=Fin|Voice=Act|Number=Sing|Person=1	31	ccomp	_	gloss=I have suffered
+37	,	,	PUNCT	punctuation	_	36	punct	_	gloss=,
+38	εἴγε	εἴγε	SCONJ	conjunction	_	41	mark	_	gloss=if indeed
+39	πάντα	πᾶς	ADJ	adj.neut.pl.acc	Degree=Pos|Gender=Neut|Number=Plur|Case=Acc	40	amod	_	gloss=all
+40	περιφερῆ	περιφερής	ADJ	adj.neut.pl.acc	Degree=Pos|Gender=Neut|Number=Plur|Case=Acc	41	obj	_	gloss=round
+41	ὠὰ	ᾠόν	NOUN	noun.neut.pl.acc	Gender=Neut|Number=Plur|Case=Acc	40	nmod	_	gloss=eggs
+42	πεπίστευκα	πιστεύω	VERB	verb.perf.ind.act.1sg	Aspect=Perf|Mood=Ind|Tense=Perf|VerbForm=Fin|Voice=Act|Number=Sing|Person=1	36	advcl	_	gloss=I have trusted
+43	.	.	PUNCT	punctuation	_	42	punct	_	gloss=.
+44	"	"	PUNCT	punctuation	_	42	punct	_	gloss="
+
+# sent_id = perry-253-s3
+# text = Διδάσκει ἡμᾶς ὁ λόγος ὅτι οἱ ἀδικάστως πρᾶγμα προσιόντες λανθάνουσιν ἑαυτοὺς περιπείροντες ἀτόποις.
+# parallel_id = lyceum-aesop-p253/s3
+# translation_lang = en
+# prose_translation = The story teaches us that those approaching matters unjustly unwittingly entrap themselves in absurdities.
+# literal_translation = Teaches us the story that those unjustly a matter approaching unwittingly themselves entrap in absurdities.
+45	Διδάσκει	διδάσκω	VERB	verb.pres.ind.act.3sg	Aspect=Imp|Mood=Ind|Tense=Pres|VerbForm=Fin|Voice=Act|Number=Sing|Person=3	0	root	_	gloss=teaches
+46	ἡμᾶς	ἡμεῖς	PRON	pron.prs.1pl.acc	PronType=Prs|Number=Plur|Person=1|Case=Acc	45	obj	_	gloss=us
+47	ὁ	ὁ	DET	article.masc.sg.nom	Definite=Def|PronType=Art|Gender=Masc|Number=Sing|Case=Nom	48	det	_	gloss=the
+48	λόγος	λόγος	NOUN	noun.masc.sg.nom	Gender=Masc|Number=Sing|Case=Nom	45	nsubj	_	gloss=story
+49	ὅτι	ὅτι	SCONJ	conjunction	_	51	mark	_	gloss=that
+50	οἱ	ὁ	DET	article.masc.pl.nom	Definite=Def|PronType=Art|Gender=Masc|Number=Plur|Case=Nom	51	det	_	gloss=the
+51	ἀδικάστως	ἀδικαστώρ	ADV	adverb	_	52	advmod	_	gloss=unjustly
+52	πρᾶγμα	πρᾶγμα	NOUN	noun.neut.sg.acc	Gender=Neut|Number=Sing|Case=Acc	53	obj	_	gloss=matter / affair
+53	προσιόντες	προσίημι	VERB	verb.pres.ptcp.act.masc.pl.nom	Aspect=Imp|Mood=Part|Tense=Pres|Voice=Act|Gender=Masc|Number=Plur|Case=Nom	54	nsubj	_	gloss=approaching
+54	λανθάνουσιν	λανθάνω	VERB	verb.pres.ind.act.3pl	Aspect=Imp|Mood=Ind|Tense=Pres|VerbForm=Fin|Voice=Act|Number=Plur|Person=3	45	ccomp	_	gloss=they unwittingly
+55	ἑαυτοὺς	ἑαυτοῦ	PRON	pron.refl.masc.pl.acc	PronType=Rcp|Gender=Masc|Number=Plur|Case=Acc	56	obj	_	gloss=themselves
+56	περιπείροντες	περιπείρω	VERB	verb.pres.ptcp.act.masc.pl.nom	Aspect=Imp|Mood=Part|Tense=Pres|Voice=Act|Gender=Masc|Number=Plur|Case=Nom	54	advcl	_	gloss=entrapping
+57	ἀτόποις	ἄτοπος	ADJ	adj.neut.pl.dat	Degree=Pos|Gender=Neut|Number=Plur|Case=Dat	56	obl	_	gloss=in absurdities
+58	.	.	PUNCT	punctuation	_	54	punct	_	gloss=.

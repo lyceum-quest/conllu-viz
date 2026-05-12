@@ -1,0 +1,81 @@
+# title = The Flea and the Man
+# sent_id = perry-231-s1
+# text = Ψύλλα ποτὲ πηδήσασα ἐπὶ πόδα ἀνδρὸς ἐκάθισεν.
+# parallel_id = lyceum-aesop-p231/s1
+# translation_lang = en
+# prose_translation = A flea once, leaping onto a man's foot, settled down.
+# literal_translation = A flea once leaping onto a foot of a man settled.
+1	Ψύλλα	ψύλλα	NOUN	noun.fem.sg.nom	Gender=Fem|Number=Sing|Case=Nom	4	nsubj	_	gloss=flea
+2	ποτὲ	ποτέ	ADV	adverb	_	4	advmod	_	gloss=once
+3	πηδήσασα	πηδάω	VERB	verb.aor.ptcp.act.fem.sg.nom	Aspect=Perf|Mood=Part|Tense=Aor|Voice=Act|Gender=Fem|Number=Sing|Case=Nom	4	advcl	_	gloss=leaping
+4	ἐπὶ	ἐπί	ADP	preposition.acc	_	5	case	_	gloss=onto
+5	πόδα	πούς	NOUN	noun.masc.sg.acc	Gender=Masc|Number=Sing|Case=Acc	4	obl	_	gloss=foot
+6	ἀνδρὸς	ἀνήρ	NOUN	noun.masc.sg.gen	Gender=Masc|Number=Sing|Case=Gen	5	nmod	_	gloss=of a man
+7	ἐκάθισεν	κάθημαι	VERB	verb.aor.ind.mp.3sg	Aspect=Perf|Mood=Ind|Tense=Aor|Voice=Mid|Number=Sing|Person=3	0	root	_	gloss=settled down
+8	.	.	PUNCT	punctuation	_	7	punct	_	gloss=.
+
+# sent_id = perry-231-s2
+# text = Ὁ δὲ τὸν Ἡρακλῆν ἐπὶ συμμαχίαν ἐκάλει.
+# parallel_id = lyceum-aesop-p231/s2
+# translation_lang = en
+# prose_translation = But the man called upon Heracles for assistance.
+# literal_translation = He but Heracles for alliance called upon.
+9	Ὁ	ὁ	DET	article.masc.sg.nom	Definite=Def|PronType=Art|Gender=Masc|Number=Sing|Case=Nom	11	nsubj	_	gloss=he
+10	δὲ	δέ	CCONJ	conjunction	_	11	cc	_	gloss=but
+11	τὸν	ὁ	DET	article.masc.sg.acc	Definite=Def|PronType=Art|Gender=Masc|Number=Sing|Case=Acc	12	det	_	gloss=the
+12	Ἡρακλῆν	Ἡρακλῆς	NOUN	noun.masc.sg.acc	Gender=Masc|Number=Sing|Case=Acc	13	obj	_	gloss=Heracles
+13	ἐπὶ	ἐπί	ADP	preposition.acc	_	14	case	_	gloss=for
+14	συμμαχίαν	συμμαχία	NOUN	noun.fem.sg.acc	Gender=Fem|Number=Sing|Case=Acc	13	obl	_	gloss=alliance / assistance
+15	ἐκάλει	καλέω	VERB	verb.impf.ind.act.3sg	Aspect=Imp|Mood=Ind|Tense=Imp|Voice=Act|Number=Sing|Person=3	0	root	_	gloss=called upon
+16	.	.	PUNCT	punctuation	_	15	punct	_	gloss=.
+
+# sent_id = perry-231-s3
+# text = Τῆς δὲ ἐκεῖθεν αὖθις ἀφαλομένης, στενάξας εἶπεν· Ὦ Ἡράκλεις, εἰ ἐπὶ ψύλλῃ οὐ συνεμάχησας, πῶς ἐπὶ μείζοσιν ἀνταγωνισταῖς συνεργήσεις;
+# parallel_id = lyceum-aesop-p231/s3
+# translation_lang = en
+# prose_translation = When it leaped away from there again, he groaned and said: "O Heracles, if you did not fight alongside me against a flea, how will you assist against greater opponents?"
+# literal_translation = It but thence again having leaped away, groaning he said: O Heracles, if against a flea you did not fight alongside, how against greater opponents will you assist?
+17	Τῆς	ὁ	DET	article.fem.sg.gen	Definite=Def|PronType=Art|Gender=Fem|Number=Sing|Case=Gen	19	det	_	gloss=the
+18	δὲ	δέ	CCONJ	conjunction	_	19	cc	_	gloss=but
+19	ἐκεῖθεν	ἐκεῖθεν	ADV	adverb	_	21	advmod	_	gloss=thence
+20	αὖθις	αὖθις	ADV	adverb	_	21	advmod	_	gloss=again
+21	ἀφαλομένης	ἀφάλλομαι	VERB	verb.aor.ptcp.mp.fem.sg.gen	Aspect=Perf|Mood=Part|Tense=Aor|Voice=Mid|Gender=Fem|Number=Sing|Case=Gen	22	advcl	_	gloss=having leaped away
+22	στενάξας	στενάζω	VERB	verb.aor.ptcp.act.masc.sg.nom	Aspect=Perf|Mood=Part|Tense=Aor|Voice=Act|Gender=Masc|Number=Sing|Case=Nom	23	advcl	_	gloss=groaning
+23	εἶπεν	λέγω	VERB	verb.aor.ind.act.3sg	Aspect=Perf|Mood=Ind|Tense=Aor|Voice=Act|Number=Sing|Person=3	0	root	_	gloss=said
+24	·	·	PUNCT	punctuation	_	23	punct	_	gloss=:
+25	Ὦ	ὦ	PART	interjection	_	26	discourse	_	gloss=O
+26	Ἡράκλεις	Ἡρακλῆς	NOUN	noun.masc.sg.voc	Gender=Masc|Number=Sing|Case=Voc	23	vocative	_	gloss=Heracles
+27	εἰ	εἰ	SCONJ	conjunction	_	28	mark	_	gloss=if
+28	ἐπὶ	ἐπί	ADP	preposition.dat	_	29	case	_	gloss=against
+29	ψύλλῃ	ψύλλα	NOUN	noun.fem.sg.dat	Gender=Fem|Number=Sing|Case=Dat	30	obl	_	gloss=flea
+30	οὐ	οὐ	PART	neg.particle	Polarity=Neg	31	advmod	_	gloss=not
+31	συνεμάχησας	συναυαλέω	VERB	verb.aor.ind.act.2sg	Aspect=Perf|Mood=Ind|Tense=Aor|Voice=Act|Number=Sing|Person=2	35	advcl	_	gloss=you did not fight alongside
+32	πῶς	πῶς	ADV	adverb	PronType=Int	35	advmod	_	gloss=how
+33	ἐπὶ	ἐπί	ADP	preposition.dat	_	34	case	_	gloss=against
+34	μείζοσιν	μείζων	ADJ	adj.masc.pl.dat	Degree=Cmp|Gender=Masc|Number=Plur|Case=Dat	35	obl	_	gloss=greater
+35	ἀνταγωνισταῖς	ἀνταγωνιστής	NOUN	noun.masc.pl.dat	Gender=Masc|Number=Plur|Case=Dat	34	nmod	_	gloss=opponents
+36	συνεργήσεις	συνεργέω	VERB	verb.fut.ind.act.2sg	Aspect=Perf|Mood=Ind|Tense=Fut|Voice=Act|Number=Sing|Person=2	23	ccomp	_	gloss=will you assist
+37	;	;	PUNCT	punctuation	_	36	punct	_	gloss=?
+
+# sent_id = perry-231-s4
+# text = Ὁ μῦθος δηλοῖ μὴ δεῖν ἐπὶ τῶν ἐλαχίστων τοῦ θείου δεῖσθαι, ἀλλ' ἐπὶ τῶν ἀναγκαίων.
+# parallel_id = lyceum-aesop-p231/s4
+# translation_lang = en
+# prose_translation = The fable shows that one should not call upon divine help for the smallest things, but for what is necessary.
+# literal_translation = The fable shows one must not upon the smallest things of the divine have need, but upon the necessary things.
+38	Ὁ	ὁ	DET	article.masc.sg.nom	Definite=Def|PronType=Art|Gender=Masc|Number=Sing|Case=Nom	39	det	_	gloss=the
+39	μῦθος	μῦθος	NOUN	noun.masc.sg.nom	Gender=Masc|Number=Sing|Case=Nom	40	nsubj	_	gloss=fable
+40	δηλοῖ	δηλόω	VERB	verb.pres.ind.act.3sg	Aspect=Imp|Mood=Ind|Tense=Pres|Voice=Act|Number=Sing|Person=3	0	root	_	gloss=shows
+41	μὴ	μή	CCONJ	conjunction	Polarity=Neg	42	advmod	_	gloss=not
+42	δεῖν	δέω	VERB	verb.pres.inf.act	Aspect=Imp|Mood=Inf|Tense=Pres|Voice=Act	40	ccomp	_	gloss=to need
+43	ἐπὶ	ἐπί	ADP	preposition.gen	_	44	case	_	gloss=for
+44	τῶν	ὁ	DET	article.neut.pl.gen	Definite=Def|PronType=Art|Gender=Neut|Number=Plur|Case=Gen	45	det	_	gloss=the
+45	ἐλαχίστων	ἐλάχιστος	ADJ	adj.neut.pl.gen	Degree=Sup|Gender=Neut|Number=Plur|Case=Gen	42	obl	_	gloss=smallest
+46	τοῦ	ὁ	DET	article.neut.sg.gen	Definite=Def|PronType=Art|Gender=Neut|Number=Sing|Case=Gen	47	det	_	gloss=the
+47	θείου	θεῖος	ADJ	adj.neut.sg.gen	Degree=Pos|Gender=Neut|Number=Sing|Case=Gen	45	nmod	_	gloss=divine
+48	δεῖσθαι	δέω	VERB	verb.pres.inf.mp	Aspect=Imp|Mood=Inf|Tense=Pres|Voice=Mid	42	xcomp	_	gloss=to have need
+49	ἀλλ'	ἀλλά	CCONJ	conjunction	_	50	cc	_	gloss=but
+50	ἐπὶ	ἐπί	ADP	preposition.gen	_	51	case	_	gloss=for
+51	τῶν	ὁ	DET	article.neut.pl.gen	Definite=Def|PronType=Art|Gender=Neut|Number=Plur|Case=Gen	52	det	_	gloss=the
+52	ἀναγκαίων	ἀναγκαῖος	ADJ	adj.neut.pl.gen	Degree=Pos|Gender=Neut|Number=Plur|Case=Gen	45	conj	_	gloss=necessary
+53	.	.	PUNCT	punctuation	_	40	punct	_	gloss=.

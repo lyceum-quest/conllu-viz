@@ -1,0 +1,89 @@
+# global.columns = ID FORM LEMMA UPOS XPOS FEATS HEAD DEPREL DEPS MISC
+# source = Aesop, Fables (Chambry edition)
+# source_edition = Chambry (Perry numbering)
+# encoder = LLM-assisted
+# editor = Brandon Lucas
+# project = Lyceum Digital Library
+# conversion_method = Manual annotation with LLM assistance
+# gloss_type = Context-aware philological glosses
+# license = CC BY-SA 4.0
+# date_modified = 2026-05-01
+# contact = support@lyceum.quest
+
+# title = The Horse and the Groom
+# sent_id = perry-319-s1
+# text = Κριθὴν τὴν τοῦ ἵππου ὁ ἱπποκόμος κλέπτων καὶ πωλῶν τὸν ἵππον ἔτριβεν, ἐκτένιζεν πᾶσαν ἡμέραν.
+# parallel_id = lyceum-aesop-p319/s1
+# translation_lang = en
+# prose_translation = A horse-groom, stealing and selling the horse's barley, was rubbing down the horse, was grooming it all day long.
+# literal_translation = Barley the of the horse the horse-groom stealing and selling the horse was rubbing, was grooming all day.
+1	Κριθὴν	κριθή	NOUN	noun.fem.sg.acc	Gender=Fem|Number=Sing|Case=Acc	7	obj	_	gloss=barley
+2	τὴν	ὁ	DET	article.fem.sg.acc	Definite=Def|PronType=Art|Gender=Fem|Number=Sing|Case=Acc	1	det	_	gloss=the
+3	τοῦ	ὁ	DET	article.masc.sg.gen	Definite=Def|PronType=Art|Gender=Masc|Number=Sing|Case=Gen	4	det	_	gloss=the
+4	ἵππου	ἵππος	NOUN	noun.masc.sg.gen	Gender=Masc|Number=Sing|Case=Gen	1	nmod	_	gloss=of horse
+5	ὁ	ὁ	DET	article.masc.sg.nom	Definite=Def|PronType=Art|Gender=Masc|Number=Sing|Case=Nom	6	det	_	gloss=the
+6	ἱπποκόμος	ἱπποκόμος	NOUN	noun.masc.sg.nom	Gender=Masc|Number=Sing|Case=Nom	10	nsubj	_	gloss=horse-groom
+7	κλέπτων	κλέπτω	VERB	verb.pres.ptcp.act.masc.sg.nom	Aspect=Imp|Mood=Part|Tense=Pres|Voice=Act|Gender=Masc|Number=Sing|Case=Nom	10	advcl	_	gloss=stealing
+8	καὶ	καί	CCONJ	conjunction	_	9	cc	_	gloss=and
+9	πωλῶν	πωλέω	VERB	verb.pres.ptcp.act.masc.sg.nom	Aspect=Imp|Mood=Part|Tense=Pres|Voice=Act|Gender=Masc|Number=Sing|Case=Nom	7	conj	_	gloss=selling
+10	τὸν	ὁ	DET	article.masc.sg.acc	Definite=Def|PronType=Art|Gender=Masc|Number=Sing|Case=Acc	11	det	_	gloss=the
+11	ἵππον	ἵππος	NOUN	noun.masc.sg.acc	Gender=Masc|Number=Sing|Case=Acc	12	obj	_	gloss=horse
+12	ἔτριβεν	τρίβω	VERB	verb.impf.ind.act.3sg	Aspect=Imp|Mood=Ind|Tense=Imp|VerbForm=Fin|Voice=Act|Number=Sing|Person=3	0	root	_	gloss=was rubbing down
+13	,	,	PUNCT	punctuation	_	12	punct	_	gloss=,
+14	ἐκτένιζεν	ἐκτενίζω	VERB	verb.impf.ind.act.3sg	Aspect=Imp|Mood=Ind|Tense=Imp|VerbForm=Fin|Voice=Act|Number=Sing|Person=3	12	conj	_	gloss=was grooming / currying
+15	πᾶσαν	πᾶς	ADJ	adj.fem.sg.acc	Degree=Pos|Gender=Fem|Number=Sing|Case=Acc	16	amod	_	gloss=all
+16	ἡμέραν	ἡμέρα	NOUN	noun.fem.sg.acc	Gender=Fem|Number=Sing|Case=Acc	14	obl	_	gloss=day
+17	.	.	PUNCT	punctuation	_	14	punct	_	gloss=.
+
+# sent_id = perry-319-s2
+# text = Ἔφη δὲ ὁ ἵππος· Εἰ θέλεις ἀληθῶς καλὸν εἶναί με, τὴν κριθὴν τὴν τρέφουσάν με μὴ πώλει.
+# parallel_id = lyceum-aesop-p319/s2
+# translation_lang = en
+# prose_translation = The horse said: "If you truly want me to be in good condition, don't sell the barley that feeds me."
+# literal_translation = Said but the horse; If you wish truly good to be me, the barley the nourishing me not sell.
+18	Ἔφη	φημί	VERB	verb.impf.ind.act.3sg	Mood=Ind|Tense=Imp|VerbForm=Fin|Voice=Act|Number=Sing|Person=3	0	root	_	gloss=said
+19	δὲ	δέ	CCONJ	conjunction	_	18	cc	_	gloss=but
+20	ὁ	ὁ	DET	article.masc.sg.nom	Definite=Def|PronType=Art|Gender=Masc|Number=Sing|Case=Nom	21	det	_	gloss=the
+21	ἵππος	ἵππος	NOUN	noun.masc.sg.nom	Gender=Masc|Number=Sing|Case=Nom	18	nsubj	_	gloss=horse
+22	·	·	PUNCT	punctuation	_	18	punct	_	gloss=:
+23	Εἰ	εἰ	SCONJ	conjunction	_	24	mark	_	gloss=if
+24	θέλεις	θέλω	VERB	verb.pres.ind.act.2sg	Aspect=Imp|Mood=Ind|Tense=Pres|VerbForm=Fin|Voice=Act|Number=Sing|Person=2	28	advcl	_	gloss=you wish
+25	ἀληθῶς	ἀληθῶς	ADV	adverb	_	24	advmod	_	gloss=truly
+26	καλὸν	καλός	ADJ	adj.masc.sg.acc	Degree=Pos|Gender=Masc|Number=Sing|Case=Acc	27	xcomp	_	gloss=good / in good condition
+27	εἶναί	εἰμί	VERB	verb.pres.inf.act	Aspect=Imp|Mood=Inf|Tense=Pres|VerbForm=Inf|Voice=Act	24	xcomp	_	gloss=to be
+28	με	ἐγώ	PRON	pron.prs.1sg.acc	PronType=Prs|Number=Sing|Person=1|Case=Acc	27	nsubj	_	gloss=me
+29	,	,	PUNCT	punctuation	_	24	punct	_	gloss=,
+30	τὴν	ὁ	DET	article.fem.sg.acc	Definite=Def|PronType=Art|Gender=Fem|Number=Sing|Case=Acc	31	det	_	gloss=the
+31	κριθὴν	κριθή	NOUN	noun.fem.sg.acc	Gender=Fem|Number=Sing|Case=Acc	33	obj	_	gloss=barley
+32	τὴν	ὁ	DET	article.fem.sg.acc	Definite=Def|PronType=Art|Gender=Fem|Number=Sing|Case=Acc	31	det	_	gloss=the
+33	τρέφουσάν	τρέφω	VERB	verb.pres.ptcp.act.fem.sg.acc	Aspect=Imp|Mood=Part|Tense=Pres|Voice=Act|Gender=Fem|Number=Sing|Case=Acc	31	acl	_	gloss=nourishing
+34	με	ἐγώ	PRON	pron.prs.1sg.acc	PronType=Prs|Number=Sing|Person=1|Case=Acc	33	obj	_	gloss=me
+35	μὴ	μή	PART	neg.particle	Polarity=Neg	36	advmod	_	gloss=do not
+36	πώλει	πωλέω	VERB	verb.pres.imp.act.2sg	Mood=Imp|Tense=Pres|VerbForm=Fin|Voice=Act|Number=Sing|Person=2	18	ccomp	_	gloss=sell!
+37	.	.	PUNCT	punctuation	_	36	punct	_	gloss=.
+
+# sent_id = perry-319-s3
+# text = Ὅτι οἱ πλεονέκται τοῖς πιθανοῖς λόγοις καὶ ταῖς κολακείαις τοὺς πένητας δελεάζοντες ἀποστεροῦσιν αὐτοὺς καὶ τῆς ἀναγκαίας χρείας.
+# parallel_id = lyceum-aesop-p319/s3
+# translation_lang = en
+# prose_translation = That the greedy, enticing the poor with persuasive words and flatteries, deprive them even of their necessary needs.
+# literal_translation = That the greedy with persuasive words and flatteries the poor enticing deprive them and of the necessary need.
+38	Ὅτι	ὅτι	SCONJ	conjunction	_	46	mark	_	gloss=that
+39	οἱ	ὁ	DET	article.masc.pl.nom	Definite=Def|PronType=Art|Gender=Masc|Number=Plur|Case=Nom	40	det	_	gloss=the
+40	πλεονέκται	πλεονέκτης	NOUN	noun.masc.pl.nom	Gender=Masc|Number=Plur|Case=Nom	46	nsubj	_	gloss=greedy / the covetous
+41	τοῖς	ὁ	DET	article.masc.pl.dat	Definite=Def|PronType=Art|Gender=Masc|Number=Plur|Case=Dat	42	det	_	gloss=the
+42	πιθανοῖς	πιθανός	ADJ	adj.masc.pl.dat	Degree=Pos|Gender=Masc|Number=Plur|Case=Dat	43	amod	_	gloss=persuasive
+43	λόγοις	λόγος	NOUN	noun.masc.pl.dat	Gender=Masc|Number=Plur|Case=Dat	46	obl	_	gloss=with words
+44	καὶ	καί	CCONJ	conjunction	_	45	cc	_	gloss=and
+45	ταῖς	ὁ	DET	article.fem.pl.dat	Definite=Def|PronType=Art|Gender=Fem|Number=Plur|Case=Dat	46	det	_	gloss=the
+46	κολακείαις	κολακεία	NOUN	noun.fem.pl.dat	Gender=Fem|Number=Plur|Case=Dat	43	conj	_	gloss=with flatteries
+47	τοὺς	ὁ	DET	article.masc.pl.acc	Definite=Def|PronType=Art|Gender=Masc|Number=Plur|Case=Acc	48	det	_	gloss=the
+48	πένητας	πένης	NOUN	noun.masc.pl.acc	Gender=Masc|Number=Plur|Case=Acc	49	obj	_	gloss=poor
+49	δελεάζοντες	δελεάζω	VERB	verb.pres.ptcp.act.masc.pl.nom	Aspect=Imp|Mood=Part|Tense=Pres|Voice=Act|Gender=Masc|Number=Plur|Case=Nom	50	advcl	_	gloss=enticing
+50	ἀποστεροῦσιν	ἀποστερέω	VERB	verb.pres.ind.act.3pl	Aspect=Imp|Mood=Ind|Tense=Pres|VerbForm=Fin|Voice=Act|Number=Plur|Person=3	0	root	_	gloss=they deprive
+51	αὐτοὺς	αὐτός	PRON	pron.prs.3pl.acc	PronType=Prs|Gender=Masc|Number=Plur|Case=Acc	50	obj	_	gloss=them
+52	καὶ	καί	ADV	adverb	_	53	advmod	_	gloss=even
+53	τῆς	ὁ	DET	article.fem.sg.gen	Definite=Def|PronType=Art|Gender=Fem|Number=Sing|Case=Gen	54	det	_	gloss=the
+54	ἀναγκαίας	ἀναγκαῖος	ADJ	adj.fem.sg.gen	Degree=Pos|Gender=Fem|Number=Sing|Case=Gen	55	amod	_	gloss=necessary
+55	χρείας	χρεία	NOUN	noun.fem.sg.gen	Gender=Fem|Number=Sing|Case=Gen	50	obl	_	gloss=of need
+56	.	.	PUNCT	punctuation	_	50	punct	_	gloss=.
