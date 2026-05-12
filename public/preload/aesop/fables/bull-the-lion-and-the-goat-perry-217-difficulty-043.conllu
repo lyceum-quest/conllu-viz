@@ -1,0 +1,89 @@
+# global.columns = ID FORM LEMMA UPOS XPOS FEATS HEAD DEPREL DEPS MISC
+# source = Aesop, Fables (Chambry edition)
+# source_edition = Chambry (Perry numbering)
+# encoder = LLM-assisted
+# editor = Brandon Lucas
+# project = Lyceum Digital Library
+# conversion_method = Manual annotation with LLM assistance
+# gloss_type = Context-aware philological glosses
+# license = CC BY-SA 4.0
+# date_modified = 2026-05-01
+# contact = support@lyceum.quest
+
+# title = The Bull, the Lion, and the Goat
+# sent_id = perry-217-s1
+# text = Λέοντα φεύγων ταῦρος εἰς σπήλαιον ἔδυ· τράγος δὲ τοῦτον τοῖς κέρασιν ἐξώθει.
+# parallel_id = lyceum-aesop-p217/s1
+# translation_lang = en
+# prose_translation = A bull fleeing a lion dashed into a cave; a goat pushed him out with his horns.
+# literal_translation = A lion fleeing, a bull into a cave dashed; a goat but him with the horns was pushing.
+1	Λέοντα	λέων	NOUN	noun.masc.sg.acc	Gender=Masc|Number=Sing|Case=Acc	2	obj	_	gloss=lion
+2	φεύγων	φεύγω	VERB	verb.pres.ptcp.act.masc.sg.nom	Aspect=Imp|Mood=Part|Tense=Pres|Voice=Act|Gender=Masc|Number=Sing|Case=Nom	6	advcl	_	gloss=fleeing
+3	ταῦρος	ταῦρος	NOUN	noun.masc.sg.nom	Gender=Masc|Number=Sing|Case=Nom	6	nsubj	_	gloss=bull
+4	εἰς	εἰς	ADP	preposition.acc	_	5	case	_	gloss=into
+5	σπήλαιον	σπήλαιον	NOUN	noun.neut.sg.acc	Gender=Neut|Number=Sing|Case=Acc	6	obl	_	gloss=cave
+6	ἔδυ	δύω	VERB	verb.aor.ind.act.3sg	Aspect=Perf|Mood=Ind|Tense=Aor|VerbForm=Fin|Voice=Act|Number=Sing|Person=3	0	root	_	gloss=dashed / entered
+7	·	·	PUNCT	punctuation	_	6	punct	_	gloss=:
+8	τράγος	τράγος	NOUN	noun.masc.sg.nom	Gender=Masc|Number=Sing|Case=Nom	13	nsubj	_	gloss=goat
+9	δὲ	δέ	CCONJ	conjunction	_	13	cc	_	gloss=but
+10	τοῦτον	οὗτος	PRON	pron.demonstr.masc.sg.acc	PronType=Dem|Gender=Masc|Number=Sing|Case=Acc	13	obj	_	gloss=him
+11	τοῖς	ὁ	DET	article.neut.pl.dat	Definite=Def|PronType=Art|Gender=Neut|Number=Plur|Case=Dat	12	det	_	gloss=the
+12	κέρασιν	κέρας	NOUN	noun.neut.pl.dat	Gender=Neut|Number=Plur|Case=Dat	13	obl	_	gloss=horns
+13	ἐξώθει	ἐξωθέω	VERB	verb.impf.ind.act.3sg	Aspect=Imp|Mood=Ind|Tense=Imp|VerbForm=Fin|Voice=Act|Number=Sing|Person=3	6	conj	_	gloss=was pushing out
+14	.	.	PUNCT	punctuation	_	13	punct	_	gloss=.
+
+# sent_id = perry-217-s2
+# text = Ὁ δὲ εἶπεν· Οὐ σέ, ἀλλὰ τὸν λέοντα φοβοῦμαι· ἐπεὶ παρελθέτω, καὶ τότε γνώσῃ τίς ἡ δύναμις ταύρου καὶ τράγου.
+# parallel_id = lyceum-aesop-p217/s2
+# translation_lang = en
+# prose_translation = He said: "It is not you I fear, but the lion; when he passes by, then you will know what the power of a bull and a goat is."
+# literal_translation = The but said: Not you, but the lion I fear; when he passes by, and then you will know what the power of bull and of goat.
+15	Ὁ	ὁ	DET	article.masc.sg.nom	Definite=Def|PronType=Art|Gender=Masc|Number=Sing|Case=Nom	17	nsubj	_	gloss=the one / he
+16	δὲ	δέ	CCONJ	conjunction	_	17	cc	_	gloss=but
+17	εἶπεν	λέγω	VERB	verb.aor.ind.act.3sg	Aspect=Perf|Mood=Ind|Tense=Aor|VerbForm=Fin|Voice=Act|Number=Sing|Person=3	0	root	_	gloss=said
+18	·	·	PUNCT	punctuation	_	17	punct	_	gloss=:
+19	Οὐ	οὐ	PART	neg.particle	Polarity=Neg	25	advmod	_	gloss=not
+20	σέ	σύ	PRON	pron.prs.2sg.acc	PronType=Prs|Number=Sing|Person=2|Case=Acc	25	obj	_	gloss=you
+21	,	,	PUNCT	punctuation	_	20	punct	_	gloss=,
+22	ἀλλὰ	ἀλλά	CCONJ	conjunction	_	24	cc	_	gloss=but
+23	τὸν	ὁ	DET	article.masc.sg.acc	Definite=Def|PronType=Art|Gender=Masc|Number=Sing|Case=Acc	24	det	_	gloss=the
+24	λέοντα	λέων	NOUN	noun.masc.sg.acc	Gender=Masc|Number=Sing|Case=Acc	20	conj	_	gloss=lion
+25	φοβοῦμαι	φοβέομαι	VERB	verb.pres.ind.mp.1sg	Aspect=Imp|Mood=Ind|Tense=Pres|VerbForm=Fin|Voice=Mid|Number=Sing|Person=1	17	ccomp	_	gloss=I fear
+26	·	·	PUNCT	punctuation	_	25	punct	_	gloss=;
+27	ἐπεὶ	ἐπεί	SCONJ	conjunction	_	28	mark	_	gloss=when
+28	παρελθέτω	παρέρχομαι	VERB	verb.aor.imp.act.3sg	Mood=Imp|Tense=Aor|VerbForm=Fin|Voice=Act|Number=Sing|Person=3	32	advcl	_	gloss=let him pass by
+29	,	,	PUNCT	punctuation	_	28	punct	_	gloss=,
+30	καὶ	καί	ADV	adverb	_	32	advmod	_	gloss=and
+31	τότε	τότε	ADV	adverb	_	32	advmod	_	gloss=then
+32	γνώσῃ	γιγνώσκω	VERB	verb.aor.sub.act.2sg	Mood=Sub|Tense=Aor|VerbForm=Fin|Voice=Act|Number=Sing|Person=2	17	parataxis	_	gloss=you will know
+33	τίς	τίς	PRON	pron.interr.fem.sg.nom	PronType=Int|Gender=Fem|Number=Sing|Case=Nom	35	nsubj	_	gloss=what
+34	ἡ	ὁ	DET	article.fem.sg.nom	Definite=Def|PronType=Art|Gender=Fem|Number=Sing|Case=Nom	35	det	_	gloss=the
+35	δύναμις	δύναμις	NOUN	noun.fem.sg.nom	Gender=Fem|Number=Sing|Case=Nom	32	obj	_	gloss=power
+36	ταύρου	ταῦρος	NOUN	noun.masc.sg.gen	Gender=Masc|Number=Sing|Case=Gen	35	nmod	_	gloss=of bull
+37	καὶ	καί	CCONJ	conjunction	_	38	cc	_	gloss=and
+38	τράγου	τράγος	NOUN	noun.masc.sg.gen	Gender=Masc|Number=Sing|Case=Gen	36	conj	_	gloss=of goat
+39	.	.	PUNCT	punctuation	_	38	punct	_	gloss=.
+
+# sent_id = perry-217-s3
+# text = Ὅτι πολλάκις καὶ δυνατοὺς ἄνδρας αἱ συμφοραὶ ταπεινοῦσιν ὥστε τὰς ἐξ εὐτελῶν καὶ δειλῶν ὑπομένειν αἰκίας.
+# parallel_id = lyceum-aesop-p217/s3
+# translation_lang = en
+# prose_translation = That often misfortunes humble even powerful men, so that they endure insults from the lowly and cowardly.
+# literal_translation = That often even powerful men the misfortunes humble so that the from the lowly and cowardly to endure insults.
+40	Ὅτι	ὅτι	SCONJ	conjunction	_	47	mark	_	gloss=that
+41	πολλάκις	πολλάκις	ADV	adverb	_	47	advmod	_	gloss=often
+42	καὶ	καί	ADV	adverb	_	43	advmod	_	gloss=even
+43	δυνατοὺς	δυνατός	ADJ	adj.masc.pl.acc	Degree=Pos|Gender=Masc|Number=Plur|Case=Acc	44	amod	_	gloss=powerful
+44	ἄνδρας	ἀνήρ	NOUN	noun.masc.pl.acc	Gender=Masc|Number=Plur|Case=Acc	47	obj	_	gloss=men
+45	αἱ	ὁ	DET	article.fem.pl.nom	Definite=Def|PronType=Art|Gender=Fem|Number=Plur|Case=Nom	46	det	_	gloss=the
+46	συμφοραὶ	συμφορά	NOUN	noun.fem.pl.nom	Gender=Fem|Number=Plur|Case=Nom	47	nsubj	_	gloss=misfortunes
+47	ταπεινοῦσιν	ταπεινόω	VERB	verb.pres.ind.act.3pl	Aspect=Imp|Mood=Ind|Tense=Pres|VerbForm=Fin|Voice=Act|Number=Plur|Person=3	0	root	_	gloss=humble
+48	ὥστε	ὥστε	SCONJ	conjunction	_	54	mark	_	gloss=so that
+49	τὰς	ὁ	DET	article.fem.pl.acc	Definite=Def|PronType=Art|Gender=Fem|Number=Plur|Case=Acc	55	det	_	gloss=the
+50	ἐξ	ἐκ	ADP	preposition.gen	_	51	case	_	gloss=from
+51	εὐτελῶν	εὐτελής	ADJ	adj.masc.pl.gen	Degree=Pos|Gender=Masc|Number=Plur|Case=Gen	55	nmod	_	gloss=lowly
+52	καὶ	καί	CCONJ	conjunction	_	53	cc	_	gloss=and
+53	δειλῶν	δειλός	ADJ	adj.masc.pl.gen	Degree=Pos|Gender=Masc|Number=Plur|Case=Gen	51	conj	_	gloss=cowardly
+54	ὑπομένειν	ὑπομένω	VERB	verb.pres.inf.act	Aspect=Imp|Mood=Inf|Tense=Pres|VerbForm=Inf|Voice=Act	47	advcl	_	gloss=to endure
+55	αἰκίας	αἰκία	NOUN	noun.fem.pl.acc	Gender=Fem|Number=Plur|Case=Acc	54	obj	_	gloss=insults
+56	.	.	PUNCT	punctuation	_	47	punct	_	gloss=.

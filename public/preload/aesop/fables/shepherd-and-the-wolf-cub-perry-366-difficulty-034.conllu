@@ -1,0 +1,69 @@
+# title = The Shepherd and the Wolf Cub
+# sent_id = perry-366-s1
+# text = Ποιμὴν μικρὸν λύκον εὑρὼν ἐθρέψατο, εἶτα σκύμνον γενόμενον ἐδίδαξεν ἁρπάζειν ἐκ τῶν σύνεγγυς ποιμνίων.
+# parallel_id = lyceum-aesop-p366/s1
+# translation_lang = en
+# prose_translation = A shepherd, having found a small wolf, raised it, then, when it became a cub, taught it to snatch from the nearby flocks.
+# literal_translation = A shepherd a small wolf having found raised, then a cub having become taught to snatch from the nearby flocks.
+1	Ποιμὴν	ποιμήν	NOUN	noun.masc.sg.nom	Gender=Masc|Number=Sing|Case=Nom	3	nsubj	_	gloss=shepherd
+2	μικρὸν	μικρός	ADJ	adj.masc.sg.acc	Degree=Pos|Gender=Masc|Number=Sing|Case=Acc	3	obj	_	gloss=small
+3	λύκον	λύκος	NOUN	noun.masc.sg.acc	Gender=Masc|Number=Sing|Case=Acc	4	obj	_	gloss=wolf
+4	εὑρὼν	εὑρίσκω	VERB	verb.aor.ptcp.act.masc.sg.nom	Aspect=Perf|Mood=Part|Tense=Aor|Voice=Act|Gender=Masc|Number=Sing|Case=Nom	5	advcl	_	gloss=having found
+5	ἐθρέψατο	τρέφω	VERB	verb.aor.ind.mp.3sg	Aspect=Perf|Mood=Ind|Tense=Aor|Voice=Mid|Number=Sing|Person=3	0	root	_	gloss=raised / reared
+6	εἶτα	εἶτα	ADV	adverb	_	8	advmod	_	gloss=then
+7	σκύμνον	σκύμνος	NOUN	noun.masc.sg.acc	Gender=Masc|Number=Sing|Case=Acc	8	xcomp	_	gloss=a cub
+8	γενόμενον	γίγνομαι	VERB	verb.aor.ptcp.mp.masc.sg.acc	Aspect=Perf|Mood=Part|Tense=Aor|Voice=Mid|Gender=Masc|Number=Sing|Case=Acc	9	advcl	_	gloss=having become
+9	ἐδίδαξεν	διδάσκω	VERB	verb.aor.ind.act.3sg	Aspect=Perf|Mood=Ind|Tense=Aor|Voice=Act|Number=Sing|Person=3	5	conj	_	gloss=taught
+10	ἁρπάζειν	ἁρπάζω	VERB	verb.pres.inf.act	Aspect=Imp|Mood=Inf|Tense=Pres|Voice=Act	9	xcomp	_	gloss=to snatch / seize
+11	ἐκ	ἐκ	ADP	preposition.gen	_	13	case	_	gloss=from
+12	τῶν	ὁ	DET	article.neut.pl.gen	Definite=Def|PronType=Art|Gender=Neut|Number=Plur|Case=Gen	13	det	_	gloss=the
+13	σύνεγγυς	σύνεγγυς	ADJ	adj.neut.pl.gen	Degree=Pos|Gender=Neut|Number=Plur|Case=Gen	10	obl	_	gloss=nearby
+14	ποιμνίων	ποίμνιον	NOUN	noun.neut.pl.gen	Gender=Neut|Number=Plur|Case=Gen	13	nmod	_	gloss=flocks
+15	.	.	PUNCT	punctuation	_	9	punct	_	gloss=.
+
+# sent_id = perry-366-s2
+# text = Ὁ λύκος δὲ διδαχθεὶς ἔφη· Ὅρα μή πως σὺ ἐθίσας με ἁρπάζειν πολλὰ τῶν σεαυτοῦ προβάτων ζητήσῃς.
+# parallel_id = lyceum-aesop-p366/s2
+# translation_lang = en
+# prose_translation = The wolf, having been taught, said: "See that you don't somehow seek many of your own sheep, since you have habituated me to snatch."
+# literal_translation = The wolf but having been taught said: See lest somehow you having habituated me to snatch many of your own sheep seek.
+16	Ὁ	ὁ	DET	article.masc.sg.nom	Definite=Def|PronType=Art|Gender=Masc|Number=Sing|Case=Nom	17	det	_	gloss=the
+17	λύκος	λύκος	NOUN	noun.masc.sg.nom	Gender=Masc|Number=Sing|Case=Nom	19	nsubj	_	gloss=wolf
+18	δὲ	δέ	CCONJ	conjunction	_	19	cc	_	gloss=but
+19	διδαχθεὶς	διδάσκω	VERB	verb.aor.ptcp.mp.masc.sg.nom	Aspect=Perf|Mood=Part|Tense=Aor|Voice=Mid|Gender=Masc|Number=Sing|Case=Nom	20	advcl	_	gloss=having been taught
+20	ἔφη	φημί	VERB	verb.impf.ind.act.3sg	Mood=Ind|Tense=Imp|VerbForm=Fin|Voice=Act|Number=Sing|Person=3	0	root	_	gloss=said
+21	·	·	PUNCT	punctuation	_	20	punct	_	gloss=:
+22	Ὅρα	ὁράω	VERB	verb.pres.imper.act.2sg	Mood=Imp|Tense=Pres|VerbForm=Fin|Voice=Act|Number=Sing|Person=2	20	ccomp	_	gloss=see / watch out
+23	μή	μή	CCONJ	conjunction	_	25	mark	_	gloss=lest
+24	πως	πώς	ADV	adverb	_	25	advmod	_	gloss=somehow
+25	σὺ	σύ	PRON	pron.2sg.nom	PronType=Prs|Number=Sing|Person=2|Case=Nom	29	nsubj	_	gloss=you
+26	ἐθίσας	ἐθίζω	VERB	verb.aor.ind.act.2sg	Aspect=Perf|Mood=Ind|Tense=Aor|Voice=Act|Number=Sing|Person=2	29	advcl	_	gloss=having habituated
+27	με	ἐγώ	PRON	pron.1sg.acc	PronType=Prs|Number=Sing|Person=1|Case=Acc	26	obj	_	gloss=me
+28	ἁρπάζειν	ἁρπάζω	VERB	verb.pres.inf.act	Aspect=Imp|Mood=Inf|Tense=Pres|Voice=Act	26	xcomp	_	gloss=to snatch
+29	πολλὰ	πολύς	ADJ	adj.neut.pl.acc	Degree=Pos|Gender=Neut|Number=Plur|Case=Acc	30	obj	_	gloss=many
+30	τῶν	ὁ	DET	article.neut.pl.gen	Definite=Def|PronType=Art|Gender=Neut|Number=Plur|Case=Gen	31	det	_	gloss=the
+31	σεαυτοῦ	σεαυτοῦ	PRON	pron.2sg.masc.sg.gen	PronType=Refl|Number=Sing|Person=2|Gender=Masc|Case=Gen	32	nmod	_	gloss=your own
+32	προβάτων	πρόβατον	NOUN	noun.neut.pl.gen	Gender=Neut|Number=Plur|Case=Gen	29	nmod	_	gloss=sheep
+33	ζητήσῃς	ζητέω	VERB	verb.aor.opt.act.2sg	Mood=Opt|Tense=Aor|VerbForm=Fin|Voice=Act|Number=Sing|Person=2	22	ccomp	_	gloss=you may seek
+34	.	.	PUNCT	punctuation	_	33	punct	_	gloss=.
+
+# sent_id = perry-366-s3
+# text = Ὅτι οἱ τῇ φύσει δεινοὶ ἁρπάζειν καὶ πλεονεκτεῖν μαθόντες τοὺς διδάξαντας πολλάκις ἔβλαψαν.
+# parallel_id = lyceum-aesop-p366/s3
+# translation_lang = en
+# prose_translation = Because those who are by nature clever at snatching and grasping more, having learned, have often harmed those who taught them.
+# literal_translation = That those by nature clever to snatch and to grasp more having learned those having taught often harmed.
+35	Ὅτι	ὅτι	SCONJ	conjunction	ConjType=Comp	44	mark	_	gloss=that / because
+36	οἱ	ὁ	DET	article.masc.pl.nom	Definite=Def|PronType=Art|Gender=Masc|Number=Plur|Case=Nom	38	det	_	gloss=the
+37	τῇ	ὁ	DET	article.fem.sg.dat	Definite=Def|PronType=Art|Gender=Fem|Number=Sing|Case=Dat	38	det	_	gloss=the
+38	φύσει	φύσις	NOUN	noun.fem.sg.dat	Gender=Fem|Number=Sing|Case=Dat	39	obl	_	gloss=nature
+39	δεινοὶ	δεινός	ADJ	adj.masc.pl.nom	Degree=Pos|Gender=Masc|Number=Plur|Case=Nom	44	nsubj	_	gloss=clever / terrible
+40	ἁρπάζειν	ἁρπάζω	VERB	verb.pres.inf.act	Aspect=Imp|Mood=Inf|Tense=Pres|Voice=Act	39	xcomp	_	gloss=to snatch
+41	καὶ	καί	CCONJ	conjunction	_	42	cc	_	gloss=and
+42	πλεονεκτεῖν	πλεονεκτέω	VERB	verb.pres.inf.act	Aspect=Imp|Mood=Inf|Tense=Pres|Voice=Act	40	conj	_	gloss=to grasp more / overreach
+43	μαθόντες	μανθάνω	VERB	verb.aor.ptcp.act.masc.pl.nom	Aspect=Perf|Mood=Part|Tense=Aor|Voice=Act|Gender=Masc|Number=Plur|Case=Nom	44	advcl	_	gloss=having learned
+44	τοὺς	ὁ	DET	article.masc.pl.acc	Definite=Def|PronType=Art|Gender=Masc|Number=Plur|Case=Acc	45	det	_	gloss=the
+45	διδάξαντας	διδάσκω	VERB	verb.aor.ptcp.act.masc.pl.acc	Aspect=Perf|Mood=Part|Tense=Aor|Voice=Act|Gender=Masc|Number=Plur|Case=Acc	44	obj	_	gloss=having taught
+46	πολλάκις	πολλάκις	ADV	adverb	_	47	advmod	_	gloss=often
+47	ἔβλαψαν	βλάπτω	VERB	verb.aor.ind.act.3pl	Aspect=Perf|Mood=Ind|Tense=Aor|Voice=Act|Number=Plur|Person=3	0	root	_	gloss=harmed
+48	.	.	PUNCT	punctuation	_	47	punct	_	gloss=.

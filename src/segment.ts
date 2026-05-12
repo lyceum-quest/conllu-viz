@@ -237,6 +237,7 @@ const ENDINGS_INDICATIVE: SuffixPat[] = [
   { suffix: 'εις', type: 'personalEnd', encodes: ['Person', 'Number'] },      // 2sg act.
   { suffix: 'ετε', type: 'personalEnd', encodes: ['Person', 'Number'] },      // 2pl act.
   { suffix: 'ει', type: 'personalEnd', encodes: ['Person', 'Number'] },       // 3sg act.
+  { suffix: 'οι', type: 'personalEnd', encodes: ['Person', 'Number'] },       // contracted 3sg act. (-οῖ)
   { suffix: 'ες', type: 'personalEnd', encodes: ['Person', 'Number'] },       // 3sg act. (short)
   { suffix: 'ε', type: 'personalEnd', encodes: ['Person', 'Number'] },        // 3sg pres
   { suffix: 'ον', type: 'personalEnd', encodes: ['Person', 'Number'] },       // 3pl impf / 1sg impf

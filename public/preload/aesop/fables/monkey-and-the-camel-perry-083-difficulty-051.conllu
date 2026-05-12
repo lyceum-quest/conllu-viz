@@ -1,0 +1,103 @@
+# global.columns = ID FORM LEMMA UPOS XPOS FEATS HEAD DEPREL DEPS MISC
+# source = Aesop, Fables (Chambry edition)
+# source_edition = Chambry (Perry numbering)
+# encoder = LLM-assisted
+# editor = Brandon Lucas
+# project = Lyceum Digital Library
+# conversion_method = Manual annotation with LLM assistance
+# gloss_type = Context-aware philological glosses
+# license = CC BY-SA 4.0
+# date_modified = 2026-05-01
+# contact = support@lyceum.quest
+
+# title = The Monkey and the Camel
+# sent_id = perry-83-s1
+# text = Ἐν συνόδῳ τῶν ἀλόγων ζώων πίθηκος ἀναστὰς ὠρχήσαστο.
+# parallel_id = lyceum-aesop-p83/s1
+# translation_lang = en
+# prose_translation = At an assembly of irrational animals, a monkey stood up and danced.
+# literal_translation = In an assembly of the irrational animals a monkey having stood up danced.
+1	Ἐν	ἐν	ADP	preposition.dat	_	2	case	_	gloss=at / in
+2	συνόδῳ	σύνοδος	NOUN	noun.fem.sg.dat	Gender=Fem|Number=Sing|Case=Dat	8	obl	_	gloss=assembly / gathering
+3	τῶν	ὁ	DET	article.neut.pl.gen	Definite=Def|PronType=Art|Gender=Neut|Number=Plur|Case=Gen	5	det	_	gloss=the
+4	ἀλόγων	ἄλογος	ADJ	adj.neut.pl.gen	Degree=Pos|Gender=Neut|Number=Plur|Case=Gen	5	amod	_	gloss=irrational
+5	ζώων	ζῷον	NOUN	noun.neut.pl.gen	Gender=Neut|Number=Plur|Case=Gen	2	nmod	_	gloss=of animals
+6	πίθηκος	πίθηκος	NOUN	noun.masc.sg.nom	Gender=Masc|Number=Sing|Case=Nom	8	nsubj	_	gloss=monkey
+7	ἀναστὰς	ἀνίστημι	VERB	verb.aor.ptcp.act.masc.sg.nom	Aspect=Perf|Mood=Part|Tense=Aor|Voice=Act|Gender=Masc|Number=Sing|Case=Nom	8	advcl	_	gloss=having stood up
+8	ὠρχήσαστο	ὀρχέομαι	VERB	verb.aor.ind.mp.3sg	Aspect=Perf|Mood=Ind|Tense=Aor|VerbForm=Fin|Voice=Mid|Number=Sing|Person=3	0	root	_	gloss=danced
+9	.	.	PUNCT	punctuation	_	8	punct	_	gloss=.
+
+# sent_id = perry-83-s2
+# text = Σφόδρα δὲ αὐτοῦ εὐδοκιμοῦντος καὶ ὑπὸ πάντων ὑποσημαινομένου, κάμηλος φθονήσασα ἐβουλήθη τῶν αὐτῶν ἐφικέσθαι.
+# parallel_id = lyceum-aesop-p83/s2
+# translation_lang = en
+# prose_translation = When he was greatly applauded and applauded by all, a camel, being envious, wished to attain the same thing.
+# literal_translation = Greatly but of him being approved and by all being applauded, a camel being envious wished the same things to attain.
+10	Σφόδρα	σφόδρα	ADV	adverb	_	12	advmod	_	gloss=greatly
+11	δὲ	δέ	CCONJ	conjunction	_	12	cc	_	gloss=but
+12	αὐτοῦ	αὐτός	PRON	pron.prs.3sg.gen	PronType=Prs|Gender=Masc|Number=Sing|Case=Gen	13	nmod	_	gloss=his
+13	εὐδοκιμοῦντος	εὐδοκιμέω	VERB	verb.pres.ptcp.act.masc.sg.gen	Aspect=Imp|Mood=Part|Tense=Pres|Voice=Act|Gender=Masc|Number=Sing|Case=Gen	19	advcl	_	gloss=being approved / applauded
+14	καὶ	καί	CCONJ	conjunction	_	15	cc	_	gloss=and
+15	ὑπὸ	ὑπό	ADP	preposition.gen	_	16	case	_	gloss=by
+16	πάντων	πᾶς	ADJ	adj.masc.pl.gen	Degree=Pos|Gender=Masc|Number=Plur|Case=Gen	17	obl:agent	_	gloss=by all
+17	ὑποσημαινομένου	ὑποσημαίνομαι	VERB	verb.pres.ptcp.mp.masc.sg.gen	Aspect=Imp|Mood=Part|Tense=Pres|Voice=Mid|Gender=Masc|Number=Sing|Case=Gen	13	conj	_	gloss=being applauded
+18	,	,	PUNCT	punctuation	_	13	punct	_	gloss=,
+19	κάμηλος	κάμηλος	NOUN	noun.fem.sg.nom	Gender=Fem|Number=Sing|Case=Nom	21	nsubj	_	gloss=camel
+20	φθονήσασα	φθονέω	VERB	verb.aor.ptcp.act.fem.sg.nom	Aspect=Perf|Mood=Part|Tense=Aor|Voice=Act|Gender=Fem|Number=Sing|Case=Nom	21	advcl	_	gloss=being envious
+21	ἐβουλήθη	βούλομαι	VERB	verb.aor.ind.mp.3sg	Aspect=Perf|Mood=Ind|Tense=Aor|VerbForm=Fin|Voice=Mid|Number=Sing|Person=3	0	root	_	gloss=wished
+22	τῶν	ὁ	DET	article.neut.pl.gen	Definite=Def|PronType=Art|Gender=Neut|Number=Plur|Case=Gen	23	det	_	gloss=the
+23	αὐτῶν	αὐτός	ADJ	adj.neut.pl.gen	Degree=Pos|Gender=Neut|Number=Plur|Case=Gen	24	obj	_	gloss=the same
+24	ἐφικέσθαι	ἐφικνέομαι	VERB	verb.aor.inf.mp	Aspect=Perf|Mood=Inf|Tense=Aor|VerbForm=Inf|Voice=Mid	21	xcomp	_	gloss=to attain
+25	.	.	PUNCT	punctuation	_	21	punct	_	gloss=.
+
+# sent_id = perry-83-s3
+# text = Διόπερ ἐξαναστᾶσα ἐπειρᾶτο καὶ αὐτὴ ὀρχεῖσθαι.
+# parallel_id = lyceum-aesop-p83/s3
+# translation_lang = en
+# prose_translation = Therefore, having stood up, she tried to dance herself too.
+# literal_translation = Wherefore having stood up she tried also herself to dance.
+26	Διόπερ	διόπερ	SCONJ	conjunction	_	29	mark	_	gloss=therefore / wherefore
+27	ἐξαναστᾶσα	ἐξανίστημι	VERB	verb.aor.ptcp.act.fem.sg.nom	Aspect=Perf|Mood=Part|Tense=Aor|Voice=Act|Gender=Fem|Number=Sing|Case=Nom	29	advcl	_	gloss=having stood up
+28	ἐπειρᾶτο	πειράω	VERB	verb.impf.ind.mp.3sg	Aspect=Imp|Mood=Ind|Tense=Imp|VerbForm=Fin|Voice=Mid|Number=Sing|Person=3	0	root	_	gloss=she tried
+29	καὶ	καί	ADV	adverb	_	30	advmod	_	gloss=also
+30	αὐτὴ	αὐτός	PRON	pron.prs.3sg.nom	PronType=Prs|Gender=Fem|Number=Sing|Case=Nom	28	nsubj	_	gloss=she herself
+31	ὀρχεῖσθαι	ὀρχέομαι	VERB	verb.pres.inf.mp	Aspect=Imp|Mood=Inf|Tense=Pres|VerbForm=Inf|Voice=Mid	28	xcomp	_	gloss=to dance
+32	.	.	PUNCT	punctuation	_	28	punct	_	gloss=.
+
+# sent_id = perry-83-s4
+# text = Πολλὰ δὲ αὐτῆς ἄτοπα ποιούσης, τὰ ζῷα ἀγανακτήσαντα ῥοπάλοις αὐτὴν παίοντα ἐξήλασαν.
+# parallel_id = lyceum-aesop-p83/s4
+# translation_lang = en
+# prose_translation = But when she did many absurd things, the animals, being indignant, drove her out, beating her with sticks.
+# literal_translation = Many but of her absurd things doing, the animals being indignant with sticks her beating drove out.
+33	Πολλὰ	πολλός	ADJ	adj.neut.pl.acc	Degree=Pos|Gender=Neut|Number=Plur|Case=Acc	35	obj	_	gloss=many
+34	δὲ	δέ	CCONJ	conjunction	_	35	cc	_	gloss=but
+35	αὐτῆς	αὐτός	PRON	pron.prs.3sg.gen	PronType=Prs|Gender=Fem|Number=Sing|Case=Gen	36	nmod	_	gloss=her
+36	ἄτοπα	ἄτοπος	ADJ	adj.neut.pl.acc	Degree=Pos|Gender=Neut|Number=Plur|Case=Acc	37	obj	_	gloss=absurd things
+37	ποιούσης	ποιέω	VERB	verb.pres.ptcp.act.fem.sg.gen	Aspect=Imp|Mood=Part|Tense=Pres|Voice=Act|Gender=Fem|Number=Sing|Case=Gen	42	advcl	_	gloss=doing
+38	,	,	PUNCT	punctuation	_	37	punct	_	gloss=,
+39	τὰ	ὁ	DET	article.neut.pl.nom	Definite=Def|PronType=Art|Gender=Neut|Number=Plur|Case=Nom	40	det	_	gloss=the
+40	ζῷα	ζῷον	NOUN	noun.neut.pl.nom	Gender=Neut|Number=Plur|Case=Nom	42	nsubj	_	gloss=animals
+41	ἀγανακτήσαντα	ἀγανακτέω	VERB	verb.aor.ptcp.act.neut.pl.nom	Aspect=Perf|Mood=Part|Tense=Aor|Voice=Act|Gender=Neut|Number=Plur|Case=Nom	42	advcl	_	gloss=being indignant
+42	ῥοπάλοις	ῥόπαλον	NOUN	noun.neut.pl.dat	Gender=Neut|Number=Plur|Case=Dat	43	obl	_	gloss=with sticks
+43	αὐτὴν	αὐτός	PRON	pron.prs.3sg.acc	PronType=Prs|Gender=Fem|Number=Sing|Case=Acc	44	obj	_	gloss=her
+44	παίοντα	παίω	VERB	verb.pres.ptcp.act.neut.pl.nom	Aspect=Imp|Mood=Part|Tense=Pres|Voice=Act|Gender=Neut|Number=Plur|Case=Nom	45	advcl	_	gloss=beating
+45	ἐξήλασαν	ἐξαλάομαι	VERB	verb.aor.ind.act.3pl	Aspect=Perf|Mood=Ind|Tense=Aor|VerbForm=Fin|Voice=Act|Number=Plur|Person=3	0	root	_	gloss=they drove out
+46	.	.	PUNCT	punctuation	_	45	punct	_	gloss=.
+
+# sent_id = perry-83-s5
+# text = Πρὸς τοὺς διὰ φθόνον κρείττοσιν ἁμιλλωμένους ὁ λόγος εὔκαιρος.
+# parallel_id = lyceum-aesop-p83/s5
+# translation_lang = en
+# prose_translation = The story is timely for those who compete with their betters out of envy.
+# literal_translation = For those who through envy with their betters compete the story is timely.
+47	Πρὸς	πρός	ADP	preposition.acc	_	48	case	_	gloss=for / toward
+48	τοὺς	ὁ	DET	article.masc.pl.acc	Definite=Def|PronType=Art|Gender=Masc|Number=Plur|Case=Acc	52	obl	_	gloss=the
+49	διὰ	διά	ADP	preposition.acc	_	50	case	_	gloss=through / from
+50	φθόνον	φθόνος	NOUN	noun.masc.sg.acc	Gender=Masc|Number=Sing|Case=Acc	51	obl	_	gloss=envy
+51	κρείττοσιν	κρείττων	ADJ	adj.masc.pl.dat	Degree=Cmp|Gender=Masc|Number=Plur|Case=Dat	52	obl	_	gloss=with their betters
+52	ἁμιλλωμένους	ἁμιλλάομαι	VERB	verb.pres.ptcp.mp.masc.pl.acc	Aspect=Imp|Mood=Part|Tense=Pres|Voice=Mid|Gender=Masc|Number=Plur|Case=Acc	48	acl	_	gloss=competing
+53	ὁ	ὁ	DET	article.masc.sg.nom	Definite=Def|PronType=Art|Gender=Masc|Number=Sing|Case=Nom	54	det	_	gloss=the
+54	λόγος	λόγος	NOUN	noun.masc.sg.nom	Gender=Masc|Number=Sing|Case=Nom	55	nsubj	_	gloss=story
+55	εὔκαιρος	εὔκαιρος	ADJ	adj.masc.sg.nom	Degree=Pos|Gender=Masc|Number=Sing|Case=Nom	0	root	_	gloss=timely / fitting
+56	.	.	PUNCT	punctuation	_	55	punct	_	gloss=.

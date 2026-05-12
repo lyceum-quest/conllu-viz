@@ -1,0 +1,89 @@
+# global.columns = ID FORM LEMMA UPOS XPOS FEATS HEAD DEPREL DEPS MISC
+# source = Aesop, Fables (Chambry edition)
+# source_edition = Chambry (Perry numbering)
+# encoder = LLM-assisted
+# editor = Brandon Lucas
+# project = Lyceum Digital Library
+# conversion_method = Manual annotation with LLM assistance
+# gloss_type = Context-aware philological glosses
+# license = CC BY-SA 4.0
+# date_modified = 2026-05-01
+# contact = support@lyceum.quest
+
+# title = The Wolf and His Shadow
+# sent_id = perry-260-s1
+# text = Λύκος πλανώμενος ποτ' ἐν ἐρήμοις τόποις, κλίνοντος ἤδη πρὸς δύσιν Ὑπερίονος, δολιχὴν ἑαυτοῦ τὴν σκιὰν ἰδὼν ἔφη· "Λέοντ' ἐγὼ δέδοικα, τηλικοῦτος ὤν; πλέθρου τ' ἔχων τὸ μῆκος, οὐ θηρῶν ἁπλῶς πάντων δυνάστης ἀθρόων γενήσομαι;"
+# parallel_id = lyceum-aesop-p260/s1
+# translation_lang = en
+# prose_translation = A wolf wandering in deserted places, as Hyperion was already inclining toward setting, seeing his own long shadow, said: "Do I fear a lion, being so great? Having a plethron in length, shall I not simply become the ruler of all beasts together?"
+# literal_translation = A wolf wandering once in deserted places, of Hyperion already inclining toward setting, long of himself the shadow having seen he said; A lion I fear, being so great? A plethron and having the length, not of beasts simply of all ruler together shall I become?
+1	Λύκος	λύκος	NOUN	noun.masc.sg.nom	Gender=Masc|Number=Sing|Case=Nom	14	nsubj	_	gloss=wolf
+2	πλανώμενος	πλανάω	VERB	verb.pres.ptcp.mp.masc.sg.nom	Aspect=Imp|Mood=Part|Tense=Pres|Voice=Mid|Gender=Masc|Number=Sing|Case=Nom	14	advcl	_	gloss=wandering
+3	ποτ'	ποτέ	ADV	adverb	_	14	advmod	_	gloss=once
+4	ἐν	ἐν	ADP	preposition.dat	_	5	case	_	gloss=in
+5	ἐρήμοις	ἔρημος	ADJ	adj.masc.pl.dat	Degree=Pos|Gender=Masc|Number=Plur|Case=Dat	6	amod	_	gloss=deserted
+6	τόποις	τόπος	NOUN	noun.masc.pl.dat	Gender=Masc|Number=Plur|Case=Dat	14	obl	_	gloss=places
+7	,	,	PUNCT	punctuation	_	6	punct	_	gloss=,
+8	κλίνοντος	κλίνω	VERB	verb.pres.ptcp.act.masc.sg.gen	Aspect=Imp|Mood=Part|Tense=Pres|Voice=Act|Gender=Masc|Number=Sing|Case=Gen	14	advcl	_	gloss=inclining / setting
+9	ἤδη	ἤδη	ADV	adverb	_	8	advmod	_	gloss=already
+10	πρὸς	πρός	ADP	preposition.acc	_	11	case	_	gloss=toward
+11	δύσιν	δύσις	NOUN	noun.fem.sg.acc	Gender=Fem|Number=Sing|Case=Acc	8	obl	_	gloss=setting
+12	Ὑπερίονος	Ὑπερίων	PROPN	propn.masc.sg.gen	Gender=Masc|Number=Sing|Case=Gen	8	nsubj	_	gloss=Hyperion / the Sun
+13	,	,	PUNCT	punctuation	_	8	punct	_	gloss=,
+14	δολιχὴν	δολιχός	ADJ	adj.fem.sg.acc	Degree=Pos|Gender=Fem|Number=Sing|Case=Acc	16	amod	_	gloss=long
+15	ἑαυτοῦ	ἑαυτοῦ	PRON	pron.refl.3sg.gen	PronType=Rcp|Gender=Masc|Number=Sing|Case=Gen	16	nmod	_	gloss=his own
+16	τὴν	ὁ	DET	article.fem.sg.acc	Definite=Def|PronType=Art|Gender=Fem|Number=Sing|Case=Acc	17	det	_	gloss=the
+17	σκιὰν	σκιά	NOUN	noun.fem.sg.acc	Gender=Fem|Number=Sing|Case=Acc	18	obj	_	gloss=shadow
+18	ἰδὼν	ὁράω	VERB	verb.aor.ptcp.act.masc.sg.nom	Aspect=Perf|Mood=Part|Tense=Aor|Voice=Act|Gender=Masc|Number=Sing|Case=Nom	20	advcl	_	gloss=having seen
+19	ἔφη	φημί	VERB	verb.impf.ind.act.3sg	Mood=Ind|Tense=Imp|VerbForm=Fin|Voice=Act|Number=Sing|Person=3	0	root	_	gloss=said
+20	·	·	PUNCT	punctuation	_	19	punct	_	gloss=:
+21	"	"	PUNCT	punctuation	_	22	punct	_	gloss="
+22	Λέοντ'	λέων	NOUN	noun.masc.sg.acc	Gender=Masc|Number=Sing|Case=Acc	23	obj	_	gloss=a lion
+23	ἐγὼ	ἐγώ	PRON	pron.prs.1sg.nom	PronType=Prs|Number=Sing|Person=1|Case=Nom	24	nsubj	_	gloss=I
+24	δέδοικα	δείδω	VERB	verb.perf.ind.act.1sg	Aspect=Perf|Mood=Ind|Tense=Perf|VerbForm=Fin|Voice=Act|Number=Sing|Person=1	19	ccomp	_	gloss=I fear
+25	,	,	PUNCT	punctuation	_	24	punct	_	gloss=,
+26	τηλικοῦτος	τηλικοῦτος	ADJ	adj.masc.sg.nom	Degree=Pos|Gender=Masc|Number=Sing|Case=Nom	27	amod	_	gloss=so great
+27	ὤν	εἰμί	VERB	verb.pres.ptcp.act.masc.sg.nom	Aspect=Imp|Mood=Part|Tense=Pres|Voice=Act|Gender=Masc|Number=Sing|Case=Nom	24	advcl	_	gloss=being
+28	;	;	PUNCT	punctuation	_	24	punct	_	gloss=?
+29	πλέθρου	πλέθρον	NOUN	noun.neut.sg.gen	Gender=Neut|Number=Sing|Case=Gen	31	nmod	_	gloss=a plethron
+30	τ'	τε	CCONJ	conjunction	_	31	cc	_	gloss=and
+31	ἔχων	ἔχω	VERB	verb.pres.ptcp.act.masc.sg.nom	Aspect=Imp|Mood=Part|Tense=Pres|Voice=Act|Gender=Masc|Number=Sing|Case=Nom	24	parataxis	_	gloss=having
+32	τὸ	ὁ	DET	article.neut.sg.acc	Definite=Def|PronType=Art|Gender=Neut|Number=Sing|Case=Acc	33	det	_	gloss=the
+33	μῆκος	μῆκος	NOUN	noun.neut.sg.acc	Gender=Neut|Number=Sing|Case=Acc	31	obj	_	gloss=length
+34	,	,	PUNCT	punctuation	_	31	punct	_	gloss=,
+35	οὐ	οὐ	PART	neg.particle	Polarity=Neg	37	advmod	_	gloss=not
+36	θηρῶν	θήρ	NOUN	noun.masc.pl.gen	Gender=Masc|Number=Plur|Case=Gen	38	nmod	_	gloss=of beasts
+37	ἁπλῶς	ἁπλῶς	ADV	adverb	_	38	advmod	_	gloss=simply
+38	πάντων	πᾶς	ADJ	adj.masc.pl.gen	Degree=Pos|Gender=Masc|Number=Plur|Case=Gen	39	nmod	_	gloss=of all
+39	δυνάστης	δυνάστης	NOUN	noun.masc.sg.nom	Gender=Masc|Number=Sing|Case=Nom	40	nsubj	_	gloss=ruler
+40	ἀθρόων	ἄθροος	ADJ	adj.masc.pl.gen	Degree=Pos|Gender=Masc|Number=Plur|Case=Gen	38	amod	_	gloss=together / in a body
+41	γενήσομαι	γίγνομαι	VERB	verb.fut.ind.mp.1sg	Mood=Ind|Tense=Fut|VerbForm=Fin|Voice=Mid|Number=Sing|Person=1	24	parataxis	_	gloss=shall I become
+42	;	;	PUNCT	punctuation	_	41	punct	_	gloss=?
+43	"	"	PUNCT	punctuation	_	41	punct	_	gloss="
+
+# sent_id = perry-260-s2
+# text = Λύκον δὲ γαυρωθέντα καρτερὸς λέων ἑλὼν κατήσθι'· ὁ δ' ἐβόησε μετανοῶν· "Οἴησις ἡμῖν πημάτων παραιτία."
+# parallel_id = lyceum-aesop-p260/s2
+# translation_lang = en
+# prose_translation = But a strong lion, having seized the swaggering wolf, devoured him; and he cried out, repenting: "Conceit is the cause of our troubles."
+# literal_translation = A wolf but having been puffed up a strong lion having seized devoured; he but cried out repenting; Conceit to us of troubles the cause.
+44	Λύκον	λύκος	NOUN	noun.masc.sg.acc	Gender=Masc|Number=Sing|Case=Acc	49	obj	_	gloss=a wolf
+45	δὲ	δέ	CCONJ	conjunction	_	49	cc	_	gloss=but
+46	γαυρωθέντα	γαιρώ	VERB	verb.aor.ptcp.pass.masc.sg.acc	Aspect=Perf|Mood=Part|Tense=Aor|Voice=Pass|Gender=Masc|Number=Sing|Case=Acc	44	acl	_	gloss=having been puffed up / swaggering
+47	καρτερὸς	καρτερός	ADJ	adj.masc.sg.nom	Degree=Pos|Gender=Masc|Number=Sing|Case=Nom	48	amod	_	gloss=strong
+48	λέων	λέων	NOUN	noun.masc.sg.nom	Gender=Masc|Number=Sing|Case=Nom	49	nsubj	_	gloss=lion
+49	ἑλὼν	αἱρέω	VERB	verb.aor.ptcp.act.masc.sg.nom	Aspect=Perf|Mood=Part|Tense=Aor|Voice=Act|Gender=Masc|Number=Sing|Case=Nom	50	advcl	_	gloss=having seized
+50	κατήσθι'	κατεσθίω	VERB	verb.impf.ind.act.3sg	Aspect=Imp|Mood=Ind|Tense=Imp|VerbForm=Fin|Voice=Act|Number=Sing|Person=3	0	root	_	gloss=was devouring
+51	·	·	PUNCT	punctuation	_	50	punct	_	gloss=;
+52	ὁ	ὁ	DET	article.masc.sg.nom	Definite=Def|PronType=Art|Gender=Masc|Number=Sing|Case=Nom	53	nsubj	_	gloss=he
+53	δ'	δέ	CCONJ	conjunction	_	54	cc	_	gloss=but
+54	ἐβόησε	βοάω	VERB	verb.aor.ind.act.3sg	Aspect=Perf|Mood=Ind|Tense=Aor|VerbForm=Fin|Voice=Act|Number=Sing|Person=3	50	parataxis	_	gloss=cried out
+55	μετανοῶν	μετανοέω	VERB	verb.pres.ptcp.act.masc.sg.nom	Aspect=Imp|Mood=Part|Tense=Pres|Voice=Act|Gender=Masc|Number=Sing|Case=Nom	54	advcl	_	gloss=repenting
+56	·	·	PUNCT	punctuation	_	54	punct	_	gloss=:
+57	"	"	PUNCT	punctuation	_	58	punct	_	gloss="
+58	Οἴησις	οἴησις	NOUN	noun.fem.sg.nom	Gender=Fem|Number=Sing|Case=Nom	54	ccomp	_	gloss=conceit / self-opinion
+59	ἡμῖν	ἡμεῖς	PRON	pron.prs.1pl.dat	PronType=Prs|Number=Plur|Person=1|Case=Dat	58	obl	_	gloss=for us
+60	πημάτων	πῆμα	NOUN	noun.neut.pl.gen	Gender=Neut|Number=Plur|Case=Gen	58	nmod	_	gloss=of troubles
+61	παραιτία	παραιτία	NOUN	noun.fem.sg.nom	Gender=Fem|Number=Sing|Case=Nom	58	nsubj	_	gloss=cause / source
+62	.	.	PUNCT	punctuation	_	61	punct	_	gloss=.
+63	"	"	PUNCT	punctuation	_	61	punct	_	gloss="

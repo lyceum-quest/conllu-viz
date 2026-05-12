@@ -1,4 +1,14 @@
+# Secrets
+.env
+.env.*
+!.env.example
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+
+# Dependencies and build output
 node_modules/
 dist/
-.env
 .direnv/

@@ -6,6 +6,7 @@ import { parseConllu } from './types';
 import { AppStore, StoredFile, loadStore, saveStore, addFile, removeFile, listFiles,
          getReviewedCount, getMasteredCount, getMasteryPct } from './store';
 import { navigate } from './router';
+import { loadPreloadedFiles } from './preload';
 
 import './styles/tokens.css';
 import './styles/browser.css';
@@ -41,6 +42,9 @@ export function mount() {
   const container = createEl('div', 'browser-container');
 
   container.appendChild(createHeader());
+  const preloadStatus = createEl('div', 'preload-status');
+  preloadStatus.id = 'preload-status';
+  container.appendChild(preloadStatus);
   container.appendChild(createDropZone());
   container.appendChild(createActionButtons(container));
   container.appendChild(createSortControl());
@@ -48,6 +52,7 @@ export function mount() {
 
   page.appendChild(container);
   setupDropZone(container);
+  hydratePreloadedFiles(preloadStatus);
 }
 
 function createEl(tag: string, cls?: string) {
@@ -71,9 +76,30 @@ function createHeader() {
   const div = createEl('div');
   div.innerHTML = `
     <h1>📁 Conllu Files</h1>
-    <p class="browser-subtitle">Load treebank files, study vocabulary with spaced repetition.</p>
+    <p class="browser-subtitle">Load treebank files, study vocabulary with spaced repetition. Preloaded corpora appear here automatically.</p>
   `;
   return div;
+}
+
+async function hydratePreloadedFiles(statusEl: HTMLElement) {
+  statusEl.textContent = 'Checking bundled files…';
+  const nextStore = loadStore();
+  const result = await loadPreloadedFiles(nextStore);
+
+  if (result.added || result.updated || result.removed) {
+    saveStore(nextStore);
+    store = nextStore;
+    const changes = [
+      result.added ? `added ${result.added}` : '',
+      result.updated ? `updated ${result.updated}` : '',
+      result.removed ? `removed ${result.removed}` : '',
+    ].filter(Boolean).join(', ');
+    statusEl.textContent = `✨ Bundled files ${changes}.`;
+    const grid = document.querySelector('.file-grid');
+    if (grid) grid.replaceWith(createFileGrid());
+  } else {
+    statusEl.textContent = '';
+  }
 }
 
 function createDropZone() {
@@ -88,6 +114,9 @@ function createDropZone() {
 
 function setupDropZone(container: HTMLElement) {
   const zone = document.getElementById('browser-drop-zone')!;
+  const input = container.querySelector<HTMLInputElement>('#browser-file-input');
+
+  zone.addEventListener('click', () => input?.click());
 
   ['dragenter', 'dragover'].forEach(evt => {
     zone.addEventListener(evt, (e) => { e.preventDefault(); zone.classList.add('dragover'); });

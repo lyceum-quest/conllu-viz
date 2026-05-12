@@ -1,0 +1,93 @@
+# title = The Smith and His Little Dog
+# sent_id = perry-415-s1
+# text = Ἦν δέ τις χαλκεὺς κυνάριον κατέχων.
+# parallel_id = lyceum-aesop-p415/s1
+# translation_lang = en
+# prose_translation = There was a certain smith keeping a little dog.
+# literal_translation = There was a certain smith a little dog keeping.
+1	Ἦν	εἰμί	VERB	verb.impf.ind.act.3sg	Aspect=Imp|Mood=Ind|Tense=Imp|VerbForm=Fin|Voice=Act|Number=Sing|Person=3	0	root	_	gloss=there was
+2	δέ	δέ	CCONJ	conjunction	_	1	cc	_	gloss=but
+3	τις	τὶς	PRON	pron.masc.sg.nom	PronType=Ind|Gender=Masc|Number=Sing|Case=Nom	4	nsubj	_	gloss=a certain
+4	χαλκεὺς	χαλκεύς	NOUN	noun.masc.sg.nom	Gender=Masc|Number=Sing|Case=Nom	1	nsubj	_	gloss=smith
+5	κυνάριον	κυνάριον	NOUN	noun.neut.sg.acc	Gender=Neut|Number=Sing|Case=Acc	6	obj	_	gloss=little dog
+6	κατέχων	κατέχω	VERB	verb.pres.ptcp.act.masc.sg.nom	Aspect=Imp|Mood=Part|Tense=Pres|Voice=Act|Gender=Masc|Number=Sing|Case=Nom	1	advcl	_	gloss=keeping / holding
+7	.	.	PUNCT	punctuation	_	1	punct	_	gloss=.
+
+# sent_id = perry-415-s2
+# text = Ὁ δὲ χαλκεύων, ὁ κύων ἐκοιμᾶτο· πάλιν ἐσθίων, ὁ κύων παρειστήκει.
+# parallel_id = lyceum-aesop-p415/s2
+# translation_lang = en
+# prose_translation = When he was smithying, the dog slept; again, when he was eating, the dog stood beside him.
+# literal_translation = He but smithying, the dog slept; again eating, the dog stood beside.
+8	Ὁ	ὁ	DET	article.masc.sg.nom	Definite=Def|PronType=Art|Gender=Masc|Number=Sing|Case=Nom	10	nsubj	_	gloss=he
+9	δὲ	δέ	CCONJ	conjunction	_	10	cc	_	gloss=but
+10	χαλκεύων	χαλκεύω	VERB	verb.pres.ptcp.act.masc.sg.nom	Aspect=Imp|Mood=Part|Tense=Pres|Voice=Act|Gender=Masc|Number=Sing|Case=Nom	13	advcl	_	gloss=smithying
+11	ὁ	ὁ	DET	article.masc.sg.nom	Definite=Def|PronType=Art|Gender=Masc|Number=Sing|Case=Nom	12	det	_	gloss=the
+12	κύων	κύων	NOUN	noun.masc.sg.nom	Gender=Masc|Number=Sing|Case=Nom	13	nsubj	_	gloss=dog
+13	ἐκοιμᾶτο	κοιμάω	VERB	verb.impf.ind.mp.3sg	Aspect=Imp|Mood=Ind|Tense=Imp|Voice=Mid|Number=Sing|Person=3	0	root	_	gloss=slept
+14	·	·	PUNCT	punctuation	_	13	punct	_	gloss=:
+15	πάλιν	πάλιν	ADV	adverb	_	18	advmod	_	gloss=again
+16	ἐσθίων	ἐσθίω	VERB	verb.pres.ptcp.act.masc.sg.nom	Aspect=Imp|Mood=Part|Tense=Pres|Voice=Act|Gender=Masc|Number=Sing|Case=Nom	18	advcl	_	gloss=eating
+17	ὁ	ὁ	DET	article.masc.sg.nom	Definite=Def|PronType=Art|Gender=Masc|Number=Sing|Case=Nom	18	det	_	gloss=the
+18	κύων	κύων	NOUN	noun.masc.sg.nom	Gender=Masc|Number=Sing|Case=Nom	19	nsubj	_	gloss=dog
+19	παρειστήκει	πάρεστημι	VERB	verb.plup.ind.act.3sg	Aspect=Perf|Mood=Ind|Tense=Plup|Voice=Act|Number=Sing|Person=3	13	conj	_	gloss=stood beside
+20	.	.	PUNCT	punctuation	_	19	punct	_	gloss=.
+
+# sent_id = perry-415-s3
+# text = Οὗτος ἐπέρριψεν ὀστοῦν λαλῶν ταῦτα· Ὦ ταλαίπωρον κυνάριον ὑπνῶδες, τί σοι ποιήσω ὄκνῳ κατεχομένῳ;
+# parallel_id = lyceum-aesop-p415/s3
+# translation_lang = en
+# prose_translation = He threw it a bone, saying these things: "O wretched sleepy little dog, what shall I do with you, being held by laziness?"
+# literal_translation = He threw a bone saying these things: O wretched little dog sleepy, what to you shall I do by laziness being held?
+21	Οὗτος	οὗτος	PRON	pron.masc.sg.nom	PronType=Dem|Gender=Masc|Number=Sing|Case=Nom	22	nsubj	_	gloss=he
+22	ἐπέρριψεν	ἐπιῥίπτω	VERB	verb.aor.ind.act.3sg	Aspect=Perf|Mood=Ind|Tense=Aor|Voice=Act|Number=Sing|Person=3	0	root	_	gloss=threw
+23	ὀστοῦν	ὀστοῦν	NOUN	noun.neut.sg.acc	Gender=Neut|Number=Sing|Case=Acc	22	obj	_	gloss=bone
+24	λαλῶν	λαλέω	VERB	verb.pres.ptcp.act.masc.sg.nom	Aspect=Imp|Mood=Part|Tense=Pres|Voice=Act|Gender=Masc|Number=Sing|Case=Nom	22	advcl	_	gloss=saying
+25	ταῦτα	οὗτος	PRON	pron.neut.pl.acc	PronType=Dem|Gender=Neut|Number=Plur|Case=Acc	24	obj	_	gloss=these things
+26	·	·	PUNCT	punctuation	_	24	punct	_	gloss=:
+27	Ὦ	ὦ	PART	interjection	_	28	discourse	_	gloss=O
+28	ταλαίπωρον	ταλαίπωρος	ADJ	adj.neut.sg.voc	Degree=Pos|Gender=Neut|Number=Sing|Case=Voc	29	amod	_	gloss=wretched
+29	κυνάριον	κυνάριον	NOUN	noun.neut.sg.voc	Gender=Neut|Number=Sing|Case=Voc	22	vocative	_	gloss=little dog
+30	ὑπνῶδες	ὑπνῶδης	ADJ	adj.neut.sg.voc	Degree=Pos|Gender=Neut|Number=Sing|Case=Voc	29	amod	_	gloss=sleepy
+31	τί	τίς	PRON	pron.neut.sg.nom	PronType=Int|Gender=Neut|Number=Sing|Case=Nom	32	nsubj	_	gloss=what
+32	σοι	σύ	PRON	pron.2sg.dat	PronType=Prs|Number=Sing|Person=2|Case=Dat	33	obl	_	gloss=to you
+33	ποιήσω	ποιέω	VERB	verb.aor.opt.act.1sg	Mood=Opt|Tense=Aor|VerbForm=Fin|Voice=Act|Number=Sing|Person=1	22	ccomp	_	gloss=shall I do
+34	ὄκνῳ	ὄκνος	NOUN	noun.masc.sg.dat	Gender=Masc|Number=Sing|Case=Dat	35	obl	_	gloss=by laziness
+35	κατεχομένῳ	κατέχω	VERB	verb.pres.ptcp.mp.neut.sg.dat	Aspect=Imp|Mood=Part|Tense=Pres|Voice=Mid|Gender=Neut|Number=Sing|Case=Dat	29	acl	_	gloss=being held / overcome
+36	;	;	PUNCT	punctuation	_	33	punct	_	gloss=?
+
+# sent_id = perry-415-s4
+# text = τῷ γὰρ ἄκμονι ἐμοῦ προσκεκρουκότος, ἐπανακλίνεις σαυτὸ ἐπὶ κραββάτου, μὴ θέλοντός σου ἀναστῆναι καθόλου· ὅταν δὲ πάλιν τοὺς ὀδόντας κινήσω, εὐθὺς ἐγείρῃ καὶ τὴν κέρκον μοι σείεις.
+# parallel_id = lyceum-aesop-p415/s4
+# translation_lang = en
+# prose_translation = For when I strike the anvil, you lean yourself back on your bed, not wanting to get up at all; but when I again move my teeth, you immediately arise and wag your tail for me.
+# literal_translation = For to the anvil of me having struck, you lean yourself upon a bed, not wanting of you to arise at all; whenever but again the teeth I move, immediately you arise and the tail to me you wag.
+37	τῷ	ὁ	DET	article.masc.sg.dat	Definite=Def|PronType=Art|Gender=Masc|Number=Sing|Case=Dat	38	det	_	gloss=the
+38	γὰρ	γάρ	CCONJ	conjunction	_	39	cc	_	gloss=for
+39	ἄκμονι	ἄκμων	NOUN	noun.masc.sg.dat	Gender=Masc|Number=Sing|Case=Dat	40	obl	_	gloss=anvil
+40	ἐμοῦ	ἐγώ	PRON	pron.1sg.gen	PronType=Prs|Number=Sing|Person=1|Case=Gen	41	nmod	_	gloss=my
+41	προσκεκρουκότος	προσκροτέω	VERB	verb.perf.ptcp.act.masc.sg.gen	Aspect=Perf|Mood=Part|Tense=Perf|Voice=Act|Gender=Masc|Number=Sing|Case=Gen	42	advcl	_	gloss=having struck
+42	ἐπανακλίνεις	ἐπανακλίνω	VERB	verb.pres.ind.act.2sg	Aspect=Imp|Mood=Ind|Tense=Pres|Voice=Act|Number=Sing|Person=2	0	root	_	gloss=you lean back
+43	σαυτὸ	σεαυτοῦ	PRON	pron.2sg.masc.sg.acc	PronType=Refl|Number=Sing|Person=2|Gender=Masc|Case=Acc	42	obj	_	gloss=yourself
+44	ἐπὶ	ἐπί	ADP	preposition.gen	_	45	case	_	gloss=upon
+45	κραββάτου	κραββάτος	NOUN	noun.masc.sg.gen	Gender=Masc|Number=Sing|Case=Gen	42	obl	_	gloss=bed / couch
+46	μὴ	μή	CCONJ	conjunction	Polarity=Neg	47	advmod	_	gloss=not
+47	θέλοντός	θέλω	VERB	verb.pres.ptcp.act.masc.sg.gen	Aspect=Imp|Mood=Part|Tense=Pres|Voice=Act|Gender=Masc|Number=Sing|Case=Gen	42	advcl	_	gloss=wanting
+48	σου	σύ	PRON	pron.2sg.gen	PronType=Prs|Number=Sing|Person=2|Case=Gen	47	nsubj	_	gloss=your
+49	ἀναστῆναι	ἀνίστημι	VERB	verb.aor.inf.act	Aspect=Perf|Mood=Inf|Tense=Aor|Voice=Act	47	xcomp	_	gloss=to arise
+50	καθόλου	καθόλου	ADV	adverb	_	49	advmod	_	gloss=at all
+51	·	·	PUNCT	punctuation	_	42	punct	_	gloss=:
+52	ὅταν	ὅταν	SCONJ	conjunction	_	54	mark	_	gloss=whenever
+53	δὲ	δέ	CCONJ	conjunction	_	54	cc	_	gloss=but
+54	πάλιν	πάλιν	ADV	adverb	_	55	advmod	_	gloss=again
+55	τοὺς	ὁ	DET	article.masc.pl.acc	Definite=Def|PronType=Art|Gender=Masc|Number=Plur|Case=Acc	56	det	_	gloss=the
+56	ὀδόντας	ὀδούς	NOUN	noun.masc.pl.acc	Gender=Masc|Number=Plur|Case=Acc	57	obj	_	gloss=teeth
+57	κινήσω	κινέω	VERB	verb.aor.opt.act.1sg	Mood=Opt|Tense=Aor|VerbForm=Fin|Voice=Act|Number=Sing|Person=1	60	advcl	_	gloss=I move
+58	εὐθὺς	εὐθύς	ADV	adverb	_	59	advmod	_	gloss=immediately
+59	ἐγείρῃ	ἐγείρω	VERB	verb.pres.opt.mp.2sg	Mood=Opt|Tense=Pres|VerbForm=Fin|Voice=Mid|Number=Sing|Person=2	0	root	_	gloss=you arise
+60	καὶ	καί	CCONJ	conjunction	_	61	cc	_	gloss=and
+61	τὴν	ὁ	DET	article.fem.sg.acc	Definite=Def|PronType=Art|Gender=Fem|Number=Sing|Case=Acc	62	det	_	gloss=the
+62	κέρκον	κέρκος	NOUN	noun.fem.sg.acc	Gender=Fem|Number=Sing|Case=Acc	63	obj	_	gloss=tail
+63	μοι	ἐγώ	PRON	pron.1sg.dat	PronType=Prs|Number=Sing|Person=1|Case=Dat	64	obl	_	gloss=for me
+64	σείεις	σείω	VERB	verb.pres.opt.act.2sg	Mood=Opt|Tense=Pres|VerbForm=Fin|Voice=Act|Number=Sing|Person=2	59	conj	_	gloss=you wag
+65	.	.	PUNCT	punctuation	_	64	punct	_	gloss=.

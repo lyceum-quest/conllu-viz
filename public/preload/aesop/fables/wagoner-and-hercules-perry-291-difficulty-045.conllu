@@ -1,0 +1,91 @@
+# global.columns = ID FORM LEMMA UPOS XPOS FEATS HEAD DEPREL DEPS MISC
+# source = Aesop, Fables (Chambry edition)
+# source_edition = Chambry (Perry numbering)
+# encoder = LLM-assisted
+# editor = Brandon Lucas
+# project = Lyceum Digital Library
+# conversion_method = Manual annotation with LLM assistance
+# gloss_type = Context-aware philological glosses
+# license = CC BY-SA 4.0
+# date_modified = 2026-05-01
+# contact = support@lyceum.quest
+
+# title = The Wagoner and Hercules
+# sent_id = perry-291-s1
+# text = Βοηλάτης ἅμαξαν ἦγεν εἰς κώμην.
+# parallel_id = lyceum-aesop-p291/s1
+# translation_lang = en
+# prose_translation = A wagoner was driving a cart to a village.
+# literal_translation = A wagoner a cart was driving to a village.
+1	Βοηλάτης	βοηλάτης	NOUN	noun.masc.sg.nom	Gender=Masc|Number=Sing|Case=Nom	4	nsubj	_	gloss=wagoner
+2	ἅμαξαν	ἅμαξα	NOUN	noun.fem.sg.acc	Gender=Fem|Number=Sing|Case=Acc	4	obj	_	gloss=cart / wagon
+3	ἦγεν	ἄγω	VERB	verb.impf.ind.act.3sg	Aspect=Imp|Mood=Ind|Tense=Imp|VerbForm=Fin|Voice=Act|Number=Sing|Person=3	0	root	_	gloss=was driving
+4	εἰς	εἰς	ADP	preposition.acc	_	5	case	_	gloss=to
+5	κώμην	κώμη	NOUN	noun.fem.sg.acc	Gender=Fem|Number=Sing|Case=Acc	3	obl	_	gloss=village
+6	.	.	PUNCT	punctuation	_	3	punct	_	gloss=.
+
+# sent_id = perry-291-s2
+# text = Τῆς δ' ἐμπεσούσης εἰς φάραγγα κοιλώδη, Δέον βοηθεῖν, ὅδε ἀργὸς εἱστήκει, Τῷ δὲ Ἡρακλεῖ προσηύχετο μόνῳ Ἁπάντων θεῶν ὡς πολλὰ τιμωμένῳ.
+# parallel_id = lyceum-aesop-p291/s2
+# translation_lang = en
+# prose_translation = When it fell into a deep ravine, needing help, he stood there idle; and he prayed only to Hercules of all the gods, as one much honored.
+# literal_translation = Of it but having fallen into a ravine hollow, needing to help, he stood idle, to the but Hercules he prayed alone of all the gods as much honored.
+7	Τῆς	ὁ	DET	article.fem.sg.gen	Definite=Def|PronType=Art|Gender=Fem|Number=Sing|Case=Gen	9	det	_	gloss=the
+8	δ'	δέ	CCONJ	conjunction	_	9	cc	_	gloss=but
+9	ἐμπεσούσης	ἐμπίπτω	VERB	verb.aor.ptcp.act.fem.sg.gen	Aspect=Perf|Mood=Part|Tense=Aor|Voice=Act|Gender=Fem|Number=Sing|Case=Gen	20	advcl	_	gloss=having fallen
+10	εἰς	εἰς	ADP	preposition.acc	_	11	case	_	gloss=into
+11	φάραγγα	φάραγξ	NOUN	noun.fem.sg.acc	Gender=Fem|Number=Sing|Case=Acc	9	obl	_	gloss=ravine
+12	κοιλώδη	κοίλωδης	ADJ	adj.fem.sg.acc	Degree=Pos|Gender=Fem|Number=Sing|Case=Acc	11	amod	_	gloss=deep / hollow
+13	,	,	PUNCT	punctuation	_	9	punct	_	gloss=,
+14	Δέον	δεῖ	VERB	verb.pres.ptcp.act.neut.sg.nom	Aspect=Imp|Mood=Part|Tense=Pres|Voice=Act|Gender=Neut|Number=Sing|Case=Nom	20	advcl	_	gloss=needing / it being necessary
+15	βοηθεῖν	βοηθέω	VERB	verb.pres.inf.act	Aspect=Imp|Mood=Inf|Tense=Pres|VerbForm=Inf|Voice=Act	14	xcomp	_	gloss=to help
+16	,	,	PUNCT	punctuation	_	14	punct	_	gloss=,
+17	ὅδε	ὅδε	ADV	adverb	_	20	advmod	_	gloss=here / there
+18	ἀργὸς	ἀργός	ADJ	adj.masc.sg.nom	Degree=Pos|Gender=Masc|Number=Sing|Case=Nom	20	amod	_	gloss=idle
+19	εἱστήκει	ἵστημι	VERB	verb.perf.ind.act.3sg	Aspect=Perf|Mood=Ind|Tense=Perf|VerbForm=Fin|Voice=Act|Number=Sing|Person=3	0	root	_	gloss=had stood
+20	,	,	PUNCT	punctuation	_	19	punct	_	gloss=,
+21	Τῷ	ὁ	DET	article.masc.sg.dat	Definite=Def|PronType=Art|Gender=Masc|Number=Sing|Case=Dat	22	det	_	gloss=to the
+22	δὲ	δέ	CCONJ	conjunction	_	23	cc	_	gloss=but
+23	Ἡρακλεῖ	Ἡρακλῆς	PROPN	propn.masc.sg.dat	Gender=Masc|Number=Sing|Case=Dat	24	obl	_	gloss=Hercules
+24	προσηύχετο	προσεύχομαι	VERB	verb.impf.ind.mp.3sg	Aspect=Imp|Mood=Ind|Tense=Imp|VerbForm=Fin|Voice=Mid|Number=Sing|Person=3	19	conj	_	gloss=was praying
+25	μόνῳ	μόνος	ADJ	adj.masc.sg.dat	Degree=Pos|Gender=Masc|Number=Sing|Case=Dat	23	amod	_	gloss=alone / only
+26	Ἁπάντων	ἅπας	ADJ	adj.masc.pl.gen	Degree=Pos|Gender=Masc|Number=Plur|Case=Gen	27	nmod	_	gloss=of all
+27	θεῶν	θεός	NOUN	noun.masc.pl.gen	Gender=Masc|Number=Plur|Case=Gen	23	nmod	_	gloss=of gods
+28	ὡς	ὡς	SCONJ	conjunction	_	29	mark	_	gloss=as
+29	πολλὰ	πολλά	ADV	adverb	_	24	advmod	_	gloss=much
+30	τιμωμένῳ	τιμάω	VERB	verb.pres.ptcp.mp.masc.sg.dat	Aspect=Imp|Mood=Part|Tense=Pres|Voice=Pass|Gender=Masc|Number=Sing|Case=Dat	23	acl	_	gloss=honored
+31	.	.	PUNCT	punctuation	_	24	punct	_	gloss=.
+
+# sent_id = perry-291-s3
+# text = Αὐτὸς δ' ἐπιστὰς εἶπε· Τῶν τρόχων ἅπτου Καὶ τοὺς βόας κέντριζε, τοῖς θεοῖς δ' εὔχου, Ὅταν τι ποιῇς καὐτὸς· μὴ μάτην εὔξῃ.
+# parallel_id = lyceum-aesop-p291/s3
+# translation_lang = en
+# prose_translation = He himself, coming up, said: "Touch the wheels and prod the oxen, and pray to the gods, whenever you do something yourself; do not pray in vain."
+# literal_translation = He himself but coming up said: Of the wheels touch! And the oxen prod, to the gods but pray, whenever something you do yourself; not in vain pray!
+32	Αὐτὸς	αὐτός	PRON	pron.prs.3sg.nom	PronType=Prs|Gender=Masc|Number=Sing|Case=Nom	34	nsubj	_	gloss=he himself
+33	δ'	δέ	CCONJ	conjunction	_	34	cc	_	gloss=but
+34	ἐπιστὰς	ἐφίστημι	VERB	verb.aor.ptcp.act.masc.sg.nom	Aspect=Perf|Mood=Part|Tense=Aor|Voice=Act|Gender=Masc|Number=Sing|Case=Nom	35	advcl	_	gloss=having come up
+35	εἶπε	λέγω	VERB	verb.aor.ind.act.3sg	Aspect=Perf|Mood=Ind|Tense=Aor|VerbForm=Fin|Voice=Act|Number=Sing|Person=3	0	root	_	gloss=said
+36	·	·	PUNCT	punctuation	_	35	punct	_	gloss=:
+37	Τῶν	ὁ	DET	article.masc.pl.gen	Definite=Def|PronType=Art|Gender=Masc|Number=Plur|Case=Gen	38	det	_	gloss=the
+38	τρόχων	τροχός	NOUN	noun.masc.pl.gen	Gender=Masc|Number=Plur|Case=Gen	39	obj	_	gloss=of wheels
+39	ἅπτου	ἅπτω	VERB	verb.pres.imp.act.2sg	Mood=Imp|Tense=Pres|VerbForm=Fin|Voice=Act|Number=Sing|Person=2	35	ccomp	_	gloss=touch!
+40	Καὶ	καί	CCONJ	conjunction	_	41	cc	_	gloss=and
+41	τοὺς	ὁ	DET	article.masc.pl.acc	Definite=Def|PronType=Art|Gender=Masc|Number=Plur|Case=Acc	42	det	_	gloss=the
+42	βόας	βοῦς	NOUN	noun.masc.pl.acc	Gender=Masc|Number=Plur|Case=Acc	43	obj	_	gloss=oxen
+43	κέντριζε	κεντρίζω	VERB	verb.pres.imp.act.2sg	Mood=Imp|Tense=Pres|VerbForm=Fin|Voice=Act|Number=Sing|Person=2	39	conj	_	gloss=prod!
+44	,	,	PUNCT	punctuation	_	43	punct	_	gloss=,
+45	τοῖς	ὁ	DET	article.masc.pl.dat	Definite=Def|PronType=Art|Gender=Masc|Number=Plur|Case=Dat	46	det	_	gloss=the
+46	θεοῖς	θεός	NOUN	noun.masc.pl.dat	Gender=Masc|Number=Plur|Case=Dat	47	obl	_	gloss=to the gods
+47	δ'	δέ	CCONJ	conjunction	_	48	cc	_	gloss=but
+48	εὔχου	εὔχομαι	VERB	verb.pres.imp.mp.2sg	Mood=Imp|Tense=Pres|VerbForm=Fin|Voice=Mid|Number=Sing|Person=2	39	conj	_	gloss=pray!
+49	,	,	PUNCT	punctuation	_	48	punct	_	gloss=,
+50	Ὅταν	ὅταν	SCONJ	conjunction	_	51	mark	_	gloss=whenever
+51	ποιῇς	ποιέω	VERB	verb.pres.sub.act.2sg	Mood=Sub|Tense=Pres|VerbForm=Fin|Voice=Act|Number=Sing|Person=2	48	advcl	_	gloss=you do
+52	τι	τις	PRON	pron.indef.neut.sg.acc	PronType=Ind|Gender=Neut|Number=Sing|Case=Acc	51	obj	_	gloss=something
+53	καὐτὸς	καὐτὸς	PRON	pron.prs.2sg.nom	PronType=Prs|Gender=Masc|Number=Sing|Case=Nom|Person=2	51	nsubj	_	gloss=you yourself
+54	·	·	PUNCT	punctuation	_	51	punct	_	gloss=;
+55	μὴ	μή	PART	neg.particle	Polarity=Neg	56	advmod	_	gloss=do not
+56	μάτην	μάτην	ADV	adverb	_	57	advmod	_	gloss=in vain
+57	εὔξῃ	εὔχομαι	VERB	verb.aor.sub.mp.2sg	Mood=Sub|Tense=Aor|VerbForm=Fin|Voice=Mid|Number=Sing|Person=2	39	conj	_	gloss=you would pray
+58	.	.	PUNCT	punctuation	_	57	punct	_	gloss=.

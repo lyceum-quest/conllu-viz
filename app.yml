@@ -1,0 +1,11 @@
+services:
+  web:
+    image: node:20-bookworm-slim
+    internal_port: 3000
+    public: true
+    volumes:
+      - ./:/app
+    environment:
+      NODE_ENV: development
+      VITE_PUBLIC_ORIGIN: https://conllu.blu.devitltd.uk
+    command: sh -lc "cd /app && test -d node_modules/vite || npm install && npm run dev -- --host 0.0.0.0 --port 3000 --configLoader runner"

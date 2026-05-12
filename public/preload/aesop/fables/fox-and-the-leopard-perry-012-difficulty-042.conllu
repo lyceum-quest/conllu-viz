@@ -1,0 +1,72 @@
+# title = The Fox and the Leopard
+# sent_id = perry-12-s1
+# text = Ἀλώπηξ καὶ πάρδαλις περὶ κάλλους ἤριζον.
+# parallel_id = lyceum-aesop-p12/s1
+# translation_lang = en
+# prose_translation = A fox and a leopard were disputing about beauty.
+# literal_translation = A fox and a leopard about beauty were disputing.
+1	Ἀλώπηξ	ἀλώπηξ	NOUN	noun.fem.sg.nom	Gender=Fem|Number=Sing|Case=Nom	4	nsubj	_	gloss=fox
+2	καὶ	καί	CCONJ	conjunction	_	3	cc	_	gloss=and
+3	πάρδαλις	πάρδαλις	NOUN	noun.fem.sg.nom	Gender=Fem|Number=Sing|Case=Nom	1	conj	_	gloss=leopard
+4	περὶ	περί	ADP	preposition.gen	_	5	case	_	gloss=about
+5	κάλλους	κάλλος	NOUN	noun.neut.sg.gen	Gender=Neut|Number=Sing|Case=Gen	6	obl	_	gloss=beauty
+6	ἤριζον	ἐρίζω	VERB	verb.impf.ind.act.3pl	Aspect=Imp|Mood=Ind|Tense=Imp|Voice=Act|Number=Plur|Person=3	0	root	_	gloss=were disputing / competing
+7	.	.	PUNCT	punctuation	_	6	punct	_	gloss=.
+
+# sent_id = perry-12-s2
+# text = Τῆς δὲ παρδάλεως παρ' ἕκαστα τὴν τοῦ σώματος ποικιλίαν προβαλλομένης, ἡ ἀλώπηξ ὑποτυχοῦσα ἔφη· Καὶ πόσον ἐγὼ σοῦ καλλίων ὑπάρχω, ἥτις οὐ τὸ σῶμα, τὴν δὲ ψύχην πεποίκιλμαι.
+# parallel_id = lyceum-aesop-p12/s2
+# translation_lang = en
+# prose_translation = The leopard displaying at every point the variegation of her body, the fox, attaining her point, said: "How much more beautiful than you am I, who am varied not in body but in soul."
+# literal_translation = The but leopard's at every point the of the body variegation displaying, the fox attaining said: And how much I of you more beautiful am, who not the body, but the soul have varied.
+8	Τῆς	ὁ	DET	article.fem.sg.gen	Definite=Def|PronType=Art|Gender=Fem|Number=Sing|Case=Gen	10	det	_	gloss=the
+9	δὲ	δέ	CCONJ	conjunction	_	15	cc	_	gloss=but
+10	παρδάλεως	πάρδαλις	NOUN	noun.fem.sg.gen	Gender=Fem|Number=Sing|Case=Gen	13	nsubj	_	gloss=leopard
+11	παρ'	παρά	ADP	preposition.acc	_	12	case	_	gloss=at
+12	ἕκαστα	ἕκαστος	ADJ	adj.neut.pl.acc	Degree=Pos|Gender=Neut|Number=Plur|Case=Acc	13	obl	_	gloss=every point
+13	τὴν	ὁ	DET	article.fem.sg.acc	Definite=Def|PronType=Art|Gender=Fem|Number=Sing|Case=Acc	14	det	_	gloss=the
+14	τοῦ	ὁ	DET	article.neut.sg.gen	Definite=Def|PronType=Art|Gender=Neut|Number=Sing|Case=Gen	15	det	_	gloss=the
+15	σώματος	σῶμα	NOUN	noun.neut.sg.gen	Gender=Neut|Number=Sing|Case=Gen	16	nmod	_	gloss=of the body
+16	ποικιλίαν	ποικιλία	NOUN	noun.fem.sg.acc	Gender=Fem|Number=Sing|Case=Acc	17	obj	_	gloss=variegation
+17	προβαλλομένης	προβάλλω	VERB	verb.pres.ptcp.mp.fem.sg.gen	Aspect=Imp|Mood=Part|Tense=Pres|Voice=Mid|Gender=Fem|Number=Sing|Case=Gen	18	advcl	_	gloss=displaying
+18	ἡ	ὁ	DET	article.fem.sg.nom	Definite=Def|PronType=Art|Gender=Fem|Number=Sing|Case=Nom	19	det	_	gloss=the
+19	ἀλώπηξ	ἀλώπηξ	NOUN	noun.fem.sg.nom	Gender=Fem|Number=Sing|Case=Nom	21	nsubj	_	gloss=fox
+20	ὑποτυχοῦσα	ὑποτυγχάνω	VERB	verb.aor.ptcp.act.fem.sg.nom	Aspect=Perf|Mood=Part|Tense=Aor|Voice=Act|Gender=Fem|Number=Sing|Case=Nom	21	advcl	_	gloss=attaining / succeeding
+21	ἔφη	φημί	VERB	verb.impf.ind.act.3sg	Mood=Ind|Tense=Imp|VerbForm=Fin|Voice=Act|Number=Sing|Person=3	0	root	_	gloss=said
+22	·	·	PUNCT	punctuation	_	21	punct	_	gloss=:
+23	Καὶ	καί	ADV	adverb	_	25	advmod	_	gloss=and / how much
+24	πόσον	πόσος	ADJ	adj.neut.sg.acc	Degree=Pos|Gender=Neut|Number=Sing|Case=Acc	25	obl	_	gloss=how much
+25	ἐγὼ	ἐγώ	PRON	pron.1sg.nom	PronType=Prs|Number=Sing|Person=1|Case=Nom	26	nsubj	_	gloss=I
+26	σοῦ	σύ	PRON	pron.2sg.gen	PronType=Prs|Number=Sing|Person=2|Case=Gen	27	nmod	_	gloss=than you
+27	καλλίων	καλλίων	ADJ	adj.masc.sg.nom	Degree=Cmp|Gender=Masc|Number=Sing|Case=Nom	28	amod	_	gloss=more beautiful
+28	ὑπάρχω	ὑπάρχω	VERB	verb.pres.ind.act.1sg	Aspect=Imp|Mood=Ind|Tense=Pres|Voice=Act|Number=Sing|Person=1	21	ccomp	_	gloss=am
+29	ἥτις	ὅστις	PRON	pron.fem.sg.nom	PronType=Rel|Gender=Fem|Number=Sing|Case=Nom	28	nsubj	_	gloss=who
+30	οὐ	οὐ	PART	neg.particle	Polarity=Neg	32	advmod	_	gloss=not
+31	τὸ	ὁ	DET	article.neut.sg.acc	Definite=Def|PronType=Art|Gender=Neut|Number=Sing|Case=Acc	32	det	_	gloss=the
+32	σῶμα	σῶμα	NOUN	noun.neut.sg.acc	Gender=Neut|Number=Sing|Case=Acc	33	obj	_	gloss=body
+33	τὴν	ὁ	DET	article.fem.sg.acc	Definite=Def|PronType=Art|Gender=Fem|Number=Sing|Case=Acc	34	det	_	gloss=the
+34	δὲ	δέ	CCONJ	conjunction	_	35	cc	_	gloss=but
+35	ψύχην	ψυχή	NOUN	noun.fem.sg.acc	Gender=Fem|Number=Sing|Case=Acc	36	obj	_	gloss=soul
+36	πεποίκιλμαι	ποικίλλω	VERB	verb.perf.ind.mp.1sg	Aspect=Perf|Mood=Ind|Tense=Perf|Voice=Mid|Number=Sing|Person=1	28	conj	_	gloss=I have varied
+37	.	.	PUNCT	punctuation	_	36	punct	_	gloss=.
+
+# sent_id = perry-12-s3
+# text = Ὁ λόγος δηλοῖ ὅτι τοῦ σωματικοῦ κάλλους ἀμείνων ἐστὶν ὁ τῆς διανοίας κόσμος.
+# parallel_id = lyceum-aesop-p12/s3
+# translation_lang = en
+# prose_translation = The story shows that the adornment of the mind is superior to bodily beauty.
+# literal_translation = The story shows that of the bodily beauty superior is the of the mind adornment.
+38	Ὁ	ὁ	DET	article.masc.sg.nom	Definite=Def|PronType=Art|Gender=Masc|Number=Sing|Case=Nom	39	det	_	gloss=the
+39	λόγος	λόγος	NOUN	noun.masc.sg.nom	Gender=Masc|Number=Sing|Case=Nom	40	nsubj	_	gloss=story / account
+40	δηλοῖ	δηλόω	VERB	verb.pres.ind.act.3sg	Aspect=Imp|Mood=Ind|Tense=Pres|Voice=Act|Number=Sing|Person=3	0	root	_	gloss=shows
+41	ὅτι	ὅτι	SCONJ	conjunction	ConjType=Comp	42	mark	_	gloss=that
+42	τοῦ	ὁ	DET	article.neut.sg.gen	Definite=Def|PronType=Art|Gender=Neut|Number=Sing|Case=Gen	43	det	_	gloss=the
+43	σωματικοῦ	σωματικός	ADJ	adj.neut.sg.gen	Degree=Pos|Gender=Neut|Number=Sing|Case=Gen	44	amod	_	gloss=bodily
+44	κάλλους	κάλλος	NOUN	noun.neut.sg.gen	Gender=Neut|Number=Sing|Case=Gen	46	nmod	_	gloss=of beauty
+45	ἀμείνων	ἀμείνων	ADJ	adj.masc.sg.nom	Degree=Cmp|Gender=Masc|Number=Sing|Case=Nom	46	nsubj	_	gloss=superior / better
+46	ἐστὶν	εἰμί	VERB	verb.pres.ind.act.3sg	Aspect=Imp|Mood=Ind|Tense=Pres|Voice=Act|Number=Sing|Person=3	40	ccomp	_	gloss=is
+47	ὁ	ὁ	DET	article.masc.sg.nom	Definite=Def|PronType=Art|Gender=Masc|Number=Sing|Case=Nom	48	det	_	gloss=the
+48	τῆς	ὁ	DET	article.fem.sg.gen	Definite=Def|PronType=Art|Gender=Fem|Number=Sing|Case=Gen	49	det	_	gloss=the
+49	διανοίας	διάνοια	NOUN	noun.fem.sg.gen	Gender=Fem|Number=Sing|Case=Gen	50	nmod	_	gloss=of the mind
+50	κόσμος	κόσμος	NOUN	noun.masc.sg.nom	Gender=Masc|Number=Sing|Case=Nom	45	nsubj	_	gloss=adornment / order
+51	.	.	PUNCT	punctuation	_	46	punct	_	gloss=.
