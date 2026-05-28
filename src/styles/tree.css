@@ -71,6 +71,16 @@
 .pos-bar { pointer-events: none; rx: 1; ry: 1; }
 .arrowhead-fill { fill: var(--edge-color); }
 
+.tree-loading-state {
+  padding: 12px 14px;
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+#sentence-list .tree-loading-state {
+  cursor: default;
+}
+
 /* ===== Mobile ===== */
 
 @media (max-width: 768px) {

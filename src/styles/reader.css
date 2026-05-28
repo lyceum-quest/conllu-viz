@@ -146,7 +146,7 @@
   max-width: 900px;
 }
 
-.reader-main.wide {
+.reader-container[data-layers~="trans-side"] .reader-main {
   max-width: 1400px;
 }
 
@@ -161,7 +161,25 @@
 .reader-file-meta {
   font-size: 13px;
   color: var(--text-muted);
-  margin-bottom: 28px;
+  margin-bottom: 12px;
+}
+
+.reader-loading {
+  margin-bottom: 16px;
+  padding: 8px 12px;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  background: var(--bg-secondary);
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+.reader-loading-done {
+  color: var(--accent);
+}
+
+.reader-loading-error {
+  color: var(--accent-warn);
 }
 
 /* ── Sentence block ─────────────────────────────────────────────────── */
@@ -217,19 +235,19 @@
 }
 
 /* When no word layers are active, words flow as inline text */
-.reader-word.bare {
+[data-word-layers="none"] .reader-word {
   display: inline;
   padding: 0;
   line-height: 1.8;
 }
 
-.reader-word.bare .reader-form {
+[data-word-layers="none"] .reader-word .reader-form {
   display: inline;
   cursor: pointer;
 }
 
 /* In bare mode, the words container should flow as block text */
-.reader-words.bare-mode {
+[data-word-layers="none"] .reader-words {
   display: block;
   line-height: 1.8;
   letter-spacing: 0.01em;
@@ -239,7 +257,7 @@
   background: var(--bg-hover);
 }
 
-.reader-word.bare:hover {
+[data-word-layers="none"] .reader-word:hover {
   background: transparent;
   text-decoration: underline;
   text-decoration-color: var(--border-default);
@@ -260,6 +278,18 @@
   color: var(--text-primary);
   line-height: 1.5;
   white-space: nowrap;
+}
+
+.reader-form-segmented {
+  display: none;
+}
+
+[data-layers~="segments"] .reader-form-plain {
+  display: none;
+}
+
+[data-layers~="segments"] .reader-form-segmented {
+  display: inline;
 }
 
 .reader-form .segment {
@@ -335,18 +365,18 @@
   /* Default: stacked layout (words above, translation below) */
 }
 
-.reader-sentence-body.side-by-side {
+[data-layers~="trans-side"] .reader-sentence-body {
   display: flex;
   gap: 24px;
   align-items: flex-start;
 }
 
-.reader-sentence-body.side-by-side .reader-words {
+[data-layers~="trans-side"] .reader-sentence-body .reader-words {
   flex: 3;
   min-width: 0;
 }
 
-.reader-sentence-body.side-by-side .reader-translation {
+[data-layers~="trans-side"] .reader-sentence-body .reader-translation {
   flex: 2;
   min-width: 0;
 }
@@ -396,7 +426,7 @@
 }
 
 /* Side-by-side: remove left border, use full border instead */
-.reader-sentence-body.side-by-side .reader-translation {
+[data-layers~="trans-side"] .reader-sentence-body .reader-translation {
   border-left: none;
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-sm);
@@ -474,7 +504,7 @@
 }
 
 /* Bare mode punctuation spacing */
-.reader-word.bare[data-upos="PUNCT"] {
+[data-word-layers="none"] .reader-word[data-upos="PUNCT"] {
   margin-left: 0;
 }
 
@@ -508,11 +538,11 @@
     max-width: 100%;
   }
 
-  .reader-main.wide {
+  .reader-container[data-layers~="trans-side"] .reader-main {
     max-width: 100%;
   }
 
-  .reader-sentence-body.side-by-side {
+  [data-layers~="trans-side"] .reader-sentence-body {
     flex-direction: column;
   }
 

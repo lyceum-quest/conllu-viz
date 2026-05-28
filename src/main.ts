@@ -88,6 +88,8 @@ let activeIndex = -1;
 let resetView: (() => void) | null = null;
 let activeLang = '';
 let currentFileId: string | null = null;
+let treeLoadToken = 0;
+let sentenceRenderToken = 0;
 
 // Current page for nav highlighting
 let currentPage: PageType = 'browser';
@@ -205,23 +207,28 @@ window.addEventListener('resize', () => {
 function handleRoute() {
   const route = parseRoute();
   const { page, fileId } = route;
+  const prevPage = currentPage;
   currentPage = page;
   currentFileId = fileId || null;
+
+  if (prevPage === 'reader' && page !== 'reader') {
+    cleanupReader();
+  }
+  if (page !== 'tree') {
+    treeLoadToken++;
+    sentenceRenderToken++;
+  }
+
   updateNavHighlights();
 
   // Show/hide the tree app
   const app = document.getElementById('app')!;
   const pageEl = document.getElementById('page')!;
 
-  // Clean up previous page state
-  if (currentPage !== page && currentPage === 'reader') {
-    cleanupReader();
-  }
-
   if (page === 'tree') {
     app.style.display = '';
     pageEl.innerHTML = '';
-    if (fileId) loadTreeForFile(fileId);
+    if (fileId) void loadTreeForFile(fileId);
     else mountBrowserTree(); // no file selected — show existing tree UI
   } else if (page === 'reader') {
     app.style.display = 'none';
@@ -238,6 +245,11 @@ function handleRoute() {
 
 function mountBrowserTree() {
   // Original behavior — show welcome / drop overlay
+  treeLoadToken++;
+  sentenceRenderToken++;
+  treebank = null;
+  sentenceLayouts = [];
+  activeIndex = -1;
   fileNameLabel.textContent = '';
   dropOverlay.style.display = '';
   sidebarList.innerHTML = '';
@@ -248,6 +260,28 @@ function mountBrowserTree() {
   legendPanel.classList.add('hidden');
   langSelect.style.display = 'none';
   if (resetView) resetView();
+}
+
+function nextFrame(): Promise<void> {
+  return new Promise(resolve => requestAnimationFrame(() => resolve()));
+}
+
+function setTreeLoadingState(message: string) {
+  sentenceDisplay.innerHTML = '';
+  const status = document.createElement('div');
+  status.className = 'tree-loading-state';
+  status.setAttribute('role', 'status');
+  status.setAttribute('aria-live', 'polite');
+  status.textContent = message;
+  sentenceDisplay.appendChild(status);
+}
+
+function setSidebarStatus(message: string) {
+  sidebarList.innerHTML = '';
+  const li = document.createElement('li');
+  li.className = 'tree-loading-state';
+  li.textContent = message;
+  sidebarList.appendChild(li);
 }
 
 function updateNavHighlights() {
@@ -292,14 +326,16 @@ function updateNavHighlights() {
 
 // ── Load tree for a specific file ──────────────────────────────────────────
 
-function loadTreeForFile(fileId: string) {
+async function loadTreeForFile(fileId: string) {
   const store = loadStore();
   const file = store.files[fileId];
   if (!file) { navigate('browser'); return; }
 
   currentFileId = fileId;
   const content = file.content;
-  loadFile(content, file.name);
+  const loaded = await loadFile(content, file.name);
+
+  if (!loaded || currentPage !== 'tree' || currentFileId !== fileId || !treebank) return;
 
   // Update nav
   const titleEl = document.getElementById('nav-title');
@@ -309,18 +345,45 @@ function loadTreeForFile(fileId: string) {
 
 // ── File loading (existing logic, adapted) ─────────────────────────────────
 
-function loadFile(content: string, sourceName?: string) {
-  treebank = parseConllu(content, sourceName);
-  sentenceLayouts = treebank.sentences.map(s => layoutSentence(s));
+async function loadFile(content: string, sourceName?: string): Promise<boolean> {
+  if (currentPage !== 'tree') return false;
 
-  if (sentenceLayouts.length === 0) return;
-
+  const token = ++treeLoadToken;
+  sentenceRenderToken++;
+  treebank = null;
+  sentenceLayouts = [];
+  activeIndex = -1;
   fileNameLabel.textContent = sourceName || '';
   dropOverlay.style.display = 'none';
+  treeGroup.innerHTML = '';
+  setTreeLoadingState('Parsing…');
+  setSidebarStatus('Parsing…');
+  await nextFrame();
+  if (token !== treeLoadToken || currentPage !== 'tree') return false;
+
+  const parsed = parseConllu(content, sourceName);
+  setTreeLoadingState('Preparing sentences…');
+  setSidebarStatus('Preparing sentences…');
+  await nextFrame();
+  if (token !== treeLoadToken || currentPage !== 'tree') return false;
+
+  const layouts = parsed.sentences.map(s => layoutSentence(s));
+  if (token !== treeLoadToken || currentPage !== 'tree') return false;
+
+  treebank = parsed;
+  sentenceLayouts = layouts;
+
+  if (sentenceLayouts.length === 0) {
+    setTreeLoadingState('No sentences found.');
+    setSidebarStatus('No sentences found.');
+    return true;
+  }
+
   buildLanguageSelector();
   buildSidebar();
   buildLegend();
   showSentence(0);
+  return true;
 }
 
 function loadFileFromDisk(file: File) {
@@ -331,8 +394,7 @@ function loadFileFromDisk(file: File) {
     const store = loadStore();
     addFile(store, file.name, content, 'upload');
     saveStore(store);
-    file.name;
-    loadFile(content, file.name);
+    if (currentPage === 'tree') void loadFile(content, file.name);
   };
   reader.readAsText(file);
 }
@@ -430,16 +492,24 @@ function buildSidebar() {
 }
 
 function showSentence(index: number) {
-  if (index < 0 || index >= sentenceLayouts.length) return;
+  if (!treebank || index < 0 || index >= sentenceLayouts.length) return;
   activeIndex = index;
+  const token = ++sentenceRenderToken;
 
   sidebarList.querySelectorAll('li').forEach((li, i) => {
     li.classList.toggle('active', i === index);
   });
 
-  buildSentenceDisplay(treebank!.sentences[index]);
-  render(sentenceLayouts[index], svg, treeGroup);
-  showSentenceTranslations(index);
+  setTreeLoadingState('Preparing sentence…');
+  treeGroup.innerHTML = '';
+  translationPanel.classList.add('hidden');
+
+  requestAnimationFrame(() => {
+    if (token !== sentenceRenderToken || !treebank) return;
+    buildSentenceDisplay(treebank.sentences[index]);
+    render(sentenceLayouts[index], svg, treeGroup);
+    showSentenceTranslations(index);
+  });
 }
 
 function showSentenceTranslations(index: number) {

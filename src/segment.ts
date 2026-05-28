@@ -352,7 +352,40 @@ function matchAugment(text: string, minStem: number): number {
  * Segment a Greek word into morpheme spans.
  * Returns segments in LEFT-to-RIGHT order with original text preserved.
  */
+const SEGMENT_CACHE_LIMIT = 10000;
+const segmentCache = new Map<string, WordSegment[]>();
+
+function featureCacheKey(feats: FeatureMap | undefined): string {
+  if (!feats) return '';
+  return Object.entries(feats)
+    .sort(([a], [b]) => a.localeCompare(b))
+    .map(([k, v]) => `${k}=${v}`)
+    .join('|');
+}
+
+function segmentCacheKey(form: string, feats: FeatureMap | undefined, upos: string): string {
+  return `${form}\u0000${upos}\u0000${featureCacheKey(feats)}`;
+}
+
 export function segmentGreekWord(
+  form: string,
+  feats: FeatureMap | undefined,
+  upos: string,
+): WordSegment[] {
+  const key = segmentCacheKey(form, feats, upos);
+  const cached = segmentCache.get(key);
+  if (cached) return cached;
+
+  const segments = segmentGreekWordUncached(form, feats, upos);
+  if (segmentCache.size >= SEGMENT_CACHE_LIMIT) {
+    const firstKey = segmentCache.keys().next().value;
+    if (firstKey) segmentCache.delete(firstKey);
+  }
+  segmentCache.set(key, segments);
+  return segments;
+}
+
+function segmentGreekWordUncached(
   form: string,
   feats: FeatureMap | undefined,
   upos: string,

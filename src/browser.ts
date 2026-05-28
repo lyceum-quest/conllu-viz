@@ -82,9 +82,17 @@ function createHeader() {
 }
 
 async function hydratePreloadedFiles(statusEl: HTMLElement) {
-  statusEl.textContent = 'Checking bundled files…';
+  statusEl.textContent = 'Checking corpus…';
   const nextStore = loadStore();
-  const result = await loadPreloadedFiles(nextStore);
+  const result = await loadPreloadedFiles(nextStore, ({ checked, total, currentPath }) => {
+    if (total === 0) {
+      statusEl.textContent = 'Checking corpus…';
+      return;
+    }
+
+    const current = currentPath ? ` · ${currentPath.split('/').pop() || currentPath}` : '';
+    statusEl.textContent = `Checking corpus… ${checked}/${total}${current}`;
+  });
 
   if (result.added || result.updated || result.removed) {
     saveStore(nextStore);

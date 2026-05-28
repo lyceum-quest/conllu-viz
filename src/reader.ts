@@ -137,12 +137,26 @@ function escapeHTML(s: string): string {
   return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 }
 
+function escapeAttr(s: string): string {
+  return escapeHTML(s).replace(/"/g, '&quot;');
+}
+
+const RENDER_CHUNK_SIZE = 50;
+
+function afterNextPaint(fn: () => void) {
+  requestAnimationFrame(() => setTimeout(fn, 0));
+}
+
 // ── State ──────────────────────────────────────────────────────────────
 
 let activeLayers = loadLayerPrefs();
 let treebank: Treebank | null = null;
 let fileId = '';
 let fileName = '';
+let mountToken = 0;
+let renderComplete = false;
+let segmentsMaterialized = false;
+let tokenRegistry = new Map<string, Token>();
 let morphTooltipCleanup: (() => void) | null = null;
 let morphCloseHandler: (() => void) | null = null;
 let morphOverlayHandler: (() => void) | null = null;
@@ -225,8 +239,9 @@ function setupMorphTooltipListeners() {
 
 // ── Build sentence HTML ────────────────────────────────────────────────
 
-function buildSentenceHTML(sent: Sentence): string {
+function buildSentenceHTML(sent: Sentence, sentIndex: number): string {
   const sid = escapeHTML(sent.id);
+  const sidAttr = escapeAttr(sent.id);
   const words: string[] = [];
 
   // Build per-sentence token map for dependency display
@@ -235,24 +250,19 @@ function buildSentenceHTML(sent: Sentence): string {
   for (const t of sent.tokens) {
     const color = POS_COLORS[t.upos] || '#565f89';
     const isPunct = t.upos === 'PUNCT';
+    const tokenKey = `${sentIndex}:${t.id}`;
+    tokenRegistry.set(tokenKey, t);
 
-    // Form with optional segmentation
+    // Form with optional segmentation. Segment spans are materialized lazily
+    // when the segment layer is enabled.
     let formHTML: string;
     if (isPunct) {
-      formHTML = `<span class="reader-form" data-upos="${t.upos}">${escapeHTML(t.form)}</span>`;
+      formHTML = `<span class="reader-form" data-upos="${escapeAttr(t.upos)}">${escapeHTML(t.form)}</span>`;
     } else {
-      // Build segmented form (hidden until segments layer is on)
-      const segs = segmentGreekWord(t.form, t.feats, t.upos);
-      const segSpans = segs.map(s => {
-        const title = s.encodes.length > 0 ? `${s.type}: ${s.encodes.join(', ')}` : 'Stem';
-        return `<span class="segment" style="color:${s.color}" title="${escapeHTML(title)}">${escapeHTML(s.text)}</span>`;
-      }).join('');
-      // Plain form (no segments) — shown by default
       const plainForm = `<span class="reader-form-plain">${escapeHTML(t.form)}</span>`;
-      // Segmented form — hidden until segments layer enabled
-      const segForm = `<span class="reader-form-segmented" style="display:none">${segSpans}</span>`;
+      const segForm = '<span class="reader-form-segmented"></span>';
 
-      formHTML = `<span class="reader-form" data-upos="${t.upos}" style="--reader-pos-color:${color}">${plainForm}${segForm}</span>`;
+      formHTML = `<span class="reader-form" data-upos="${escapeAttr(t.upos)}" data-segment-key="${escapeAttr(tokenKey)}" style="--reader-pos-color:${color}">${plainForm}${segForm}</span>`;
     }
 
     // Enhancement rows
@@ -274,9 +284,10 @@ function buildSentenceHTML(sent: Sentence): string {
 
     // Word container with data attributes for click
     const dataAttrs = [
+      `data-token-key="${escapeAttr(tokenKey)}"`,
       `data-token-id="${t.id}"`,
-      `data-sent-id="${sid}"`,
-      `data-upos="${t.upos}"`,
+      `data-sent-id="${sidAttr}"`,
+      `data-upos="${escapeAttr(t.upos)}"`,
     ].join(' ');
 
     if (isPunct) {
@@ -296,7 +307,7 @@ function buildSentenceHTML(sent: Sentence): string {
   }
 
   return `
-    <div class="reader-sentence" data-sent-id="${sid}">
+    <div class="reader-sentence" data-sent-id="${sidAttr}">
       <div class="reader-sentence-id">${sid}</div>
       <div class="reader-sentence-body">
         <div class="reader-words">${words.join(' ')}</div>
@@ -307,25 +318,52 @@ function buildSentenceHTML(sent: Sentence): string {
   `;
 }
 
+function buildSegmentHTML(token: Token): string {
+  return segmentGreekWord(token.form, token.feats, token.upos).map(seg => {
+    const title = seg.encodes.length > 0 ? `${seg.type}: ${seg.encodes.join(', ')}` : 'Stem';
+    return `<span class="segment" style="color:${seg.color}" title="${escapeAttr(title)}">${escapeHTML(seg.text)}</span>`;
+  }).join('');
+}
+
+function materializeMissingSegments(scope: ParentNode) {
+  const forms = scope.querySelectorAll<HTMLElement>('.reader-form[data-segment-key]:not([data-segments-ready="1"])');
+  forms.forEach((form) => {
+    const tokenKey = form.dataset.segmentKey;
+    const token = tokenKey ? tokenRegistry.get(tokenKey) : undefined;
+    const target = form.querySelector<HTMLElement>('.reader-form-segmented');
+    if (!token || !target) return;
+
+    target.innerHTML = buildSegmentHTML(token);
+    form.dataset.segmentsReady = '1';
+  });
+}
+
 // ── Mount ──────────────────────────────────────────────────────────────
 
 export function mount(id: string) {
+  cleanup();
+
+  const currentMountToken = ++mountToken;
   fileId = id;
+  treebank = null;
+  renderComplete = false;
+  segmentsMaterialized = false;
+  tokenRegistry = new Map();
+
   const store = loadStore();
   const file = store.files[id];
   if (!file) { navigate('browser'); return; }
 
   fileName = file.name;
-  treebank = parseConllu(file.content, file.name);
 
   const page = document.getElementById('page')!;
   const app = document.getElementById('app');
   if (app) app.style.display = 'none';
   page.innerHTML = '';
 
-  // Update nav
+  // Update nav with an immediate, cheap title while parsing happens next paint.
   const titleEl = document.getElementById('nav-title');
-  if (titleEl) titleEl.textContent = treebank.title || fileName;
+  if (titleEl) titleEl.textContent = fileName;
 
   const readerLink = document.getElementById('nav-reader') as HTMLAnchorElement;
   if (readerLink) {
@@ -333,15 +371,12 @@ export function mount(id: string) {
     readerLink.href = routeUrl('reader', fileId);
   }
 
-  // Container
   const container = document.createElement('div');
   container.className = 'reader-container';
 
-  // Sidebar
   const sidebar = buildSidebar();
   container.appendChild(sidebar);
 
-  // Toggle button
   const toggleBtn = document.createElement('button');
   toggleBtn.className = 'reader-sidebar-toggle';
   toggleBtn.textContent = '⚙';
@@ -350,35 +385,30 @@ export function mount(id: string) {
     sidebar.classList.toggle('collapsed');
   });
 
-  // Main text area
   const main = document.createElement('div');
   main.className = 'reader-main';
 
-  // Title
-  if (treebank.title) {
-    const titleDiv = document.createElement('div');
-    titleDiv.className = 'reader-title';
-    titleDiv.textContent = treebank.title;
-    main.appendChild(titleDiv);
+  const titleDiv = document.createElement('div');
+  titleDiv.className = 'reader-title';
+  titleDiv.textContent = fileName;
+  main.appendChild(titleDiv);
 
-    const meta = document.createElement('div');
-    meta.className = 'reader-file-meta';
-    meta.textContent = `${fileName} · ${treebank.sentences.length} sentences`;
-    main.appendChild(meta);
-  }
+  const meta = document.createElement('div');
+  meta.className = 'reader-file-meta';
+  meta.textContent = 'Loading reader…';
+  main.appendChild(meta);
 
-  // Text container with data-layers attribute
+  const status = document.createElement('div');
+  status.className = 'reader-loading';
+  status.setAttribute('role', 'status');
+  status.setAttribute('aria-live', 'polite');
+  status.textContent = 'Parsing…';
+  main.appendChild(status);
+
   const textDiv = document.createElement('div');
   textDiv.id = 'reader-text';
-  textDiv.setAttribute('data-layers', [...activeLayers].join(' '));
-
-  // Render sentences — build all HTML first, then set once
-  const sentencesHTML = treebank.sentences.map(sent => buildSentenceHTML(sent)).join('');
-  textDiv.innerHTML = sentencesHTML;
-
   main.appendChild(textDiv);
 
-  // Back button
   const backBtn = document.createElement('button');
   backBtn.className = 'reader-back';
   backBtn.textContent = '← Back to Files';
@@ -390,25 +420,18 @@ export function mount(id: string) {
 
   container.appendChild(main);
   container.appendChild(toggleBtn);
-
   page.appendChild(container);
 
-  // Wire word clicks → morph panel
   textDiv.addEventListener('click', (e) => {
-    const wordEl = (e.target as Element).closest('.reader-word') as HTMLElement | null;
-    if (!wordEl) return;
-    const upos = wordEl.dataset.upos;
-    if (upos === 'PUNCT') return;
+    if (!(e.target instanceof Element)) return;
+    const wordEl = e.target.closest('.reader-word') as HTMLElement | null;
+    if (!wordEl || wordEl.dataset.upos === 'PUNCT') return;
 
-    const sentId = wordEl.dataset.sentId;
-    const tokenId = parseInt(wordEl.dataset.tokenId || '0', 10);
-
-    const sent = treebank?.sentences.find(s => s.id === sentId);
-    const token = sent?.tokens.find(t => t.id === tokenId);
+    const tokenKey = wordEl.dataset.tokenKey;
+    const token = tokenKey ? tokenRegistry.get(tokenKey) : undefined;
     if (token) showMorphPanel(token);
   });
 
-  // Wire morph panel close
   if (morphClose) {
     const closeFn = () => hideMorphPanel();
     morphClose.addEventListener('click', closeFn);
@@ -422,7 +445,6 @@ export function mount(id: string) {
     morphOverlayHandler = () => morphOverlay.removeEventListener('click', overlayFn);
   }
 
-  // Keyboard
   const onKeyDown = (e: KeyboardEvent) => {
     if (e.key === 'Escape') {
       if (morphOverlay && !morphOverlay.classList.contains('hidden')) {
@@ -433,13 +455,80 @@ export function mount(id: string) {
   window.addEventListener('keydown', onKeyDown);
   keydownHandler = onKeyDown;
 
-  // Setup morph tooltip listeners for the morph panel
   setupMorphTooltipListeners();
-
-  // Apply initial layer state
   applyLayers();
 
-  console.log(`📖 Reader view ready — ${treebank.sentences.length} sentences`);
+  afterNextPaint(() => {
+    if (currentMountToken !== mountToken) return;
+
+    try {
+      treebank = parseConllu(file.content, file.name);
+    } catch (err) {
+      if (currentMountToken !== mountToken) return;
+      status.textContent = 'Could not parse this file.';
+      status.classList.add('reader-loading-error');
+      console.error('Reader parse failed', err);
+      return;
+    }
+
+    if (currentMountToken !== mountToken || !treebank) return;
+
+    titleDiv.textContent = treebank.title || fileName;
+    meta.textContent = `${fileName} · ${treebank.sentences.length} sentences`;
+    if (titleEl) titleEl.textContent = treebank.title || fileName;
+
+    renderSentences(textDiv, status, currentMountToken);
+  });
+}
+
+function renderSentences(textDiv: HTMLElement, status: HTMLElement, currentMountToken: number) {
+  const sentences = treebank?.sentences ?? [];
+  const total = sentences.length;
+
+  if (total === 0) {
+    renderComplete = true;
+    status.textContent = 'No sentences found.';
+    return;
+  }
+
+  let index = 0;
+
+  const appendChunk = () => {
+    if (currentMountToken !== mountToken) return;
+
+    const start = index;
+    const end = Math.min(start + RENDER_CHUNK_SIZE, total);
+    status.hidden = false;
+    status.textContent = `Rendering ${start + 1}–${end} / ${total} sentences…`;
+
+    const template = document.createElement('template');
+    template.innerHTML = sentences
+      .slice(start, end)
+      .map((sent, offset) => buildSentenceHTML(sent, start + offset))
+      .join('');
+
+    const fragment = template.content;
+    if (activeLayers.has('segments')) materializeMissingSegments(fragment);
+    textDiv.appendChild(fragment);
+
+    index = end;
+    if (index < total) {
+      afterNextPaint(appendChunk);
+      return;
+    }
+
+    renderComplete = true;
+    if (activeLayers.has('segments')) segmentsMaterialized = true;
+    status.textContent = `Rendered ${total} sentences.`;
+    status.classList.add('reader-loading-done');
+    window.setTimeout(() => {
+      if (currentMountToken === mountToken) status.hidden = true;
+    }, 800);
+
+    console.log(`📖 Reader view ready — ${total} sentences`);
+  };
+
+  appendChunk();
 }
 
 // ── Sidebar ────────────────────────────────────────────────────────────
@@ -508,79 +597,35 @@ function buildSidebar(): HTMLElement {
 const WORD_LAYERS = new Set(['lemmas', 'glosses', 'upos', 'xpos', 'feats', 'deps']);
 
 function applyLayers() {
-  const textDiv = document.getElementById('reader-text');
+  const textDiv = document.getElementById('reader-text') as HTMLElement | null;
   if (!textDiv) return;
 
-  // Update data-layers attribute (drives CSS visibility)
-  textDiv.setAttribute('data-layers', [...activeLayers].join(' '));
-
-  // Handle segments layer (requires JS to swap form content)
-  applySegmentLayer();
-
-  // Handle POS coloring (requires inline style override)
-  applyPOSColoring();
-
-  // Handle side-by-side layout
-  applySideBySide(textDiv);
-
-  // Toggle bare/structured word mode
-  applyBareMode(textDiv);
-}
-
-function applyBareMode(textDiv: HTMLElement) {
+  const layers = [...activeLayers].join(' ');
   const hasWordLayers = [...activeLayers].some(l => WORD_LAYERS.has(l));
-  textDiv.querySelectorAll('.reader-word').forEach(el => {
-    el.classList.toggle('bare', !hasWordLayers);
-  });
-  textDiv.querySelectorAll('.reader-words').forEach(el => {
-    el.classList.toggle('bare-mode', !hasWordLayers);
-  });
-}
+  const container = textDiv.closest('.reader-container') as HTMLElement | null;
 
-function applySegmentLayer() {
-  const textDiv = document.getElementById('reader-text');
-  if (!textDiv) return;
+  textDiv.setAttribute('data-layers', layers);
+  textDiv.dataset.wordLayers = hasWordLayers ? 'active' : 'none';
+  if (container) {
+    container.setAttribute('data-layers', layers);
+    container.dataset.wordLayers = hasWordLayers ? 'active' : 'none';
+  }
 
-  const showSegs = activeLayers.has('segments');
-
-  textDiv.querySelectorAll('.reader-form-plain').forEach(el => {
-    (el as HTMLElement).style.display = showSegs ? 'none' : '';
-  });
-  textDiv.querySelectorAll('.reader-form-segmented').forEach(el => {
-    (el as HTMLElement).style.display = showSegs ? '' : 'none';
-  });
-}
-
-function applyPOSColoring() {
-  const textDiv = document.getElementById('reader-text');
-  if (!textDiv) return;
-
-  const showColor = activeLayers.has('pos-color');
-
-  textDiv.querySelectorAll('.reader-form').forEach(el => {
-    const form = el as HTMLElement;
-    const posColor = form.style.getPropertyValue('--reader-pos-color');
-    if (showColor && posColor) {
-      form.style.color = posColor;
-    } else {
-      form.style.color = '';
-    }
-  });
-}
-
-function applySideBySide(textDiv: HTMLElement) {
-  const sideBySide = activeLayers.has('trans-side');
-  textDiv.querySelectorAll('.reader-sentence-body').forEach(el => {
-    (el as HTMLElement).classList.toggle('side-by-side', sideBySide);
-  });
-  // Widen the main area for side-by-side layout
-  const main = textDiv.closest('.reader-main') as HTMLElement | null;
-  if (main) main.classList.toggle('wide', sideBySide);
+  if (activeLayers.has('segments') && !segmentsMaterialized) {
+    materializeMissingSegments(textDiv);
+    if (renderComplete) segmentsMaterialized = true;
+  }
 }
 
 // ── Cleanup ────────────────────────────────────────────────────────────
 
 export function cleanup() {
+  mountToken++;
+  renderComplete = false;
+  segmentsMaterialized = false;
+  tokenRegistry.clear();
+  treebank = null;
+
   if (morphTooltipCleanup) {
     morphTooltipCleanup();
     morphTooltipCleanup = null;

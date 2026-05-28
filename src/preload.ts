@@ -19,6 +19,14 @@ export interface PreloadResult {
   skipped: number;
 }
 
+export interface PreloadProgress {
+  checked: number;
+  total: number;
+  currentPath?: string;
+}
+
+export type PreloadProgressCallback = (progress: PreloadProgress) => void;
+
 const PRELOAD_MANIFEST_URL = '/preload/conllu-files.json';
 
 async function fetchText(url: string): Promise<string> {
@@ -31,7 +39,7 @@ function resolveManifestPath(path: string): string {
   return new URL(path, window.location.origin).toString();
 }
 
-export async function loadPreloadedFiles(store: AppStore): Promise<PreloadResult> {
+export async function loadPreloadedFiles(store: AppStore, onProgress?: PreloadProgressCallback): Promise<PreloadResult> {
   const result: PreloadResult = { added: 0, updated: 0, removed: 0, skipped: 0 };
 
   let manifest: PreloadManifest;
@@ -55,9 +63,19 @@ export async function loadPreloadedFiles(store: AppStore): Promise<PreloadResult
     }
   }
 
-  for (const entry of manifest.files ?? []) {
+  const files = manifest.files ?? [];
+  const total = files.length;
+  let checked = 0;
+  onProgress?.({ checked, total });
+
+  for (const entry of files) {
+    const currentPath = entry.path || entry.name;
+    onProgress?.({ checked, total, currentPath });
+
     if (!entry.name || !entry.path) {
       result.skipped++;
+      checked++;
+      onProgress?.({ checked, total, currentPath });
       continue;
     }
 
@@ -92,6 +110,9 @@ export async function loadPreloadedFiles(store: AppStore): Promise<PreloadResult
       console.warn(`[preload] unable to preload ${entry.name}`, err);
       result.skipped++;
     }
+
+    checked++;
+    onProgress?.({ checked, total, currentPath });
   }
 
   return result;
