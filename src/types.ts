@@ -111,10 +111,10 @@ export function parseConllu(content: string, source?: string): Treebank {
       if (!/^\d+$/.test(parts[0])) continue; // skip ranges like "1-2"
 
       const misc = parseMisc(parts[9]);
-      // Extract gloss from MISC: prefer explicit gloss=, else free-form text
-      let gloss: string | undefined = misc?.gloss;
+      // Extract gloss from MISC: accept project gloss= and standard UD Gloss=.
+      let gloss: string | undefined = misc?.gloss ?? misc?.Gloss;
       if (!gloss && misc) {
-        const miscValues = Object.entries(misc).filter(([k]) => k !== 'gloss');
+        const miscValues = Object.entries(misc).filter(([k]) => k.toLowerCase() !== 'gloss');
         if (miscValues.length === 1) {
           const [rawKey, rawVal] = miscValues[0];
           // If it has an equals sign, treat right side as gloss
