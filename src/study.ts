@@ -751,12 +751,14 @@ function createCardEl(token: Token, sentence: Sentence) {
 
   // Build the Greek sentence with the target token highlighted
   const tokenColor = POS_COLORS[token.upos] || '#565f89';
-  const greekSentenceHTML = sentence.tokens.map(t => {
-    if (t.id === token.id) {
-      return `<span class="study-highlighted-token" style="color:${tokenColor}">${escapeHTML(t.form)}</span>`;
-    }
-    return escapeHTML(t.form);
-  }).join(' ');
+  const greekSentenceHTML = sentence.tokens.map((t, index) => {
+    const form = t.upos === 'PUNCT' && t.form === '?' ? ';' : t.form;
+    const rendered = t.id === token.id
+      ? `<span class="study-highlighted-token" style="color:${tokenColor}">${escapeHTML(form)}</span>`
+      : escapeHTML(form);
+    const attachesToPrevious = t.upos === 'PUNCT' && /^[,.;:!?··;)\]»”’]$/u.test(form);
+    return `${index > 0 && !attachesToPrevious ? ' ' : ''}${rendered}`;
+  }).join('');
 
   // FRONT
   const front = createEl('div', 'study-card-face study-card-front');

@@ -1,4 +1,4 @@
-const CACHE_NAME = 'conllu-viz-v4';
+const CACHE_NAME = 'conllu-viz-v5';
 const APP_SHELL = [
   '/',
   '/index.html',

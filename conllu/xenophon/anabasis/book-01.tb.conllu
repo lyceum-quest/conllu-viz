@@ -5812,7 +5812,7 @@
 2	οὖν	οὖν	ADV	d--------	_	3	advmod	_	gloss=then|Ref=1.4.14
 3	κελεύω	κελεύω	VERB	v1spia---	Aspect=Imp|Mood=Ind|Number=Sing|Person=1|Tense=Pres|VerbForm=Fin|Voice=Act	0	root	_	gloss=I-order|Ref=1.4.14
 4	ποιῆσαι	ποιέω	VERB	v--ana---	Aspect=Perf|Tense=Past|VerbForm=Inf|Voice=Act	3	xcomp	_	gloss=to-do|Ref=1.4.14
-5	?	?	PUNCT	u--------	_	3	punct	_	Ref=1.4.14
+5	;	;	PUNCT	u--------	_	3	punct	_	Ref=1.4.14
 
 # sentence_id = 263
 # translation_lang = en

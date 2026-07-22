@@ -125,11 +125,16 @@ export function parseConllu(content: string, source?: string): Treebank {
         }
       }
 
+      const upos = parts[3];
+      // Normalize the legacy ASCII question mark used by some Greek imports.
+      const form = upos === 'PUNCT' && parts[1] === '?' ? ';' : parts[1];
+      const lemma = upos === 'PUNCT' && parts[2] === '?' ? ';' : parts[2];
+
       tokens.push({
         id: parseInt(parts[0], 10),
-        form: parts[1],
-        lemma: parts[2],
-        upos: parts[3],
+        form,
+        lemma,
+        upos,
         xpos: parts[4] !== '_' ? parts[4] : undefined,
         feats: parseFeats(parts[5]),
         head: parseInt(parts[6], 10),
@@ -142,13 +147,17 @@ export function parseConllu(content: string, source?: string): Treebank {
 
     if (tokens.length > 0) {
       const translations: Record<string, SentenceTranslation> = {};
-      if (transLang && (proseTranslation || literalTranslation)) {
-        translations[transLang] = {
-          lang: transLang,
+      const hasTranslation = !!(proseTranslation || literalTranslation);
+      // Older bundled corpora omitted translation_lang on some English translations.
+      // Defaulting those blocks to English also repairs already-cached corpus content.
+      const effectiveTransLang = transLang || (hasTranslation ? 'en' : '');
+      if (effectiveTransLang && hasTranslation) {
+        translations[effectiveTransLang] = {
+          lang: effectiveTransLang,
           prose: proseTranslation,
           literal: literalTranslation,
         };
-        translationLangs.add(transLang);
+        translationLangs.add(effectiveTransLang);
       }
 
       sentences.push({
