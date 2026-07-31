@@ -308,24 +308,19 @@ function updateNavHighlights() {
   readerSep.style.display = 'none';
   studyLink.style.display = 'none';
 
-  if (currentFileId) {
-    // Show relevant links based on current page
-    if (currentPage === 'tree' || currentPage === 'reader' || currentPage === 'study') {
-      treeLink.style.display = '';
-      treeLink.href = routeUrl('tree', currentFileId);
-    }
-    if (currentPage === 'tree' || currentPage === 'reader' || currentPage === 'study') {
-      readerLink.style.display = '';
-      readerLink.href = routeUrl('reader', currentFileId);
-    }
-    // Show separators between visible links
-    treeSep.style.display = treeLink.style.display ? '' : 'none';
-    readerSep.style.display = readerLink.style.display ? '' : 'none';
-  }
-
-  if (currentPage === 'study' && currentFileId) {
+  const isWorkPage = currentPage === 'tree' || currentPage === 'reader' || currentPage === 'study';
+  if (currentFileId && isWorkPage) {
+    treeLink.style.display = '';
+    treeLink.href = routeUrl('tree', currentFileId);
+    readerLink.style.display = '';
+    readerLink.href = routeUrl('reader', currentFileId);
     studyLink.style.display = '';
-    studyLink.href = window.location.hash || routeUrl('study', currentFileId);
+    studyLink.href = currentPage === 'study'
+      ? window.location.hash || routeUrl('study', currentFileId)
+      : routeUrl('study', currentFileId);
+
+    treeSep.style.display = '';
+    readerSep.style.display = '';
   }
 }
 

@@ -63,6 +63,7 @@ interface StudyState {
 }
 
 let state: StudyState | null = null;
+let sentenceSelectorReturnFocus: HTMLElement | null = null;
 
 // ── Helpers ──────────────────────────────────────────────────────────────
 
@@ -237,11 +238,12 @@ function resolveInitialSelection(
   hasRouteSelection: boolean,
 ): string[] {
   if (hasRouteSelection) {
-    return sanitizeSelection(sentences, routeSelectedSentences ?? []);
+    const routedSentence = sanitizeSelection(sentences, routeSelectedSentences ?? [])[0];
+    if (routedSentence) return [routedSentence];
   }
 
-  // Fresh entry (e.g. from files page) — always start with the first sentence
-  return defaultSelection(sentences);
+  const rememberedSentence = sanitizeSelection(sentences, getStudySelection(store, fileId) ?? [])[0];
+  return rememberedSentence ? [rememberedSentence] : defaultSelection(sentences);
 }
 
 function isSavedProgressValid(progress: SavedStudyProgress, allKeys: string[], selectedSentences: Set<string>, mode: StudyMode): boolean {
@@ -323,9 +325,8 @@ function onKeydown(e: KeyboardEvent) {
 
   if (e.key === 'Escape') {
     e.preventDefault();
-    if (selOpen && selPanel) {
-      selPanel.classList.add('hidden');
-      state.showSentenceSelector = false;
+    if (selOpen) {
+      closeSentenceSelector();
       return;
     }
     leaveStudy('browser');
@@ -552,7 +553,7 @@ function getNextWork(store: AppStore, fileId: string) {
 }
 
 export function cleanup() {
-  document.getElementById('sentence-selector-overlay')?.remove();
+  closeSentenceSelector(false);
   cleanupReviewCardMorphTooltips(document.getElementById('page'));
   window.removeEventListener('keydown', onKeydown);
   state = null;
@@ -587,8 +588,9 @@ function render() {
   const pct = sessionTotal > 0
     ? Math.min(100, Math.round((reviewedCount / sessionTotal) * 100)) : 0;
 
-  const allSelected = st.selectedSentences.size === sentences.length;
-  const selCount = allSelected ? '' : ` (${st.selectedSentences.size}/${sentences.length})`;
+  const selectedSentenceId = orderedSelectedSentences(sentences, st.selectedSentences)[0];
+  const selectedSentenceIndex = sentences.findIndex(sentence => sentence.id === selectedSentenceId);
+  const sentencePosition = selectedSentenceIndex >= 0 ? ` (${selectedSentenceIndex + 1}/${sentences.length})` : '';
 
   page.innerHTML = '';
 
@@ -605,8 +607,8 @@ function render() {
         <div class="study-file-name">${escapeHTML(displayTitle)}</div>
         ${showFileName ? `<div class="study-file-meta">${escapeHTML(fileName)}</div>` : ''}
       </div>
-      <button class="study-sel-btn" id="btn-sentence-selector" title="Select sentences">
-        📝 Sentences${selCount}
+      <button class="study-sel-btn" id="btn-sentence-selector" title="Choose sentence">
+        📝 Sentence${sentencePosition}
       </button>
     </div>
   `;
@@ -858,122 +860,120 @@ function createRatings(container: Element, cardKey: string) {
 
 // ── Sentence selector ────────────────────────────────────────────────────
 
+function closeSentenceSelector(restoreFocus = true) {
+  document.getElementById('sentence-selector-overlay')?.remove();
+  if (state) state.showSentenceSelector = false;
+  const returnFocus = sentenceSelectorReturnFocus;
+  sentenceSelectorReturnFocus = null;
+  if (restoreFocus) returnFocus?.focus();
+}
+
 function toggleSentenceSelector() {
   if (!state) return;
-  state.showSentenceSelector = !state.showSentenceSelector;
   if (state.showSentenceSelector) {
-    renderSentenceSelector(state.sentences);
-  } else {
-    const overlay = $('#sentence-selector-overlay') as HTMLElement | null;
-    if (overlay) overlay.remove();
+    closeSentenceSelector();
+    return;
   }
+  sentenceSelectorReturnFocus = document.activeElement instanceof HTMLElement
+    ? document.activeElement
+    : null;
+  state.showSentenceSelector = true;
+  renderSentenceSelector(state.sentences);
 }
 
 function renderSentenceSelector(sentences: Sentence[]) {
   if (!state) return;
-  const existing = $('#sentence-selector-overlay') as HTMLElement | null;
-  if (existing) existing.remove();
+  document.getElementById('sentence-selector-overlay')?.remove();
+
+  let draftSentenceId = orderedSelectedSentences(sentences, state.selectedSentences)[0]
+    ?? sentences[0]?.id
+    ?? null;
 
   const overlay = document.createElement('div');
   overlay.id = 'sentence-selector-overlay';
 
   const panel = document.createElement('div');
   panel.className = 'sentence-selector-card';
+  panel.setAttribute('role', 'dialog');
+  panel.setAttribute('aria-modal', 'true');
+  panel.setAttribute('aria-labelledby', 'sentence-selector-title');
 
   const header = document.createElement('div');
   header.className = 'sentence-selector-header';
-  const firstSentence = sentences[0];
   header.innerHTML = `
     <div>
-      <h3>Select Sentences to Study</h3>
-      <p class="sentence-selector-hint">Study starts with ${firstSentence ? `<strong>${escapeHTML(firstSentence.id)}</strong>` : 'the first sentence'} by default. Check more sentences to add them to this study.</p>
+      <h3 id="sentence-selector-title">Choose a Sentence to Study</h3>
+      <p class="sentence-selector-hint">Your choice and card position are remembered when you leave and return.</p>
     </div>
-    <button id="sentence-selector-close">&times;</button>
+    <button id="sentence-selector-close" aria-label="Close sentence selector">&times;</button>
   `;
   panel.appendChild(header);
-
-  const actions = document.createElement('div');
-  actions.className = 'sentence-selector-actions';
-  actions.innerHTML = `
-    <button id="sel-all" class="sel-action-btn">Select All</button>
-    <button id="sel-none" class="sel-action-btn">Deselect All</button>
-    <button id="sel-invert" class="sel-action-btn">Invert</button>
-  `;
-  panel.appendChild(actions);
 
   const list = document.createElement('div');
   list.className = 'sentence-selector-list';
 
-  for (const sent of sentences) {
-    const item = document.createElement('div');
-    const isSelected = state!.selectedSentences.has(sent.id);
+  sentences.forEach((sent, index) => {
+    const item = document.createElement('label');
+    const isSelected = sent.id === draftSentenceId;
     item.className = `sentence-selector-item${isSelected ? ' selected' : ''}`;
-    item.dataset.sentId = sent.id;
 
     const preview = sent.text || sent.tokens.map(t => t.form).join(' ');
     const truncated = preview.length > 80 ? preview.slice(0, 80) + '…' : preview;
 
     item.innerHTML = `
-      <span class="sentence-check">${isSelected ? '☑' : '☐'}</span>
+      <input class="sentence-radio" type="radio" name="study-sentence" value="${index}"${isSelected ? ' checked' : ''}>
       <span class="sentence-id">${escapeHTML(sent.id)}</span>
       <span class="sentence-preview">${escapeHTML(truncated)}</span>
     `;
 
-    item.addEventListener('click', () => {
-      if (!state) return;
-      const sid = item.dataset.sentId!;
-      const currentSel = state.selectedSentences;
-      if (item.classList.contains('selected')) {
-        currentSel.delete(sid);
-        item.classList.remove('selected');
-        item.querySelector('.sentence-check')!.textContent = '☐';
-      } else {
-        currentSel.add(sid);
-        item.classList.add('selected');
-        item.querySelector('.sentence-check')!.textContent = '☑';
-      }
+    item.querySelector<HTMLInputElement>('.sentence-radio')?.addEventListener('change', () => {
+      draftSentenceId = sent.id;
+      list.querySelectorAll('.sentence-selector-item').forEach(row => row.classList.remove('selected'));
+      item.classList.add('selected');
     });
-
     list.appendChild(item);
-  }
+  });
 
   panel.appendChild(list);
 
   const footer = document.createElement('div');
   footer.className = 'sentence-selector-footer';
-  footer.innerHTML = `<button id="sel-confirm" class="sel-confirm-btn">Apply & Restart</button>`;
+  footer.innerHTML = `<button id="sel-confirm" class="sel-confirm-btn"${draftSentenceId ? '' : ' disabled'}>Study Sentence</button>`;
   panel.appendChild(footer);
 
   overlay.appendChild(panel);
   document.body.appendChild(overlay);
 
-  $('#sentence-selector-close')!.addEventListener('click', () => toggleSentenceSelector());
-  overlay.addEventListener('click', (e) => {
-    if (e.target === overlay) toggleSentenceSelector();
+  document.getElementById('sentence-selector-close')?.addEventListener('click', () => closeSentenceSelector());
+  overlay.addEventListener('click', (event) => {
+    if (event.target === overlay) closeSentenceSelector();
+  });
+  overlay.addEventListener('keydown', (event) => {
+    if (event.key !== 'Tab') return;
+    const focusable = [...panel.querySelectorAll<HTMLElement>('button:not([disabled]), input:not([disabled])')];
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    if (!first || !last) return;
+    if (event.shiftKey && document.activeElement === first) {
+      event.preventDefault();
+      last.focus();
+    } else if (!event.shiftKey && document.activeElement === last) {
+      event.preventDefault();
+      first.focus();
+    }
+  });
+  document.getElementById('sel-confirm')?.addEventListener('click', () => {
+    if (!state || !draftSentenceId) return;
+    const currentSentenceId = orderedSelectedSentences(state.sentences, state.selectedSentences)[0];
+    closeSentenceSelector(false);
+    if (draftSentenceId !== currentSentenceId) {
+      restartStudyWithSelection(new Set([draftSentenceId]));
+    }
   });
 
-  $('#sel-all')!.addEventListener('click', () => {
-    state!.selectedSentences = new Set(sentences.map(s => s.id));
-    renderSentenceSelector(sentences);
-  });
-
-  $('#sel-none')!.addEventListener('click', () => {
-    state!.selectedSentences.clear();
-    renderSentenceSelector(sentences);
-  });
-
-  $('#sel-invert')!.addEventListener('click', () => {
-    const inverted = new Set(sentences
-      .map(s => s.id)
-      .filter(id => !state!.selectedSentences.has(id)));
-    state!.selectedSentences = inverted;
-    renderSentenceSelector(sentences);
-  });
-
-  $('#sel-confirm')!.addEventListener('click', () => {
-    overlay.remove();
-    restartStudyWithSelection(state!.selectedSentences);
-  });
+  const initialFocus = panel.querySelector<HTMLElement>('.sentence-radio:checked')
+    ?? document.getElementById('sentence-selector-close');
+  initialFocus?.focus();
 }
 
 // ── Handle rating ─────────────────────────────────────────────────────────

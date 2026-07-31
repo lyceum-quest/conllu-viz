@@ -3,8 +3,8 @@
  *
  * Corpus file content lives in browser-native IndexedDB so large treebanks do
  * not blow through localStorage quota or block the UI during every save.
- * Lightweight metadata, SRS state, study prefs, and sessionStorage resume data
- * stay in Web Storage for simplicity.
+ * Lightweight metadata, SRS state, study prefs, and study resume data stay in
+ * Web Storage for simplicity.
  */
 
 import { parseConllu } from './types';
@@ -357,6 +357,7 @@ export function removeFile(store: AppStore, fileId: string): AppStore {
   delete store.files[fileId];
   delete store.sessions[fileId];
   if (store.studyPrefs) delete store.studyPrefs[fileId];
+  clearFileStudyProgress(fileId);
   return store;
 }
 
@@ -371,7 +372,7 @@ export function ensureFileSession(store: AppStore, fileId: string): FileSession 
   return store.sessions[fileId];
 }
 
-// ── Study prefs + session progress ───────────────────────────────────────
+// ── Study prefs + durable progress ──────────────────────────────────────
 
 function normalizeSelectedSentences(selectedSentences: Iterable<string>): string[] {
   return [...new Set(selectedSentences)];
@@ -383,14 +384,40 @@ function studyProgressKey(fileId: string, mode: StudyMode, selectedSentences: It
 
 function loadStudyProgressMap(): Record<string, SavedStudyProgress> {
   try {
-    const raw = sessionStorage.getItem(STUDY_PROGRESS_STORAGE_KEY);
+    const raw = localStorage.getItem(STUDY_PROGRESS_STORAGE_KEY);
     if (raw) return JSON.parse(raw) as Record<string, SavedStudyProgress>;
+  } catch { /* corrupt data, try the legacy session store */ }
+
+  // Migrate in-progress sessions created before study progress became durable.
+  try {
+    const legacyRaw = sessionStorage.getItem(STUDY_PROGRESS_STORAGE_KEY);
+    if (legacyRaw) {
+      const progress = JSON.parse(legacyRaw) as Record<string, SavedStudyProgress>;
+      if (saveStudyProgressMap(progress)) {
+        sessionStorage.removeItem(STUDY_PROGRESS_STORAGE_KEY);
+      }
+      return progress;
+    }
   } catch { /* corrupt data, start fresh */ }
   return {};
 }
 
-function saveStudyProgressMap(map: Record<string, SavedStudyProgress>) {
-  sessionStorage.setItem(STUDY_PROGRESS_STORAGE_KEY, JSON.stringify(map));
+function saveStudyProgressMap(map: Record<string, SavedStudyProgress>): boolean {
+  try {
+    localStorage.setItem(STUDY_PROGRESS_STORAGE_KEY, JSON.stringify(map));
+    return true;
+  } catch (error) {
+    console.warn('[store] unable to persist study progress', error);
+    return false;
+  }
+}
+
+function clearFileStudyProgress(fileId: string) {
+  const progress = loadStudyProgressMap();
+  for (const [key, saved] of Object.entries(progress)) {
+    if (saved.fileId === fileId) delete progress[key];
+  }
+  saveStudyProgressMap(progress);
 }
 
 export function getStudySelection(store: AppStore, fileId: string): string[] | null {
@@ -429,12 +456,7 @@ export function clearStudyProgress(fileId: string, mode: StudyMode, selectedSent
 export function resetFileStudyHistory(store: AppStore, fileId: string) {
   if (!store.files[fileId]) return;
   store.sessions[fileId] = { fileId, tokens: {} };
-
-  const progress = loadStudyProgressMap();
-  for (const [key, saved] of Object.entries(progress)) {
-    if (saved.fileId === fileId) delete progress[key];
-  }
-  saveStudyProgressMap(progress);
+  clearFileStudyProgress(fileId);
 }
 
 // ── SRS state helpers ───────────────────────────────────────────────────
