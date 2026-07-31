@@ -1,4 +1,9 @@
 {
+  "authors": [
+    { "id": "xenophon", "name": "Xenophon", "pathPrefix": "/preload/xenophon/" },
+    { "id": "aristotle", "name": "Aristotle", "pathPrefix": "/preload/aristotle/" },
+    { "id": "aesop", "name": "Aesop", "pathPrefix": "/preload/aesop/" }
+  ],
   "files": [
     {
       "id": "xenophon-anabasis-book-01.conllu",

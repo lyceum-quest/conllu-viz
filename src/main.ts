@@ -244,7 +244,7 @@ function handleRoute() {
     mountStudy(fileId!, route.selectedSentences, route.hasSelectedSentences, route.studyMode);
   } else {
     app.style.display = 'none';
-    mountBrowser();
+    mountBrowser(route.authorId, route.browserSort);
   }
 }
 

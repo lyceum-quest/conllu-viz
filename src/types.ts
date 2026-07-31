@@ -47,6 +47,10 @@ export interface Treebank {
   source?: string;
   /** Work/document title (from # title = …) */
   title?: string;
+  /** Project-level author metadata (from # author = …) */
+  author?: string;
+  /** Project-level work metadata (from # work = …) */
+  work?: string;
   /** Languages that have translations in this treebank */
   translationLangs: string[];
 }
@@ -77,6 +81,8 @@ export function parseConllu(content: string, source?: string): Treebank {
   const translationLangs = new Set<string>();
   const normalized = content.replace(/\r\n/g, '\n').trim();
   const title = normalized.match(/^#\s+title\s*=\s*(.*)$/m)?.[1]?.trim() || undefined;
+  const author = normalized.match(/^#\s+author\s*=\s*(.*)$/m)?.[1]?.trim() || undefined;
+  const work = normalized.match(/^#\s+work\s*=\s*(.*)$/m)?.[1]?.trim() || undefined;
   // Normalize line endings and split on blank lines
   const blocks = normalized.split(/\n\n+/);
 
@@ -170,7 +176,7 @@ export function parseConllu(content: string, source?: string): Treebank {
     }
   }
 
-  return { sentences, source, title, translationLangs: [...translationLangs] };
+  return { sentences, source, title, author, work, translationLangs: [...translationLangs] };
 }
 
 export function collectLegend(treebank: Treebank): { pos: Set<string>; deprels: Set<string> } {

@@ -5,9 +5,18 @@ export interface PreloadFileEntry {
   name: string;
   path: string;
   source?: StoredFile['source'];
+  authorId?: string;
+  authorName?: string;
+}
+
+export interface PreloadAuthor {
+  id: string;
+  name: string;
+  pathPrefix: string;
 }
 
 export interface PreloadManifest {
+  authors?: PreloadAuthor[];
   files: PreloadFileEntry[];
   retiredIds?: string[];
 }
@@ -83,6 +92,9 @@ export async function loadPreloadedFiles(store: AppStore, onProgress?: PreloadPr
       const id = entry.id || entry.name;
       const content = await fetchText(resolveManifestPath(entry.path));
       const existing = store.files[id];
+      const manifestAuthor = manifest.authors?.find(author => entry.path.startsWith(author.pathPrefix));
+      const authorId = entry.authorId ?? manifestAuthor?.id ?? existing?.authorId;
+      const authorName = entry.authorName ?? manifestAuthor?.name ?? existing?.authorName;
 
       if (!existing) {
         store.files[id] = {
@@ -90,14 +102,23 @@ export async function loadPreloadedFiles(store: AppStore, onProgress?: PreloadPr
           name: entry.name,
           source: entry.source ?? 'default',
           loadedAt: Date.now(),
+          authorId,
+          authorName,
           content,
         };
         result.added++;
-      } else if (existing.source === 'default' && existing.content !== content) {
+      } else if (existing.source === 'default' && (
+        existing.content !== content
+        || existing.name !== entry.name
+        || existing.authorId !== authorId
+        || existing.authorName !== authorName
+      )) {
         store.files[id] = {
           ...existing,
           name: entry.name,
           source: entry.source ?? existing.source,
+          authorId,
+          authorName,
           content,
         };
         result.updated++;

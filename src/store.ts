@@ -17,6 +17,8 @@ export interface StoredFile {
   name: string;
   source: 'upload' | 'default';
   loadedAt: number;
+  authorId?: string;
+  authorName?: string;
   content: string;          // raw conllu text, hydrated from IndexedDB at startup
 }
 
@@ -129,6 +131,8 @@ function toPersistedStore(store: AppStore): PersistedAppStore {
       name: file.name,
       source: file.source,
       loadedAt: file.loadedAt,
+      authorId: file.authorId,
+      authorName: file.authorName,
       ...(useIndexedDB ? {} : { content: file.content }),
     };
   }
@@ -260,6 +264,8 @@ export async function initStore(): Promise<AppStore> {
       name: meta.name ?? id,
       source: meta.source ?? 'upload',
       loadedAt: meta.loadedAt ?? Date.now(),
+      authorId: meta.authorId,
+      authorName: meta.authorName,
       content,
     };
   }
@@ -292,6 +298,8 @@ export function loadStore(): AppStore {
       name: meta.name ?? id,
       source: meta.source ?? 'upload',
       loadedAt: meta.loadedAt ?? Date.now(),
+      authorId: meta.authorId,
+      authorName: meta.authorName,
       content: meta.content ?? '',
     };
   }
@@ -307,13 +315,29 @@ export function saveStore(store: AppStore) {
 
 // ── File helpers ─────────────────────────────────────────────────────────
 
+export function makeAuthorId(authorName: string): string {
+  const slug = authorName.normalize('NFKC')
+    .trim()
+    .toLocaleLowerCase()
+    .replace(/[^\p{L}\p{N}]+/gu, '-')
+    .replace(/^-|-$/g, '');
+  return slug || 'uploaded';
+}
+
 export function addFile(store: AppStore, name: string, content: string, source: StoredFile['source']): AppStore {
   const id = name;
+  let authorName: string | undefined;
+  try {
+    authorName = parseConllu(content, name).author;
+  } catch { /* keep unknown uploads grouped together */ }
+  authorName = authorName || (source === 'upload' ? 'Uploaded / Unknown Author' : undefined);
+  const authorId = authorName ? makeAuthorId(authorName) : undefined;
+
   if (store.files[id]) {
     // Update content but keep session
-    store.files[id] = { ...store.files[id], content, loadedAt: Date.now() };
+    store.files[id] = { ...store.files[id], content, loadedAt: Date.now(), authorId, authorName };
   } else {
-    store.files[id] = { id, name, source, loadedAt: Date.now(), content };
+    store.files[id] = { id, name, source, loadedAt: Date.now(), authorId, authorName, content };
   }
   if (!store.sessions[id]) {
     store.sessions[id] = { fileId: id, tokens: {} };
@@ -457,4 +481,11 @@ export function getMasteredCount(session: FileSession): number {
 
 export function getMasteryPct(session: FileSession, total: number): number {
   return total > 0 ? Math.round((getMasteredCount(session) / total) * 100) : 0;
+}
+
+export function getFileLastReview(store: AppStore, fileId: string): number {
+  const session = store.sessions[fileId];
+  if (!session) return 0;
+  return session.lastReview ?? Object.values(session.tokens)
+    .reduce((latest, token) => Math.max(latest, token.lastReviewed ?? 0), 0);
 }

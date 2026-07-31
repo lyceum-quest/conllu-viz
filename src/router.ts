@@ -20,6 +20,8 @@ export interface Route {
   studyMode: StudyMode;
   targetSentence?: string;
   targetTokenId?: number;
+  authorId?: string;
+  browserSort?: string;
 }
 
 export interface RouteOptions {
@@ -27,6 +29,8 @@ export interface RouteOptions {
   studyMode?: StudyMode;
   targetSentence?: string;
   targetTokenId?: number;
+  authorId?: string;
+  browserSort?: string;
 }
 
 const SENTENCE_PARAM = 'sentences';
@@ -56,6 +60,8 @@ export function parseRoute(): Route {
   const targetTokenId = rawTargetToken && /^\d+$/.test(rawTargetToken)
     ? Number(rawTargetToken)
     : undefined;
+  const authorId = params.get('author') || undefined;
+  const browserSort = params.get('sort') || undefined;
 
   if (pathPart === 'global-study') {
     return { page: 'global-study', hasSelectedSentences: false, studyMode: 'srs' };
@@ -82,17 +88,19 @@ export function parseRoute(): Route {
       studyMode,
     };
   }
-  return { page: 'browser', hasSelectedSentences: false, studyMode: 'srs' };
+  return { page: 'browser', hasSelectedSentences: false, studyMode: 'srs', authorId, browserSort };
 }
 
 export function routeUrl(page: PageType, fileId?: string, options: RouteOptions = {}): string {
-  if (page === 'browser') return '#browser';
   if (page === 'global-study') return '#global-study';
 
   const base = fileId ? `#${page}:${encodeURIComponent(fileId)}` : `#${page}`;
   const params = new URLSearchParams();
 
-  if (page === 'study') {
+  if (page === 'browser') {
+    if (options.authorId) params.set('author', options.authorId);
+    if (options.browserSort) params.set('sort', options.browserSort);
+  } else if (page === 'study') {
     if (options.studyMode === 'cram') params.set(MODE_PARAM, 'cram');
     if (options.selectedSentences !== undefined) {
       const selected = [...new Set(options.selectedSentences)];

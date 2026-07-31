@@ -192,6 +192,96 @@
   border-radius: var(--radius-sm);
 }
 
+.browser-heading {
+  margin-bottom: 4px;
+}
+
+.browser-breadcrumb {
+  display: inline-block;
+  margin-bottom: 8px;
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.browser-breadcrumb:hover {
+  text-decoration: underline;
+}
+
+/* Author cards */
+.author-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(320px, 100%), 1fr));
+  gap: 16px;
+}
+
+.author-card {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 16px;
+  align-items: center;
+  padding: 20px;
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-lg);
+  background: var(--bg-surface);
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: all var(--t-fast);
+}
+
+.author-card:hover {
+  border-color: var(--border-focus);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+}
+
+.author-card-icon {
+  width: 46px;
+  height: 46px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--accent) 12%, var(--bg-tertiary));
+  color: var(--accent);
+  font-size: 24px;
+}
+
+.author-card-body {
+  min-width: 0;
+}
+
+.author-card-name {
+  margin-bottom: 3px;
+  overflow: hidden;
+  color: var(--accent);
+  font-family: var(--font-display);
+  font-size: 19px;
+  font-weight: 700;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.author-card-meta,
+.author-card-recent,
+.file-card-recent {
+  color: var(--text-muted);
+  font-size: 11px;
+}
+
+.author-card-meta {
+  margin-bottom: 10px;
+}
+
+.author-card-recent {
+  margin-top: -4px;
+}
+
+.author-card-arrow {
+  color: var(--accent);
+  font-size: 24px;
+}
+
 /* File cards */
 .file-grid {
   display: grid;
@@ -226,6 +316,10 @@
   font-size: 12px;
   color: var(--text-secondary);
   font-style: italic;
+  margin-bottom: 4px;
+}
+
+.file-card-recent {
   margin-bottom: 12px;
 }
 
@@ -355,13 +449,18 @@
     font-size: 18px;
   }
 
-  .file-grid {
+  .file-grid,
+  .author-grid {
     grid-template-columns: 1fr;
     gap: 12px;
   }
 
   .file-card {
     padding: 12px 14px;
+  }
+
+  .author-card {
+    padding: 16px;
   }
 
   .browser-drop-zone {
