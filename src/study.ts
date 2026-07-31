@@ -120,6 +120,35 @@ function hideMorphTooltip() {
   morphTooltip.innerHTML = '';
 }
 
+export function setupReviewCardMorphTooltips(root: HTMLElement | null) {
+  if (!root) return;
+  root.removeEventListener('mouseover', onMorphMouseOver);
+  root.removeEventListener('mousemove', onMorphMouseMove);
+  root.removeEventListener('mouseout', onMorphMouseOut);
+  root.removeEventListener('focusin', onMorphFocusIn);
+  root.removeEventListener('focusout', onMorphFocusOut);
+  root.removeEventListener('scroll', hideMorphTooltip, true);
+  root.addEventListener('mouseover', onMorphMouseOver);
+  root.addEventListener('mousemove', onMorphMouseMove);
+  root.addEventListener('mouseout', onMorphMouseOut);
+  root.addEventListener('focusin', onMorphFocusIn);
+  root.addEventListener('focusout', onMorphFocusOut);
+  root.addEventListener('scroll', hideMorphTooltip, true);
+  window.removeEventListener('resize', hideMorphTooltip);
+  window.addEventListener('resize', hideMorphTooltip);
+}
+
+export function cleanupReviewCardMorphTooltips(root: HTMLElement | null) {
+  root?.removeEventListener('mouseover', onMorphMouseOver);
+  root?.removeEventListener('mousemove', onMorphMouseMove);
+  root?.removeEventListener('mouseout', onMorphMouseOut);
+  root?.removeEventListener('focusin', onMorphFocusIn);
+  root?.removeEventListener('focusout', onMorphFocusOut);
+  root?.removeEventListener('scroll', hideMorphTooltip, true);
+  window.removeEventListener('resize', hideMorphTooltip);
+  hideMorphTooltip();
+}
+
 function getMorphFeatureTarget(target: EventTarget | null): HTMLElement | null {
   if (!(target instanceof Element)) return null;
   return target.closest('.morph-feat') as HTMLElement | null;
@@ -415,24 +444,10 @@ export function mount(fileId: string, routeSelectedSentences?: string[], hasRout
   updateNav(state);
   render();
 
-  const page = document.getElementById('page');
-  page?.removeEventListener('mouseover', onMorphMouseOver);
-  page?.removeEventListener('mousemove', onMorphMouseMove);
-  page?.removeEventListener('mouseout', onMorphMouseOut);
-  page?.removeEventListener('focusin', onMorphFocusIn);
-  page?.removeEventListener('focusout', onMorphFocusOut);
-  page?.removeEventListener('scroll', hideMorphTooltip, true);
-  page?.addEventListener('mouseover', onMorphMouseOver);
-  page?.addEventListener('mousemove', onMorphMouseMove);
-  page?.addEventListener('mouseout', onMorphMouseOut);
-  page?.addEventListener('focusin', onMorphFocusIn);
-  page?.addEventListener('focusout', onMorphFocusOut);
-  page?.addEventListener('scroll', hideMorphTooltip, true);
+  setupReviewCardMorphTooltips(document.getElementById('page'));
 
   window.removeEventListener('keydown', onKeydown);
   window.addEventListener('keydown', onKeydown);
-  window.removeEventListener('resize', hideMorphTooltip);
-  window.addEventListener('resize', hideMorphTooltip);
 }
 
 function buildQueue(
@@ -538,16 +553,8 @@ function getNextWork(store: AppStore, fileId: string) {
 
 export function cleanup() {
   document.getElementById('sentence-selector-overlay')?.remove();
-  const pageEl = document.getElementById('page');
-  pageEl?.removeEventListener('mouseover', onMorphMouseOver);
-  pageEl?.removeEventListener('mousemove', onMorphMouseMove);
-  pageEl?.removeEventListener('mouseout', onMorphMouseOut);
-  pageEl?.removeEventListener('focusin', onMorphFocusIn);
-  pageEl?.removeEventListener('focusout', onMorphFocusOut);
-  pageEl?.removeEventListener('scroll', hideMorphTooltip, true);
+  cleanupReviewCardMorphTooltips(document.getElementById('page'));
   window.removeEventListener('keydown', onKeydown);
-  window.removeEventListener('resize', hideMorphTooltip);
-  hideMorphTooltip();
   state = null;
 }
 
@@ -704,7 +711,7 @@ function render() {
   const sentence = sentences.find(s => s.id === sentId)!;
   const token = sentence.tokens.find(t => t.id === tokenId)!;
 
-  container.appendChild(createCardEl(token, sentence));
+  container.appendChild(createReviewCard(token, sentence));
   container.appendChild(createRatings(container, queue[st.currentIdx]));
 
   // Back button
@@ -749,7 +756,7 @@ function createEl(tag: string, cls?: string) {
   return el;
 }
 
-function createCardEl(token: Token, sentence: Sentence) {
+export function createReviewCard(token: Token, sentence: Sentence) {
   const wrap = createEl('div', 'study-card-wrap');
 
   const card = createEl('div', 'study-card');

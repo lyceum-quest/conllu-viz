@@ -716,15 +716,10 @@
   color: var(--accent-danger);
 }
 
-.global-study-card .study-card-face {
-  padding-top: 48px;
-}
-
 .global-card-source {
-  position: absolute;
-  top: 14px;
-  left: 18px;
-  right: 18px;
+  display: block;
+  width: min(100%, 560px);
+  margin: 0 0 8px;
   overflow: hidden;
   color: var(--accent);
   font-family: var(--font-latin);
@@ -734,50 +729,15 @@
   text-decoration: none;
   text-overflow: ellipsis;
   white-space: nowrap;
-  z-index: 2;
 }
 
 .global-card-source:hover {
   text-decoration: underline;
 }
 
-.global-answer {
-  width: 100%;
-  padding-bottom: 10px;
-  text-align: center;
-  border-bottom: 1px solid var(--border-subtle);
-}
-
-.global-answer-form {
-  font-family: var(--font-greek);
-  font-size: 30px;
-  font-weight: 800;
-}
-
-.global-answer-lemma {
-  margin-top: 2px;
-  color: var(--text-primary);
-  font-family: var(--font-greek);
-  font-size: 20px;
-}
-
-.global-answer-gloss {
-  margin-top: 4px;
-  color: var(--accent);
-  font-size: 16px;
-  font-weight: 700;
-}
-
-.global-answer-morph {
-  margin-top: 5px;
-  color: var(--text-muted);
-  font-family: var(--font-mono, monospace);
-  font-size: 11px;
-}
-
 .global-card-history {
-  width: 100%;
-  margin-top: 12px;
+  width: min(100%, 560px);
+  margin: -8px 0 12px;
   padding: 10px;
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-sm);

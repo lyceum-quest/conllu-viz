@@ -6,16 +6,12 @@ import {
 } from './store';
 import { RATINGS, MASTERED_INTERVAL_DAYS, intervalLabel, review as srsReview } from './srs';
 import { navigate, routeUrl } from './router';
+import {
+  cleanupReviewCardMorphTooltips, createReviewCard, setupReviewCardMorphTooltips,
+} from './study';
 
 import './styles/tokens.css';
 import './styles/study.css';
-
-const POS_COLORS: Record<string, string> = {
-  NOUN: '#e0af68', VERB: '#f7768e', ADJ: '#9ece6a', ADV: '#73daca',
-  DET: '#7dcfff', PRON: '#b4f9f8', PROPN: '#ff9e64', ADP: '#bb9af7',
-  CCONJ: '#9d7cd8', SCONJ: '#7aa2f7', PART: '#c0caf5', NUM: '#e06c75',
-  PUNCT: '#565f89', AUX: '#f7768e', INTJ: '#ff007f', X: '#565f89',
-};
 
 const AGAIN_REINSERT_DISTANCE = 3;
 
@@ -120,17 +116,6 @@ function ratingHistory(srs: SRSState): string {
   return `Again ${counts[1] ?? 0} · Hard ${counts[2] ?? 0} · Good ${counts[3] ?? 0} · Easy ${counts[4] ?? 0}`;
 }
 
-function sentenceHTML(sentence: Sentence, target: Token): string {
-  return sentence.tokens.map((token, index) => {
-    const attaches = token.upos === 'PUNCT' && /^[,.;:!?··;)\]»”’]$/u.test(token.form);
-    const spacing = index > 0 && !attaches ? ' ' : '';
-    const form = escapeHTML(token.form);
-    return `${spacing}${token.id === target.id
-      ? `<span class="study-highlighted-token">${form}</span>`
-      : form}`;
-  }).join('');
-}
-
 function sourceUrl(card: GlobalCard): string {
   return routeUrl('reader', card.fileId, {
     targetSentence: card.sentence.id,
@@ -169,11 +154,13 @@ export function mount() {
 
   updateNav();
   render();
+  setupReviewCardMorphTooltips(document.getElementById('page'));
   window.addEventListener('keydown', onKeydown);
 }
 
 export function cleanup() {
   window.removeEventListener('keydown', onKeydown);
+  cleanupReviewCardMorphTooltips(document.getElementById('page'));
   state = null;
 }
 
@@ -318,7 +305,14 @@ function render() {
   dueIndicator.className = 'global-review-now';
   dueIndicator.innerHTML = `<strong>${dueNow}</strong> ${dueNow === 1 ? 'card needs' : 'cards need'} review now`;
   content.appendChild(dueIndicator);
-  content.appendChild(createCard(card));
+  content.appendChild(createSourceNavigation(card));
+
+  const reviewCard = createReviewCard(card.token, card.sentence);
+  const studyCard = reviewCard.querySelector<HTMLElement>('#study-card');
+  studyCard?.addEventListener('click', () => studyCard.classList.toggle('flipped'));
+  content.appendChild(reviewCard);
+
+  content.appendChild(createReviewHistory(card));
   content.appendChild(createRatings(card));
   st.cardShowTime = Date.now();
 }
@@ -455,55 +449,25 @@ function renderSettings(content: HTMLElement) {
   });
 }
 
-function createCard(card: GlobalCard): HTMLElement {
-  const wrap = document.createElement('div');
-  wrap.className = 'study-card-wrap';
-  const color = POS_COLORS[card.token.upos] || '#565f89';
-  const greekSentence = sentenceHTML(card.sentence, card.token);
-  const translation = card.sentence.translations?.en;
-  const source = sourceLabel(card);
+function createSourceNavigation(card: GlobalCard): HTMLElement {
+  const link = document.createElement('a');
+  link.className = 'global-card-source';
+  link.href = sourceUrl(card);
+  link.title = 'Open this word in Reader';
+  link.textContent = `↗ ${sourceLabel(card)}`;
+  return link;
+}
+
+function createReviewHistory(card: GlobalCard): HTMLElement {
+  const history = document.createElement('div');
+  history.className = 'global-card-history';
   const lastReviewed = formatDate(card.srs.lastReviewed);
   const lastReviewedISO = isoDate(card.srs.lastReviewed);
-
-  wrap.innerHTML = `
-    <div class="study-card global-study-card" id="study-card">
-      <div class="study-card-face study-card-front">
-        <a class="global-card-source" href="${escapeAttr(sourceUrl(card))}" title="Open this word in Reader">↗ ${escapeHTML(source)}</a>
-        <div class="study-word" style="color:${color}">${escapeHTML(card.token.form)}</div>
-        <div class="study-sentence-context">
-          <div class="study-sentence-label">Context</div>
-          <div class="study-greek-sentence">${greekSentence}</div>
-        </div>
-        <div class="study-hint">tap to reveal</div>
-      </div>
-      <div class="study-card-face study-card-back">
-        <a class="global-card-source" href="${escapeAttr(sourceUrl(card))}" title="Open this word in Reader">↗ ${escapeHTML(source)}</a>
-        <div class="global-answer">
-          <div class="global-answer-form" style="color:${color}">${escapeHTML(card.token.form)}</div>
-          <div class="global-answer-lemma">${escapeHTML(card.token.lemma)}</div>
-          ${card.token.gloss ? `<div class="global-answer-gloss">${escapeHTML(card.token.gloss)}</div>` : ''}
-          <div class="global-answer-morph">${escapeHTML([card.token.upos, card.token.xpos].filter(Boolean).join(' · '))}</div>
-        </div>
-        <div class="study-sentence">
-          <div class="study-sentence-label">Source sentence</div>
-          <div class="study-greek-sentence">${greekSentence}</div>
-          ${translation?.prose ? `<div class="study-translation-prose">📖 ${escapeHTML(translation.prose)}</div>` : ''}
-          ${translation?.literal ? `<div class="study-translation-literal">🔤 ${escapeHTML(translation.literal)}</div>` : ''}
-        </div>
-        <div class="global-card-history">
-          <div><strong>${totalReviews(card.srs)}</strong> reviews · <strong>${card.srs.lapses}</strong> lapses · <strong>${card.srs.interval}d</strong> interval</div>
-          <div>${escapeHTML(ratingHistory(card.srs))}</div>
-          <div>Last reviewed: <time datetime="${lastReviewedISO}" title="${lastReviewedISO}">${escapeHTML(lastReviewed)}</time></div>
-        </div>
-      </div>
-    </div>`;
-
-  const studyCard = wrap.querySelector<HTMLElement>('#study-card');
-  studyCard?.addEventListener('click', event => {
-    if (event.target instanceof Element && event.target.closest('a')) return;
-    studyCard.classList.toggle('flipped');
-  });
-  return wrap;
+  history.innerHTML = `
+    <div><strong>${totalReviews(card.srs)}</strong> reviews · <strong>${card.srs.lapses}</strong> lapses · <strong>${card.srs.interval}d</strong> interval</div>
+    <div>${escapeHTML(ratingHistory(card.srs))}</div>
+    <div>Last reviewed: <time datetime="${lastReviewedISO}" title="${lastReviewedISO}">${escapeHTML(lastReviewed)}</time></div>`;
+  return history;
 }
 
 function createRatings(card: GlobalCard): HTMLElement {
