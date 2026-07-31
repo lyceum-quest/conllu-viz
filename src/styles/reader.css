@@ -510,6 +510,18 @@
 
 /* ── Responsive ─────────────────────────────────────────────────────── */
 
+.reader-source-target {
+  border-radius: var(--radius-md);
+  background: color-mix(in srgb, var(--accent) 8%, transparent);
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--accent) 35%, transparent);
+}
+
+.reader-word-target .reader-form {
+  border-radius: 4px;
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
 @media (max-width: 768px) {
   .reader-sidebar {
     position: fixed;

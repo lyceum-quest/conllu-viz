@@ -6,9 +6,10 @@
  *   #reader:<fileId>                   — progressive reader view
  *   #study:<fileId>?sentences=…        — SRS study session
  *   #study:<fileId>?mode=cram&…        — cram session
+ *   #global-study                      — due cards from every encountered work
  */
 
-export type PageType = 'browser' | 'tree' | 'reader' | 'study';
+export type PageType = 'browser' | 'tree' | 'reader' | 'study' | 'global-study';
 export type StudyMode = 'srs' | 'cram';
 
 export interface Route {
@@ -17,16 +18,28 @@ export interface Route {
   selectedSentences?: string[];
   hasSelectedSentences: boolean;
   studyMode: StudyMode;
+  targetSentence?: string;
+  targetTokenId?: number;
 }
 
 export interface RouteOptions {
   selectedSentences?: Iterable<string>;
   studyMode?: StudyMode;
+  targetSentence?: string;
+  targetTokenId?: number;
 }
 
 const SENTENCE_PARAM = 'sentences';
 const MODE_PARAM = 'mode';
 const SENTENCE_SEPARATOR = '|';
+
+function decodeFileId(value: string): string {
+  try {
+    return decodeURIComponent(value);
+  } catch {
+    return value;
+  }
+}
 
 export function parseRoute(): Route {
   const hash = window.location.hash.slice(1); // strip "#"
@@ -38,17 +51,32 @@ export function parseRoute(): Route {
     ? rawSelected.split(SENTENCE_SEPARATOR).filter(Boolean)
     : undefined;
   const studyMode = params.get(MODE_PARAM) === 'cram' ? 'cram' : 'srs';
+  const targetSentence = params.get('sentence') || undefined;
+  const rawTargetToken = params.get('token');
+  const targetTokenId = rawTargetToken && /^\d+$/.test(rawTargetToken)
+    ? Number(rawTargetToken)
+    : undefined;
 
+  if (pathPart === 'global-study') {
+    return { page: 'global-study', hasSelectedSentences: false, studyMode: 'srs' };
+  }
   if (pathPart.startsWith('tree:')) {
-    return { page: 'tree', fileId: pathPart.slice(5), hasSelectedSentences, studyMode };
+    return { page: 'tree', fileId: decodeFileId(pathPart.slice(5)), hasSelectedSentences, studyMode };
   }
   if (pathPart.startsWith('reader:')) {
-    return { page: 'reader', fileId: pathPart.slice(7), hasSelectedSentences, studyMode };
+    return {
+      page: 'reader',
+      fileId: decodeFileId(pathPart.slice(7)),
+      hasSelectedSentences,
+      studyMode,
+      targetSentence,
+      targetTokenId,
+    };
   }
   if (pathPart.startsWith('study:')) {
     return {
       page: 'study',
-      fileId: pathPart.slice(6),
+      fileId: decodeFileId(pathPart.slice(6)),
       selectedSentences,
       hasSelectedSentences,
       studyMode,
@@ -59,8 +87,9 @@ export function parseRoute(): Route {
 
 export function routeUrl(page: PageType, fileId?: string, options: RouteOptions = {}): string {
   if (page === 'browser') return '#browser';
+  if (page === 'global-study') return '#global-study';
 
-  const base = fileId ? `#${page}:${fileId}` : `#${page}`;
+  const base = fileId ? `#${page}:${encodeURIComponent(fileId)}` : `#${page}`;
   const params = new URLSearchParams();
 
   if (page === 'study') {
@@ -69,6 +98,9 @@ export function routeUrl(page: PageType, fileId?: string, options: RouteOptions 
       const selected = [...new Set(options.selectedSentences)];
       params.set(SENTENCE_PARAM, selected.join(SENTENCE_SEPARATOR));
     }
+  } else if (page === 'reader') {
+    if (options.targetSentence) params.set('sentence', options.targetSentence);
+    if (options.targetTokenId !== undefined) params.set('token', String(options.targetTokenId));
   }
 
   const query = params.toString();

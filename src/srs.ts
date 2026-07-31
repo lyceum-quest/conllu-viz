@@ -53,13 +53,17 @@ export const MASTERED_INTERVAL_DAYS = 3;
 // ── Create default state ─────────────────────────────────────────────────
 
 export function newSRSState(): SRSState {
+  const now = Date.now();
   return {
     interval: 0,
     ease: DEFAULT_EASE,
     reviews: 0,
-    nextReview: Date.now(), // due immediately
+    nextReview: now, // due immediately
     lapses: 0,
     learningStep: 0,
+    firstSeen: now,
+    totalReviews: 0,
+    ratingCounts: {},
   };
 }
 
@@ -141,6 +145,17 @@ export function intervalLabel(state: SRSState, quality: number): string {
 // ── Apply review ─────────────────────────────────────────────────────────
 
 export function review(state: SRSState, quality: number): SRSState {
+  const now = Date.now();
+  const rating = Math.min(4, Math.max(1, quality)) as 1 | 2 | 3 | 4;
+  state.firstSeen ??= state.lastReviewed ?? now;
+  state.lastReviewed = now;
+  state.totalReviews = (state.totalReviews ?? (state.reviews + state.lapses)) + 1;
+  state.lastRating = rating;
+  state.ratingCounts = {
+    ...state.ratingCounts,
+    [rating]: (state.ratingCounts?.[rating] ?? 0) + 1,
+  };
+
   const inLearning = isInLearningPhase(state);
 
   if (inLearning) {

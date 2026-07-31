@@ -371,6 +371,7 @@ function onKeydown(e: KeyboardEvent) {
 // ── Mount ─────────────────────────────────────────────────────────────────
 
 export function mount(fileId: string, routeSelectedSentences?: string[], hasRouteSelection = false, mode: StudyMode = 'srs') {
+  cleanup();
   if (!fileId) { navigate('browser'); return; }
 
   const store = loadStore();
@@ -535,7 +536,8 @@ function getNextWork(store: AppStore, fileId: string) {
   };
 }
 
-function leaveStudy(page: 'browser' | 'study', fileId?: string, options?: Parameters<typeof navigate>[2]) {
+export function cleanup() {
+  document.getElementById('sentence-selector-overlay')?.remove();
   const pageEl = document.getElementById('page');
   pageEl?.removeEventListener('mouseover', onMorphMouseOver);
   pageEl?.removeEventListener('mousemove', onMorphMouseMove);
@@ -547,6 +549,10 @@ function leaveStudy(page: 'browser' | 'study', fileId?: string, options?: Parame
   window.removeEventListener('resize', hideMorphTooltip);
   hideMorphTooltip();
   state = null;
+}
+
+function leaveStudy(page: 'browser' | 'study', fileId?: string, options?: Parameters<typeof navigate>[2]) {
+  cleanup();
   navigate(page, fileId, options);
 }
 

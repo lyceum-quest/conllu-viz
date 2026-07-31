@@ -153,6 +153,8 @@ let activeLayers = loadLayerPrefs();
 let treebank: Treebank | null = null;
 let fileId = '';
 let fileName = '';
+let targetSentenceId: string | undefined;
+let targetTokenId: number | undefined;
 let mountToken = 0;
 let renderComplete = false;
 let segmentsMaterialized = false;
@@ -340,11 +342,13 @@ function materializeMissingSegments(scope: ParentNode) {
 
 // ── Mount ──────────────────────────────────────────────────────────────
 
-export function mount(id: string) {
+export function mount(id: string, targetSentence?: string, targetToken?: number) {
   cleanup();
 
   const currentMountToken = ++mountToken;
   fileId = id;
+  targetSentenceId = targetSentence;
+  targetTokenId = targetToken;
   treebank = null;
   renderComplete = false;
   segmentsMaterialized = false;
@@ -481,6 +485,22 @@ export function mount(id: string) {
   });
 }
 
+function revealTarget(textDiv: HTMLElement) {
+  if (!targetSentenceId) return;
+
+  const sentence = [...textDiv.querySelectorAll<HTMLElement>('.reader-sentence')]
+    .find(el => el.dataset.sentId === targetSentenceId);
+  if (!sentence || sentence.classList.contains('reader-source-target')) return;
+
+  sentence.classList.add('reader-source-target');
+  const word = targetTokenId === undefined
+    ? null
+    : [...sentence.querySelectorAll<HTMLElement>('.reader-word')]
+      .find(el => Number(el.dataset.tokenId) === targetTokenId);
+  word?.classList.add('reader-word-target');
+  (word ?? sentence).scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+
 function renderSentences(textDiv: HTMLElement, status: HTMLElement, currentMountToken: number) {
   const sentences = treebank?.sentences ?? [];
   const total = sentences.length;
@@ -501,15 +521,18 @@ function renderSentences(textDiv: HTMLElement, status: HTMLElement, currentMount
     status.hidden = false;
     status.textContent = `Rendering ${start + 1}–${end} / ${total} sentences…`;
 
+    const chunk = sentences.slice(start, end);
     const template = document.createElement('template');
-    template.innerHTML = sentences
-      .slice(start, end)
+    template.innerHTML = chunk
       .map((sent, offset) => buildSentenceHTML(sent, start + offset))
       .join('');
 
     const fragment = template.content;
     if (activeLayers.has('segments')) materializeMissingSegments(fragment);
     textDiv.appendChild(fragment);
+    if (targetSentenceId && chunk.some(sentence => sentence.id === targetSentenceId)) {
+      revealTarget(textDiv);
+    }
 
     index = end;
     if (index < total) {
@@ -520,6 +543,7 @@ function renderSentences(textDiv: HTMLElement, status: HTMLElement, currentMount
     renderComplete = true;
     if (activeLayers.has('segments')) segmentsMaterialized = true;
     status.textContent = `Rendered ${total} sentences.`;
+    revealTarget(textDiv);
     status.classList.add('reader-loading-done');
     window.setTimeout(() => {
       if (currentMountToken === mountToken) status.hidden = true;
@@ -625,6 +649,8 @@ export function cleanup() {
   segmentsMaterialized = false;
   tokenRegistry.clear();
   treebank = null;
+  targetSentenceId = undefined;
+  targetTokenId = undefined;
 
   if (morphTooltipCleanup) {
     morphTooltipCleanup();

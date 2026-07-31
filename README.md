@@ -9,6 +9,7 @@ Interactive visualizer for [CoNLL-U](https://universaldependencies.org/format.ht
 - **Dependency tree view** — Pan/zoom SVG trees with color-coded POS tags and dependency relations. Click any node for full morphology analysis.
 - **Reader mode** — Flowing prose display with progressive layers (lemmas, glosses, morphology, translations) toggled on/off.
 - **SRS study** — Anki-style spaced repetition (SM-2) for vocabulary review with Again/Hard/Good/Easy grading.
+- **Global vocabulary review** — One due queue and searchable history for every word encountered across all works, with exact source links.
 - **Greek word segmentation** — Morpheme-level color highlighting in word cards.
 - **Multi-sentence navigation** — Sidebar with sentence list, arrow key navigation.
 - **Import & persistence** — Load `.conllu` files via drag-and-drop or file picker; data saved to IndexedDB. Bulk import via CLI with SQLite backend.

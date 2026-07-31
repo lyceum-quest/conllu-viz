@@ -36,6 +36,12 @@ export interface SRSState {
   nextReview: number;    // epoch ms — when the card is next due
   lapses: number;
   learningStep: number;  // current step in learning/relearning (0-based index)
+  /** Cumulative history fields are optional for compatibility with existing localStorage data. */
+  firstSeen?: number;
+  lastReviewed?: number;
+  totalReviews?: number;
+  lastRating?: number;
+  ratingCounts?: Partial<Record<1 | 2 | 3 | 4, number>>;
 }
 
 export interface FileSession {

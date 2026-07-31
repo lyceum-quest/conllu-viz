@@ -4,6 +4,7 @@
  *   #browser  → File browser page
  *   #tree:id  → Dependency tree view (existing)
  *   #study:id → SRS study session
+ *   #global-study → due cards from all encountered works
  */
 
 import './styles/tokens.css';
@@ -21,7 +22,8 @@ import { render, setupPanZoom, exportSVG, setFilter, DEPREL_LABELS } from './ren
 import { buildMorphAnalysisHTML } from './morpho';
 import { mount as mountBrowser } from './browser';
 import { mount as mountReader, cleanup as cleanupReader } from './reader';
-import { mount as mountStudy } from './study';
+import { mount as mountStudy, cleanup as cleanupStudy } from './study';
+import { mount as mountGlobalStudy, cleanup as cleanupGlobalStudy } from './global-study';
 import { parseRoute, navigate, routeUrl, PageType } from './router';
 import { initStore, loadStore, saveStore, addFile } from './store';
 
@@ -211,9 +213,9 @@ function handleRoute() {
   currentPage = page;
   currentFileId = fileId || null;
 
-  if (prevPage === 'reader' && page !== 'reader') {
-    cleanupReader();
-  }
+  if (prevPage === 'reader' && page !== 'reader') cleanupReader();
+  if (prevPage === 'study' && page !== 'study') cleanupStudy();
+  if (prevPage === 'global-study' && page !== 'global-study') cleanupGlobalStudy();
   if (page !== 'tree') {
     treeLoadToken++;
     sentenceRenderToken++;
@@ -232,8 +234,11 @@ function handleRoute() {
     else mountBrowserTree(); // no file selected — show existing tree UI
   } else if (page === 'reader') {
     app.style.display = 'none';
-    if (fileId) mountReader(fileId);
+    if (fileId) mountReader(fileId, route.targetSentence, route.targetTokenId);
     else navigate('browser');
+  } else if (page === 'global-study') {
+    app.style.display = 'none';
+    mountGlobalStudy();
   } else if (page === 'study') {
     app.style.display = 'none';
     mountStudy(fileId!, route.selectedSentences, route.hasSelectedSentences, route.studyMode);
