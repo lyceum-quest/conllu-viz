@@ -401,6 +401,18 @@ export function clearStudyProgress(fileId: string, mode: StudyMode, selectedSent
   saveStudyProgressMap(map);
 }
 
+/** Reset a work's SRS history without deleting its source file or reading preferences. */
+export function resetFileStudyHistory(store: AppStore, fileId: string) {
+  if (!store.files[fileId]) return;
+  store.sessions[fileId] = { fileId, tokens: {} };
+
+  const progress = loadStudyProgressMap();
+  for (const [key, saved] of Object.entries(progress)) {
+    if (saved.fileId === fileId) delete progress[key];
+  }
+  saveStudyProgressMap(progress);
+}
+
 // ── SRS state helpers ───────────────────────────────────────────────────
 /**
  * Key format: "<sentId>:<tokenId>"

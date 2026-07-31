@@ -660,12 +660,60 @@
 }
 
 /* ── Global review provenance + history ── */
+.global-study-container {
+  justify-content: flex-start !important;
+}
+
 #global-study-content {
   width: 100%;
-  max-width: 560px;
+  max-width: 760px;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.global-study-header {
+  max-width: 760px;
+}
+
+.global-study-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+  flex-wrap: wrap;
+}
+
+.global-study-actions .study-sel-btn.active {
+  border-color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 12%, var(--bg-tertiary));
+  color: var(--text-primary);
+}
+
+.global-due-badge {
+  display: inline-flex;
+  min-width: 20px;
+  height: 20px;
+  margin-left: 4px;
+  padding: 0 6px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: var(--accent-danger);
+  color: white;
+  font-size: 11px;
+  line-height: 1;
+}
+
+.global-review-now {
+  width: min(100%, 560px);
+  margin: -8px 0 10px;
+  color: var(--text-muted);
+  font-size: 12px;
+  text-align: right;
+}
+
+.global-review-now strong {
+  color: var(--accent-danger);
 }
 
 .global-study-card .study-card-face {
@@ -759,9 +807,11 @@
 
 .global-collection-panel {
   width: min(100%, 760px);
-  max-height: min(52dvh, 560px);
+  height: min(62dvh, 620px);
+  max-height: min(62dvh, 620px);
   margin-bottom: 20px;
   overflow: hidden;
+  flex: 0 0 auto;
   border: 1px solid var(--border-default);
   border-radius: var(--radius-lg);
   background: var(--bg-surface);
@@ -802,6 +852,7 @@
 .global-collection-list {
   min-height: 0;
   overflow-y: auto;
+  flex: 1 1 auto;
 }
 
 .global-collection-row {
@@ -859,6 +910,118 @@
   text-align: center;
 }
 
+.global-settings-panel {
+  width: min(100%, 760px);
+  max-height: min(68dvh, 680px);
+  overflow: hidden;
+  flex: 0 0 auto;
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-lg);
+  background: var(--bg-surface);
+  display: flex;
+  flex-direction: column;
+}
+
+.global-settings-heading {
+  padding: 16px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.global-settings-heading h3 {
+  margin: 0 0 6px;
+  color: var(--text-primary);
+  font-size: 16px;
+}
+
+.global-settings-heading p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.global-settings-tools {
+  display: flex;
+  gap: 6px;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.global-settings-list {
+  min-height: 0;
+  overflow-y: auto;
+  flex: 1 1 auto;
+}
+
+.global-settings-work {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 12px;
+  align-items: center;
+  padding: 11px 14px;
+  border-bottom: 1px solid var(--border-subtle);
+  cursor: pointer;
+}
+
+.global-settings-work:hover {
+  background: var(--bg-tertiary);
+}
+
+.global-settings-work input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--accent);
+}
+
+.global-settings-work-name {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+}
+
+.global-settings-work-name strong,
+.global-settings-work-name small {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.global-settings-work-name strong {
+  color: var(--text-primary);
+  font-size: 13px;
+}
+
+.global-settings-work-name small,
+.global-settings-work-count,
+#global-settings-selection {
+  color: var(--text-muted);
+  font-size: 11px;
+}
+
+.global-settings-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 14px;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.global-reset-btn {
+  padding: 8px 14px;
+  border: 1px solid var(--accent-danger);
+  border-radius: var(--radius-sm);
+  background: color-mix(in srgb, var(--accent-danger) 12%, var(--bg-surface));
+  color: var(--accent-danger);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.global-reset-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
 @media (min-width: 769px) and (min-height: 820px) {
   .study-container {
     justify-content: center;
@@ -878,6 +1041,15 @@
     max-width: 100%;
   }
 
+  .global-study-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .global-study-actions .study-sel-btn:first-child {
+    grid-column: 1 / -1;
+  }
+
   .global-collection-heading {
     align-items: stretch;
     flex-direction: column;
@@ -894,6 +1066,15 @@
   .global-collection-due,
   .global-collection-source {
     grid-column: 2;
+  }
+
+  .global-settings-footer {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .global-reset-btn {
+    min-height: 44px;
   }
 
   .study-file-name {
