@@ -51,6 +51,7 @@ function escapeAttr(value: string): string {
 
 function collectEncounteredCards(store: AppStore): GlobalCard[] {
   const cards: GlobalCard[] = [];
+  const seenVocabulary = new Set<string>();
 
   for (const [fileId, session] of Object.entries(store.sessions)) {
     const trackedKeys = Object.keys(session.tokens);
@@ -71,6 +72,17 @@ function collectEncounteredCards(store: AppStore): GlobalCard[] {
         const sentence = sentences.get(sentId);
         const token = tokensBySentence.get(sentId)?.get(tokenId);
         if (!sentence || !token || token.upos === 'PUNCT') continue;
+
+        // Global review is a set of (Greek form, English definition) pairs.
+        // Keep the first encountered source card; repeated occurrences with the
+        // same gloss share that card, while different glosses remain distinct.
+        const vocabularyKey = JSON.stringify([
+          token.form.normalize('NFC'),
+          (token.gloss ?? '').normalize('NFC'),
+        ]);
+        if (seenVocabulary.has(vocabularyKey)) continue;
+        seenVocabulary.add(vocabularyKey);
+
         cards.push({
           fileId,
           fileName: file.name,
