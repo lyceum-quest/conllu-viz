@@ -12,7 +12,8 @@
     "import": "tsx scripts/import-conllu.ts",
     "lint": "tsx scripts/lint.ts",
     "lint:all": "tsx scripts/lint.ts",
-    "lint:test": "tsx scripts/lint-test.ts"
+    "lint:test": "tsx scripts/lint-test.ts",
+    "test": "tsx scripts/srs-test.ts"
   },
   "devDependencies": {
     "tsx": "^4.21.0",

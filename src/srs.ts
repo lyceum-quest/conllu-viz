@@ -3,7 +3,7 @@
  * Implements learning phase (minute-based steps) → review phase (day-based SM-2).
  */
 
-import { SRSState } from './store';
+import type { SRSState } from './store';
 
 // ── SM-2 quality constants ───────────────────────────────────────────────
 
@@ -50,6 +50,8 @@ export const MIN_EASE = 1.3;
 /** Mastered threshold in days — cards meeting this count toward "mastered". */
 export const MASTERED_INTERVAL_DAYS = 3;
 
+const MINUTES_PER_DAY = 24 * 60;
+
 // ── Create default state ─────────────────────────────────────────────────
 
 export function newSRSState(): SRSState {
@@ -67,58 +69,157 @@ export function newSRSState(): SRSState {
   };
 }
 
-// ── Helper: which learning steps apply to this card ──────────────────────
-
-function learningStepsFor(state: SRSState): number[] {
-  if (state.reviews === 0) return LEARNING_STEPS;  // new
-  return RELEARNING_STEPS;                          // relearning (lapsed)
+// A zero-review card with no day interval is new/learning. A zero-review card
+// with a retained day interval is relearning after a lapse. This uses fields
+// already present in persisted states, so legacy records need no migration.
+export function isInLearningPhase(state: SRSState): boolean {
+  return state.reviews === 0;
 }
 
-// ── Helper: is the card currently in a learning step? ────────────────────
+function isRelearning(state: SRSState): boolean {
+  return isInLearningPhase(state) && state.interval > 0;
+}
 
-function isInLearningPhase(state: SRSState): boolean {
-  const steps = learningStepsFor(state);
-  return state.reviews === 0 || state.learningStep < steps.length;
+function learningStepsFor(state: SRSState): number[] {
+  return isRelearning(state) ? RELEARNING_STEPS : LEARNING_STEPS;
+}
+
+function clampQuality(quality: number): 1 | 2 | 3 | 4 {
+  return Math.min(Q_EASY, Math.max(Q_AGAIN, quality)) as 1 | 2 | 3 | 4;
+}
+
+function adjustedEase(ease: number, quality: number): number {
+  return Math.max(
+    MIN_EASE,
+    ease + 0.1 - (5 - quality) * (0.08 + (5 - quality) * 0.02),
+  );
+}
+
+function matureIntervalDays(interval: number, ease: number, quality: number): number {
+  let days: number;
+  if (quality === Q_HARD) {
+    days = Math.floor(interval * 1.2);
+  } else if (quality === Q_GOOD) {
+    days = Math.floor(interval * ease);
+  } else {
+    days = Math.floor(interval * ease * 1.3);
+  }
+
+  // Every successful mature review must grow by at least one day. Keeping the
+  // rule here makes preview and application use exactly the same result.
+  return Math.max(interval + 1, days);
+}
+
+interface SchedulingTransition {
+  delayMinutes: number;
+  interval: number;
+  ease: number;
+  reviews: number;
+  lapses: number;
+  learningStep: number;
+}
+
+/** Compute one scheduling transition without timestamps or mutation. */
+function schedulingTransition(state: SRSState, rawQuality: number): SchedulingTransition {
+  const quality = clampQuality(rawQuality);
+
+  if (isInLearningPhase(state)) {
+    const relearning = isRelearning(state);
+    const steps = learningStepsFor(state);
+    const currentStep = Math.min(state.learningStep, steps.length - 1);
+
+    if (quality === Q_AGAIN) {
+      return {
+        delayMinutes: steps[0],
+        interval: state.interval,
+        ease: state.ease,
+        reviews: state.reviews,
+        lapses: state.lapses,
+        learningStep: 0,
+      };
+    }
+
+    if (quality === Q_HARD) {
+      return {
+        delayMinutes: Math.round(steps[currentStep] * 1.5),
+        interval: state.interval,
+        ease: state.ease,
+        reviews: state.reviews,
+        lapses: state.lapses,
+        learningStep: state.learningStep,
+      };
+    }
+
+    if (quality === Q_GOOD) {
+      const nextStep = state.learningStep + 1;
+      if (nextStep < steps.length) {
+        return {
+          delayMinutes: steps[nextStep],
+          interval: state.interval,
+          ease: state.ease,
+          reviews: state.reviews,
+          lapses: state.lapses,
+          learningStep: nextStep,
+        };
+      }
+
+      const graduationDays = relearning
+        ? Math.max(GRADUATING_INTERVAL, state.interval)
+        : GRADUATING_INTERVAL;
+      return {
+        delayMinutes: graduationDays * MINUTES_PER_DAY,
+        interval: graduationDays,
+        ease: state.ease,
+        reviews: state.reviews + 1,
+        lapses: state.lapses,
+        learningStep: 0,
+      };
+    }
+
+    // Easy graduates immediately. A relearning card never loses more of its
+    // retained interval merely because it was recalled easily.
+    const easyDays = relearning
+      ? Math.max(EASY_GRADUATING_INTERVAL, state.interval)
+      : EASY_GRADUATING_INTERVAL;
+    return {
+      delayMinutes: easyDays * MINUTES_PER_DAY,
+      interval: easyDays,
+      ease: state.ease,
+      reviews: state.reviews + 1,
+      lapses: state.lapses,
+      learningStep: 0,
+    };
+  }
+
+  const ease = adjustedEase(state.ease, quality);
+  if (quality === Q_AGAIN) {
+    const interval = Math.max(1, Math.floor(state.interval * 0.5));
+    return {
+      delayMinutes: RELEARNING_STEPS[0],
+      interval,
+      ease,
+      reviews: 0,
+      lapses: state.lapses + 1,
+      learningStep: 0,
+    };
+  }
+
+  // Hard is a successful mature review, not a lapse.
+  const interval = matureIntervalDays(state.interval, ease, quality);
+  return {
+    delayMinutes: interval * MINUTES_PER_DAY,
+    interval,
+    ease,
+    reviews: state.reviews + 1,
+    lapses: state.lapses,
+    learningStep: 0,
+  };
 }
 
 // ── Preview: compute next interval (minutes) without mutating ────────────
 
 export function previewInterval(state: SRSState, quality: number): number {
-  if (!isInLearningPhase(state)) {
-    // === REVIEW phase — day-based SM-2 ===
-    if (quality === Q_AGAIN) return 0;        // lapse → requeue immediately for relearning
-
-    const eased = Math.max(MIN_EASE, state.ease + 0.1 - (5 - quality) * (0.08 + (5 - quality) * 0.02));
-    let days: number;
-
-    if (quality === Q_HARD) {
-      days = Math.floor(state.interval * 1.2);
-      if (days <= state.interval) days = state.interval + 1;
-    } else if (quality === Q_GOOD) {
-      days = Math.floor(state.interval * eased);
-    } else {
-      days = Math.floor(state.interval * eased * 1.3);
-    }
-
-    return days * 24 * 60;
-  }
-
-  // === LEARNING phase — step-based minutes ===
-  const steps = learningStepsFor(state);
-  const currentStep = Math.min(state.learningStep, steps.length - 1);
-
-  if (quality === Q_AGAIN) return 0;                   // back to step 0, requeue
-
-  if (quality === Q_HARD) return Math.round(steps[currentStep] * 1.5);
-
-  if (quality === Q_GOOD) {
-    const nextStep = state.learningStep + 1;
-    if (nextStep >= steps.length) return GRADUATING_INTERVAL * 24 * 60;  // graduate
-    return steps[nextStep];
-  }
-
-  // EASY — graduate immediately
-  return EASY_GRADUATING_INTERVAL * 24 * 60;
+  return schedulingTransition(state, quality).delayMinutes;
 }
 
 // ── Human-friendly interval label ────────────────────────────────────────
@@ -132,7 +233,7 @@ export function intervalLabel(state: SRSState, quality: number): string {
   const hours = Math.round(totalMinutes / 60);
   if (hours < 24) return `${hours}h`;
 
-  const days = Math.round(totalMinutes / (60 * 24));
+  const days = Math.round(totalMinutes / MINUTES_PER_DAY);
   if (days < 30) return `${days}d`;
 
   const months = Math.round(days / 30);
@@ -146,7 +247,9 @@ export function intervalLabel(state: SRSState, quality: number): string {
 
 export function review(state: SRSState, quality: number): SRSState {
   const now = Date.now();
-  const rating = Math.min(4, Math.max(1, quality)) as 1 | 2 | 3 | 4;
+  const rating = clampQuality(quality);
+  const transition = schedulingTransition(state, rating);
+
   state.firstSeen ??= state.lastReviewed ?? now;
   state.lastReviewed = now;
   state.totalReviews = (state.totalReviews ?? (state.reviews + state.lapses)) + 1;
@@ -156,80 +259,12 @@ export function review(state: SRSState, quality: number): SRSState {
     [rating]: (state.ratingCounts?.[rating] ?? 0) + 1,
   };
 
-  const inLearning = isInLearningPhase(state);
-
-  if (inLearning) {
-    const steps = learningStepsFor(state);
-
-    if (quality === Q_AGAIN) {
-      state.learningStep = 0;
-      state.nextReview = Date.now();                       // requeue now
-      return state;
-    }
-
-    if (quality === Q_HARD) {
-      const currentStep = Math.min(state.learningStep, steps.length - 1);
-      const mins = Math.round(steps[currentStep] * 1.5);
-      state.nextReview = Date.now() + mins * 60 * 1000;
-      return state;
-    }
-
-    if (quality === Q_GOOD) {
-      const nextStep = state.learningStep + 1;
-      if (nextStep >= steps.length) {
-        // Graduate to review phase
-        state.reviews += 1;
-        state.learningStep = 0;
-        state.interval = GRADUATING_INTERVAL;
-        state.nextReview = Date.now() + GRADUATING_INTERVAL * 24 * 60 * 60 * 1000;
-      } else {
-        state.learningStep = nextStep;
-        state.nextReview = Date.now() + steps[nextStep] * 60 * 1000;
-      }
-      return state;
-    }
-
-    // EASY — graduate immediately
-    state.reviews += 1;
-    state.learningStep = 0;
-    state.interval = EASY_GRADUATING_INTERVAL;
-    state.nextReview = Date.now() + EASY_GRADUATING_INTERVAL * 24 * 60 * 60 * 1000;
-    return state;
-  }
-
-  // === REVIEW phase — SM-2 ===
-  const eased = Math.max(
-    MIN_EASE,
-    state.ease + 0.1 - (5 - quality) * (0.08 + (5 - quality) * 0.02)
-  );
-  state.ease = eased;
-
-  if (quality < 3) {
-    // Again / Hard = lapse → relearning
-    state.reviews = 0;
-    state.lapses += 1;
-    state.learningStep = 0;
-    state.interval = Math.max(1, Math.floor(state.interval * 0.5));  // halve interval (min 1)
-    state.nextReview = Date.now();                                   // requeue now for relearning
-    return state;
-  }
-
-  // Good / Easy — compute next review interval
-  let days: number;
-  if (quality === Q_HARD) {
-    days = Math.floor(state.interval * 1.2);
-    if (days <= state.interval) days = state.interval + 1;
-  } else if (quality === Q_GOOD) {
-    days = Math.floor(state.interval * eased);
-  } else {
-    // Easy
-    days = Math.floor(state.interval * eased * 1.3);
-  }
-  if (days <= state.interval) days = state.interval + 1;
-
-  state.interval = days;
-  state.reviews += 1;
-  state.nextReview = Date.now() + days * 24 * 60 * 60 * 1000;
+  state.interval = transition.interval;
+  state.ease = transition.ease;
+  state.reviews = transition.reviews;
+  state.lapses = transition.lapses;
+  state.learningStep = transition.learningStep;
+  state.nextReview = now + transition.delayMinutes * 60 * 1000;
   return state;
 }
 

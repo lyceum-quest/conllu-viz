@@ -4,9 +4,10 @@
  *
  * Session model:
  *   - Queue contains all due + new cards at start
- *   - Good/Easy: card is "done" for this session
- *   - Hard: card advances but stays (re-review at current step)
- *   - Again: card is re-inserted a few positions ahead (re-review same session)
+ *   - Day-based answers finish a card for the session
+ *   - Minute-based learning/relearning cards stay deferred in the active queue
+ *     and return when due without replacing the visible card
+ *   - Cram keeps its immediate Again/non-Again queue behavior
  *   - Progress = reviewed / sessionTotal (moves! ✅)
  */
 
@@ -19,9 +20,12 @@ import {
   loadStudyProgress, saveStudyProgress, clearStudyProgress,
 } from './store';
 import {
-  newSRSState, review as srsReview, RATINGS, intervalLabel,
-  MASTERED_INTERVAL_DAYS,
+  newSRSState, review as srsReview, RATINGS, intervalLabel, previewInterval,
+  isInLearningPhase, MASTERED_INTERVAL_DAYS,
 } from './srs';
+import {
+  normalizeDeferredQueueLists, queueDueDeferredItems, reconcileDeferredQueue,
+} from './deferred-queue';
 import { buildMorphAnalysisHTML } from './morpho';
 import { navigate, routeUrl } from './router';
 import type { StudyMode } from './router';
@@ -40,6 +44,7 @@ const POS_COLORS: Record<string, string> = {
 
 /** How many cards ahead to re-insert "Again" cards (Anki default: 3) */
 const AGAIN_REINSERT_DISTANCE = 3;
+const INTRADAY_INTERVAL_MINUTES = 24 * 60;
 
 // ── State ─────────────────────────────────────────────────────────────────
 
@@ -60,6 +65,9 @@ interface StudyState {
   totalTimeMs: number        // total time spent this session
   selectedSentences: Set<string>;
   showSentenceSelector: boolean;
+  deferredCards: Set<string>;
+  readyDeferredCards: Set<string>;
+  dueTimer: number | null;
 }
 
 let state: StudyState | null = null;
@@ -248,10 +256,21 @@ function resolveInitialSelection(
 
 function isSavedProgressValid(progress: SavedStudyProgress, allKeys: string[], selectedSentences: Set<string>, mode: StudyMode): boolean {
   const allowedKeys = new Set(allKeys.filter(key => selectedSentences.has(parseTokenKey(key).sentId)));
+  const deferredQueue = progress.deferredQueue ?? [];
+  const readyDeferredQueue = progress.readyDeferredQueue ?? [];
+  if (!Array.isArray(progress.queue)
+    || !Array.isArray(deferredQueue)
+    || !Array.isArray(readyDeferredQueue)) return false;
+
+  const deferredKeys = new Set(deferredQueue);
   return progress.mode === mode
     && progress.currentIdx >= 0
     && progress.currentIdx <= progress.queue.length
-    && progress.queue.every(key => allowedKeys.has(key));
+    && progress.queue.every(key => allowedKeys.has(key))
+    && deferredQueue.every(key => allowedKeys.has(key) && progress.queue.includes(key))
+    && readyDeferredQueue.every(key => allowedKeys.has(key)
+      && progress.queue.includes(key)
+      && !deferredKeys.has(key));
 }
 
 function getFileDisplayTitle(file: { name: string; content: string }, fallbackId?: string) {
@@ -274,6 +293,11 @@ function persistStudySelection(st: StudyState) {
 }
 
 function persistStudyProgress(st: StudyState) {
+  const deferredQueues = normalizeDeferredQueueLists(
+    st.queue,
+    st.deferredCards,
+    st.readyDeferredCards,
+  );
   saveStudyProgress({
     fileId: st.fileId,
     mode: st.mode,
@@ -283,6 +307,7 @@ function persistStudyProgress(st: StudyState) {
     sessionTotal: st.sessionTotal,
     reviewedCount: st.reviewedCount,
     totalTimeMs: st.totalTimeMs,
+    ...deferredQueues,
     updatedAt: Date.now(),
   });
 }
@@ -298,7 +323,9 @@ function advancePastFutureCards(st: StudyState): boolean {
   while (st.currentIdx < st.queue.length) {
     const key = st.queue[st.currentIdx];
     const tokenState = st.session.tokens[key];
-    if (tokenState && tokenState.nextReview > Date.now()) {
+    if (tokenState
+      && tokenState.nextReview > Date.now()
+      && !st.readyDeferredCards.has(key)) {
       st.currentIdx++;
       advanced = true;
       continue;
@@ -306,6 +333,43 @@ function advancePastFutureCards(st: StudyState): boolean {
     break;
   }
   return advanced;
+}
+
+function clearDueTimer(st: StudyState) {
+  if (st.dueTimer !== null) window.clearTimeout(st.dueTimer);
+  st.dueTimer = null;
+}
+
+function queueDueDeferredCards(st: StudyState, preserveCurrentCard: boolean): boolean {
+  return queueDueDeferredItems(
+    st,
+    key => st.session.tokens[key]?.nextReview ?? Number.POSITIVE_INFINITY,
+    Date.now(),
+    preserveCurrentCard,
+  );
+}
+
+function scheduleDeferredCards(st: StudyState) {
+  clearDueTimer(st);
+  if (st.deferredCards.size === 0) return;
+
+  const nextReview = Math.min(...[...st.deferredCards]
+    .map(key => st.session.tokens[key]?.nextReview ?? Number.POSITIVE_INFINITY));
+  if (!Number.isFinite(nextReview)) return;
+
+  st.dueTimer = window.setTimeout(() => {
+    st.dueTimer = null;
+    if (state !== st) return;
+
+    const hadCurrentCard = st.currentIdx < st.queue.length;
+    const queued = queueDueDeferredCards(st, hadCurrentCard);
+    scheduleDeferredCards(st);
+    persistStudyProgress(st);
+
+    // Do not replace a card while it is visible. Wake an exhausted session as
+    // soon as its next minute-based learning/relearning card becomes due.
+    if (queued && !hadCurrentCard) render();
+  }, Math.max(0, nextReview - Date.now()));
 }
 
 // ── Keyboard shortcuts ───────────────────────────────────────────────────
@@ -422,24 +486,44 @@ export function mount(fileId: string, routeSelectedSentences?: string[], hasRout
   const savedProgress = loadStudyProgress(fileId, mode, initialSelection);
   const canRestoreProgress = !!savedProgress && isSavedProgressValid(savedProgress, allKeys, selectedSentenceSet, mode);
   if (savedProgress && !canRestoreProgress) clearStudyProgress(fileId, mode, initialSelection);
-  const queue = canRestoreProgress
-    ? [...savedProgress.queue]
+  const initialQueue = canRestoreProgress
+    ? savedProgress.queue
     : buildQueue(allKeys, session, selectedSentenceSet, mode);
+  const reconciledQueue = mode === 'srs'
+    ? reconcileDeferredQueue({
+      queue: initialQueue,
+      currentIdx: canRestoreProgress ? savedProgress.currentIdx : 0,
+      deferredQueue: canRestoreProgress ? savedProgress.deferredQueue : undefined,
+      readyDeferredQueue: canRestoreProgress ? savedProgress.readyDeferredQueue : undefined,
+      isLearning: key => !!session.tokens[key] && isInLearningPhase(session.tokens[key]),
+      nextReview: key => session.tokens[key]?.nextReview ?? Number.POSITIVE_INFINITY,
+      now: Date.now(),
+    })
+    : {
+      queue: [...initialQueue],
+      currentIdx: canRestoreProgress ? savedProgress.currentIdx : 0,
+      deferredQueue: [],
+      readyDeferredQueue: [],
+    };
 
   state = {
     store, fileId, fileName: file.name, workTitle: treebank.title, mode, session,
     sentences: treebank.sentences,
-    allKeys, queue,
-    currentIdx: canRestoreProgress ? savedProgress.currentIdx : 0,
-    sessionTotal: canRestoreProgress ? savedProgress.sessionTotal : queue.length,
+    allKeys, queue: reconciledQueue.queue,
+    currentIdx: reconciledQueue.currentIdx,
+    sessionTotal: canRestoreProgress ? savedProgress.sessionTotal : reconciledQueue.queue.length,
     reviewedCount: canRestoreProgress ? savedProgress.reviewedCount : 0,
     cardShowTime: Date.now(),
     totalTimeMs: canRestoreProgress ? savedProgress.totalTimeMs : 0,
     selectedSentences: selectedSentenceSet,
     showSentenceSelector: false,
+    deferredCards: new Set(reconciledQueue.deferredQueue),
+    readyDeferredCards: new Set(reconciledQueue.readyDeferredQueue),
+    dueTimer: null,
   };
 
   if (advancePastFutureCards(state)) persistStudyProgress(state);
+  scheduleDeferredCards(state);
   persistStudySelection(state);
   persistStudyProgress(state);
   updateNav(state);
@@ -489,26 +573,46 @@ function buildQueue(
 
 function restartStudyWithSelection(selectedSentences: Set<string>) {
   if (!state) return;
+  const st = state;
   const nextSelection = new Set(selectedSentences);
-  const previousSelection = orderedSelectedSentences(state.sentences, state.selectedSentences);
-  const newQueue = buildQueue(state.allKeys, state.session, nextSelection, state.mode);
+  const previousSelection = orderedSelectedSentences(st.sentences, st.selectedSentences);
+  const newQueue = buildQueue(st.allKeys, st.session, nextSelection, st.mode);
+  const reconciledQueue = isCramMode(st)
+    ? {
+      queue: newQueue,
+      currentIdx: 0,
+      deferredQueue: [],
+      readyDeferredQueue: [],
+    }
+    : reconcileDeferredQueue({
+      queue: newQueue,
+      currentIdx: 0,
+      isLearning: key => !!st.session.tokens[key]
+        && isInLearningPhase(st.session.tokens[key]),
+      nextReview: key => st.session.tokens[key]?.nextReview ?? Number.POSITIVE_INFINITY,
+      now: Date.now(),
+    });
 
-  state.selectedSentences = nextSelection;
-  state.queue = newQueue;
-  state.sessionTotal = newQueue.length;
-  state.currentIdx = 0;
-  state.reviewedCount = 0;
-  state.totalTimeMs = 0;
-  state.showSentenceSelector = false;
+  clearDueTimer(st);
+  st.selectedSentences = nextSelection;
+  st.queue = reconciledQueue.queue;
+  st.sessionTotal = reconciledQueue.queue.length;
+  st.currentIdx = reconciledQueue.currentIdx;
+  st.deferredCards = new Set(reconciledQueue.deferredQueue);
+  st.readyDeferredCards = new Set(reconciledQueue.readyDeferredQueue);
+  st.reviewedCount = 0;
+  st.totalTimeMs = 0;
+  st.showSentenceSelector = false;
 
-  if (!isSameSelection(previousSelection, orderedSelectedSentences(state.sentences, nextSelection))) {
-    clearStudyProgress(state.fileId, state.mode, previousSelection);
+  if (!isSameSelection(previousSelection, orderedSelectedSentences(st.sentences, nextSelection))) {
+    clearStudyProgress(st.fileId, st.mode, previousSelection);
   }
 
-  advancePastFutureCards(state);
-  persistStudySelection(state);
-  persistStudyProgress(state);
-  updateNav(state);
+  advancePastFutureCards(st);
+  scheduleDeferredCards(st);
+  persistStudySelection(st);
+  persistStudyProgress(st);
+  updateNav(st);
   render();
 }
 
@@ -556,6 +660,7 @@ export function cleanup() {
   closeSentenceSelector(false);
   cleanupReviewCardMorphTooltips(document.getElementById('page'));
   window.removeEventListener('keydown', onKeydown);
+  if (state) clearDueTimer(state);
   state = null;
 }
 
@@ -617,13 +722,15 @@ function render() {
   // ── Progress: session-based (reviewed / total in session) ──
   const progress = createEl('div');
   progress.className = 'study-progress';
-  const queueRemaining = Math.max(0, queue.length - st.currentIdx);
+  const remainingKeys = new Set(queue.slice(st.currentIdx));
+  for (const key of st.deferredCards) remainingKeys.add(key);
+  const activeRemaining = remainingKeys.size;
 
   progress.innerHTML = `
     <div class="study-progress-bar"><div class="study-progress-fill" style="width:${pct}%"></div></div>
     <div class="study-progress-label">
       <span>${reviewedCount} ${reviewedLabel} / ${sessionTotal} total</span>
-      <span class="study-due-count">${queueRemaining} remaining</span>
+      <span class="study-due-count">${activeRemaining} remaining</span>
     </div>
   `;
   container.appendChild(progress);
@@ -633,8 +740,9 @@ function render() {
     const doneEl = createEl('div');
     doneEl.className = 'study-done';
     const mastered = Object.values(session.tokens).filter(t => t.interval >= MASTERED_INTERVAL_DAYS).length;
-    const nextSentence = getNextSentence(sentences, st.selectedSentences);
-    const nextWork = nextSentence ? null : getNextWork(store, fileId);
+    const waitingForLearningCard = !isCramMode(st) && st.deferredCards.size > 0;
+    const nextSentence = waitingForLearningCard ? null : getNextSentence(sentences, st.selectedSentences);
+    const nextWork = nextSentence || waitingForLearningCard ? null : getNextWork(store, fileId);
     const nextActionHTML = nextSentence
       ? `
         <div class="study-done-next-step">
@@ -656,14 +764,16 @@ function render() {
         : '';
 
     doneEl.innerHTML = `
-      <div class="done-icon">🎉</div>
-      <h2>Session Complete!</h2>
-      <p>${mode === 'cram' ? 'Studied' : 'Reviewed'} ${reviewedCount} of ${sessionTotal} cards this session.</p>
+      <div class="done-icon">${waitingForLearningCard ? '⏳' : '🎉'}</div>
+      <h2>${waitingForLearningCard ? 'Waiting for the next learning card' : 'Session Complete!'}</h2>
+      <p>${waitingForLearningCard
+        ? 'This session will resume automatically when the card is due.'
+        : `${mode === 'cram' ? 'Studied' : 'Reviewed'} ${reviewedCount} of ${sessionTotal} cards this session.`}</p>
       <p style="color:var(--text-muted);font-size:13px;">${mastered} words mastered across all spaced-repetition sessions.</p>
       ${mode === 'cram' ? '<p style="color:var(--text-muted);font-size:13px;">Cram sessions do not change your review schedule.</p>' : ''}
       ${nextActionHTML}
       <div class="study-done-actions">
-        <button class="study-done-btn" id="btn-review-again">${mode === 'cram' ? 'Cram Again' : 'Review Again'}</button>
+        ${waitingForLearningCard ? '' : `<button class="study-done-btn" id="btn-review-again">${mode === 'cram' ? 'Cram Again' : 'Review Again'}</button>`}
         <button class="study-done-btn study-done-secondary" id="btn-back-browser">← Back to Files</button>
       </div>
     `;
@@ -671,7 +781,7 @@ function render() {
     page.appendChild(container);
 
     $('#btn-back-browser')!.addEventListener('click', () => leaveStudy('browser'));
-    $('#btn-review-again')!.addEventListener('click', () => {
+    $('#btn-review-again')?.addEventListener('click', () => {
       if (!st) return;
       const reviewKeys = st.allKeys.filter(key => st.selectedSentences.has(parseTokenKey(key).sentId));
       if (!isCramMode(st)) {
@@ -684,6 +794,9 @@ function render() {
         st.store.sessions[st.fileId] = st.session;
         saveStore(st.store);
       }
+      clearDueTimer(st);
+      st.deferredCards.clear();
+      st.readyDeferredCards.clear();
       st.sessionTotal = reviewKeys.length;
       st.queue = [...reviewKeys];
       shuffle(st.queue);
@@ -990,35 +1103,40 @@ function handleRating(quality: number) {
   const timeMs = Date.now() - state.cardShowTime;
   state.totalTimeMs += Math.max(0, timeMs);
 
+  let nextIntervalMinutes: number | null = null;
   if (!isCramMode(state)) {
     if (!session.tokens[key]) session.tokens[key] = newSRSState();
 
     const srsState = session.tokens[key];
+    nextIntervalMinutes = previewInterval(srsState, quality);
     srsReview(srsState, quality);
 
     session.lastReview = Date.now();
     store.sessions[fileId] = session;
     saveStore(store);
+    state.readyDeferredCards.delete(key);
   }
 
   // ── Queue management (Anki-style for session) ──
-  if (quality === 1) {
-    // AGAIN — re-insert card ahead in the queue (not done yet)
-    // Remove current card from its position
+  // Cram retains its original Again/non-Again behavior and never schedules.
+  if (isCramMode(state) ? quality === 1 : nextIntervalMinutes === 0) {
     state.queue.splice(currentIdx, 1);
-
-    // Insert it back at a distance, avoiding the last position
     const targetIdx = Math.min(currentIdx + AGAIN_REINSERT_DISTANCE, state.queue.length);
     state.queue.splice(targetIdx, 0, key);
-
-    // Do NOT increment currentIdx or review count — card stays in session
   } else {
-    // HARD / GOOD / EASY — card is done for this session
-    state.reviewedCount++;
     state.currentIdx++;
+    if (nextIntervalMinutes !== null
+      && nextIntervalMinutes > 0
+      && nextIntervalMinutes < INTRADAY_INTERVAL_MINUTES) {
+      state.deferredCards.add(key);
+    } else {
+      state.reviewedCount++;
+    }
   }
 
+  queueDueDeferredCards(state, false);
   advancePastFutureCards(state);
+  scheduleDeferredCards(state);
   persistStudyProgress(state);
   updateNav(state);
   render();

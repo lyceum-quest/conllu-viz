@@ -67,6 +67,10 @@ export interface SavedStudyProgress {
   sessionTotal: number;
   reviewedCount: number;
   totalTimeMs: number;
+  /** Intraday learning/relearning cards waiting to become due in this session. */
+  deferredQueue?: string[];
+  /** Elapsed deferred cards already reinserted into the active queue, in queue order. */
+  readyDeferredQueue?: string[];
   updatedAt: number;
 }
 

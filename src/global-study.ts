@@ -5,12 +5,14 @@ import {
   AppStore, SRSState, loadStore, saveStore, parseTokenKey, resetFileStudyHistory,
 } from './store';
 import {
-  RATINGS, MASTERED_INTERVAL_DAYS, intervalLabel, previewInterval, review as srsReview,
+  RATINGS, MASTERED_INTERVAL_DAYS, intervalLabel, isInLearningPhase, previewInterval,
+  review as srsReview,
 } from './srs';
 import { navigate, routeUrl } from './router';
 import {
   cleanupReviewCardMorphTooltips, createReviewCard, setupReviewCardMorphTooltips,
 } from './study';
+import { queueDueDeferredItems } from './deferred-queue';
 
 import './styles/tokens.css';
 import './styles/study.css';
@@ -107,11 +109,21 @@ function collectEncounteredCards(store: AppStore): GlobalCard[] {
   return cards;
 }
 
-function buildDueQueue(cards: GlobalCard[]): GlobalCard[] {
+function buildGlobalQueue(cards: GlobalCard[]): {
+  queue: GlobalCard[];
+  deferredCards: Set<GlobalCard>;
+} {
   const now = Date.now();
-  return cards
-    .filter(card => card.srs.nextReview <= now)
-    .sort((a, b) => a.srs.nextReview - b.srs.nextReview);
+  return {
+    queue: cards
+      .filter(card => card.srs.nextReview <= now)
+      .sort((a, b) => a.srs.nextReview - b.srs.nextReview),
+    // Only unfinished learning/relearning phases need an intraday wake-up.
+    // Mature future reviews remain outside this mounted session.
+    deferredCards: new Set(cards.filter(
+      card => card.srs.nextReview > now && isInLearningPhase(card.srs),
+    )),
+  };
 }
 
 function clearDueTimer(st: GlobalStudyState) {
@@ -121,35 +133,7 @@ function clearDueTimer(st: GlobalStudyState) {
 
 /** Move elapsed minute-based cards back into the queue without replacing a visible card. */
 function queueDueDeferredCards(st: GlobalStudyState, preserveCurrentCard: boolean): boolean {
-  const now = Date.now();
-  const dueCards = [...st.deferredCards]
-    .filter(card => card.srs.nextReview <= now)
-    .sort((a, b) => a.srs.nextReview - b.srs.nextReview);
-  if (dueCards.length === 0) return false;
-
-  const currentCard = preserveCurrentCard && st.currentIdx < st.queue.length
-    ? st.queue[st.currentIdx]
-    : null;
-
-  for (const card of dueCards) {
-    st.deferredCards.delete(card);
-    st.readyDeferredCards.add(card);
-    const queuedIdx = st.queue.indexOf(card);
-    if (queuedIdx === -1) continue;
-    st.queue.splice(queuedIdx, 1);
-    if (queuedIdx < st.currentIdx) st.currentIdx--;
-  }
-
-  const insertionIdx = currentCard
-    ? st.queue.indexOf(currentCard) + 1
-    : st.currentIdx;
-  let readyCount = 0;
-  while (st.readyDeferredCards.has(st.queue[insertionIdx + readyCount])) readyCount++;
-  const readyCards = st.queue.splice(insertionIdx, readyCount);
-  readyCards.push(...dueCards);
-  readyCards.sort((a, b) => a.srs.nextReview - b.srs.nextReview);
-  st.queue.splice(insertionIdx, 0, ...readyCards);
-  return true;
+  return queueDueDeferredItems(st, card => card.srs.nextReview, Date.now(), preserveCurrentCard);
 }
 
 function scheduleDeferredCards(st: GlobalStudyState) {
@@ -216,21 +200,25 @@ export function mount() {
 
   const store = loadStore();
   const allCards = collectEncounteredCards(store);
+  const initialQueue = buildGlobalQueue(allCards);
   state = {
     store,
     allCards,
-    queue: buildDueQueue(allCards),
+    queue: initialQueue.queue,
     currentIdx: 0,
     reviewedCount: 0,
     cardShowTime: Date.now(),
     totalTimeMs: 0,
     view: 'review',
     collectionQuery: '',
-    deferredCards: new Set(),
+    deferredCards: initialQueue.deferredCards,
     readyDeferredCards: new Set(),
     dueTimer: null,
   };
 
+  // Cover a card becoming due between queue construction and timer setup.
+  queueDueDeferredCards(state, false);
+  scheduleDeferredCards(state);
   updateNav();
   render();
   setupReviewCardMorphTooltips(document.getElementById('page'));
@@ -285,14 +273,17 @@ function startReviewSeenCards() {
   }
 
   clearDueTimer(state);
-  state.deferredCards.clear();
-  state.readyDeferredCards.clear();
   state.allCards = collectEncounteredCards(state.store);
-  state.queue = buildDueQueue(state.allCards);
+  const initialQueue = buildGlobalQueue(state.allCards);
+  state.queue = initialQueue.queue;
+  state.deferredCards = initialQueue.deferredCards;
+  state.readyDeferredCards.clear();
   state.currentIdx = 0;
   state.reviewedCount = 0;
   state.totalTimeMs = 0;
   state.view = 'review';
+  queueDueDeferredCards(state, false);
+  scheduleDeferredCards(state);
   render();
 }
 
@@ -303,7 +294,7 @@ function render() {
   const st = state;
   const dueNow = currentDueCount(st.allCards);
   const mastered = st.allCards.filter(card => card.srs.interval >= MASTERED_INTERVAL_DAYS).length;
-  const remaining = Math.max(0, st.queue.length - st.currentIdx);
+  const remaining = Math.max(0, st.queue.length - st.currentIdx) + st.deferredCards.size;
   const total = st.reviewedCount + remaining;
   const pct = total > 0 ? Math.round((st.reviewedCount / total) * 100) : 100;
 
@@ -530,20 +521,14 @@ function renderSettings(content: HTMLElement) {
     const noun = fileIds.length === 1 ? 'this work' : `these ${fileIds.length} works`;
     if (!confirm(`Reset ${noun}? This permanently deletes the selected SRS history and removes its cards from Global Review.`)) return;
 
-    const resetFileIds = new Set(fileIds);
-    const deferredKeys = new Set([...state.deferredCards]
-      .filter(card => !resetFileIds.has(card.fileId))
-      .map(card => `${card.fileId}\u0000${card.key}`));
-
     for (const fileId of fileIds) resetFileStudyHistory(state.store, fileId);
     saveStore(state.store);
     clearDueTimer(state);
     state.allCards = collectEncounteredCards(state.store);
-    state.deferredCards = new Set(state.allCards.filter(
-      card => deferredKeys.has(`${card.fileId}\u0000${card.key}`),
-    ));
+    const initialQueue = buildGlobalQueue(state.allCards);
+    state.deferredCards = initialQueue.deferredCards;
     state.readyDeferredCards.clear();
-    state.queue = buildDueQueue(state.allCards);
+    state.queue = initialQueue.queue;
     state.currentIdx = 0;
     state.reviewedCount = 0;
     state.totalTimeMs = 0;
@@ -612,15 +597,16 @@ function handleRating(quality: number) {
   st.store.sessions[card.fileId].lastReview = Date.now();
   saveStore(st.store);
 
-  if (quality === 1) {
+  if (nextIntervalMinutes === 0) {
     st.queue.splice(st.currentIdx, 1);
     const target = Math.min(st.currentIdx + AGAIN_REINSERT_DISTANCE, st.queue.length);
     st.queue.splice(target, 0, card);
   } else {
-    st.reviewedCount++;
     st.currentIdx++;
-    if (nextIntervalMinutes > 0 && nextIntervalMinutes < INTRADAY_INTERVAL_MINUTES) {
+    if (nextIntervalMinutes < INTRADAY_INTERVAL_MINUTES) {
       st.deferredCards.add(card);
+    } else {
+      st.reviewedCount++;
     }
   }
 
