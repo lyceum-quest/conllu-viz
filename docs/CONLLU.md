@@ -1,5 +1,8 @@
 # CoNLL-U Format Specification
 
+> The treebanks now live in [Archeion](https://github.com/lyceum-quest/archeion) under `conllu/`; paths below are
+> relative to that directory. This app fetches them (see "Data" in the README).
+
 This document defines the canonical CoNLL-U format for all Greek texts in this project. See [PROGRESS.md](PROGRESS.md) for completed works and migration status.
 
 ---

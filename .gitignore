@@ -12,3 +12,7 @@
 node_modules/
 dist/
 .direnv/
+
+# Fetched from Archeion by scripts/fetch-data.ts (data.lock.json)
+public/preload/
+public/.preload-*/

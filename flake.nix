@@ -16,6 +16,11 @@
       system:
       let
         pkgs = nixpkgs.legacyPackages.${system};
+        # The preloaded treebanks: the Archeion release pinned in data.lock.json (the build has no network).
+        dataLock = builtins.fromJSON (builtins.readFile ./data.lock.json);
+        data = pkgs.fetchurl {
+          inherit (dataLock) url sha256;
+        };
 
       in
       {
@@ -26,6 +31,8 @@
           src = self;
 
           npmDepsHash = "sha256-Yr/NMA0eB9DV9p/LU3Uk9nRgROfRhBcpcwp972JoaiU=";
+
+          CONLLU_VIZ_DATA_ARCHIVE = data;
 
           # Native deps for better-sqlite3
           nativeBuildInputs = with pkgs; [

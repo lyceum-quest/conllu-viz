@@ -7,7 +7,7 @@
  *   npx tsx scripts/lint.ts [files...]
  *   npx tsx scripts/lint.ts conllu/aesop/fables/perry-015.conllu
  *   npx tsx scripts/lint.ts conllu/aesop/fables/*.conllu
- *   npx tsx scripts/lint.ts                  # lint all conllu/ files
+ *   npx tsx scripts/lint.ts                  # lint all fetched public/preload/ files
  */
 
 import * as fs from "fs";
@@ -666,8 +666,8 @@ function main() {
   if (args.length > 0) {
     files = args;
   } else {
-    // Find all .conllu files under conllu/
-    const conlluDir = path.join(path.dirname(import.meta.url.replace("file://", "")), "..", "conllu");
+    // Find all .conllu files fetched into public/preload/ (scripts/fetch-data.ts)
+    const conlluDir = path.join(path.dirname(import.meta.url.replace("file://", "")), "..", "public", "preload");
     files = findConlluFiles(conlluDir);
   }
 

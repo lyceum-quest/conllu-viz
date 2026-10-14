@@ -29,11 +29,20 @@ Drop a `.conllu` file onto the page, or click **Open**. Sample files are in `tes
 
 | Command | Description |
 |---|---|
-| `npm run dev` | Start dev server (port 3000) |
-| `npm run build` | Type-check + production build to `dist/` |
+| `npm run dev` | Start dev server (port 3000); fetches the data first if it is missing |
+| `npm run build` | Fetch the pinned data, type-check, and build to `dist/` |
+| `npm run fetch-data` | Install the treebanks pinned in `data.lock.json` into `public/preload/` |
 | `npm run preview` | Preview production build |
 | `npm run deploy` | rsync `dist/` to server (requires `.env`) |
 | `npm run import` | Bulk-import `.conllu` files into SQLite |
+
+## Data
+
+The preloaded treebanks and their manifest (`public/preload/conllu-files.json`) come from
+[Archeion](https://github.com/lyceum-quest/archeion), which holds and releases all Lyceum corpus data.
+`data.lock.json` pins a `conllu-viz-v*` release by URL and SHA-256; `npm run fetch-data` checks the checksum and
+installs it. To change the data, edit it in Archeion (`conllu/`, listed in `conllu/conllu-viz.json`), release it
+(`kai run release-conllu-viz`), and update the pin.
 
 ## Bulk Import
 
